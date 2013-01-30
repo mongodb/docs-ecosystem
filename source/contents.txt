@@ -2,20 +2,13 @@
 MongoDB Ecosystem Documentation Contents
 ========================================
 
-.. TEMPORARY: 
-   
-   The following toc tree just globs in all potential
-   content. Eventually, pages in the source/ directory which include
-   and provide more organization will be the only items on this list.
+.. TEMPORARY:
 
-   The order that documents appear on this tree control the
-   Next/Previous links in the sidebar as well as the organization of
-   the PDF and ePub outputs.
-   
-.. toctree:: 
+   Will put real top level landing pages once they exist.
+
+.. toctree::
    :maxdepth: 3
 
-   tools
-   vendor
    drivers
-   tutorial
+   tools
+   platforms

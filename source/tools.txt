@@ -1,4 +1,23 @@
-=============
-MongoDB Tools
-=============
+==============================
+MongoDB Integration and Tools
+==============================
+
+Integration Frameworks
+----------------------
+
+.. toctree:: 
+   
+   tools/hadoop
+   use-cases/hadoop
+
+Administrative Tools
+--------------------
+
+.. toctree::
+   :maxdepth: 1
+      
+   /tools/administration-interfaces
+   /tools/http-interfaces
+   /tools/munin
+   /tools/wireshark
 
