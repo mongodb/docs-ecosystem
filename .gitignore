@@ -1,5 +1,8 @@
-build/*
-*.swp
+build/
+*pyc
+source/includes/table-*rst
+source/images/*
+DS_Store
 .#*
 \#*#
 *__pycache__*

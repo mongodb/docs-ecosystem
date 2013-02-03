@@ -2,37 +2,76 @@
 Platforms
 =========
 
-Cloud Platforms and Services
-----------------------------
+Amazon Web Services EC2
+-----------------------
 
 .. toctree::
+   :maxdepth: 1
 
    platforms/amazon-ec2
+   tutorial/install-mongodb-on-amazon-ec2
+   tutorial/deploy-mongodb-from-aws-marketplace
+   tutorial/backup-and-restore-mongodb-on-amazon-ec2
+   tutorial/automate-deployment-with-cloudformation
+
+dotCloud
+--------
+
+.. toctree::
+   :maxdepth: 1
+
+   platforms/dotcloud
+
+Joyent Cloud
+------------
+
+.. toctree::
+   :maxdepth: 1
+
+   tutorial/joyent-cloud
+
+Rackspace Cloud
+---------------
+
+.. toctree::
+   :maxdepth: 1
+
    platforms/rackspace-cloud
+
+Red Hat OpenShift
+-----------------
+
+.. toctree::
+   :maxdepth: 1
+
+   platforms/red-hat-openshift
+
+VMware Cloud Foundry
+--------------------
+
+.. toctree::
+   :maxdepth: 1
+
    platforms/vmware-cloud-foundry
 
-   platforms/azure-build-applications
-   platforms/azure-linux
-   platforms/azure-overview
-   platforms/azure-sign-up
-   platforms/azure-windows
-   platforms/azure-worker-roles-configuration
-   platforms/azure-worker-roles-deployment
-   platforms/azure-worker-roles
+Windows Azure
+-------------
+
+.. toctree::
+   :maxdepth: 1
+
+   platforms/windows-azure
+   tutorial/build-an-application-to-connect-to-mongodb-on-azure
+   tutorial/configure-worker-roles-in-azure
+   tutorial/deploy-mongodb-worker-roles-in-azure-version-1-6
+   tutorial/deploy-mongodb-worker-roles-in-azure
+   tutorial/install-mongodb-on-linux-in-azure
+   tutorial/install-mongodb-on-windows-azure
 
 Traditional Platforms
 ---------------------
 
 .. toctree::
+   :maxdepth: 1
 
    platforms/windows
-
-Tutorials
----------
-
-.. toctree::
-
-   tutorial/deploy-mongodb-on-amazon-ec2
-   tutorial/deploy-mongodb-from-amazon-aws-marketplace
-   tutorial/automate-deployment-with-cloudformation
-   tutorial/backup-and-restore-mongodb-deployments-on-amazon-ec2

@@ -1,0 +1,37 @@
+.. http://www.mongodb.org/display/DOCS/C+Language+Center  WRITING-75
+
+.. _c-driver-library:
+
+================
+C Driver Library
+================
+
+.. default-domain:: mongodb
+
+.. TODO could probably redirect to http://api.mongodb.org/c/current/
+
+The MongoDB C Driver is the 10gen-supported driver for MongoDB. It is
+written in pure C.
+
+See the following:
+
+- `MongoDB C Driver Documentation <http://api.mongodb.org/c/current/>`_
+
+- `Source Code <http://github.com/mongodb/mongo-c-driver/tree/master>`_
+
+- `README <https://github.com/mongodb/mongo-c-driver/blob/master/README.md>`_
+
+- `History <https://github.com/mongodb/mongo-c-driver/blob/master/HISTORY.md>`_
+
+- `JIRA <https://jira.mongodb.org/browse/CDRIVER>`_
+
+Download and build
+------------------
+
+The C driver is hosted at `GitHub C driver <http://github.com/mongodb/mongo-c-driver>`_.
+You can download the latest stable version 0.7.1 from
+`GitHub <https://github.com/mongodb/mongo-c-driver/zipball/v0.7.1>`_
+or
+`Amazon S3 <https://s3.amazonaws.com/drivers.mongodb.org/c/mongo-c-driver-0.7.1.zip>`_.
+
+Consult the building docs for detailed instructions on building the driver.

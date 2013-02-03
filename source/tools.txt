@@ -5,9 +5,11 @@ MongoDB Integration and Tools
 Integration Frameworks
 ----------------------
 
-.. toctree:: 
-   
+.. toctree::
+   :maxdepth: 1
+
    tools/hadoop
+   tutorial/getting-started-with-hadoop
    use-cases/hadoop
 
 Administrative Tools
@@ -15,9 +17,8 @@ Administrative Tools
 
 .. toctree::
    :maxdepth: 1
-      
-   /tools/administration-interfaces
-   /tools/http-interfaces
-   /tools/munin
-   /tools/wireshark
 
+   tools/administration-interfaces
+   tools/http-interfaces
+   tools/munin
+   tools/wireshark
