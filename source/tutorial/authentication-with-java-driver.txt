@@ -70,3 +70,5 @@ system properties so that the underlying GSSAPI Java libraries can aquire a Kerb
     javax.security.auth.useSubjectCredsOnly=false 
     java.security.krb5.realm=MYREALM.ME
     java.security.krb5.kdc=mykdc.myrealm.me
+
+Note that currently this has been successfully tested on Linux only.
