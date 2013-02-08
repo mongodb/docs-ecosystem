@@ -4,3 +4,8 @@ source/includes/table-*rst
 source/images/*
 DS_Store
 .#*
+\#*#
+*__pycache__*
+*.pyc
+*.pyo
+source/images/
