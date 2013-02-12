@@ -84,6 +84,13 @@ Lithium
 - `Lithium <http://rad-dev.org/lithium/wiki/drafts/blog-tutorial>`_
   supports MongoDB out-of-the-box.
 
+Laravel Framework 
+~~~~~~~~~~~~~~~~~
+
+- `Laravel Mandango Bundle <https://github.com/boparaiamrit/Laravel-Mandango>`_: An
+  ODM of MongoDB, for the 
+  `Laravel <http://laravel.com>`_ PHP Framework.
+
 Symfony 2
 ~~~~~~~~~
 
