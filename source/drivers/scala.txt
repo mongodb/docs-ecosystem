@@ -51,6 +51,9 @@ Community
   Scala-based, asynchronous Netty driver for MongoDB with type-class
   based fast custom object encoding.
 
+- `DAO layer for MongoDB <https://github.com/mattroberts297/com.kychn.db>`_ lets
+  you persist scala objects to MongoDB.
+
 .. removed webcast, unplayable
 .. metadata:  <object seamlesstabbing="false"
    class="BrightcoveExperience" id="myExperience620186085001"
