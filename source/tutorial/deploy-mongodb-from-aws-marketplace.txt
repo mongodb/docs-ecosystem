@@ -21,7 +21,7 @@ Starting MongoDB
 ----------------
 
 The instance has been mostly configured, the only steps left are to set
-MongoDB to start at system boot and then start :program:`mongodb-manual:mongod` up:
+MongoDB to start at system boot and then start :program:`mongod` up:
 
 .. code-block:: sh
 
@@ -32,7 +32,7 @@ MongoDB to start at system boot and then start :program:`mongodb-manual:mongod` 
    all output going to: /log/mongod.log
 
 In a few moments MongoDB will finish starting up and then you can
-connect to MongoDB using the :program:`mongodb-manual:mongo` client:
+connect to MongoDB using the :program:`mongo` client:
 
 .. code-block:: sh
 
@@ -43,7 +43,7 @@ connect to MongoDB using the :program:`mongodb-manual:mongo` client:
 
 If you have trouble connecting to the MongoDB daemon, check the log file
 (either :file:`/var/log/mongo/mongod.log` or :file:`/log/mongod.log`) for
-:program:`mongodb-manual:mongod` console output.
+:program:`mongod` console output.
 
 .. _security-setup:
 
@@ -62,6 +62,7 @@ and navigate to the Security Groups section. Next, find the group that
 was created when you created your instance and add an Inbound Rule:
 
 .. image:: ../images/security-group-rule.png
+   :alt: Adding an Inbound Rule in AWS EC2 Management Console
 
 After the rule is applied, you will be able to access MongoDB running in
 your instance from the source you specified.
