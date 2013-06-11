@@ -21,7 +21,11 @@ Starting MongoDB
 ----------------
 
 The instance has been mostly configured, the only steps left are to set
+<<<<<<< HEAD
 MongoDB to start at system boot and then start :program:`manual:mongod` up:
+=======
+MongoDB to start at system boot and then start :program:`mongod` up:
+>>>>>>> Remove mongodb-manual from :program: macros
 
 .. code-block:: sh
 
@@ -32,7 +36,11 @@ MongoDB to start at system boot and then start :program:`manual:mongod` up:
    all output going to: /log/mongod.log
 
 In a few moments MongoDB will finish starting up and then you can
+<<<<<<< HEAD
 connect to MongoDB using the :program:`manual:mongo` client:
+=======
+connect to MongoDB using the :program:`mongo` client:
+>>>>>>> Remove mongodb-manual from :program: macros
 
 .. code-block:: sh
 
@@ -43,7 +51,11 @@ connect to MongoDB using the :program:`manual:mongo` client:
 
 If you have trouble connecting to the MongoDB daemon, check the log file
 (either :file:`/var/log/mongo/mongod.log` or :file:`/log/mongod.log`) for
+<<<<<<< HEAD
 :program:`manual:mongod` console output.
+=======
+:program:`mongod` console output.
+>>>>>>> Remove mongodb-manual from :program: macros
 
 .. _security-setup:
 
