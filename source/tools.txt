@@ -11,6 +11,7 @@ Integration Frameworks
    tools/hadoop
    tutorial/getting-started-with-hadoop
    use-cases/hadoop
+   tools/rhel-idm
 
 Administrative Tools
 --------------------

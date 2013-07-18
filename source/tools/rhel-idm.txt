@@ -1,0 +1,370 @@
+.. _redhat-enterprise-linux-identity-management:
+
+================================
+Red Hat Linux Identity Management
+================================
+
+.. default-domain:: mongodb
+
+Overview
+--------
+
+`Red Hat Enterprise Linux 6.4 <https://www.redhat.com/products/enterprise-linux/>`_ and up includes a complete `identity management solution <https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Identity_Management_Guide/index.html>`_. The solution integrates Kerberos authentication, directory services, certificate management, DNS and NTP into a single service known as IdM. MongoDB Enterprise can leverage RHEL IdM's Kerberos infrastructure for authentication and certificate management for generating and maintaining SSL certificates required to encrypt data in-motion. The following guide provides steps for how to integrate MongoDB Enterprise with RHEL IdM.
+
+Requirements
+------------
+* Red Hat Enterprise Linux instance with IdM server deployed (see `Installing IdM Server <https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Identity_Management_Guide/installing-ipa.html>`_ for more information)
+* Red Hat Enterprise Linux instance for IdM client and MongoDB (instructions below)
+* `MongoDB Enterprise 2.4 <http://www.10gen.com/products/mongodb-enterprise>`_
+
+Setup Procedure
+---------------
+
+Preparing a New MongoDB Server for Installation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+On the RHEL IdM client instance you'll need to install MongoDB and the IdM client packages. MongoDB Enterprise requires several packages - first install those then download the archive for MongoDB Enterprise:
+
+.. code-block:: sh
+
+    $ yum install libssl net-snmp net-snmp-libs net-snmp-utils cyrus-sasl cyrus-sasl-lib cyrus-sasl-devel cyrus-sasl-gssapi
+
+    $ curl http://downloads.10gen.com/linux/mongodb-linux-x86_64-subscription-rhel62-2.4.4.tgz > mongodb.tgz
+    $ tar -zxvf mongodb.tgz
+    $ cp -R -n mongodb-linux-x86_64-subscription-rhel62-2.4.4/ mongodb
+
+For more information on the installation process (or to install a prior 2.4.x version of MongoDB Enterprise) refer to :manual:`Installing MongoDB Enterprise </tutorial/install-mongodb-enterprise/>`.
+
+Next install the IdM client and tools:
+
+.. code-block:: sh
+
+    $ yum install ipa-client ipa-admintools
+
+Configure Hostname and DNS Resolution
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In order for RHEL IdM's services to function correctly (e.g. Kerberos) you'll need to set a hostname on the system and update this instance's DNS server to point to the RHEL IdM server instance IP address. To update the hostname execute the following:
+
+.. code-block:: sh
+
+    $ nano /etc/sysconfig/network
+    HOSTNAME=idmclient.example.com
+    $ service network restart
+    $ hostname -f idmclient.example.com
+
+Next, update the DNS settings to point to the IP address of the RHEL IdM server:
+
+.. code-block:: sh
+
+    $ nano /etc/resolv.conf
+    search example.com
+    nameserver 10.192.206.229
+
+Install the IdM Client
+~~~~~~~~~~~~~~~~~~~~~~
+
+Now run the RHEL IdM client installation and follow the prompts as needed. If the IdM server was properly configured and the DNS information in the previous step is correct, the process should be able to auto-detect the required information. If not, consult the `IdM client documentation <https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Identity_Management_Guide/setting-up-clients.html>`_. To run the IdM client installation you will need to have an adminstrative user (e.g. admin@EXAMPLE.COM) complete the enrollment process.
+
+.. code-block:: sh
+
+    $ ipa-client-install --enable-dns-updates
+    Discovery was successful!
+    Hostname: idmclient.example.com
+    Realm: EXAMPLE.COM
+    DNS Domain: example.com
+    IPA Server: idmhost.example.com
+    BaseDN: dc=example,dc=com
+
+    Continue to configure the system with these values? [no]: yes
+    User authorized to enroll computers: admin@EXAMPLE.COM
+    Synchronizing time with KDC...
+    Password for admin@EXAMPLE.COM:
+    Enrolled in IPA realm EXAMPLE.COM
+    Created /etc/ipa/default.conf
+    New SSSD config will be created
+    Configured /etc/sssd/sssd.conf
+    Configured /etc/krb5.conf for IPA realm EXAMPLE.COM
+    trying https://idmhost.example.com/ipa/xml
+    Hostname (idmclient.example.com) not found in DNS
+    DNS server record set to: idmclient.example.com -> 10.190.178.79
+    Adding SSH public key from /etc/ssh/ssh_host_dsa_key.pub
+    Adding SSH public key from /etc/ssh/ssh_host_rsa_key.pub
+    Forwarding 'host_mod' to server u'https://idmhost.example.com/ipa/xml'
+    SSSD enabled
+    Configured /etc/openldap/ldap.conf
+    NTP enabled
+    Configured /etc/ssh/ssh_config
+    Configured /etc/ssh/sshd_config
+    Client configuration complete.
+
+Add Reverse DNS Lookup for the Server
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Before continuing the IdM client setup you'll need to authenticate using Kerberos using an administrative user (e.g. admin@EXAMPLE.COM). This is required to use the :program:`ipa` command-line interface:
+
+.. code-block:: sh
+
+    $ kinit admin
+
+After the initial setup is finished, you will also need to add a reverse DNS entry to the IdM server - this is needed to ensure that Kerberos authentication works properly. First add a reverse DNS zone, then add a PTR record pointing to the IdM client host.
+
+For the example below, the following information/convention was used:
+
+* IdM server hostname: ``idmhost.example.com``
+* IdM client hostname: ``idmclient.example.com``
+* IdM client IP address: ``1.2.3.4``
+* Reverse DNS name: ``3.2.1.in-addr.arpa.`` (reversed first three octets of IP address)
+* DNS record: ``4`` (last octet of IP address)
+
+.. code-block:: sh
+
+    $ ipa dnszone-add 178.190.10.in-addr.arpa. --name-server idmhost.example.com. --force
+    Zone name: 3.2.1.in-addr.arpa.
+    Authoritative nameserver: idmhost.example.com.
+    Administrator e-mail address: hostmaster.3.2.1.in-addr.arpa.
+    SOA serial: 1372133625
+    SOA refresh: 3600
+    SOA retry: 900
+    SOA expire: 1209600
+    SOA minimum: 3600
+    BIND update policy: grant EXAMPLE.COM krb5-subdomain 3.2.1.in-addr.arpa. PTR;
+    Active zone: TRUE
+    Dynamic update: FALSE
+    Allow query: any;
+    Allow transfer: none;
+
+    $ ipa dnsrecord-add 3.2.1.in-addr.arpa. 79 --ptr-hostname idmclient.example.com.
+
+.. note::
+    Periods (``.``) are required after zone names and hostnames, as seen in the above example
+
+Configure Kerberos Authentication
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Next create a MongoDB service entry on the IdM server - this is needed to generate a valid keytab. MongoDB requires a Kerberos keytab file in order to utilize Kerberos to authenticate users. First create the service entry:
+
+.. code-block:: sh
+
+    $ ipa service-add mongodb/idmclient.example.com
+
+.. note::
+    The service name must be ``mongodb/[hostname]@[domain]`` in order to be valid
+
+Next, retrieve the MongoDB keytab file and place it on the IdM client:
+
+.. code-block:: sh
+
+    $ ipa-getkeytab -s idmhost.example.com -p mongodb/idmclient.example.com -k /etc/mongodb.keytab
+
+To verify the keytab file is correct, use the :program:`klist` command to confirm principal naming details:
+
+.. code-block:: sh
+
+    $ klist -k /etc/mongodb.keytab
+    Keytab name: FILE:/etc/mongodb.keytab
+    KVNO Principal
+    ---- --------------------------------------------------------------------------
+    1 mongodb/idmclient.example.com@EXAMPLE.COM
+
+With Kerberos configured, proceed to :manual:`deploying MongoDB with Kerberos authentication </tutorial/control-access-to-mongodb-with-kerberos-authentication>`.
+
+Deploying Replica Sets or Sharding with Kerberos Authentication
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To deploy Replica Sets or Sharding with Kerberos authentication use the above steps and note the following requirements for different deployment types:
+
+- Configure a Kerberos service principal for each :program:`mongod`
+  and :program:`mongos` instance in your MongoDB deployment.
+
+- Generate and distribute keytab files for each MongoDB component
+  (i.e. :program:`mongod` and :program:`mongos`)in your
+  deployment. Ensure that you *only* transmit keytab files over secure
+  channels.
+
+- Start :program:`mongod` and :program:`mongos` with the
+  ``KRB5_KTNAME`` environment variable as well as a number of required
+  run time options.
+
+
+Configure SSL Certificate Management
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In addition to Kerberos RHEL IdM also provides support for SSL certificate management. The following steps can be used to generate certicates for a MongoDB server and MongoDB clients and provide encryption "in-motion" amongst MongoDB instances and from MongoDB clients.
+
+To generate a MongoDB server certificate first issue a certificate request:
+
+.. code-block:: sh
+
+    $ ipa-getcert request -r -f /etc/cert/mongodb-server.crt -k /etc/cert/mongodb-server.key -N CN=idmclient.example.com -D idmclient.example.com -K mongodb/idmclient.example.com
+
+.. note::
+    Hostnames for the ``-D``, ``CN`` parameters must match the hostname of the MongoDB server and the principal name for the ``-K`` parameter must match the MongoDB server service name created above.
+
+Once the certificate request is complete, concatenate the :file:`mongodb-server.key` and :file:`mongodb-server.crt` files to create the ``pem`` file:
+
+.. code-block:: sh
+
+    $ cat /etc/cert/mongodb-server.key /etc/cert/mongodb-server.crt > /etc/cert/mongodb-server.pem
+
+.. note::
+    The owner/group of the ``pem`` file must match the user that MongoDB is running under
+
+MongoDB 2.4 also supports the notion of a certificate authority (CA) to establish a "trust chain" of certificates to verify authenticity. On RHEL 6.x systems that have configured the IdM client the CA can be found at :file:`/etc/ipa/ca.crt`.
+
+To generate a MongoDB client certificate issue another certificate request:
+
+.. code-block:: sh
+
+    $ ipa-getcert request -f /etc/cert/mongodb-client.crt -k /etc/cert/mongodb-client.key
+    $ cat /etc/cert/mongodb-client.key /etc/cert/mongodb-client.crt > /etc/cert/mongodb-client.pem
+
+.. note::
+    The owner/group of the ``pem`` file must match the owner/group of the mongod process
+
+Using the server certificate, CA certificate, and the client certificate MongoDB can now be used with SSL encryption. Finally, refer to the steps in :manual:`Connect to MongoDB with SSL </tutorial/configure-ssl>` in order to get MongoDB configured to use SSL encryption.
+
+Operational Procedures using RHEL IdM
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Adding a New User
+`````````````````
+
+Adding a new user involves first creating the user within IdM and then mapping that user to a set of privileges within MongoDB.
+
+.. note::
+    This procedure requires administrative privileges within IdM and MongoDB
+
+Begin by authenticating as an Administrator (e.g. admin@EXAMPLE.COM) and add a new IdM user:
+
+.. code-block:: sh
+
+    $ kinit admin
+    $ ipa user-add johnsmith --password
+
+Follow the prompts to complete adding the new user. Once this process is complete, connect to MongoDB and authenticate as user with at least :authrole:`userAdmin` or :authrole:`userAdminAnyDatabase` privileges.
+
+.. code-block:: sh
+
+    mongo --authenticationMechanism=GSSAPI \
+          --authenticationDatabase='$external' \
+          --username admin@EXAMPLE.COM
+
+Now add the new user to a database and provide the appropriate privileges (ex. "read" privileges on the "test" database):
+
+.. code-block:: javascript
+
+    > use test
+    > db.addUser( {
+                    "user": "johnsmith@EXAMPLE.COM",
+                    "roles": [ "read" ],
+                    "userSource" : "$external"
+                } )
+
+.. seealso:: :manual:`system.users Privilege Documents</reference/privilege-documents/>` and :manual:`User Privileges in MongoDB</reference/user-privileges/>`.
+
+Granting A User Access to MongoDB Cluster
+`````````````````````````````````````````
+
+For existing IdM users, providing access to a MongoDB deployment requires giving users :authrole:`clusterAdmin` and :authrole:`readWrite` privileges on the ``local`` and ``config`` databases.
+
+Begin by authenticating as an Administrator (e.g. admin@EXAMPLE.COM) and connecting to MongoDB:
+
+.. code-block:: sh
+
+    $ kinit admin
+    $ mongo --authenticationMechanism=GSSAPI \
+            --authenticationDatabase='$external' \
+            --username admin@EXAMPLE.COM
+
+Now add the user with the appropriate privileges on the ``admin``, ``local``, and ``config`` databases:
+
+.. code-block:: javascript
+
+    > use admin
+    > db.addUser( {
+                    "user": "johnsmith@EXAMPLE.COM",
+                    "roles": "clusterAdmin",
+                    "userSource": "$external",
+                    "otherDBRoles": {
+                        "config": ["readWrite"],
+                        "local": ["readWrite"]
+                    }
+                } )
+
+This user now has access to manage all operational aspects of a MongoDB deployment. For more information refer to :manual:`system.users Privilege Documents</reference/privilege-documents/>` and :manual:`User Privileges in MongoDB</reference/user-privileges/>`.
+
+Revoke User Access
+``````````````````
+
+To revoke a user's access completely two steps are required: the first is to remove the specified user from the databases and the second is to remove them from the IdM infrastructure entirely.
+
+Begin by authenticating as an Administrator (e.g. admin@EXAMPLE.COM) and connecting to MongoDB:
+
+.. code-block:: sh
+
+    $ kinit admin
+    $ mongo --authenticationMechanism=GSSAPI \
+            --authenticationDatabase='$external' \
+            --username admin@EXAMPLE.COM
+
+Now remove the user from a database (e.g. user johnsmith@EXAMPLE.COM, database test):
+
+.. code-block: javascript
+
+    > use test
+    > db.removeUser("johnsmith@EXAMPLE.COM")
+
+Repeat the above steps for any databases for which the user has access.
+
+Now either disable or remove the user. Disabling the user means that their information still exists within the system but they no longer have access to any IdM services (e.g. Kerberos). To disable the user refer to the following steps:
+
+.. code-block:: sh
+
+    $ kinit admin
+    $ ipa user-disable johnsmith
+
+To remove the user, instead use the following:
+
+.. code-block:: sh
+
+    $ kinit admin
+    $ ipa user-del johnsmith
+
+The user in question will no longer have access to Kerberos and be unable to authenticate to any IdM clients.
+
+Configuring Password Policies
+`````````````````````````````
+
+By default IdM provides a global password policy for all users and groups. To view the policy details execute the following:
+
+.. code-block:: sh
+
+    $ kinit admin
+    $ ipa pwpolicy-show
+
+To view policies applied to particular user refer to the following:
+
+.. code-block:: sh
+
+    $ kinit admin
+    $ ipa pwpolicy-show --user=johnsmith
+
+Password policies can also be edited to update parameters such as lockout time or minimum length. Changing the global policy's minimum length allowable for passwords can be done using the following steps:
+
+.. code-block:: sh
+
+    $ kinit admin
+    $ ipa pwpolicy-mod --minlength=10
+
+For more information, refer to `Defining Password Policies <https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/html-single/Identity_Management_Guide/index.html#user-pwdpolicy>`_ within the IdM documentation.
+
+Next Steps
+----------
+
+Refer to the following for more information on
+
+- :manual:`Installing MongoDB Enterprise </tutorial/install-mongodb-enterprise/>`
+- :manual:`Deploying MongoDB with Kerberos Authentication </tutorial/control-access-to-mongodb-with-kerberos-authentication>`
+- :manual:`Connect to MongoDB with SSL </tutorial/configure-ssl>`
+- Driver-specific Kerberos setup: :ecosystem:`Java </tutorial/authenticate-with-java-driver/>`, :ecosystem:`C# </tutorial/authenticate-with-csharp-driver/>`, :ecosystem:`C++ </tutorial/authenticate-with-cpp-driver/>`, `Python <http://api.mongodb.org/python/current/faq.html#how-do-i-use-kerberos-authentication-with-pymongo>`_
