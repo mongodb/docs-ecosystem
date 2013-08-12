@@ -25,7 +25,7 @@ You can create your project with the template as follows:
 
 .. code-block:: sh
 
-   rails project_name -m <http://gist.github.com/219223.txt>
+   rails project_name -m <https://gist.github.com/banker/219223/raw/>
 
 Be sure to replace **project_name** with the name of your project.
 
@@ -91,7 +91,7 @@ To automate this, I've found it effective to modify
 
 .. code-block:: ruby
 
-   # Drop all columns after each test case.
+   # Drop all collections after each test case.
    def teardown
      MongoMapper.database.collections.each do |coll|
        coll.remove
@@ -101,7 +101,7 @@ To automate this, I've found it effective to modify
   # Make sure that each test case has a teardown
   # method to clear the db after each test.
   def inherited(base)
-    base.define_method teardown do
+    base.define_method :teardown do
       super
     end
   end

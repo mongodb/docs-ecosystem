@@ -25,7 +25,7 @@ If the dbpath is mapped to a single EBS volume then proceed to
 :ref:`ec2-backup-database-files`.
 
 If the dbpath is mapped to multiple EBS volumes, then in order to guarantee
-the stability of the file-system then you will need to :ref:`ec2-flush-and-lock-database`.
+the stability of the file-system you will need to :ref:`ec2-flush-and-lock-database`.
 
 .. note:: Snapshotting with the journal is only possible if the journal
    resides on the same volume as the data files, so that one snapshot
@@ -53,6 +53,7 @@ that the file-system is frozen as well (e.g. on XFS file-system use
 The overall process looks like:
 
 .. image:: /images/ec2-backup-and-restore-backup.jpg
+   :alt: Steps to create a backup using the snapshot facility of EBS volumes
 
 .. _ec2-flush-and-lock-database:
 
@@ -126,7 +127,7 @@ Determine how the dbpath is Mapped to the File System
 
 Log onto the running MongoDB instance in EC2. To determine where the
 database file are located, either look at the startup parameters for the
-:program:`mongod` process or if :program:`mongod` is running, then you
+:program:`manual:mongod` process or if :program:`manual:mongod` is running, then you
 can examine the running process. In the following example, ``dbpath`` is
 set to ``/var/lib/mongodb/tokyo0``.
 
@@ -241,9 +242,10 @@ In order to verify the backup, you must do the following:
 
 - Create new volumes based on the snapshots and mount the new volumes.
 
-- Run :program:`mongod` and verify the collections.
+- Run :program:`manual:mongod` and verify the collections.
 
 .. image:: /images/ec2-backup-and-restore-verify.jpg
+   :alt: Steps to verify the backup
 
 Typically, the verification is performed on another machine so that
 you do not burden your production systems with the additional CPU and
@@ -256,7 +258,7 @@ Using the `ec2-describe-snapshots <http://docs.aws.amazon.com/AWSEC2/latest/Comm
 command, find the snapshots that make up the backup. Using a filter on
 the ``description`` field, snapshots associated with the given backup are
 easily found. The search text used should match the text used in the ``-d``
-flag passed to ec2-create-snapshot command when the backup was made.
+flag passed to `ec2-create-snapshot <http://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ApiReference-cmd-CreateSnapshot.html>`_ command when the backup was made.
 
 .. code-block:: sh
 
@@ -308,7 +310,7 @@ Mount the Volumes
 Make the file-system visible on the host O/S. This will vary by the
 Logical Volume Manager, file-system etc. that you are using. The example
 below shows how to perform this for LVM, please confirm with your System
-Administrator on how the original system system was setup if you are
+Administrator on how the original system was setup if you are
 unclear.
 
 Assemble the device from the physical devices. The UUID for the device
@@ -385,16 +387,17 @@ Restore uses the same basic steps as the verification process:
 
 3. Mount the file system.
 
-4. Run :program:`mongod`.
+4. Run :program:`manual:mongod`.
 
    .. image:: /images/ec2-backup-and-restore-restore.jpg
+      :alt: Basic steps to restore
 
 After the file-system is mounted you can decide to:
 
 - Copy the database files from the backup into the current database
   directory
 
-- Start :program:`mongod` from the new mount point, specifying the new
+- Start :program:`manual:mongod` from the new mount point, specifying the new
   mount point in the ``--dbpath`` argument.
 
 After the database is started, it will be ready to transact. It will be

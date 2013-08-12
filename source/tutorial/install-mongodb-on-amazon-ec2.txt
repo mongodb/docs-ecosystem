@@ -59,12 +59,12 @@ Amazon has several instance choices available ranging from low to high
 different purpose and plays a different role when planning your
 deployment. There are several roles to consider when deploying a MongoDB
 production cluster. Consider a situation where your deployment contains
-an even number of replicated data (:program:`mongod`) instances, an
+an even number of replicated data (:program:`manual:mongod`) instances, an
 arbiter participates in electing the primary but doesn't hold any data.
 Therefore a Small instance may be appropriate for the arbiter role but
 for data nodes you'll want to use 64-bit (standard Large or higher)
 instances, which have greater CPU and memory scaling. For the purposes
-of this guide we'll be focused on deploying :program:`mongod` instances
+of this guide we'll be focused on deploying :program:`manual:mongod` instances
 that use the standard Large instance. The AMI (ID: ``ami-41814f28``) is
 the 64-bit base Amazon Linux, upon which we'll install MongoDB.
 
@@ -99,12 +99,14 @@ zones within EC2 are similar to different server racks, therefore it is
 recommended that you deploy your replica set across multiple zones.
 
 .. image:: ../images/replica-multizone.png
+   :alt: MongoDB replication across multiple zones
 
 For even greater redundancy and failover, you could also deploy your
 replica set across multiple regions (and go further with multiple zones
 in each region):
 
 .. image:: ../images/replica-multiregion.png
+   :alt: MongoDB replication across multiple regions
 
 Refer to the AWS documentation on `Using Regions and Availability Zones
 <http://docs.amazonwebservices.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html>`_
@@ -125,6 +127,7 @@ a group for tools and maintenance tasks.
 An example setup with two security groups might look like this:
 
 .. image:: ../images/replica-security.png
+   :alt: MongoDB replication with security groups
 
 Before starting up instances we want to get the security groups created.
 As previously discussed, we recommend using multiple groups, one for
@@ -409,7 +412,7 @@ The :file:`/etc/fstab` entries
 require the partition (e.g. :file:`/dev/vg0/data`), a mount point for
 the filesystem (:file:`/data`), the filesystem type (``ext4`` or
 ``xfs``) and the mount parameters (``defaults``, ``auto``, ``noatime``,
-``noexec``, ``nodiratime 0 0``, refer to the
+``noexec``, ``nodiratime 0 0``), refer to the
 `mount man page <http://linux.die.net/man/8/mount>`_
 for more information on these parameters:
 
@@ -453,7 +456,7 @@ Install and Configure MongoDB
 .. note::
 
    If you created a MongoDB instance via the AWS Marketplace, skip ahead
-   to [#Starting MongoDB] below.
+   to :ref:`ec2-starting-mongodb` below.
 
 Now that the storage has been configured, we need to install and
 configure MongoDB to use the storage we've set up, then set it to start
@@ -572,7 +575,7 @@ First we'll need to edit the MongoDB configuration and update the
    replSet=exampleReplicaSetName
    ...
 
-Save the configuration file and restart :program:`mongod`:
+Save the configuration file and restart :program:`manual:mongod`:
 
 .. code-block:: sh
 
@@ -670,16 +673,17 @@ To build our simple sharded configuration, we'll be building upon the
 replica set steps we just worked on. To get started you'll need to
 create two additional replica set configurations, just the same from
 above. When configuring each server instance we'll set the
-:setting:`shardsvr` parameter inside the :program:`mongod` configuration
+:setting:`shardsvr` parameter inside the :program:`manual:mongod` configuration
 file. Next we'll take one node from each replica set and set it to run
 as a config server as well. The config server maintains metadata about
 the sharded data storage cluster. Finally, we'll add instances for the
-:program:`mongos` router, which handles routing requests from your app
+:program:`manual:mongos` router, which handles routing requests from your app
 to the correct shard. The recommended approach is to run this component
 on your application servers. The following image shows a recommended
 topology for use with sharding:
 
 .. image:: ../images/sharding-simpleoverview.png
+   :alt: Recommended topology for MongoDB Sharding
 
 Create three nodes for each replica set. Use the following instructions:
 
@@ -692,7 +696,7 @@ Create three nodes for each replica set. Use the following instructions:
 
      shardsvr = true
 
-  Save the configuration file and restart :program:`mongod`:
+  Save the configuration file and restart :program:`manual:mongod`:
 
   .. code-block:: sh
 
@@ -702,7 +706,7 @@ Once :file:`/etc/mongod.conf` has been updated, initiate the replica set
 and add the members as described in
 :manual:`Add Members to a Replica Set </tutorial/expand-replica-set>`.
 Once that's complete, choose one instance from each replica set and start an
-additional :program:`mongod` process those instances, this time as the
+additional :program:`manual:mongod` process those instances, this time as the
 config server component:
 
 .. code-block:: sh
@@ -711,7 +715,7 @@ config server component:
 
 Now that we've got N config servers running (where N is the number of
 running replica sets) we can set up the request router
-:program:`mongos`. This process typically runs on your application
+:program:`manual:mongos`. This process typically runs on your application
 servers and handles routing database requests from your app to the
 correct database shard. Assuming you already have your application
 configured and deployed, use :program:`ssh` to connect to each instance and
@@ -737,10 +741,10 @@ docs on :manual:`changing config servers </administration/sharding>`.
 .. Link was: http://www.mongodb.org/display/DOCS/Changing+Config+Servers
 
 Once the DNS settings have taken effect, we can proceed with the
-:program:`mongodb-manual:mongos` setup. Go back to the command line on each of the
-instances you'll be using for :program:`mongodb-manual:mongos` and start the
+:program:`mongos` setup. Go back to the command line on each of the
+instances you'll be using for :program:`mongos` and start the
 service and point it to the instances running the config server using
-their DNS aliases (ex: ``alias1.yourdomain.com``,
+their DNS aliases (e.g.: ``alias1.yourdomain.com``,
 ``alias2.yourdomain.com`` and ``alias3.yourdomain.com``) along with the
 config server port ```27019``:
 
@@ -748,14 +752,14 @@ config server port ```27019``:
 
    $ mongos --configdb alias1.yourdomain.com:27019,alias2.yourdomain.com:27019,alias3.yourdomain.com:27019
 
-With the :program:`mongodb-manual:mongos` routers running, we can now
+With the :program:`mongos` routers running, we can now
 complete the setup for the sharding architecture. The last step is to add
 the previously created replica sets to the overall system. Choose one of
-the instances that is running :program:`mongodb-manual:mongos`, start the
-:program:`mongodb-manual:mongo` client
+the instances that is running :program:`mongos`, start the
+:program:`mongo` client
 using the hostname and port (``27017``) and connect to the ``admin``
-database. You'll need to have the name for each replica set (ex:
-``replicaSetName1``) and the hostnames for each member of the set (e.g:
+database. You'll need to have the name for each replica set (e.g.:
+``replicaSetName1``) and the hostnames for each member of the set (e.g.:
 ``replicaSetHost1``)
 
 .. code-block:: sh
@@ -777,7 +781,7 @@ Once these steps have been completed, you'll have a simple sharded
 configuration. The architecture we used includes 3 database shards for
 write scalability and three replicas within each shard for read
 scalability and failover. This type of setup deployed across multiple
-regions (ex: one node from each replica located in ``us-west-1``) would
+regions (e.g.: one node from each replica located in ``us-west-1``) would
 also provide some degree of disaster recovery as well.
 
 In order to utilize this newly created configuration, you'll need to

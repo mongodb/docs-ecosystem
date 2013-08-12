@@ -84,6 +84,14 @@ Lithium
 - `Lithium <http://rad-dev.org/lithium/wiki/drafts/blog-tutorial>`_
   supports MongoDB out-of-the-box.
 
+Laravel Framework
+~~~~~~~~~~~~~~~~~
+
+- `Laravel Mandango Bundle
+  <https://github.com/boparaiamrit/Laravel-Mandango>`_: An ODM for
+  MongoDB, that integrates with the `Laravel <http://laravel.com>`_
+  PHP Framework.
+
 Symfony 2
 ~~~~~~~~~
 
@@ -144,13 +152,24 @@ Google Maps, translation & internationalization, Wiki, Amazon Web
 Services, Social-Networking (Twitter, Meetup, ShareThis, YouTube,
 Flickr) and much more.
 
+Yamop
+~~~~~
+
+This is yet another, open source, and very simple ODM for MongoDB. It
+works like the standard MongoDB PHP extension interface but returns
+objects instead of arrays (as ODM). Queries stay the same. Provides
+driver level "joins," that resolves related objects.
+
+See: `Yamop <https://github.com/mawelous/yamop>`_ and `Yamop for
+Larval <https://github.com/mawelous/yamop-laravel>`_.
+
 Yii
 ~~~
 
-- `YiiMongoDbSuite <http://canni.github.com/YiiMongoDbSuite/>`_ is an
-  ActiveRecord-like support for MongoDB in Yii. It originally started as
-  a fork of MongoRecord extension to fix some major bugs and to add full
-  featured suite for MongoDB developers.
+`YiiMongoDbSuite <http://canni.github.com/YiiMongoDbSuite/>`_ is an
+ActiveRecord-like support for MongoDB in Yii. It originally started as
+a fork of MongoRecord extension to fix some major bugs and to add full
+featured suite for MongoDB developers.
 
 Zend Framework
 ~~~~~~~~~~~~~~
@@ -221,7 +240,7 @@ MongoDB Pagination
   It is simple to install and use. It has been developed under TechMVC 3.0.4
   but is compatible with any 3rd party framework (e.g. Zend (tested)).
 
-MongoDb PHP ODM
+MongoDB PHP ODM
 ~~~~~~~~~~~~~~~
 
 - `MongoDb PHP ODM <https://github.com/colinmollenhour/mongodb-php-odm>`_
@@ -243,6 +262,13 @@ away annoying ``$-syntax``, and provides getters and setters.
 - `Mongodloid Download <http://code.google.com/p/mongodloid/downloads/list>`_
 
 - `Mongodloid Documentation <http://code.google.com/p/mongodloid/wiki/Using>`_
+
+Mongo-Queue-PHP
+~~~~~~~~~~~~~~~
+
+PHP message queue using MongoDB as a backend
+
+`Mongo-Queue-PHP page <https://github.com/dominionenterprises/mongo-queue-php>`_
 
 MongoQueue
 ~~~~~~~~~~
@@ -289,6 +315,13 @@ TURBOPY
 - `TURBOPY <http://turbopy.com/beta>`_ is a cloud-based content
   management framework and IDE using new editing concepts working with
   MongoDB.
+
+Mongodm
+~~~~~~~
+
+- `Mongodm <https://github.com/purekid/mongodm>`_ is a simple and
+  flexible PHP MongoDB ORM that includes support for references (lazy
+  loading,) and multilevel inheritance.
 
 Blogs & HOWTOs
 --------------

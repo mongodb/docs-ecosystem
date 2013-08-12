@@ -1,4 +1,4 @@
-.. http://www.mongodb.org/display/DOCS/Admin+UIs
+﻿.. http://www.mongodb.org/display/DOCS/Admin+UIs
 
 .. _admin-uis:
 
@@ -9,14 +9,14 @@ Admin UIs
 .. default-domain:: mongodb
 
 MongoDB does not include a GUI-style administrative interface. Instead
-most administration is done from command line tools such as the :program:`mongo`
+most administration is done from command line tools such as the :program:`manual:mongo`
 shell. However some UI's are available as separate community projects
 and are listed below. Some are focused on administration, while some
 focus on data viewing.
 
 .. seealso::
+   - `MongoDB Tools <http://mongodb-tools.com/>`_
    - The `MongoDB Monitoring Service (MMS) <http://www.10gen.com/mongodb-monitoring-service>`_ from 10gen.
-   - Tim `Gourley's blog <http://blog.timgourley.com/post/453680012/tuesday-night-tech-mongodb-ui-edition>`_ has a good summary of the tools.
    - :ref:`The built-in replica set admin UI page <http-interface>`.
 
 Tools
@@ -100,11 +100,16 @@ Features:
 MongoHub
 ~~~~~~~~
 
-- <http://mongohub.todayclose.com/>
+- <https://github.com/fotonauts/MongoHub-Mac>
 
-MongoHub is a native OS X GUI.
+MongoHub is a native OSX GUI. It supports importing data through
+direct MySQL connections, CSV and JSON imports and exports.
 
-.. image:: /images/admin-uis-connections-window.png
+.. image:: http://farm9.staticflickr.com/8130/8978912133_07d1d9e87a.jpg
+.. image:: http://farm9.staticflickr.com/8419/8980107438_4545a08ec0.jpg
+.. image:: http://farm4.staticflickr.com/3828/8980107484_dd1e08136f.jpg
+.. image:: http://farm6.staticflickr.com/5448/8978912351_a4d439bc8b.jpg
+.. image:: http://farm4.staticflickr.com/3786/8978912393_dc239ee62c.jpg
 
 MongoVision
 ~~~~~~~~~~~
@@ -231,7 +236,7 @@ navigate to it in a browser. One of two things will happen:
 RockMongo
 ~~~~~~~~~
 
-- <http://code.google.com/p/rock-php/wiki/rock_mongo>
+- <http://www.rockmongo.com>
 
 RockMongo is a MongoDB management tool, written in PHP 5.
 
@@ -285,15 +290,90 @@ you to connect to a MongoDB database and pull out data to display in your
 BIRT report. The interface is simple and an extensive user guide is
 provided with the release.
 
-Monad Management for MongoDB
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mongobird
+~~~~~~~~~
 
-- demo: `http://monad.citsoft.net/`
+- <http://mongobird.citsoft.net>
 
-An operations and administration management tool for MongoDB, with
-dashboards, alerting, and monitoring graphs.
+An operations and administration management tool for MongoDB with
+dashboards, forecast warning, and various graphs.
+
+Features:
+
+- Open source. Packaged with an install script.
+
+- Supports real-time monitoring. Captures information from the servers
+  at 10 second intervals
+
+- Provides a group for  MongoDB replica sets.
+
+- Dashboard of important information so that the state of MongoDB is
+  visable at a glance.
+
+- Graphs that display historical statistics for all data collected
+  from MongoDB.
+
+- Supports user-defined events for forecasting, warnings, and event
+  notification,
+
+- GitHub: <https://github.com/citsoft/mongobird>
 
 .. image:: /images/admin-uis-monad2.png
+
+mongoowl
+~~~~~~~~~
+
+- <http://mongoowl.citsoft.net>
+
+Live monitoring and graphic visualization tool based on DHTML include HTML5.
+
+Features:
+
+- Free download.
+
+- Live Monitoring: Provides monitoring information by 1 second intervals.
+
+- Pure JavaScript: Just uses javascript with DHTML.
+
+- Standalone: Runs without WAS.
+
+- Animated Graphs: Supports user-defined graphs by smooth changes about monitoring items.
+
+- Any Device: Supports all devices include mobile.
+
+.. image:: /images/mongoowl_main.jpg
+
+Robomongo
+~~~~~~~~~
+
+`Robomongo <http://robomongo.org>`_ is a shell-centric cross-platform
+open source MongoDB management tool (i.e. Admin GUI). Robomongo embeds
+the same JavaScript engine that powers MongoDB's mongo
+shell. Everything you can write in mongo shell you can write in
+Robomongo!
+
+.. image:: /images/admin-uis-robomongo.png
+
+Features:
+
+- Full Power of MongoDB Shell. Robomongo embeds the same JavaScript
+  engine (based on Mozilla SpiderMonkey), that powers MongoDB's mongo
+  shell.  It means that you can reuse your existing skills of MongoDB
+  Shell in Robomongo
+
+- Multiple Shells. Open as many shells as you need. Every tab in
+  Robomongo is a MongoDB shell, fully isolated from each other.
+
+- Multiple Results. Robomongo executes your code in statement by
+  statement way. That means that you will receive as many result as
+  many statements you have.
+
+- Autocompletion. Robomongo provides you with autocompletion for all
+  objects (and thus functions) that are known by JavaScript runtime,
+  including autocompletion for databases, collections and even your
+  document objects.
+
+- Cross-platform, open source.
 
 Commercial Tools
 ----------------
@@ -321,7 +401,7 @@ MongoDBPumper for Oracle
 MongoDBPumper for Oracle from `spViewer Software <http://www.spviewer.com/mongodbpumper.html>`_
 
 MongoDBPumper is a tool that facilitates data transfer between Oracle
-and MongoDB databases, and includes the following features: 
+and MongoDB databases, and includes the following features:
 
 - Intuitive GUI wizard to facilitate data mapping and transfer operation.
 - Support for all Oracle database versions including 8.1.7, 9.0.1, 9.2.0, 10.1.0, 10.2.0, 11.1.0, 11.2.0
@@ -330,6 +410,22 @@ and MongoDB databases, and includes the following features:
 - Supports most data types and performs data type conversions.
 - Support of parallel data transfer operations for optimal performance.
 - Support of loading MongoDb nested collections.
+
+MongoMonitor
+~~~~~~~~~~~~
+
+Connect to your MongoDB databases directly from your iPhone with
+`MongoMonitor <http://mariussoutier.com/products/mongodb-app.html>`_.
+
+.. image:: /images/admin-uis-mongo-monitor.jpg
+
+- Connect to your MongoDB databases, supporting single hosts, Replica Sets and shards
+- Check your database's status, statistics and indexes
+- Navigate through all collections, documents and sub-documents
+- View and copy individual data in documents
+- GridFS upload and preview (supports images, PDFs, and Office)
+- Remove documents from your collections
+- Handles mongodb:// links so you don't have to type in long connections
 
 Data Viewers
 ------------

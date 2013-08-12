@@ -14,7 +14,7 @@ Java Driver
 Basics
 ~~~~~~
 
-- `Download the Java Driver <http://github.com/mongodb/mongo-java-driver/downloads>`_
+- `Download the Java Driver <http://central.maven.org/maven2/org/mongodb/mongo-java-driver/>`_
 
 - :ref:`getting-started-with-java-driver`
 
@@ -54,17 +54,17 @@ POJO Mappers
       JPA/JDO wrapper
 
 - `lib-mongomapper`_
-      JavaBean Mapper (No annotations) 
+      JavaBean Mapper (No annotations)
 
 - `mongo-jackson-mapper`_
       Uses jackson (annotations) to map to/from POJOs and has a simple
       wrapper around ``DBCollection`` to simply this.
 
 - `Kundera`_
-      JPA compliant ORM. Works with multiple datastores. 
+      JPA compliant ORM. Works with multiple datastores.
 
 - `Jongo`_
-   Query in Java as in :program:`mongo` shell (using strings),
+   Query in Java as in :program:`manual:mongo` shell (using strings),
    unmarshall results into Java objects (using Jackson)
 
 .. _`Morphia - Type-Safe Wrapper with DAO/Datastore abstractions`:
@@ -124,7 +124,7 @@ Misc
 
 * `Mongodb Java REST server`_ based on `Jetty`_
 
-.. _`MongoDB Asynchronous Java Driver`: 
+.. _`MongoDB Asynchronous Java Driver`:
    http://www.allanbank.com/mongodb-async-driver/
 
 .. _`log4mongo`: http://code.google.com/p/log4mongo/
@@ -142,7 +142,7 @@ Misc
 
 .. _`Jetty`: http://www.eclipse.org/jetty/
 
-.. -`Amdatu Mongo - OSGi services for Mongo`: http://amdatu.org/components/mongodb.html 
+.. -`Amdatu Mongo - OSGi services for Mongo`: http://amdatu.org/components/mongodb.html
 
 Clojure
 -------
@@ -159,7 +159,7 @@ Groovy
 
 - `MongoDB made more Groovy <http://jameswilliams.be/blog/entry/165>`_
 
-- `GMongo, a Groovy wrapper to the mongodb Java driver
+- `GMongo, a Groovy wrapper to the MongoDB Java driver
   <http://github.com/poiati/gmongo>`_
 
   - `GMongo 0.5 Release Writeup
@@ -168,8 +168,10 @@ Groovy
 JavaScript (Rhino)
 ------------------
 
-- `MongoDB-Rhino <http://code.google.com/p/mongodb-rhino>`_ 
+- `Horn of Mongo <https://github.com/nlloyd/horn-of-mongo>`_ 
+      A MongoDB shell built on the Rhino JavaScript Engine for Java.
 
+- `MongoDB-Rhino <http://code.google.com/p/mongodb-rhino>`_
       A toolset to provide full integration between the Rhino
       JavaScript engine for the JVM and MongoDB. Uses the MongoDB Java
       driver.
@@ -209,8 +211,8 @@ Presentations
 - `Using MongoDB with Scala`_
       Brendan McAdams' Presentation at the New York Scala Enthusiasts (August 2010)
 
-.. _`Building a Mongo DSL in Scala at Hot Potato`: 
-   http://blip.tv/file/3596243 
+.. _`Building a Mongo DSL in Scala at Hot Potato`:
+   http://blip.tv/file/3596243
 
 .. _`Using MongoDB with Scala`:
    http://code.technically.us/post/942542158/brendan-mcadams-gives-an-introduction-to-mongodb
