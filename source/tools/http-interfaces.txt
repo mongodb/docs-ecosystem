@@ -109,6 +109,10 @@ HTTP Console Security
 If security is configured for a :program:`manual:mongod` instance, authentication is
 required for a client to access the http interface from another machine.
 
+.. note:: While MongoDB Enterprise does support Kerberos authentication,
+   Kerberos is not supported in HTTP Console in either the free software or
+   enterprise editions.
+
 Simple REST Interface
 ---------------------
 
