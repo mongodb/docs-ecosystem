@@ -1,4 +1,4 @@
-.. http://www.mongodb.org/display/DOCS/Admin+UIs
+﻿.. http://www.mongodb.org/display/DOCS/Admin+UIs
 
 .. _admin-uis:
 
@@ -9,7 +9,7 @@ Admin UIs
 .. default-domain:: mongodb
 
 MongoDB does not include a GUI-style administrative interface. Instead
-most administration is done from command line tools such as the :program:`manual:mongo`
+most administration is done from command line tools such as the :program:`mongo`
 shell. However some UI's are available as separate community projects
 and are listed below. Some are focused on administration, while some
 focus on data viewing.
@@ -341,14 +341,18 @@ Features:
 
 - Any Device: Supports all devices include mobile.
 
+.. image:: /images/mongoowl_main.jpg
+
 Robomongo
 ~~~~~~~~~
 
-`Robomongo http://robomongo.org`_ is a shell-centric cross-platform
+`Robomongo <http://robomongo.org>`_ is a shell-centric cross-platform
 open source MongoDB management tool (i.e. Admin GUI). Robomongo embeds
 the same JavaScript engine that powers MongoDB's mongo
 shell. Everything you can write in mongo shell you can write in
 Robomongo!
+
+.. image:: /images/admin-uis-robomongo.png
 
 Features:
 
