@@ -300,7 +300,7 @@ dashboards, forecast warning, and various graphs.
 
 Features:
 
-- Open source. Packaged with an install script.
+- Open source (sort of, see <http://mongobird.citsoft.net/?page_id=472>). Packaged with an install script.
 
 - Supports real-time monitoring. Captures information from the servers
   at 10 second intervals
