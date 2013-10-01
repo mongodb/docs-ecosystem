@@ -39,7 +39,8 @@ The normal database distribution used to include the C++ driver, but
 there were many problems with library version mismatches so now you
 have to build from source. You can either get the `full source code`_
 for the database and just build the C++ driver or `download the driver`_
-separately and build it.
+separately and build it.  It is strongly recommended to use the full build.
+Just the driver isn't supported.
 
 .. _`full source code`: https://github.com/mongodb/mongo
 
