@@ -323,6 +323,16 @@ Mongodm
   flexible PHP MongoDB ORM that includes support for references (lazy
   loading,) and multilevel inheritance.
 
+MongoJacket
+~~~~~~~
+
+- `MongoJacket <https://github.com/souravray/mongojacket>`_ is a lightweight 
+  wrapper for mongoDB driver. It provides a few additional features in addition 
+  to basic mongodb functions, like query chaining, model functions and 
+  validators. It is still very experimental and supports only a limited set
+  of functions.
+
+
 Blogs & HOWTOs
 --------------
 
