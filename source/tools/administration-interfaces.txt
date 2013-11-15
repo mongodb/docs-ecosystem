@@ -391,6 +391,18 @@ Features:
 
 - Cross-platform, open source.
 
+Moa(db)
+~~~~~~~~
+
+Moa(db) is a new PHP MongoDB GUI. The project is focused on a very simple interface and a drag & drop setup. 
+Helpful query validation, amazing lightweight UI , JSON imports & exports, SSL support, and much more in the box.
+
+- `Moa(db) Github Page <https://github.com/lovetheidea/MoaDB>`_
+- `More screenshots <https://github.com/lovetheidea/MoaDB/tree/master/screenshots>`_
+
+.. image:: /images/admin-uis-moadb.png
+
+
 Commercial Tools
 ----------------
 
