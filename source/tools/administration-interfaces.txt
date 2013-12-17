@@ -440,6 +440,13 @@ Connect to your MongoDB databases directly from your iPhone with
 - Remove documents from your collections
 - Handles mongodb:// links so you don't have to type in long connections
 
+phpMongoEpr
+~~~~~~~~~~~~~
+
+A web-based user interface for MongoDB build with CodeIgniter framework and jQuery.
+Github source : <https://github.com/EvanLyu/phpMongoEpr>
+
+
 Data Viewers
 ------------
 
