@@ -277,6 +277,14 @@ trade-off between safety and speed.
 .. seealso:: :manual:`Write Concern for Replica Sets </core/write-concern>`
    and :dbcommand:`getLastError`.
 
+Aside: Continuously Importing Log Data into MongoDB
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In a production environment, your log data most likely comes in the form of log files. For example, with
+combined-formatted Apache logs, they are generated in `/var/log/apache2/access.log`. In such cases, you may
+want to stream data into MongoDB in a near real-time manner. One such solution is using Fluentd, [an open source
+data stream processor](http://docs.fluentd.org/articles/apache-to-mongodb).
+
 Finding All Events for a Particular Page
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
