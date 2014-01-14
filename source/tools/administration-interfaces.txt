@@ -19,6 +19,78 @@ focus on data viewing.
    - The `MongoDB Management Service (MMS) <http://www.mongodb.com/mongodb-monitoring-service>`_.
    - :ref:`The built-in replica set admin UI page <http-interface>`.
 
+
+Commercial Tools
+----------------
+
+Nucleon Database Master
+~~~~~~~~~~~~~~~
+
+- `Database Master from Nucleon Software <http://www.nucleonsoftware.com/>`_
+
+Nucleon Database Master is a modern, powerful, intuitive and easy to use MongoDB, NuoDB, MySQL, PostgreSQL, FireBird, 
+SQLite, MS SQL Server, SQL Azure, Oracle, IBM DB2, IBM Informix, Netezza, Ingres 
+administration program with a consistent and modern interface.
+Database Master simplifies managing, querying, editing, visualizing, designing and reporting 
+relational and schema-free (NoSQL) database systems. 
+You can connect any database system via ODBC and OleDB connections, 
+or you can connect also MS Access, MS FoxPro Database, dBASE, and XML files.
+
+Database Master is currently the most advanced management software for the MongoDB and supports only Windows OS.
+
+Some Main Features are:
+
+- Collection, Index, GridFS Manager 
+- Tree and Flat Table view collections with data  paging
+- JSON (BSON) Query Editor with Intelli-Sense
+- Advanced Data Export to: MS Excel, MS Word, PDF, HTML, HTML5, XML, JSON etc.
+- Advance Data Editor with intuitive GUI 
+- Map&Reduce Query Editor
+- Data Import and Data Snych. from RDBMS and MongoDB
+- Create/Drop collection and indexes
+- LINQ to MongoDB  Query Editor
+- Server/DB Stats and Reports
+- Data Visualization as Charts, Images, Texts.
+- User Management
+- Data Search Engine
+- Support RDBMS (MySQL, NuoDB, Oracle, IBM DB2, Posgres, SQLite, ODBC, Oledb, ...)
+- and more features...
+
+.. image:: /images/admin-uis-DatabaseMasterMainView.gif
+
+MongoDBPumper for Oracle
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+MongoDBPumper for Oracle from `spViewer Software <http://www.spviewer.com/mongodbpumper.html>`_
+
+MongoDBPumper is a tool that facilitates data transfer between Oracle
+and MongoDB databases, and includes the following features:
+
+- Intuitive GUI wizard to facilitate data mapping and transfer operation.
+- Support for all Oracle database versions including 8.1.7, 9.0.1, 9.2.0, 10.1.0, 10.2.0, 11.1.0, 11.2.0
+- Support for all MongoDB database versions including 2.0, 2.2
+- Support of two-way data transfer between Oracle and MongoDb databases.
+- Supports most data types and performs data type conversions.
+- Support of parallel data transfer operations for optimal performance.
+- Support of loading MongoDb nested collections.
+
+MongoMonitor
+~~~~~~~~~~~~
+
+Connect to your MongoDB databases directly from your iPhone with
+`MongoMonitor <http://mariussoutier.com/products/mongodb-app.html>`_.
+
+.. image:: /images/admin-uis-mongo-monitor.jpg
+
+- Connect to your MongoDB databases, supporting single hosts, Replica Sets and shards
+- Check your database's status, statistics and indexes
+- Navigate through all collections, documents and sub-documents
+- View and copy individual data in documents
+- GridFS upload and preview (supports images, PDFs, and Office)
+- Remove documents from your collections
+- Handles mongodb:// links so you don't have to type in long connections
+
+
 Tools
 -----
 
@@ -398,57 +470,7 @@ administration tool:
 
 .. image:: /images/admin-uis-opricot.png
 
-Commercial Tools
-----------------
 
-Database Master
-~~~~~~~~~~~~~~~
-
-- `Database Master from Nucleon Software <http://www.nucleonsoftware.com/>`_
-
-.. REMOVED THIS TEXT:
-   Seems to be written in .net for windows (windows installer).
-
-Features:
-
-- Tree view for dbs and collections
-- Create/Drop indexes
-- Server/DB stats
-- Support RDBMS (MySQL, postgres, ...)
-
-.. image:: /images/admin-uis-DatabaseMasterMainView.gif
-
-MongoDBPumper for Oracle
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-MongoDBPumper for Oracle from `spViewer Software <http://www.spviewer.com/mongodbpumper.html>`_
-
-MongoDBPumper is a tool that facilitates data transfer between Oracle
-and MongoDB databases, and includes the following features:
-
-- Intuitive GUI wizard to facilitate data mapping and transfer operation.
-- Support for all Oracle database versions including 8.1.7, 9.0.1, 9.2.0, 10.1.0, 10.2.0, 11.1.0, 11.2.0
-- Support for all MongoDB database versions including 2.0, 2.2
-- Support of two-way data transfer between Oracle and MongoDb databases.
-- Supports most data types and performs data type conversions.
-- Support of parallel data transfer operations for optimal performance.
-- Support of loading MongoDb nested collections.
-
-MongoMonitor
-~~~~~~~~~~~~
-
-Connect to your MongoDB databases directly from your iPhone with
-`MongoMonitor <http://mariussoutier.com/products/mongodb-app.html>`_.
-
-.. image:: /images/admin-uis-mongo-monitor.jpg
-
-- Connect to your MongoDB databases, supporting single hosts, Replica Sets and shards
-- Check your database's status, statistics and indexes
-- Navigate through all collections, documents and sub-documents
-- View and copy individual data in documents
-- GridFS upload and preview (supports images, PDFs, and Office)
-- Remove documents from your collections
-- Handles mongodb:// links so you don't have to type in long connections
 
 Data Viewers
 ------------
