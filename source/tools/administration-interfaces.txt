@@ -398,6 +398,31 @@ administration tool:
 
 .. image:: /images/admin-uis-opricot.png
 
+
+NoSQL Viewer
+~~~~~~~~~~~~
+
+- http://www.spviewer.com/nosqlviewer.html
+
+NoSQL Viewer is FREE innovative and powerful software product for MongoDB and other NoSQL databases.
+NoSQL Viewer provides convenient and easy to use GUI framework for data manipulation and database object management in your MongoDB databases
+from a single application. NoSQL Viewer is a must have tool for NoSQL and Big Data software developers, database administrators and analysts. 
+
+
+- Full support of popular NoSQL databases like MongoDB and others.
+- Convenient GUI framework to query, view, modify NoSQL database data.
+- Support of database objects management.
+- High-performance data copying between MongoDB collections and different databases.
+- High-performance data migration different supported NoSQL databases.
+- Support of specific query APIs for supported databases.
+- Designed for NoSQL database developers, analysts and database administrators.
+- An intuitive GUI to access and modify NoSQL data.
+- Ability to view, store and modify BLOB binary data of any type.
+- Much more advanced features.
+
+.. image:: http://www.spviewer.com/softimg/nosqlviewer_screen.png
+
+
 Commercial Tools
 ----------------
 
