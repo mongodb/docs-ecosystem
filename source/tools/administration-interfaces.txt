@@ -398,6 +398,16 @@ administration tool:
 
 .. image:: /images/admin-uis-opricot.png
 
+MongoApp
+~~~~~~~~
+
+- <https://github.com/yildizberkay/MongoApp>
+
+MongoApp is a GUI based tool that allows you to run MongoDB on the Mac.
+
+.. image:: https://raw2.github.com/yildizberkay/MongoApp/master/assets/images/MongoAppScreenshot.png
+
+
 Commercial Tools
 ----------------
 
