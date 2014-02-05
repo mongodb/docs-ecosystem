@@ -29,7 +29,7 @@ contents of a database after your C++ program runs.
 Installing the Driver Library and Headers
 -----------------------------------------
 
-Please see :ref:`download-and-compile-cpp-driver` for instructions on how
+Please see :ref:`here <download-and-compile-cpp-driver>` for instructions on how
 to download, build, and install the C++ client driver.
 
 Building Projects with the C++ Client Driver
