@@ -1,0 +1,97 @@
+.. http://www.mongodb.org/display/DOCS/Modulus
+
+.. _Modulus:
+
+========
+Modulus
+========
+
+.. default-domain:: mongodb
+
+Modulus is a premier Node.js and MongoDB hosting platform that provides a 
+complete technology stack for application developers. This includes custom SSL, 
+WebSockets, statistics, and more.
+
+MongoDB is available as a first class solution on the 
+`Modulus platform <http://modulus.io>`. The platform supports easy managment 
+tools to create databases, create and update users, and see in 
+real-time how the database is performing.
+
+Modulus supports replica sets on dedicated plans. This includes the ablity for 
+Meteor users to have access to the oplog. To find our more about dedicated 
+plans, contact `sales <mailto:sales@modulus.io>`.
+
+By providing both a place to run Node.js applications and MongoDB databases 
+Modulus gives you a single place to handle all your platform needs. 
+This means faster connections between your application and database and 
+less headache managing. This doesn't mean that you have to run your 
+application on Modulus, you can choose any application platform you'd like.
+
+If you need all this power and a dedicated environment, Modulus has your 
+answer with `Curvature <http://curvature.io>`. You can get everything 
+mentioned above with the flexibility of choosing where you run it. 
+It could be on-premises, in a dedicated cloud, or a hybrid of the two.
+
+
+Modulus Account Setup
+----------------------------------------
+If you don't have an account yet, go ahead and 
+`create one <https://modulus.io/register>`.
+
+Next go ahead and install the CLI (requires Node.js & NPM).
+
+.. code-block:: sh
+
+   npm install -g modulus
+
+If you have any questions check out the `documentation first 
+<https://modulus.io/codex/cli/using_the_cli>` and that doesn't get you 
+there `contact us <https://modulus.io/contact>`.
+
+Create a Database
+-----------------------
+
+It's very simple to create a database on Modulus.
+
+At the moment, databases can only be created through the web interface. 
+Navigate to your User dashboard and select the Databases tab on the left.
+
+To create a new database, click the "Create Database" button.
+
+.. image:: /images/modulus_mongo_create_dialog.png
+
+On this dialog, enter the desired label of the database. This name is simply 
+a convenience label and is not the actual name of the database within Mongo. 
+Actual database names are created automatically by Modulus. You can 
+optionally create a read/write user at this stage. If you do not create a 
+user now, you must create one later in order to access your database.
+
+Once complete, the popup will change with information about your newly 
+created database.
+
+.. image:: /images/modulus_mongo_ready_dialog.png
+
+The Mongo URI can be used to connect to your database from your application. 
+The Mongo Console is the command used to connect to your instance using 
+`Mongo's command line tool 
+<http://docs.mongodb.org/manual/reference/program/mongo/#bin.mongo>`. 
+This information can also be retrieved at any time on the database dashboard.
+
+More Documentation
+---------
+
+- `MongoDB specific docs <https://modulus.io/codex/database>`
+
+- `Modulus docs <http://modulus.io/codex>`
+
+
+Help
+------------
+Modulus has a ton a methods to get help. We always recommend jumping in IRC 
+as a great first step.
+
+- #modulus on irc.freenode.net`IRC <http://irc-5518.onmodulus.net/>`
+
+-  `Email <mailto:help@modulus.io>`
+
+- `@OnModulus on Twitter <http://www.twitter.com/OnModulus>`
