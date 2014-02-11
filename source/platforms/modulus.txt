@@ -48,12 +48,50 @@ If you have any questions check out the `documentation first
 <https://modulus.io/codex/cli/using_the_cli>` and that doesn't get you 
 there `contact us <https://modulus.io/contact>`.
 
+Now make sure you're logged in.
+
+.. code-block:: sh
+
+   modulus login
+
+Once logged in you're ready to go.
+
 Create a Database
 -----------------------
 
 It's very simple to create a database on Modulus.
 
-At the moment, databases can only be created through the web interface. 
+A couple commands and you're off and running.
+
+.. code-block:: sh
+
+   modulus mongo create "Database Name"
+   Welcome to Modulus
+   You are logged in as spiderman
+   Creating MongoDB database Database Name
+   [√] New MongoDB database Database Name created.
+   Database available at: noveda.modulusmongo.net:27017/xxxxxxx
+
+With the database created, a user needs created.
+
+.. code-block:: sh
+
+   Welcome to Modulus
+   You are logged in as spiderman
+   [?] Are you sure you want to use database Database Name? (yes)
+   Selected MongoDB database Database Name.
+   [?] Enter username: johnny
+   [?] Enter password: five
+   [?] Read only permissions? (yes) no
+   [✓] New MongoDB database user johnny created.
+
+The full mongo uri in this case is then.
+
+.. code-block:: sh
+
+   mongodb://johnny:five@noveda.modulusmongo.net:27017/xxxxxxx
+
+Databases can, also, be created through the web interface. 
 Navigate to your User dashboard and select the Databases tab on the left.
 
 To create a new database, click the "Create Database" button.
