@@ -94,11 +94,11 @@ The full mongo uri in this case is then.
 Databases can also be created through the web interface. 
 Navigate to your User dashboard and select the Databases tab on the left.
 
-To create a new database, click the "Create Database" button.
+To create a new database click the "Create Database" button.
 
 .. image:: /images/modulus_mongo_create_dialog.png
 
-On this dialog, enter the desired label of the database. This name is simply 
+On this dialog enter the desired label of the database. This name is simply 
 a convenience label and is not the actual name of the database within Mongo. 
 Actual database names are created automatically by Modulus. You can 
 optionally create a read/write user at this stage. If you do not create a 
