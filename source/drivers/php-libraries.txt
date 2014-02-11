@@ -177,6 +177,12 @@ ActiveRecord-like support for MongoDB in Yii. It originally started as
 a fork of MongoRecord extension to fix some major bugs and to add full
 featured suite for MongoDB developers.
 
+Yii2
+~~~
+
+Yii2 framework has an `extension <https://github.com/yiisoft/yii2/tree/master/extensions/mongodb>`_
+for MongoDB integration and innteraction.
+
 Zend Framework
 ~~~~~~~~~~~~~~
 
