@@ -23,7 +23,7 @@ plans, contact `sales <mailto:sales@modulus.io>`.
 
 By providing both a place to run Node.js applications and MongoDB databases 
 Modulus gives you a single place to handle all your platform needs. 
-This means faster connections between your application and database and 
+This means faster connections between your application and database, and 
 less headache managing. This doesn't mean that you have to run your 
 application on Modulus, you can choose any application platform you'd like.
 
@@ -91,7 +91,7 @@ The full mongo uri in this case is then.
 
    mongodb://johnny:five@noveda.modulusmongo.net:27017/xxxxxxx
 
-Databases can, also, be created through the web interface. 
+Databases can also be created through the web interface. 
 Navigate to your User dashboard and select the Databases tab on the left.
 
 To create a new database, click the "Create Database" button.
