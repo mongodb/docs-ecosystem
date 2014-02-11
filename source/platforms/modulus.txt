@@ -18,7 +18,7 @@ tools to create databases, create and update users, and see in
 real-time how the database is performing.
 
 Modulus supports replica sets on dedicated plans. This includes the ablity for 
-Meteor users to have access to the oplog. To find our more about dedicated 
+Meteor users to have access to the oplog. To find out more about our dedicated 
 plans, contact `sales <mailto:sales@modulus.io>`.
 
 By providing both a place to run Node.js applications and MongoDB databases 
