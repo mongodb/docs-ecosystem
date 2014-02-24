@@ -181,6 +181,14 @@ To use a custom version of boost installed to ``/dev/boost``, use the
 
    scons --prefix=$HOME/mongo-client-install --full --use-system-boost --extrapath=/dev/boost install-mongoclient
 
+To use a custom version of boost installed to ``/dev/boost`` and also build a shared library version of the driver,
+you may have to add ``--extralib=boost_system`` and ``--extrapathdyn`` options:
+
+.. code-block:: javascript
+
+   scons --prefix=$HOME/mongo-client-install --full --use-system-boost --extrapath=/dev/boost --extralib=boost_system \
+         --extrapathdyn=/dev/boost --sharedclient install-mongoclient
+
 To build a version of the library with debugging enabled, use
 ``--dbg=on``. This turns off optimization, which is ``on`` by default. To
 enable both debugging and optimization, pass ``--dbg=on --opt=on``:
