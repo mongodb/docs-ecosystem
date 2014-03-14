@@ -70,9 +70,7 @@ See :ref:`BSON examples in the Getting Started guide <getting-started-bson-examp
 Standalone Usage
 ~~~~~~~~~~~~~~~~
 
-You can use the C++ BSON library without MongoDB. Most BSON methods
-under the ``bson/`` directory are header-only. They require ``boost``, but
-headers only.
+You can use the C++ BSON library without MongoDB by including the mongo/bson/bson.h header.
 
 See the `bsondemo.cpp example at github.com <https://github.com/mongodb/mongo/blob/master/src/mongo/bson/bsondemo/bsondemo.cpp>`_
 
