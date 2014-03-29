@@ -328,6 +328,13 @@ Mongodm
 - `Mongodm <https://github.com/purekid/mongodm>`_ is a simple and
   flexible PHP MongoDB ORM that includes support for references (lazy
   loading,) and multilevel inheritance.
+  
+
+PHPMongo
+~~~~~~~~
+
+- `PHPMongo <https://github.com/sokil/php-mongo>`_ is a ODM with support 
+  of validating, relations, events and behaviors. 
 
 Blogs & HOWTOs
 --------------
