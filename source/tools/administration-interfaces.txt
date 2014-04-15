@@ -406,15 +406,22 @@ Database Master
 
 - `Database Master from Nucleon Software <http://www.nucleonsoftware.com/>`_
 
-.. REMOVED THIS TEXT:
-   Seems to be written in .net for windows (windows installer).
+Database Master is a modern, powerful, intuitive and easy to use MongoDB, 
+NuoDB, Oracle, MySQL, PostgreSQL, FireBird, SQLite, SQL Server, SQL Azure, IBM DB2, IBM Informix, 
+Netezza, Ingres administration and management software with a consistent and modern interface.
 
-Features:
+Main Features:
 
-- Tree view for dbs and collections
-- Create/Drop indexes
-- Server/DB stats
-- Support RDBMS (MySQL, postgres, ...)
+- Provides Database, Collection, Index, GridFS Manager
+- Supports JSON Query, Map&Reduce Editor and LINQ to MongoDB Query
+- Table and Tree style data view for Collections.
+- Provides advanced data editing for MongoDB.
+- Provides Data Export to MS Excel, Word, PDF, Image, CSV and other file formats...
+- Provides Data Import from XML and CSV Files
+- Provides Data Import from other RDBMS
+- Server/DB Stats and Reports
+- Provides User Management for MongoDB
+- Support ODBC, OleDB and other RDBMS (MySQL, Postgres, Oracle, SQLServer, DB2, Informix, SQLite, FireBird, NuoDB...)
 
 .. image:: /images/admin-uis-DatabaseMasterMainView.gif
 
