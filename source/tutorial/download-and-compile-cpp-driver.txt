@@ -37,7 +37,7 @@ part of the MongoDB source code.
    For additional details, please see the blog post describing the reasons
    for migrating to this new repository:
    `<http://blog.mongodb.org/post/78478565493/upcoming-changes-to-the-mongodb-cpp-driver>`_.
-   The build instructions listed below should work without modifcation for
+   The build instructions listed below should work without modification for
    the sources in the new repository.
    
 Building the Driver
