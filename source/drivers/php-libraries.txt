@@ -94,6 +94,10 @@ Laravel Framework
   <https://github.com/boparaiamrit/Laravel-Mandango>`_: An ODM for
   MongoDB, that integrates with the `Laravel <http://laravel.com>`_
   PHP Framework.
+  
+  - `MongoLid Laravel
+  <https://github.com/leroy-merlin-br/mongolid-laravel>`_: Easy, powerful and ultrafast MongoDB ODM for `Laravel <http://laravel.com>`_
+  Framework.
 
 Symfony 2
 ~~~~~~~~~
