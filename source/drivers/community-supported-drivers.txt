@@ -48,6 +48,10 @@ Community Supported Drivers
 
 - Delphi
 
+  - `Alcinoe TALMongoClient
+    <https://sourceforge.net/projects/alcinoe/>`_ - A Delphi 
+    component (with connection pool) to access a mongoDB server
+
   - `mongo-delphi-driver
     <https://github.com/gerald-lindsly/mongo-delphi-driver>`_ - Full
     featured Delphi interface to MongoDB built on top of the
