@@ -181,7 +181,7 @@ Yii2
 ~~~
 
 Yii2 framework has an `extension <https://github.com/yiisoft/yii2/tree/master/extensions/mongodb>`_
-for MongoDB integration and innteraction.
+for MongoDB integration and interaction.
 
 Zend Framework
 ~~~~~~~~~~~~~~
