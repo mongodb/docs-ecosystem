@@ -168,9 +168,23 @@ Install the Flask_ extension and add the configuration. Update
    if __name__ == '__main__':
        app.run()
 
+To connect to a `MongoHQ`_ database, for example, you could add the 
+following keys to the `app.config` dictionary:
+       
+.. code-block:: python
+
+   app.config["MONGODB_DB"] = "my_tumble_log"
+   app.config["MONGODB_USERNAME"] = "mrtumble"
+   app.config["MONGODB_PASSWORD"] = "mypassword"
+   app.config["MONGODB_PORT"] = 10046
+   app.config["MONGODB_HOST"] = "mongodb://%(MONGODB_USERNAME)s:%(MONGODB_PASSWORD)s@oceanic.mongohq.com:%(MONGODB_PORT)s/%(MONGODB_DB)s" % app.config
+
+The final `app.config["MONGODB_HOST"]` string should match the `Mongo URI` string under `Databases->(your database)->Admin->Overview`.
+
 .. seealso:: The `MongoEngine Settings`_ documentation for
    additional configuration options.
 
+   .. _MongoHQ: http://www.mongohq.com/
    .. _`MongoEngine Settings`: http://readthedocs.org/docs/mongoengine-odm/en/latest/guide/connecting.html
 
 Define the Schema
@@ -344,7 +358,7 @@ file:
       <head>
         <meta charset="utf-8">
         <title>My Tumblelog</title>
-        <link href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.css" rel="stylesheet">
+        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
         <style>.content {padding-top: 80px;}</style>
       </head>
 
@@ -992,7 +1006,7 @@ drop down menu in the toolbar:
 
    {% block js_footer %}
      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-     <script src="http://twitter.github.com/bootstrap/1.4.0/bootstrap-dropdown.js"></script>
+     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
    {% endblock %}
 
 
