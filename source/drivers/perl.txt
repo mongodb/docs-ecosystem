@@ -63,6 +63,8 @@ The Perl driver requires some libraries available in CPAN. As of September,
    Moose
    Tie::IxHash
    XSLoader
+   Config::AutoConf
+   Devel::Size
 
 In order to install the dependencies, first copy the names of the
 packages into a text file, packages.txt. Then run the following:
