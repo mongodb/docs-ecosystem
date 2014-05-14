@@ -65,6 +65,13 @@ Community Supported Drivers
     <https://sourceforge.net/projects/alcinoe/>`_ - A Delphi
     component suite that includes support for MongoDB
 
+  - `SynMongoDB
+    <https://github.com/synopse/mORMot/blob/master/SynMongoDB.pas>`_ - 
+    Unit for `high-speed direct access to MongoDB
+    <http://blog.synopse.info/post/2014/05/07/MongoDB-database-access>`_,
+    and with optional `ODM/ORM integration over a RESTful JSON API
+    <http://blog.synopse.info/post/2014/05/07/MongoDB-mORMot-ORM-ODM>`_
+
 - Entity
 
   - `entity driver for mongodb
