@@ -401,6 +401,18 @@ tool that allows you to run MongoDB on the Mac.
 .. image:: https://raw2.github.com/yildizberkay/MongoApp/master/assets/images/MongoAppScreenshot.png
    :width: 600px
 
+Mongoroid
+~~~~~~~~~~~~~~~
+
+- `Github Page <https://github.com/dongri/mongoroid>`_
+
+A web-based user interface for MongoDB build with node js.
+
+.. image:: https://raw.github.com/dongri/mongoroid/master/public/images/demo/collections.png
+.. image:: https://raw.github.com/dongri/mongoroid/master/public/images/demo/query.png
+.. image:: https://raw.github.com/dongri/mongoroid/master/public/images/demo/document.png
+
+
 Commercial Tools
 ----------------
 
