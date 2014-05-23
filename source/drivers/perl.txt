@@ -36,6 +36,7 @@ Meerkat
 ~~~~~~~
 
 `Meerkat <https://metacpan.org/module/Meerkat>`_ lets you manage MongoDB documents
+>>>>>>> Revise Perl ecosystem documents
 as Moose objects. Your objects represent projections of the document state maintained in the database.
 Meerkat is designed for atomic operations that keep client-side objects in sync with
 the database. Created by David Golden.
