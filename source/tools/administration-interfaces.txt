@@ -24,6 +24,23 @@ Tools
 
 Articles about 3rd-Party Admin Tools
 
+PHPmongoDB
+
+    <http://www.phpmongodb.org>
+
+MongoDB Administrator tool on Web,
+
+Main features:
+
+    Easily and freely available on GITHUB
+    User authentication and Password protective
+    UI interface for all queries 
+    Search in UI Interface
+    Delete multiple records in one go
+    User authorization 
+    Readonly mode configurable 
+
+
 MongoDB Management Service
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
