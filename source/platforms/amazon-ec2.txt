@@ -182,8 +182,8 @@ To make this change persistent across system boot you can issue the following co
 
     $ echo 'ACTION=="add", KERNEL=="xvdf", ATTR{bdi/read_ahead_kb}="16"' | sudo tee -a /etc/udev/rules.d/85-ebs.rules
 
-Once again, repeat the above command for all required volumes (note:
-the device we created was named :file:`/dev/xvdf` but the name used by
+Once again, repeat the above command for all required volumes (Note:
+The device we created was named :file:`/dev/xvdf` but the name used by
 the system is :file:`/dev/xvdf`).
 
 To startup MongoDB, issue the following command:
@@ -192,7 +192,9 @@ To startup MongoDB, issue the following command:
 
     $ sudo service mongod start
 
-And now connect to the MongoDB instance using the :program:`mongo` shell:
+And now connect to the MongoDB instance using the :program:`mongo` shell: 
+(Note: The :program:`mongo-10gen-server` package we installed earlier does not include mongo shell. 
+See :manual:`CentOS and Fedora packages </tutorial/install-mongodb-on-red-hat-centos-or-fedora-linux>`)
 
 .. code-block:: sh
 
