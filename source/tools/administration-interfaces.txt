@@ -541,6 +541,20 @@ mongs
 
 - <http://www.whit537.org/mongs/>
 
+
+vulture
+~~~~~~~
+
+Simple yet powerful web user interface to explore mongo's documents.
+
+* filtering collection using regular queries
+* built-in support for geojson indexes
+* basic statistics on numeric fields
+
+<https://bitbucket.org/damyot/vulture>
+
+
+
 Articles about 3rd-Party Admin Tools
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
