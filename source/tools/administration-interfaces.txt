@@ -398,6 +398,29 @@ tool that allows you to run MongoDB on the Mac.
 
 .. image:: https://raw2.github.com/yildizberkay/MongoApp/master/assets/images/MongoAppScreenshot.png
    :width: 600px
+   
+MongoAdmin
+~~~~~~~~~~
+
+`MongoAdmin <http://www.mongoadmin.org>`_ is a ExtJS based web application that can be easly installed on a web server.
+Also, you can download the Windows version and use it as a desktop application.
+
+
+.. image:: http://www.mongoadmin.org/contents/images/presentation-browsing.jpg
+   :width: 600px
+
+Homepage: http://www.mongoadmin.org/
+
+This application has been developed by developers who develop mongo applications to best suit their needs.
+Check out these features:
+- Database and collection browser
+- Dynamic document viewing
+- Syntax coloring
+- Quick query builder
+- Import/export databases
+
+Try it now, for free, it's opened source, and it can be found on `sourceforge <https://sourceforge.net/projects/mongo-web-admin/>`_ too.
+The project is on continous  development so check the latest updates.
 
 Commercial Tools
 ----------------
