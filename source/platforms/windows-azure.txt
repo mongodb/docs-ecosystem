@@ -44,6 +44,8 @@ Cache Preference* ``READ/WRITE``.
 This applies to all Azure deployments, using any guest operating
 system. 
 
+Azure limits the number of disks you may set READ/WRITE, for any one virtual machine, to 4 disks.
+
 If your volumes have inappropriate cache settings, MongoDB may
 eventually shut down with the following error: 
 
