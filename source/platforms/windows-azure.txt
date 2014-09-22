@@ -58,3 +58,12 @@ restart :program:`mongod` at any time following this event.
 
 The performance characteristics of MongoDB may change with
 ``READ/WRITE`` caching enabled.
+
+For all MongoDB deployments using Azure, keep the storage account and virtual machine
+in the same Azure Region. 
+
+Place all data disks, for a given virtual machine, in the same storage account to support Azure's recovery of disks. 
+Azure treats a storage acount as a recovery unit.
+
+If you are implementing multiple virtual machines, distribute them across multiple storage accounts if your VMs exceed 
+the throughput or bandwidth of a single storage account.
