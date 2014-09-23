@@ -38,8 +38,41 @@ Hadoop are currently supported:
 MongoDB
 ~~~~~~~
 
-The latest version of MongoDB should be installed and running. In
-addition, the MongoDB commands should be in your ``$PATH``.
+Install and run the latest version of MongoDB. In
+addition, the MongoDB commands should be in your system search path
+(i.e. ``$PATH``).
+
+If your :program:`mongod` requires authorization, [#auth-required]_ the user account
+used by the Hadoop connector must have the:authaction:`splitVector` privilege.
+   
+To run the examples in this document, use a user 
+that has the :authrole:`clusterManager` role. Add these privileges to
+an existing ``reportsUser`` user with the following operation:
+
+.. code-block:: javascript
+
+   use mongo_hadoop
+
+   db.updateUser( "reportsUser",
+    {
+     roles : [
+              { role: "readWrite", db: "mongo_hadoop" },
+              { role : "clusterManager", db : "admin" }
+             ]
+    }
+   )
+
+In practice, you should create a custom role with appropriate privileges for
+the user account used by the Hadoop connector, as the
+:authrole:`clusterManager` role provides additional privileges. See
+:manual:`User and Role Management Tutorials 
+</administration/security-user-role-management>`. 
+
+.. [#auth-required]_ :program:`mongod` requires clients to
+   authenticate as user when you specify the
+   :setting:`security.authorization` or :setting:`security.keyFile`
+   settings or the corresponding :option:`--auth <mongod --auth>` or
+   :option:`--keyFile <mongod --keyFile>` command line options.
 
 If your :program:`mongod` has authorization enforcement turned on (i.e. is
 running with the option :setting:`--auth` and/or :setting:`--keyFile <file>`
