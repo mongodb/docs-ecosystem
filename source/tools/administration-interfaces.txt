@@ -399,6 +399,39 @@ tool that allows you to run MongoDB on the Mac.
 .. image:: https://raw2.github.com/yildizberkay/MongoApp/master/assets/images/MongoAppScreenshot.png
    :width: 600px
 
+Mongo Management Studio - Community Edition
+~~~~~~~~~
+
+- `Mongo Management Studio Product Page <http://www.litixsoft.de/english/mms>`_
+- `Mongo Management Studio Feature Video <http://youtu.be/a-zRqXCbDTc>`_
+
+Mongo Management Studio is the best way to work with MongoDB the easy way. Because of the clean and
+light user interface, you can execute the typical MongoDB commands fast and effective,
+without using the MongoDB shell. It is suitable to assists your local development and test process
+as well as working with your Mongo databases on remote or production servers. By using a basic but
+strict user and rights management you have full control of the access rights of every single user.
+Of course you are also able to utilize the integrated user management of MongoDB within Mongo Management Studio.
+
+.. image:: http://www.litixsoft.de/wp-content/uploads/sites/4/2014/08/feature-query.png
+   :width: 600px
+
+Features:
+
+- Super simple query interface which supports multiple formats
+- Different result views with paging and sorting
+- MongoDB 2.4 and 2.6 compatible
+- All MongoDB CRUD operations
+- Replica-Set support
+- Manage the Indexes with a neat UI
+- Export / Import your data MongoDB-compliant
+- Supports MongoDB authentication
+- Read only GridFS support
+- Integrated MongoDB-Shell
+- Cross-platform
+- Easy installation
+- Detailed documentation
+
+
 Commercial Tools
 ----------------
 
@@ -531,6 +564,44 @@ Connect to your MongoDB databases directly from your iPhone with
 - GridFS upload and preview (supports images, PDFs, and Office)
 - Remove documents from your collections
 - Handles mongodb:// links so you don't have to type in long connections
+
+Mongo Management Studio - Professional/Enterprise Edition
+~~~~~~~~~
+
+- `Mongo Management Studio Product Page <http://www.litixsoft.de/english/mms>`_
+- `Mongo Management Studio Feature Video <http://youtu.be/a-zRqXCbDTc>`_
+
+Mongo Management Studio is the best way to work with MongoDB the easy way. Because of the clean and
+light user interface, you can execute the typical MongoDB commands fast and effective,
+without using the MongoDB shell. It is suitable to assists your local development and test process
+as well as working with your Mongo databases on remote or production servers. By using a basic but
+strict user and rights management you have full control of the access rights of every single user.
+Of course you are also able to utilize the integrated user management of MongoDB within Mongo Management Studio.
+
+.. image:: http://www.litixsoft.de/wp-content/uploads/sites/4/2014/08/schema.png
+   :width: 600px
+
+Features:
+
+- Super simple query interface which supports multiple formats
+- Different result views with paging and sorting
+- MongoDB 2.4 and 2.6 compatible
+- All MongoDB CRUD operations
+- Aggregation Framework queries
+- Replica-Set support
+- JSON Schema Validation (schema can be edited ans saved)
+- Manage the Indexes with a neat UI
+- Export / Import your data MongoDB-compliant
+- Supports MongoDB authentication
+- Full GridFS support with drag and drop
+- Simple UI for MongoDB User Management
+- Integrated MongoDB-Shell
+- Mobile Ready (Enterprise Edition)
+- Application Level User Management (Enterprise Edition)
+- Commercial Support
+- Cross-platform
+- Easy Installation
+- Detailed documentation
 
 Data Viewers
 ------------
