@@ -454,20 +454,26 @@ it's easy to explore the schema of your MongoDB data:
 
 .. image:: http://media.3tsoftwarelabs.com/mongodb.org/admin-ui-pics/3t-se-ui.png
 
-Database Master
+Nucleon Database Manager
 ~~~~~~~~~~~~~~~
 
-- Database Master from `Nucleon Software <http://www.nucleonsoftware.com/>`_
+`Nucleon Database Manager <http://www.nucleonsoftware.com/>`_ is a modern and powerful MongoDB administration and 
+management software with a consistent and modern interface. Database Manager simplifies managing, querying, editing, 
+visualizing, designing and reporting relational and NoSQL database systems.
 
-.. REMOVED THIS TEXT:
-   Seems to be written in .net for windows (windows installer).
-
-Features:
-
+Main Features:
+- Supports multiple datbase connections
+- JSON and SQL Query Editor for MongoDB
+- Advanced Data Editor for MongoDB
+- GridFS Manager, Map&Reduce Editor, Advanced Data Search
 - Tree view for databases and collections
-- Create/Drop indexes
+- Create/Drop databases, collections and indexes
 - View Server and database statistics
-- Supports RDBMS (MySQL, postgres, ...)
+- View Database reports
+- Database Monitoring for MongoDB and RDBMS
+- Data export to MS Excel, MS Word, XML, HTML, PDF, XPS, OpenOffice, SQLite, MS Access file formats
+- Data import /synchronization from other database systems (RDBMS) and XML files
+- Supports RDBMS (MySQL, NuoDB, PostgreSQL, Oracle, DB2, SQLServer, FireBird, SQLite, Informix, OData, ODBC, OleDB...)
 
 .. image:: /images/admin-uis-DatabaseMasterMainView.gif
 
