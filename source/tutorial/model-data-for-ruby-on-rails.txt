@@ -77,7 +77,7 @@ object as a whole. In the case of a social news site, it can be argued
 that a username is intrinsic to the story being posted.
 
 What about updates to the ``username``? It's true that such updates will be
-expensive; happily, in this case, they'll be rare. The read savings
+expensive; happily, in this case, they'll be rare. The real savings
 achieved in denormalizing will surely outweigh the costs of the
 occasional update. Alas, this is not hard and fast rule: ultimately,
 developers must evaluate their applications for the appropriate level
