@@ -601,6 +601,26 @@ Features:
 - Easy Installation
 - Detailed documentation
 
+NoSQL Manager for MongoDB
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+`NoSQL Manager for MongoDB <http://www.mongodbmanager.com/>`_ is a desktop
+GUI tool for Mongo database management, administration and development.
+It unites user-friendly GUI and Mongo Shell power.
+
+.. image:: http://www.mongodbmanager.com/images/external/mongodbmanager.png
+
+Features:
+
+- Full functional Mongo Shell
+- Easy-to-use document viewer and editor
+- Simple management of all Mongo objects: databases, collections, indices,
+users, roles and functions
+- SSH tunneling for Mongo connections
+- Map-Reduce operations editor
+- File Manager tool to work with GridFS
+- GUI for mongodump and mongorestore MongoDB utilities
+
 Data Viewers
 ------------
 
