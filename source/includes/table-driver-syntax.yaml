@@ -131,36 +131,38 @@ code38: |
 code41: |
          .. code-block:: javascript
 
-            connect("www.example.net")
+            connect("localhost");
 code42: |
          .. code-block:: python
 
-            Connection("www.example.net")
+            MongoClient("mongodb://localhost")
 code43: |
          .. code-block:: php
 
-            new Mongo("www.example.net")
+            new MongoClient("mongodb://localhost");
 code44: |
          .. code-block:: ruby
 
-            MongoClient.new("www.example.net")
+            MongoClient.new("mongodb://localhost")
 code45: |
          .. code-block:: java
 
-            new Mongo("www.example.net", "dbname")
+            MongoClientURI uri = new MongoClientURI("mongodb://localhost");
+            MongoClient client = new MongoClient(uri);
 code46: |
          .. code-block:: cpp
 
             mongo::DBClientConnection conn;
-            conn.connect("www.example.net");
+            conn.connect("mongodb://localhost");
 code47: |
          .. code-block:: csharp 
 
-            var server = MongoServer.Create("mongodb://www.example.net");
+            var client = new MongoClient("mongodb://localhost");
+            var server = client.GetServer();
 code48: |
          .. code-block:: perl 
 
-            MongoDB::Connection->new(host => 'www.example.net')
+            MongoDB::MongoClient->new(host => 'mongodb://localhost')
 code51: |
          .. code-block:: javascript
 
