@@ -70,6 +70,9 @@ POJO Mappers
 - `MongoLink`_
    Object Document Mapper (ODM.) Uses a plain java DSL for mapping declaration.
 
+- `Hibernate OGM`_
+      Persists Java domain models in MongoDB and many other NoSQL stores.
+
 .. _`Morphia - Type-Safe Wrapper with DAO/Datastore abstractions`:
    https://github.com/mongodb/morphia
 
@@ -91,6 +94,8 @@ POJO Mappers
 .. _`Jongo`: http://www.jongo.org/
 
 .. _`MongoLink`: http://www.mongolink.org/
+
+.. _`Hibernate OGM`: http://www.hibernate.org/ogm/
 
 Code Generation
 ~~~~~~~~~~~~~~~
