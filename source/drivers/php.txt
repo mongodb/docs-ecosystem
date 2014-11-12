@@ -46,12 +46,17 @@ See the `installation docs <http://www.php.net/manual/en/mongo.installation.php>
 for configuration information and OS-specific installation instructions.
 
 .. note:: ``pecl`` requires that `pear <http://pear.php.net/>`_
-   be installed. For those using apt-get, you may need to run the
-   following:
+   be installed. For those using Debian based distributions, 
+   you may need to run the following:
 
    .. code-block:: sh
 
       sudo apt-get install php5-dev php5-cli php-pear
+  or on RedHat based distributions
+  
+   .. code-block:: sh
+
+      sudo yum install php5-devel php5-cli php-pear
 
 Windows
 ~~~~~~~
