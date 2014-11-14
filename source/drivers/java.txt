@@ -84,6 +84,9 @@ POJO Mappers
 .. _`Morphium`:
    http://sboesebeck.github.io/morphium/
 
+.. _`Morphium`:
+   http://sboesebeck.github.io/morphium/
+
 .. _`Mungbean (w/clojure support)`:
    http://github.com/jannehietamaki/mungbean
 
