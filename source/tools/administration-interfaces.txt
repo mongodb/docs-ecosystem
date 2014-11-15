@@ -15,7 +15,7 @@ and are listed below. Some are focused on administration, while some
 focus on data viewing.
 
 .. seealso::
-   - `MongoDB Tools <http://mongodb-tools.`_
+   - `MongoDB Tools <http://mongodb-tools.com>`_
    - The `MongoDB Management Service (MMS) <https://mms.mongodb.com>`_.
    - :ref:`The built-in replica set admin UI page <http-interface>`.
 
