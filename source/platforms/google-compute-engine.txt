@@ -88,7 +88,7 @@ instance. The instance will be configured as follows:
 
 - MongoDB 2.4.x installed via Yum
 
-- Individual persistent disks for data, journal, and log
+- One persistent disk for MongoDB data, including journal and log
 
 - Updated read-ahead values for each disk
 
