@@ -2,13 +2,15 @@
 
 .. _erlang-language-center:
 
-======================
-Erlang Language Center
-======================
+========================
+Community: Erlang Driver
+========================
+
+.. important:: Erlang is no longer an officially supported MongoDB Driver. 
 
 .. default-domain:: mongodb
 
-- `Driver Download <https://github.com/mongodb/mongodb-erlang>`_
+- `Driver Download <https://github.com/comtihon/mongodb-erlang>`_
 
 - `API Docs <http://api.mongodb.org/erlang>`_
 
@@ -24,3 +26,5 @@ Third Party Frameworks and Libs
 - `Erlmongo <https://github.com/wpntv/erlmongo/>`_
 
 - `API Documentation for Mongrel <http://mongrelmapper.appspot.com/api/index.html>`_
+
+- `emongo <https://github.com/JacobVorreuter/emongo>`_

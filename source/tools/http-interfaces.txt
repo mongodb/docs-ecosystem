@@ -8,8 +8,39 @@ HTTP Interface
 
 .. default-domain:: mongodb
 
+.. _rest-interface:
+
 REST Interfaces
 ---------------
+
+RESTHeart (Java)
+~~~~~~~~~~~~~~~~
+
+`RESTHeart <http://www.restheart.org>`_ Java REST API server for
+MongoDB, built on top of `Undertow <http://undertow.io>`_ non-blocking
+HTTP server.  License: GNU AFFERO GENERAL PUBLIC LICENSE Version 3.
+
+- CRUD operations API on your data;
+- Data model operations API: create databases, collections, indexes
+  and the data structure;
+- Super easy setup, with convention over configuration approach;
+- Pluggable security with User Management and ACL;
+- `HAL <http://en.wikipedia.org/wiki/Hypertext_Application_Language>`_ hypermedia type;
+- Super lightweight: pipeline architecture, ~6Mb footprint,
+  ~200Mb RAM peek usage, starts in milliseconds;
+- High throughput: very small overhead on MongoDB performance;
+- Horizontally scalable: fully stateless architecture supporting
+  MongoDB replica sets and shards;
+- Built on top of `Undertow <http://undertow.io>`_ non-blocking HTTP server;
+- Embeds the excellent `HAL browser
+  <https://github.com/mikekelly/hal-browser>`_
+  by Mike Kelly (the author of the HAL specifications);
+- Supports `Cross-Origin Resource Sharing
+  <http://www.w3.org/TR/cors/>`_ (CORS) so that your one-page web
+  application can deal with RESTHeart running on a different
+  domain. In other words, CORS is an evolution of `JSONP
+  <http://en.wikipedia.org/wiki/JSONP>`_;
+- Ideal as AngularJS (or any other MVW Javascript framework) back-end.
 
 DrowsyDromedary (Ruby)
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -17,12 +48,20 @@ DrowsyDromedary (Ruby)
 `DrowsyDromedary <https://github.com/zuk/DrowsyDromedary>`_
 is a REST layer for MongoDB based on Ruby.
 
-MongoDB Rest (Node.js)
+Crest (Node.jS)
 ~~~~~~~~~~~~~~~~~~~~~~
 
-`MongoDB Rest <https://github.com/tdegrunt/mongodb-rest>`_
-is an **alpha** REST interface to MongoDB that uses the
-`MongoDB Node Native driver <https://github.com/christkv/node-mongodb-native>`_.
+`Crest <https://github.com/cordazar/crest>`_ is a REST API Server for
+MongoDB built in node.js using the
+`MongoDB Node Native driver
+<https://github.com/christkv/node-mongodb-native>`_.
+
+AMID
+~~~~
+
+`AMID <https://github.com/mariano-fiorentino/amid>`_ is a REST
+interface for MongoDB. Written in Node.js, supports multi-threading
+and a modular architecture to perform custom search operation.
 
 Mongodb Java REST server
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -35,6 +74,12 @@ Kule
 
 `Kule <https://github.com/fatiherikli/kule>`_ is a customizable REST
 interface for MongoDB based on Python.
+
+DreamFactory
+~~~~~~~~~~~~
+
+`DreamFactory <http://www.dreamfactory.com>`_ is an open source backend
+with a REST API for MongoDB. `DreamFactory on GitHub <https://github.com/dreamfactorysoftware>`_.
 
 HTTP Interfaces
 ---------------
@@ -49,8 +94,9 @@ HTTP Console
 ------------
 
 MongoDB provides a simple http interface listing information of interest
-to administrators. This interface may be accessed at the port with
-numeric value 1000 more than the configured :program:`mongod` port. The default
+to administrators. If you enable the interface with the ``--rest``
+option to :program:`mongod`, you may access it via a port that is 
+1000 more than the configured :program:`mongod` port. The default
 port for the http interface is ``28017``. To access the http interface an
 administrator may, for example, point a browser to
 ``http://localhost:28017`` if :program:`mongod` is running with the default port on the
@@ -117,14 +163,14 @@ from another machine.
 Simple REST Interface
 ---------------------
 
-The :program:`mongod` process includes a simple REST interface, with no support for
-insert/update/remove operations, as a convenience – it is generally used
-for monitoring/alerting scripts or administrative tasks. For full REST
-capabilities we recommend using an external tool such as
+The :program:`mongod` process includes a simple REST interface as a convenience. With no support for
+insert, update, or remove operations, it is generally used
+for monitoring, alert scripts, and administrative tasks. For full REST
+capabilities, consider using an external :ref:`REST Interface <rest-interface>` such as
 `Sleepy.Mongoose <http://www.kchodorow.com/blog/2010/02/22/sleepy-mongoose-a-mongodb-rest-interface/>`_.
 
-**v1.4+**: This interface is disabled by default. Use ``--rest`` on the
-command line to enable.
+**v1.4+**: This interface is disabled by default, as it could provide unauthenticated access to data.
+Use ``--rest`` on the command line to enable, but be aware of security implications.
 
 To get the contents of a collection (note the trailing slash):
 
@@ -172,7 +218,7 @@ To count documents in a collection:
 JSON in the simple REST interface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The simple ReST interface uses strict JSON (as opposed to the shell,
+The simple REST interface uses strict JSON (as opposed to the shell,
 which uses Dates, regular expressions, etc.). To display non-JSON types,
 the web interface wraps them in objects and uses the key for the type.
 For example:

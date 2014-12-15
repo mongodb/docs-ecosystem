@@ -12,17 +12,16 @@ import datetime
 project_root = os.path.join(os.path.abspath(os.path.dirname(__file__)))
 sys.path.append(project_root)
 
-from bootstrap import buildsystem
+from giza.config.runtime import RuntimeStateConfig
+from giza.config.helper import fetch_config, get_versions, get_manual_path
+from giza.tools.strings import dot_concat
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), buildsystem, 'sphinxext')))
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), buildsystem, 'bin')))
+conf = fetch_config(RuntimeStateConfig())
+intersphinx_libs = conf.system.files.data.intersphinx
+pdfs = conf.system.files.data.pdfs
+sconf = conf.system.files.data.sphinx_local
 
-from utils import ingest_yaml, ingest_yaml_list
-from docs_meta import get_conf, get_versions, get_manual_path
-
-conf = get_conf()
-pdfs = ingest_yaml_list(os.path.join(conf.build.paths.builddata, 'pdfs.yaml'))
-intersphinx_libs = ingest_yaml_list(os.path.join(conf.build.paths.builddata, 'intersphinx.yaml'))
+sys.path.append(os.path.join(conf.paths.projectroot, conf.paths.buildsystem, 'sphinxext'))
 
 # -- General configuration ----------------------------------------------------
 
@@ -41,20 +40,21 @@ exclude_patterns = []
 
 source_suffix = '.txt'
 
-master_doc = 'contents'
+master_doc = sconf.master_doc
 language = 'en'
-project = u'ecosystem'
-copyright = u'2011-' + str(datetime.date.today().year) + ', MongoDB, Inc.'
+project = sconf.project
+copyright = u'2011-{0}'.format(datetime.date.today().year)
 
-version = '2.2.2'
+version = '2.6.0'
 release = version
 
-BREAK = '\n'
-rst_epilog = ('.. |branch| replace:: ``' + conf.git.branches.current + '``' + BREAK +
-              '.. |copy| unicode:: U+000A9' + BREAK +
-              '.. |year| replace:: ' + str(datetime.date.today().year) + BREAK +
-              '.. |ent-build| replace:: MongoDB Enterprise' + BREAK +
-              '.. |hardlink| replace:: http://docs.mongodb.org/' + conf.git.branches.current)
+rst_epilog = '\n'.join([
+    '.. |branch| replace:: ``{0}``'.format(conf.git.branches.current),
+    '.. |copy| unicode:: U+000A9',
+    '.. |year| replace:: {0}'.format(datetime.date.today().year),
+    '.. |ent-build| replace:: MongoDB Enterprise',
+    '.. |hardlink| replace:: http://docs.mongodb.org/ecosystem/'
+])
 
 extlinks = {
     'issue': ('https://jira.mongodb.org/browse/%s', '' ),
@@ -70,8 +70,18 @@ extlinks = {
 }
 
 intersphinx_mapping = {}
-for i in intersphinx_libs:
-    intersphinx_mapping[i['name']] = ( i['url'], os.path.join('..', '..', i['path']))
+
+try:
+    for i in intersphinx_libs:
+        intersphinx_mapping[i['name']] = ( i['url'], os.path.join(conf.paths.projectroot,
+                                                              conf.paths.output,
+                                                              i['path']))
+except:
+    for i in intersphinx_libs:
+        intersphinx_mapping[i.name] = ( i.url, os.path.join(conf.paths.projectroot,
+                                                              conf.paths.output,
+                                                              i.path))
+
 
 languages = [
     ("ar", "Arabic"),
@@ -96,9 +106,9 @@ languages = [
 
 # -- Options for HTML output ---------------------------------------------------
 
-html_theme = 'ecosystem'
-html_theme_path = [ os.path.join(buildsystem, 'themes') ]
-html_title = "MongoDB Ecosystem"
+html_theme = sconf.theme.name
+html_theme_path = [ os.path.join(conf.paths.buildsystem, 'themes') ]
+html_title = conf.project.title
 htmlhelp_basename = 'MongoDBdoc'
 
 html_logo = ".static/logo-mongodb.png"
@@ -114,6 +124,8 @@ html_show_sourcelink = False
 html_show_sphinx = True
 html_show_copyright = True
 
+manual_edition_path = '{0}/{1}/{2}.{3}'
+
 html_theme_options = {
     'branch': conf.git.branches.current,
     'translations': languages,
@@ -121,24 +133,31 @@ html_theme_options = {
     'manual_path': "ecosystem",
     'repo_name': 'docs-ecosystem',
     'jira_project': 'DOCS',
-    'google_analytics': 'UA-7301842-8',
-    'project': 'ecosystem',
+    'google_analytics': sconf.theme.google_analytics,
+    'project': sconf.project,
+    'epubpath': manual_edition_path.format(conf.project.url,
+                                           conf.project.basepath,
+                                           'mongodb-ecosystem', 'epub'),
+    'pdfpath': manual_edition_path.format(conf.project.url,
+                                          conf.project.basepath,
+                                          'MongoDB-Ecosystem-guide', 'pdf'),
+    'nav_excluded': sconf.theme.nav_excluded,
 }
 
-html_sidebars = {
-    '**': ['pagenav.html'],
-}
+html_sidebars = sconf.sidebars
 
-# html_sidebars['**'].append('intrasites.html')
-# html_sidebars['**'].append('translations.html')
-# html_sidebars['**'].append('resources.html')
 
 # -- Options for LaTeX output --------------------------------------------------
 
 latex_documents = []
-for pdf in pdfs:
-    _latex_document = ( pdf['source'], pdf['output'], pdf['title'], pdf['author'], pdf['class'])
-    latex_documents.append( _latex_document )
+try:
+    for pdf in pdfs:
+        _latex_document = ( pdf['source'], pdf['output'], pdf['title'], pdf['author'], pdf['class'])
+        latex_documents.append( _latex_document )
+except:
+    for pdf in pdfs:
+        _latex_document = (pdf.source, pdf.output, pdf.title, pdf.author, pdf.doc_class)
+        latex_documents.append( _latex_document )
 
 latex_elements = {
     'preamble': '\DeclareUnicodeCharacter{FF04}{\$} \DeclareUnicodeCharacter{FF0E}{.} \PassOptionsToPackage{hyphens}{url}',
@@ -157,9 +176,9 @@ latex_appendices = []
 # -- Options for Epub output ---------------------------------------------------
 
 # Bibliographic Dublin Core info.
-epub_title = u'MongoDB'
+epub_title = conf.project.title
 epub_author = u'MongoDB Documentation Project'
-epub_publisher = u'MongoDB Documentation Project'
+epub_publisher = u'MongoDB, Inc.'
 epub_copyright = copyright
 epub_theme = 'epub_mongodb'
 epub_tocdup = True

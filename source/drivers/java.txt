@@ -2,9 +2,9 @@
 
 .. _java-language-center:
 
-====================
-Java Language Center
-====================
+===================
+Java MongoDB Driver
+===================
 
 .. default-domain:: mongodb
 
@@ -20,7 +20,7 @@ Basics
 
 - `API Documentation <http://api.mongodb.org/java/index.html>`_
 
-- `Release Notes <https://github.com/mongodb/mongo-java-driver/wiki/Release-Notes>`_
+- `Release Notes <https://github.com/mongodb/mongo-java-driver/releases>`_
 
 Specific Topics and How-To
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -36,13 +36,18 @@ Specific Topics and How-To
 - :ref:`Read Preferences and Tagging
   <java-driver-read-preferences-and-tagging>`
 
-Third Party Frameworks and Libs
--------------------------------
+Third Party Frameworks and Libraries
+------------------------------------
 
 POJO Mappers
 ~~~~~~~~~~~~
 
 - `Morphia - Type-Safe Wrapper with DAO/Datastore abstractions`_
+
+- `Morphium`_
+      feature rich POJO Mapper
+      including features like declarative caching, cluster awareness, validation, partial updates
+      supports aggregation framwork
 
 - `Mungbean (w/clojure support)`_
 
@@ -56,7 +61,7 @@ POJO Mappers
 - `lib-mongomapper`_
       JavaBean Mapper (No annotations)
 
-- `mongo-jackson-mapper`_
+- `MongoJack`_
       Uses jackson (annotations) to map to/from POJOs and has a simple
       wrapper around ``DBCollection`` to simply this.
 
@@ -64,14 +69,20 @@ POJO Mappers
       JPA compliant ORM. Works with multiple datastores.
 
 - `Jongo`_
-   Query in Java as in :program:`mongo` shell (using strings),
-   unmarshall results into Java objects (using Jackson)
+      Query in Java as in :program:`mongo` shell (using strings),
+      unmarshall results into Java objects (using Jackson)
 
 - `MongoLink`_
-   Object Document Mapper (ODM.) Uses a plain java DSL for mapping declaration.
+      Object Document Mapper (ODM.) Uses a plain java DSL for mapping declaration.
+
+- `Hibernate OGM <http://www.hibernate.org/ogm/>`_
+      Provides Java Persistence support for MongoDB.
 
 .. _`Morphia - Type-Safe Wrapper with DAO/Datastore abstractions`:
-   http://code.google.com/p/morphia/
+   https://github.com/mongodb/morphia
+
+.. _`Morphium`:
+   http://sboesebeck.github.io/morphium/
 
 .. _`Mungbean (w/clojure support)`:
    http://github.com/jannehietamaki/mungbean
@@ -83,14 +94,14 @@ POJO Mappers
 
 .. _`lib-mongomapper`: https://github.com/dadastream/lib-mongomapper
 
-.. _`mongo-jackson-mapper`:
-   https://github.com/vznet/mongo-jackson-mapper
+.. _`MongoJack`:
+   http://mongojack.org/
 
 .. _`Kundera`: http://kundera.googlecode.com
 
 .. _`Jongo`: http://www.jongo.org/
 
-.. _`MongoLink`: http://www.mongolink.org/
+.. _`MongoLink`: http://mongolink.org/
 
 Code Generation
 ~~~~~~~~~~~~~~~
@@ -115,16 +126,15 @@ Misc
 - `mongo-queue-java <https://github.com/gaillard/mongo-queue-java>`_
       Java message queue using MongoDB as a backend.
 
-- `MongoDB Asynchronous Java Driver`_
-     This driver has been created to ensure maximum utilization of
-     resources on the client, in the network, on the server, and in the
-     developer's IDE.
+- `mongo-java-logging`_
+     a Java logging handler
 
 - `log4mongo`_
      a log4j appender
 
-- `mongo-java-logging`_
-     a Java logging handler
+- `MongoDB Asynchronous Java Driver`_
+
+- `JDBC Driver for MongoDB`_
 
 * `(Experimental, Type4) JDBC driver`_
 
@@ -138,6 +148,9 @@ Misc
 .. _`log4mongo`: http://code.google.com/p/log4mongo/
 
 .. _`mongo-java-logging`: https://github.com/deftlabs/mongo-java-logging
+
+.. _`JDBC Driver for MongoDB`:
+   http://www.unityjdbc.com/mongojdbc/
 
 .. _`(Experimental, Type4) JDBC driver`:
    http://github.com/erh/mongo-jdbc
@@ -164,8 +177,6 @@ Groovy
 
 - `Groovy Tutorial for MongoDB
   <http://asrijaffar.blogspot.com/2009/08/groovy-tutorial-for-mongodb.html>`_
-
-- `MongoDB made more Groovy <http://jameswilliams.be/blog/entry/165>`_
 
 - `GMongo, a Groovy wrapper to the MongoDB Java driver
   <http://github.com/poiati/gmongo>`_
@@ -202,25 +213,16 @@ list and we'll add it.
 Hadoop
 ------
 
-- :ref:`hadoop-connector`
+:ref:`hadoop-connector`
 
-Presentations
+Documentation
 -------------
 
-- `Building a Mongo DSL in Scala at Hot Potato`_
-      Lincoln Hochberg's Presentation from MongoSF (April 2010)
+.. toctree::
+   :titlesonly:
 
-- `Java Development  MongoNYC (May 2010) <http://blip.tv/file/3701248>`_
-      Brendan McAdams' Presentation from MongoNYC (May 2010)
-
-- `Java Development MongoSF (April 2010) <http://blip.tv/file/3595830>`_
-      James Williams' Presentation from MongoSF (April 2010)
-
-- `Using MongoDB with Scala`_
-      Brendan McAdams' Presentation at the New York Scala Enthusiasts (August 2010)
-
-.. _`Building a Mongo DSL in Scala at Hot Potato`:
-   http://blip.tv/file/3596243
-
-.. _`Using MongoDB with Scala`:
-   http://code.technically.us/post/942542158/brendan-mcadams-gives-an-introduction-to-mongodb
+   /tutorial/getting-started-with-java-driver
+   /drivers/java-types
+   /drivers/java-concurrency
+   /drivers/java-replica-set-semantics
+   /tutorial/use-aggregation-framework-with-java-driver

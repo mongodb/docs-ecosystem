@@ -20,6 +20,17 @@ Munin is made up of two components:
 - The server, which polls the agents and creates the basic web pages and
   graphs to visualize the data
 
+Requirements
+------------
+
+The Munin plugin only supports Python 2.x. You cannot use Munin with
+Python 3.x.
+
+The Munin plugin must be able to access a :program:`mongod` instances
+that is running with the :option:`--rest <mongod --rest>` option. You
+must configure the ``mongo-munin`` plugin to access this interface on
+the default REST API port, ``28017``.
+
 Install
 -------
 
@@ -107,13 +118,13 @@ In the configuration:
 
 - ``address`` is the IP address of the node where the agent is running.
 
-- ``use_node_name`` determines whether the IP or the name between ``[]``
-  is used to contact the agent.
+- ``use_node_name`` determines whether the name between ``[]`` (``no``) or
+  the name reported by the node (``yes``) is used to fetch node data.
 
 MongoDB Munin Plugin
 --------------------
 
-A `plugin <https://github.com/erh/mongo-munin>`_ is available that
+A `plugin <https://github.com/comerford/mongo-munin>`_ is available that
 provide metrics for:
 
 - B-Tree stats
@@ -126,9 +137,9 @@ running:
 
 .. code-block:: sh
 
-   shell> wget http://github.com/erh/mongo-munin/tarball/master
-   shell> tar xvf erh-mongo-munin-*tar.gz
-   shell> cp erh-mongo-munin-*/mongo_* /etc/munin/plugins/
+   shell> wget http://github.com/comerford/mongo-munin/tarball/master
+   shell> tar xvf comerford-mongo-munin-*tar.gz
+   shell> cp comerford-mongo-munin-*/mongo_* /etc/munin/plugins/
 
 Check your setup
 ----------------

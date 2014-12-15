@@ -1,0 +1,107 @@
+from: '/tutorial/install-mongodb-on-amazon-ec2'
+to: '/platforms/amazon-ec2'
+type: 'redirect'
+code: 301
+outputs:
+  - 'ecosystem'
+---
+from: '/tutorial/automate-deployment-with-cloudformation'
+to: '/platforms/amazon-ec2'
+type: 'redirect'
+code: 301
+outputs:
+  - 'ecosystem'
+---
+from: '/tutorial/deploy-mongodb-from-aws-marketplace'
+to: '/platforms/amazon-ec2'
+type: 'redirect'
+code: 301
+outputs:
+  - 'ecosystem'
+---
+from: '/tutorial/install-mongodb-on-windows-azure'
+to: '/platforms/windows-azure'
+type: 'redirect'
+code: 301
+outputs:
+  - 'ecosystem'
+---
+from: '/tutorials'
+to: '/tutorial'
+type: 'redirect'
+code: 303
+outputs:
+  - 'ecosystem'
+---
+from: /drivers/javascript
+to: /drivers/node-js
+code: 303
+outputs: ['ecosystem']
+type: redirect
+---
+from: '/tutorial/download-and-compile-cpp-driver'
+to: '/Download%20and%20Compile'
+code: 303
+external: 'https://github.com/mongodb/mongo-cxx-driver/wiki'
+outputs: ['ecosystem']
+---
+from: '/tutorial/getting-started-with-cpp-driver'
+to: '/blob/legacy/README.md'
+code: 303
+external: 'https://github.com/mongodb/mongo-cxx-driver'
+outputs: ['ecosystem']
+---
+from: '/drivers/cpp-bson-array-examples'
+to: '/blob/legacy/src/mongo/client/examples/arrayExample.cpp'
+code: 303
+external: 'https://github.com/mongodb/mongo-cxx-driver'
+outputs: ['ecosystem']
+---
+from: "/drivers/cpp-bson-helper-functions"
+to: "/BSON%20Helper%20Functions"
+code: 303
+external: 'https://github.com/mongodb/mongo-cxx-driver/wiki'
+outputs: ['ecosystem']
+---
+from: '/tutorial/'
+to: '/platforms/windows-azure'
+type: 'redirect'
+code: 301
+outputs:
+  - 'ecosystem'
+---
+from: '/tutorial/configure-worker-roles-in-azure'
+to: '/platforms/windows-azure'
+type: 'redirect'b
+code: 301
+outputs:
+  - 'ecosystem'
+---
+from: '/tutorial/deploy-mongodb-worker-roles-in-azure-version-1-6'
+to: '/platforms/windows-azure'
+type: 'redirect'
+code: 301
+outputs:
+  - 'ecosystem'
+---
+from: '/tutorial/deploy-mongodb-worker-roles-in-azure'
+to: '/platforms/windows-azure'
+type: 'redirect'
+code: 301
+outputs:
+  - 'ecosystem'
+---
+from: '/tutorial/build-an-application-to-connect-to-mongodb-on-azure'
+to: '/platforms/windows-azure'
+type: 'redirect'
+code: 301
+outputs:
+  - 'ecosystem'
+---
+from:  /tutorial/use-java-dbobject-to-perform-saves
+to: /drivers/java
+type: 'redirect'
+code: 301
+outputs:
+  - 'ecosystem'
+...

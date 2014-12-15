@@ -1,0 +1,26 @@
+fr:
+  inherit: base
+es:
+  inherit: base
+ja:
+  inherit: base
+zh:
+  inherit: base
+it:
+  inherit: base
+base:
+  links:
+    - { 'manual': 'master' }
+    - { 'v2.6': 'manual' }
+  targets:
+    - latex
+    - json
+    - html
+    - dirhtml
+    - singlehtml
+    - epub
+  doc-root:
+    - ''
+    - '.htaccess'
+  branch-root: null
+...

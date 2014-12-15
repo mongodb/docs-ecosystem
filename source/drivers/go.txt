@@ -1,6 +1,6 @@
-==================
-Go Language Center
-==================
+==========================
+Community: Go Driver (mgo)
+==========================
 
 `mgo <http://labix.org/mgo>`_ is a Go driver for MongoDB.
 
