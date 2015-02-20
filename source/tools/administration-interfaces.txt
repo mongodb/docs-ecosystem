@@ -414,16 +414,16 @@ Third-Party Commercial Tools
 
 - <http://3t.io/data-compare/>
 
-3T Data Compare is a multi-platform data comparison tool for MongoDB,
-and includes the following features:
+3T Data Compare is a MongoDB data comparison tool for ``Mac``, ``Windows``, and ``Linux``.
+Full support for ``MongoDB 2.4``, ``MongoDB 2.6``, and ``MongoDB 3.0``.
 
-- Graphical side-by-side comparisons make it straightforward to understand the differences in your data.
-- Easily visualise comparison results to help identify how critical data differs across environments.
-- Highlight what new data and changes are required between different deployments of your systems.
-- Examine which changes have occurred between current databases and previous backups.
-- Quickly solve data-related setup problems in new deployments.
-- Easily diagnose configuration problems in development, testing and production systems.
-- Multi-platform: Mac OS X, Windows, Linux.
+- Graphical side-by-side comparisons make it straightforward to understand the differences in your data
+- Easily visualise comparison results to help identify how critical data differs across environments
+- Highlight what new data and changes are required between different deployments of your systems
+- Examine which changes have occurred between current databases and previous backups
+- Quickly solve data-related setup problems in new deployments
+- Easily diagnose configuration problems in development, testing and production systems
+- Actively maintained with frequent updates
 
 .. image:: http://media.3t.io/mongodb.org/admin-ui-pics/3t-dcas-ui.png
 
@@ -432,17 +432,21 @@ and includes the following features:
 
 - <http://3t.io/mongochef/>
 
-3T MongoChef is a multi-platform, in-place data browser and editor,
-and includes the following features:
+3T MongoChef is a MongoDB GUI for ``Mac``, ``Windows``, and ``Linux``.
+Full support for ``MongoDB 2.4``, ``MongoDB 2.6``, and ``MongoDB 3.0``.
 
-- Edit any MongoDB data type directly in a tree-view, table-view or in a lossless JSON editor.
-- Edit complex structures such as embedded documents or arrays-in-arrays-in-embedded-documents in both a tree-view or table-view effortlessly.
-- See live evaluation of your data as you type (very handy for data types such as Date, Timestamp, etc).
-- Seamlessly step into embedded objects, either for all documents simultaneously or for just individual documents.
-- Build JSON queries with simple drag-and-drop.
-- Copy & paste documents across databases and collections.
-- Import & export documents from and to different databases, collections, and JSON files.
-- Multi-platform: Mac OS X, Windows, Linux.
+- ``In-place editing`` inside your tree-view, table-view or in a lossless JSON editor
+- See live evaluation of your data as you type (very handy for data types such as Date, Timestamp, etc)
+- Seamlessly step into embedded objects, either for all documents simultaneously or for just individual documents
+- Visual ``query builder`` to easily build even the most complex MongoDB queries
+- Visual ``index management``
+- Visual ``user & role management``
+- ``GridFS`` with drag-and-drop
+- Full-blown ``power shell`` with superb ``auto-completion``
+- ``Copy & paste collections`` and  documents across servers and databases
+- ``Import & export`` documents from and to different databases, collections, JSON, and CSV files
+- actively maintained with frequent updates
+- and many, many more
 
 .. image:: http://media.3t.io/mongodb.org/admin-ui-pics/3t-dm-ui.png
 
@@ -451,17 +455,19 @@ and includes the following features:
 
 - <http://3t.io/schema-explorer/>
 
-With the multi-platform 3T Schema Explorer, it's easy to explore the schema of your MongoDB data:
+3T Schema Explorer is a MongoDB ``schema analysis`` and ``documentation`` GUI tool for ``Mac``, ``Windows``, and ``Linux``.
+Full support for ``MongoDB 2.4``, ``MongoDB 2.6``, and ``MongoDB 3.0``.
 
-- Find structural outliers and anomalies in a single glance.
+- Find structural outliers and anomalies in a single glance
 - Quickly verify the "sanity" of your data. For example:
 
    - Do all documents in my customer collection have an address field?
    - How likely will an embedded address object contain a country code?
    - Do my ``_id`` fields really all contain ``ObjectIDs``? Where do those occasional ``String`` values come from?
 
-- Inspect documents containing certain keys or data types with just one click, all in the same application!
-- Multi-platform: Mac OS X, Windows, Linux.
+- Inspect and edit documents containing certain keys or data types with just one click, all in the same application!
+- Generate detailed schema documentation for ``MS Word``, ``PDF``, ``HTML``, ``JSON``, ``CSV``, and ``plain text``
+- Actively maintained with frequent updates
 
 .. image:: http://media.3t.io/mongodb.org/admin-ui-pics/3t-se-ui.png
 
