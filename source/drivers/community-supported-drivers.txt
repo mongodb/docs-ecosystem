@@ -98,7 +98,9 @@ Community Supported Drivers
 
 - Fantom
 
-  - `<http://bitbucket.org/liamstask/fantomongo/wiki/Home>`_
+  - `afMongo <http://www.fantomfactory.org/pods/afMongo>`_
+
+  - `fantomongo <http://bitbucket.org/liamstask/fantomongo/wiki/Home>`_
 
 - F#
 
