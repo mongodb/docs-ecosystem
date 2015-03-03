@@ -134,16 +134,28 @@ MongoVUE
 
 .. image:: /images/admin-uis-MongoVue.png
 
-NoSQL Manager
-~~~~~~~~~~~~~
 
-- <http://www.nosqlmanager.com/>
+NoSQL Manager for MongoDB
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-MongoDB database administration, management and development.
-It provides a rich set of GUI tools for anyone who uses
-MongoDB including database developers and DBAs.
+- <http://www.mongodbmanager.com/>
 
-.. image:: /images/nosql-mongodb-manager.png
+NoSQL Manager for MongoDB is a desktop GUI tool for Mongo database
+management, administration and development.
+It unites user-friendly GUI and Mongo Shell power.
+
+.. image:: http://www.mongodbmanager.com/images/external/mongodbmanager.png
+
+Features:
+
+- Full functional Mongo Shell
+- Easy-to-use document viewer and editor
+- Simple management of all Mongo objects: databases, collections, indices,
+users, roles and functions
+- SSH tunneling for Mongo connections
+- Map-Reduce operations editor
+- File Manager tool to work with GridFS
+- GUI for mongodump and mongorestore MongoDB utilities
 
 mViewer
 ~~~~~~~
