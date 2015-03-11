@@ -26,6 +26,11 @@ projects supporting MongoDB.
 Applications Using MongoDB
 --------------------------
 
+- `Bussion <http://www.bussion.com/>`_
+
+  Create beautiful & visually appealing dashboards with drilldown and collaboration capabilities. 
+  Bussion can connect any MongoDB and visualizes data within minutes.
+
 - `c5t <http://bitbucket.org/percious/c5t/wiki/Home>`_
 
   Content-management using TurboGears and Mongo
