@@ -51,7 +51,7 @@ Storage Considerations
 GCE offers persistent disk storage to go along with your instances,
 either as a single root volume or with multiple disks attached to an
 instance. GCE's persistent disks (PD) already stripe data across a
-very large number of volumes, shere is no need to do it yourself.
+very large number of volumes, so there is no need to do it yourself.
 MongoDB journal data is small and putting it on its own disk means
 either creating a small disk with insufficient performance or creating
 a large disk that goes mostly unused. Put your MongoDB journal files
