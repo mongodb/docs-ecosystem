@@ -201,6 +201,9 @@ POJO Mappers
 - `Hibernate OGM <http://www.hibernate.org/ogm/>`_
       Provides Java Persistence support for MongoDB.
 
+- `PlayORM`_
+      An object NoSQL mapping solution so you can write POJO’s and let it deal with all the details of marshalling/unmarshalling to MongoDB.
+      
 .. _`Morphia - Type-Safe Wrapper with DAO/Datastore abstractions`:
    https://github.com/mongodb/morphia
 
@@ -221,6 +224,8 @@ POJO Mappers
    http://mongojack.org/
 
 .. _`Kundera`: http://kundera.googlecode.com
+
+.. _`PlayORM`: https://github.com/deanhiller/playorm
 
 .. _`Jongo`: http://www.jongo.org/
 
