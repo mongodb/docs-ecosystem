@@ -93,6 +93,14 @@ Laravel Framework
 MongoDB, that integrates with the `Laravel <http://laravel.com>`_
 PHP Framework.
 
+Ox For Mongo
+~~~~~~~~~~~~~~~~~
+
+- 'Ox For Mongo <https://http://oxformongo.org/>`_:
+  is a lightweight PHP/MongoDB Web development framework, designed
+  to be both flexible and scalable.
+
+
 Symfony 2
 ~~~~~~~~~
 
