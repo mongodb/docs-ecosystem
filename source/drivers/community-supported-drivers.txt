@@ -208,6 +208,10 @@ Community Supported Drivers
 
   - `RMongo for R client <https://github.com/tc/RMongo>`_ - R client to
     interface with MongoDB
+    
+  - `Rpymongo <https://github.com/tc/Rpymongo>`_ - Full
+    featured R interface to MongoDB built on top of the mongodb.org
+    supported :ref:`python driver <pymongo>`
 
 - `REST
   <http://www.snailinaturtleneck.com/blog/2010/02/22/sleepy-mongoose-a-mongodb-rest-interface/>`_
