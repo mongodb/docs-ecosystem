@@ -149,6 +149,8 @@ Community Supported Drivers
   - `NuMongoDB <http://github.com/timburks/NuMongoDB>`_
 
   - `ObjCMongoDB <https://github.com/paulmelnikow/ObjCMongoDB>`_
+  
+  - `MongoObjcDriver <https://github.com/jeromelebel/MongoObjcDriver>`_
 
 - OCaml
 
