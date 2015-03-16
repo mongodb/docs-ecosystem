@@ -542,12 +542,30 @@ is a tool that facilitates data transfer between Oracle
 and MongoDB databases, and includes the following features:
 
 - Intuitive GUI wizard to facilitate data mapping and transfer operation.
-- Support for all Oracle database versions including 8.1.7, 9.0.1, 9.2.0, 10.1.0, 10.2.0, 11.1.0, 11.2.0
-- Support for all MongoDB database versions including 2.0, 2.2
+- Support for all Oracle database versions including 8.1.7, 9.0.1, 9.2.0, 10.1.0, 10.2.0, 11.1.0, 11.2.0, 12.1.0
+- Support for all MongoDB database versions including 2.0, 2.2, 2,4 2.6
 - Support of two-way data transfer between Oracle and MongoDb databases.
 - Supports most data types and performs data type conversions.
 - Support of parallel data transfer operations for optimal performance.
 - Support of loading MongoDb nested collections.
+
+Free NoSQL Viewer for MongoDB
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+`NoSQL Viewer <http://www.spviewer.com/nosqlviewer.html>`_ 
+is a free tool for MongoDB developers with reach set of features supported:
+
+- Full support of all MongoDB versions and other NoSQL databases
+- Convenient GUI framework to query, view, modify NoSQL database data
+- Full support of MongoDB shell syntax and commands
+- Automatically converts SQL statements like SELECT, UPDATE, DELETE to MongoDB shell commands
+- Support of database objects management
+- High-performance data migration between supported NoSQL databases
+- Support of specific query APIs for supported databases
+- Designed for NoSQL database developers, analysts and database administrators
+- An intuitive GUI to access and modify NoSQL data
+- Ability to view, store and modify BLOB binary data of any type in any of supported databases
+- Much more advanced features
 
 
 JSON Studio
