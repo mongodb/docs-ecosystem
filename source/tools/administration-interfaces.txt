@@ -33,6 +33,18 @@ capabilities.
 Third-Party Open-Source Tools
 -----------------------------
 
+mongo-express
+~~~~~~~~~~~~~
+
+`Mongo express <http://www.npmjs.org/package/mongo-express>`_ is an open source web based MongoDB
+admin interface written with Node.js and express.
+
+.. image:: http://raw.githubusercontent.com/andzdroid/mongo-express/master/public/images/mongo-express.png
+
+.. seealso::
+   - `Github source <https://github.com/andzdroid/mongo-express>`_
+   - `NPMjs page <https://www.npmjs.org/package/mongo-express>`_
+
 Edda
 ~~~~
 
