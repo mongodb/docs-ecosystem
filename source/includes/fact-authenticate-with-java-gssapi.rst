@@ -38,11 +38,18 @@ underlying GSSAPI Java libraries can acquire a Kerberos ticket:
    Many authentication problems with GSSAPI/Kerberos occur due to
    mismatches between server realm names. In general, you should
    specify exactly the same hostname as used as the realm name in your
-   Kerberos configuration when creating GSSAPI credentials. If you
-   need to use an IP address instead, ensure that you force
-   canonicalization of the hostname in the ``MongoCredential``:
+   Kerberos configuration when creating GSSAPI credentials.
+
+   You can force canonicalization of the hostname provided to the
+   driver by adding a mechanism property to the GSSAPI
+   ``MongoCredential``, which can be useful if your realm is a
+   fully-qualified domain name and you are using an IP address or
+   alias:
 
    .. code-block:: java
 
       MongoCredential credential = MongoCredential.createGSSAPICredential("user1@MYREALM.ME").withMechanismProperty("CANONICALIZE_HOST_NAME",true);
 
+   You should note, however, that if your deployment is not using
+   secured DNS lookups, it is possible for an attacker to pose as the
+   Kerberos principal you are attempting to communicate with.
