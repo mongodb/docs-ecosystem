@@ -58,6 +58,27 @@ Logs into MongoDB
 <http://docs.fluentd.org/articles/apache-to-mongodb>`_ tutorial for an
 example of this integration.
 
+HumongouS.io
+~~~~~~~~~~~~~
+
+HumongouS.io is a web-based user interface for MongoDB. 
+
+- home page: <http://humongous.io>
+.. image:: http://assets.humongous.io/table.png
+.. image:: http://assets.humongous.io/mobile.png
+.. image:: http://assets.humongous.io/dash.png
+
+Features:
+
+- easy CRUD operations
+- human friendly
+- integrated dashboard
+- works on mobile and tablet
+- supports all recent browsers
+- works for Windows, Linux and OSX
+
+To track progress on twitter: `@humongousio <http://www.twitter.com/humongousio>`_
+
 Fang of Mongo
 ~~~~~~~~~~~~~
 
