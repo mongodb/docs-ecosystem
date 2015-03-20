@@ -87,9 +87,12 @@ Lithium
 Laravel Framework
 ~~~~~~~~~~~~~~~~~
 
-`Laravel Mandango <https://github.com/adamlc/laravel-mandango>`_: An ODM for
+- `Laravel Mandango <https://github.com/adamlc/laravel-mandango>`_: An ODM for
 MongoDB, that integrates with the `Laravel <http://laravel.com>`_
 PHP Framework.
+
+- `Laravel MongoDB <https://github.com/jenssegers/laravel-mongodb>`_: An Eloquent
+model and Query builder with support for MongoDB, using the original Laravel API.
 
 Symfony 2
 ~~~~~~~~~
