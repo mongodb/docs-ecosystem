@@ -11,6 +11,14 @@ Amazon Web Services EC2
    platforms/amazon-ec2
    tutorial/backup-and-restore-mongodb-on-amazon-ec2
 
+DigitalOcean
+---------------
+
+.. toctree::
+   :maxdepth: 1
+
+   platforms/digitalocean
+
 dotCloud
 --------
 
@@ -19,14 +27,6 @@ dotCloud
 
    platforms/dotcloud
 
-Google Compute Engine
----------------------
-
-.. toctree::
-   :maxdepth: 1
-
-   platforms/google-compute-engine
-
 Joyent Cloud
 ------------
 
@@ -34,6 +34,14 @@ Joyent Cloud
    :maxdepth: 1
 
    tutorial/joyent-cloud
+   
+Modulus
+------------
+
+.. toctree::
+   :maxdepth: 1
+
+   platforms/modulus
 
 Rackspace Cloud
 ---------------

@@ -1,5 +1,3 @@
-.. http://www.mongodb.org/display/DOCS/Using+The+Aggregation+Framework+with+The+Java+Driver WRITING-114
-
 .. _java-driver-and-aggregation-framework:
 
 =====================================
@@ -154,7 +152,7 @@ code we’ll use to perform the aggregation task:
    DBObject group = new BasicDBObject("$group", groupFields);
 
    // Finally the $sort operation
-   DBObject sort = new BasicDBObject("$sort", new BasicDBObject("amount", -1));
+   DBObject sort = new BasicDBObject("$sort", new BasicDBObject("average", -1));
 
    // run aggregation
    List<DBObject> pipeline = Arrays.asList(match, project, group, sort);

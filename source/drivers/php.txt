@@ -1,5 +1,3 @@
-.. http://www.mongodb.org/display/DOCS/PHP+Language+Center
-
 .. _php-language-center:
 
 ==================
@@ -45,13 +43,19 @@ effect.
 See the `installation docs <http://www.php.net/manual/en/mongo.installation.php>`_
 for configuration information and OS-specific installation instructions.
 
-.. note:: ``pecl`` requires that `pear <http://pear.php.net/>`_
-   be installed. For those using apt-get, you may need to run the
+.. note:: ``pecl`` requires that `pear <http://pear.php.net/>`_ be
+   installed. For Debian-based distributions, you may need to run the
    following:
 
    .. code-block:: sh
 
       sudo apt-get install php5-dev php5-cli php-pear
+
+   or, for Red Hat-based distributions:
+
+   .. code-block:: sh
+
+      sudo yum install php5-devel php5-cli php-pear
 
 Windows
 ~~~~~~~
@@ -75,6 +79,133 @@ Windows
 
 For more information, see the
 `Windows section of the installation docs <http://us3.php.net/manual/en/mongo.installation.php>`_.
+
+Compatibility
+-------------
+
+.. include:: /includes/compatibility-legend.rst
+
+MongoDB Compatibility
+~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+   :header-rows: 1
+   :class: compatibility
+   
+   * -
+     - 
+     -
+     -
+     - MongoDB Version
+   * -
+     - 
+     - 2.4
+     - 2.6
+     - 3.0
+   * -
+     - ``1.2``
+     - Minor incompatibility
+     - Minor incompatibility
+     - Minor incompatibility
+   * -
+     - ``1.3``
+     - Supported
+     - Minor incompatibility
+     - Minor incompatibility
+   * -
+     - ``1.4``
+     - Supported
+     - Supported
+     - Minor incompatibility
+   * -
+     - ``1.5``
+     - Supported
+     - Supported
+     - Minor incompatibility
+   * -
+     - ``1.6``
+     - Supported
+     - Supported
+     - Supported
+   * - Driver Version
+     - ``phongo``
+     - Supported
+     - Supported
+     - Supported
+
+.. include:: /includes/older-server-versions-unsupported.rst
+
+Language Compatibility
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+  :header-rows: 1
+  :class: compatibility
+
+  * -
+    -
+    -
+    -
+    -
+    -
+    -
+    - Language Version
+  * -
+    - 
+    - 5.2
+    - 5.3
+    - 5.4
+    - 5.5
+    - 5.6
+    - 7.0
+  * -
+    - ``1.2``
+    - Supported
+    - Supported
+    - Supported
+    - Supported
+    - Minor incompatibility
+    - Unsupported
+  * -
+    - ``1.3``
+    - Minor incompatibility
+    - Supported
+    - Supported
+    - Supported
+    - Minor incompatibility
+    - Unsupported
+  * -
+    - ``1.4``
+    - Minor incompatibility
+    - Supported
+    - Supported
+    - Supported
+    - Minor incompatibility
+    - Unsupported
+  * -
+    - ``1.5``
+    - Minor incompatibility
+    - Supported
+    - Supported
+    - Supported
+    - Supported
+    - Unsupported
+  * -
+    - ``1.6``
+    - Unsupported
+    - Supported
+    - Supported
+    - Supported
+    - Supported
+    - Unsupported
+  * - Driver Version
+    - ``phongo``
+    - Unsupported
+    - Minor incompatibility
+    - Supported
+    - Supported
+    - Supported
+    - Unsupported
 
 See Also
 --------

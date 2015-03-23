@@ -1,11 +1,8 @@
-.. http://www.mongodb.org/display/DOCS/Java+Tutorial WRITING-110
-
 .. _getting-started-with-3.0-java-driver:
 
-===============================================
-Getting Started with the 3.0 Java Driver (Beta)
-===============================================
-
+============================================================
+Getting Started with the 3.0 Java Driver (Release Candidate)
+============================================================
 .. default-domain:: mongodb
 
 Introduction
@@ -14,7 +11,8 @@ Introduction
 This page is a brief overview of working with the 3.0 MongoDB Java Driver.
 
 .. note::
-  The 3.0 Java driver is currently in beta.  We are looking for feedback, but please do not use it in production deployments yet.
+   The 3.0 Java driver is currently in beta. We are looking for
+   feedback, but please do not use it in production deployments yet.
 
 For more information about the Java API, please refer to the `online API Documentation for 3.0 Java Driver`_.
 
@@ -27,9 +25,9 @@ See the `Binaries section of the README <https://github.com/mongodb/mongo-java-d
 for instructions on how to include the driver in your project.
 
 .. note::
-  The following code snippets come from the :file:`QuickTour.java` example
-  code that can be found with the
-  `driver source <https://github.com/mongodb/mongo-java-driver/blob/3.0.x/driver/src/examples/tour/QuickTour.java>`_.
+   The following code snippets come from the :file:`QuickTour.java`
+   example code that can be found with the
+   `driver source <https://github.com/mongodb/mongo-java-driver/blob/3.0.x/driver/src/examples/tour/QuickTour.java>`_.
 
 Making a Connection
 ~~~~~~~~~~~~~~~~~~~
@@ -87,7 +85,7 @@ you decide to create many ``MongoClient`` instances, note that:
 Authentication
 ~~~~~~~~~~~~~~
 
-MongoDB can be run in a `secure mode`_ where access to databases is
+MongoDB can be run in a secure mode where access to databases is
 controlled via authentication. When run in this mode, any client application
 must provide a list of credentials which will be used to authenticate against.
 In the Java driver, you simply provide the credentials when creating a
@@ -106,8 +104,20 @@ or in the connection string:
 
 MongoDB supports various different authentication mechanisms. See the `access control tutorials`_ for more information.
 
-.. _`secure mode`: http://www.mongodb.org/display/DOCS/Security+and+Authentication
 .. _`access control tutorials`: http://docs.mongodb.org/manual/administration/security-access-control
+
+MONGODB-X509 Authentication
+---------------------------
+
+The MONGODB-X509 mechanism authenticates a user whose name is derived from the distinguished subject name of the X.509 certificate presented by the driver during SSL negotiation.
+This authentication method requires the use of SSL connections with certificate validation and is available in MongoDB 2.6 and newer:
+
+.. code-block:: java
+
+   MongoCredential credential = MongoCredential.createMongoX509Credential("<X.509 derived username>");
+
+   MongoClient mongoClient = new MongoClient(new ServerAddress(server), Arrays.asList(credential), MongoClientOptions.builder().sslEnabled(true).build());
+
 
 Getting a Collection
 ~~~~~~~~~~~~~~~~~~~~
@@ -204,7 +214,7 @@ and we can do this fairly efficiently in a loop
 
        List<Document> documents = new ArrayList<Document>();
        for (int i = 0; i < 100; i++) {
-           documents.add(new Document().append("i", i));
+           documents.add(new Document("i", i));
        }
        collection.insertMany(documents);
 
@@ -265,7 +275,7 @@ following ;
 
 .. code-block:: java
 
-        myDoc = collection.find(new Document("i", 71)).first();
+        myDoc = collection.find(eq("i", 71)).first();
         System.out.println(myDoc);
 
 and it should just print just one document
@@ -273,6 +283,12 @@ and it should just print just one document
 .. code-block:: none
 
     Document{{_id=54b5629643bb7b2a52e19ea3, i=71}}
+
+Note that this usage relies on a static import of the Filters.eq method:
+
+.. code-block:: java
+
+    import static com.mongodb.client.model.Filters.*;
 
 Getting A Set of Documents With a Query
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -284,7 +300,7 @@ write:
 .. code-block:: java
 
         // now use a range query to get a larger subset
-        cursor = collection.find(new Document("i", new Document("$gt", 50))).iterator();
+        cursor = collection.find(gt("i", 50)).iterator();
 
         try {
             while (cursor.hasNext()) {
@@ -300,7 +316,7 @@ We could also get a range, say ``50 < i <= 100``:
 
 .. code-block:: java
 
-        cursor = collection.find(new Document("i", new Document("$gt", 50).append("$lte", 100))).iterator();
+        cursor = collection.find(and(gt("i", 50), lte("i", 100))).iterator();
 
         try {
             while (cursor.hasNext()) {
@@ -379,7 +395,7 @@ You can get a list of the available databases:
 
 .. code-block:: java
 
-        for (String name: mongoClient.getDatabaseNames()) {
+        for (String name: mongoClient.listDatabaseNames()) {
             System.out.println(name);
         }
 

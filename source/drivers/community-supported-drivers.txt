@@ -1,5 +1,3 @@
-.. <http://mongodb.onconfluence.com/display/DOCS/Drivers  Starting at Community Supported
-
 .. _community-supported-drivers:
 
 ===========================
@@ -65,7 +63,7 @@ Community Supported Drivers
     <https://sourceforge.net/projects/alcinoe/>`_ - A Delphi
     component suite that includes support for MongoDB
 
-  - 'Synopse mORMot framework
+  - `Synopse mORMot framework
     <http://blog.synopse.info/post/2014/05/07/MongoDB-database-access>`_ -
     Provides access to MongoDB deployments for Synopse applications.
 
@@ -94,15 +92,18 @@ Community Supported Drivers
 
 - Factor
 
-  - `<http://github.com/slavapestov/factor/tree/master/extra/mongodb/>`_
+  - `Factor <http://github.com/slavapestov/factor/tree/master/extra/mongodb/>`_
 
 - Fantom
 
-  - `<http://bitbucket.org/liamstask/fantomongo/wiki/Home>`_
+  - `afMongo <http://www.fantomfactory.org/pods/afMongo>`_ and
+    `afMorphia <http://www.fantomfactory.org/pods/afMorphia>`_
+
+  - `FantoMongo <http://bitbucket.org/liamstask/fantomongo/wiki/Home>`_
 
 - F#
 
-  - `<http://gist.github.com/218388>`_
+  - `F# <http://gist.github.com/218388>`_
 
 - Go
 
@@ -243,8 +244,3 @@ Community Supported Drivers
 
   - `Dolphin Smalltalk
     <http://www.arcturus.com.au/dolphin/mongodb.html>`_
-
-Get Involved, Write a Driver!
------------------------------
-
-- :meta-driver:`Writing Drivers and Tools </>`

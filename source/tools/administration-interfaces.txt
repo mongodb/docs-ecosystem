@@ -1,6 +1,4 @@
-﻿.. http://www.mongodb.org/display/DOCS/Admin+UIs
-
-.. _admin-uis:
+﻿.. _admin-uis:
 
 =========
 Admin UIs
@@ -28,12 +26,26 @@ capabilities.
 
 - `MMS Homepage <https://mms.mongodb.com>`_
 
-.. image:: /images/mms-on-devices.png
+.. image:: /figures/mms-on-devices.png
 
 .. _third-party-tools:
 
 Third-Party Open-Source Tools
 -----------------------------
+
+mongo-express
+~~~~~~~~~~~~~
+
+`mongo express <http://www.npmjs.org/package/mongo-express>`_ is an
+open source web-based MongoDB administrative interface written with
+Node.js and express.
+
+.. image:: http://raw.githubusercontent.com/andzdroid/mongo-express/master/public/images/mongo-express.png
+   :width: 600px
+
+.. seealso::
+   - `Github <https://github.com/andzdroid/mongo-express>`_
+   - `NPMjs page <https://www.npmjs.org/package/mongo-express>`_
 
 Edda
 ~~~~
@@ -46,7 +58,7 @@ of notable events in the set. It can be installed via pip:
 
    pip install edda
 
-.. image:: /images/admin-uis-tumblr-m7o8wz3R9G1qzyevi.png
+.. image:: /figures/admin-uis-tumblr-m7o8wz3R9G1qzyevi.png
 
 .. seealso:: `Github source for Edda <https://github.com/10gen-labs/edda>`_
 
@@ -60,13 +72,38 @@ Logs into MongoDB
 <http://docs.fluentd.org/articles/apache-to-mongodb>`_ tutorial for an
 example of this integration.
 
+HumongouS.io
+~~~~~~~~~~~~
+
+`HumongouS.io <http://humongous.io>`_ is a web-based user interface for MongoDB.
+
+.. image:: http://assets.humongous.io/table.png
+   :width: 600px
+
+.. image:: http://assets.humongous.io/mobile.png
+   :width: 600px
+
+.. image:: http://assets.humongous.io/dash.png
+   :width: 600px
+
+Features:
+
+- Easy CRUD operations
+- Human-friendly
+- Integrated dashboard
+- Works on mobile and tablet
+- Supports all recent browsers
+- Works on Windows, Linux and OSX
+
+To track progress on Twitter, follow: `@humongousio <http://www.twitter.com/humongousio>`_.
+
 Fang of Mongo
 ~~~~~~~~~~~~~
 
 `Fang of Mongo <http://github.com/Fiedzia/Fang-of-Mongo>`_ is
 a web-based user interface for MongoDB build with django and jquery.
 
-.. image:: /images/admin-uis-fang-of-mongo-min.png
+.. image:: /figures/admin-uis-fang-of-mongo-min.png
 
 It will allow you to explore content of MongoDB with simple but
 (hopefully) pleasant user interface.
@@ -91,7 +128,7 @@ UMongo (formerly JMongoBrowser)
 and administer a MongoDB cluster. It
 is available for Linux, Windows and Mac OSX.
 
-.. image:: /images/admin-uis-jmongobrowser.png
+.. image:: /figures/admin-uis-jmongobrowser.png
 
 .. seealso:: `Github source for UMongo <http://github.com/agirbal/umongo>`_
 
@@ -124,7 +161,7 @@ Features:
 - Auto-refresh
 
 .. TODO really the below should be in pt not px so it works with PDF
-.. image:: /images/admin-uis-mongovision-screenshot.png
+.. image:: /figures/admin-uis-mongovision-screenshot.png
    :width: 680px
 
 MongoVUE
@@ -132,18 +169,34 @@ MongoVUE
 
 `MongoVUE <http://blog.mongovue.com>`_ is a .NET GUI for MongoDB.
 
-.. image:: /images/admin-uis-MongoVue.png
+.. image:: /figures/admin-uis-MongoVue.png
 
-NoSQL Manager
-~~~~~~~~~~~~~
+NoSQL Manager for MongoDB
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- <http://www.nosqlmanager.com/>
+`NoSQL Manager for MongoDB <http://www.mongodbmanager.com/>`_ is a
+desktop GUI tool for Mongo database management, administration and
+development.  It unites a user-friendly GUI and the power of the Mongo shell.
 
-MongoDB database administration, management and development.
-It provides a rich set of GUI tools for anyone who uses
-MongoDB including database developers and DBAs.
+.. image:: http://www.mongodbmanager.com/images/external/mongodbmanager.png
+   :width: 600px
 
-.. image:: /images/nosql-mongodb-manager.png
+Features:
+ 
+- Fully functional Mongo shell
+
+- Easy-to-use document viewer and editor
+
+- Simple management of all Mongo objects: databases, collections,
+  indices, users, roles and functions
+
+- SSH tunneling for Mongo connections
+
+- Map-Reduce operation editor
+
+- File Manager tool to work with GridFS
+
+- GUI for the ``mongodump`` and ``mongorestore`` MongoDB tools
 
 mViewer
 ~~~~~~~
@@ -169,8 +222,8 @@ stripped-down version of the Vork high-performance framework.
 
 - Self-contained in a single 95kb file!
 
-- Works on any version of PHP5 with the MongoDB NoSQL database installed
-  & running.
+- Works on any version of PHP5 with the MongoDB database installed &
+  running.
 
 - Super flexible - search for exact-text, text with * wildcards, regex
   or JSON (with MongoDB-operators enabled)
@@ -207,8 +260,23 @@ navigate to it in a browser. One of two things will happen:
   problem is within the PHP code that you are using to access MongoDB,
   troubleshoot that from the MongoDB docs on php.net
 
-.. image:: /images/admin-uis-phpMoAdmin-MongoDB-Admin-GUI.jpg
+.. image:: /figures/admin-uis-phpMoAdmin-MongoDB-Admin-GUI.jpg
    :width: 680px
+
+PHPmongoDB
+~~~~~~~~~~
+
+`PHPmongoDB <http://www.phpmongodb.org>`_ is a web-based MongoDB
+administration tool.
+
+Features:
+
+- Easily and freely available on Github
+- Supports user authentication
+- Web interface for all queries 
+- Search in Web interface
+- Delete multiple records in one go
+- Read-only mode configurable 
 
 RockMongo
 ~~~~~~~~~
@@ -229,7 +297,7 @@ Main features:
   matched rows
 - view collection statistics
 
-.. image:: /images/admin-uis-rockmongo.png
+.. image:: /figures/admin-uis-rockmongo.png
 
 Genghis
 ~~~~~~~
@@ -237,7 +305,7 @@ Genghis
 `Genghis <http://genghisapp.com/>`_ is a single-file MongoDB admin app,
 which is available as either a Ruby or PHP script.
 
-.. image:: /images/admin-uis-genghis.png
+.. image:: /figures/admin-uis-genghis.png
 
 Meclipse
 ~~~~~~~~
@@ -288,7 +356,7 @@ Features:
 - Open source. See the `licensing page
   <http://mongobird.citsoft.net/?page_id=472>`_ for more information.
 
-.. image:: /images/admin-uis-monad2.png
+.. image:: /figures/admin-uis-monad2.png
 
 .. seealso:: `Github source for mongobird <https://github.com/citsoft/mongobird>`_
 
@@ -312,7 +380,7 @@ Features:
 
 - Any Device: Supports all devices include mobile.
 
-.. image:: /images/mongoowl_main.jpg
+.. image:: /figures/mongoowl_main.jpg
 
 Robomongo
 ~~~~~~~~~
@@ -323,7 +391,7 @@ the same JavaScript engine that powers MongoDB's mongo
 shell. Everything you can write in mongo shell you can write in
 Robomongo!
 
-.. image:: /images/admin-uis-robomongo.png
+.. image:: /figures/admin-uis-robomongo.png
 
 Features:
 
@@ -369,7 +437,7 @@ administration tool:
 - Simple server-side AJAX interface for communicating with the MongoDB
   server (currently available for PHP).
 
-.. image:: /images/admin-uis-opricot.png
+.. image:: /figures/admin-uis-opricot.png
 
 Moa(db)
 ~~~~~~~
@@ -381,7 +449,7 @@ Helpful query validation, amazing lightweight UI , JSON imports & exports, SSL s
    - `Github source for MoaDB <https://github.com/lovetheidea/MoaDB>`_
    - `MoaDB screenshots <https://github.com/lovetheidea/MoaDB/tree/master/screenshots>`_
 
-.. image:: /images/admin-uis-moadb.png
+.. image:: /figures/admin-uis-moadb.png
    :width: 600px
 
 
@@ -391,7 +459,7 @@ MongoApp
 `MongoApp <https://github.com/yildizberkay/MongoApp>`_ is a GUI-based
 tool that allows you to run MongoDB on the Mac.
 
-.. image:: https://raw2.github.com/yildizberkay/MongoApp/master/assets/images/MongoAppScreenshot.png
+.. image:: https://raw.githubusercontent.com/yildizberkay/MongoApp/master/assets/images/MongoAppScreenshot.png
    :width: 600px
 
 Mongri
@@ -402,9 +470,47 @@ Mongri
 
 A web-based user interface for MongoDB build with node js.
 
-.. image:: https://raw.github.com/dongri/mongri/master/public/images/demo/collections.png
-.. image:: https://raw.github.com/dongri/mongri/master/public/images/demo/query.png
-.. image:: https://raw.github.com/dongri/mongri/master/public/images/demo/document.png
+.. image:: https://raw.githubusercontent.com/dongri/mongri/master/public/images/demo/collections.png
+   :width: 600px
+
+.. image:: https://raw.githubusercontent.com/dongri/mongri/master/public/images/demo/query.png
+   :width: 600px
+
+.. image:: https://raw.githubusercontent.com/dongri/mongri/master/public/images/demo/document.png
+   :width: 600px
+
+MongoCMS
+~~~~~~~~
+
+- `MongoCMS <http://www.josebrowne.com/open/mongocms/>`_ is a
+  MongoDB-backed content manager specifically developed to manage rich
+  content applications such as blogs and other web data.
+
+.. image:: https://raw.githubusercontent.com/digitalmaster/MongoCMS/master/img/screenshots/doc-edit.png
+   :width: 600px
+
+NoSQL Viewer
+~~~~~~~~~~~~
+
+- `NoSQL Viewer <http//www.spviewer.com/nosqlviewer.html>`_ is a free
+  software product for MongoDB and NoSQL
+  databases.  NoSQL Viewer provides a convenient, easy-to-use GUI
+  framework for data manipulation and database object management in
+  your MongoDB databases from a single application. Features include:
+
+  - Full support of MongoDB and popular NoSQL databases.
+  - Convenient GUI framework to query, view, and modify data in MongoDB and NoSQL databases.
+  - Support for database object management.
+  - High-performance data copying between MongoDB collections and different databases.
+  - High-performance data migration between MongoDB and different supported NoSQL databases.
+  - Support of specific query APIs for supported databases.
+  - Designed for MongoDB and NoSQL database developers, analysts and database administrators.
+  - An intuitive GUI to access and modify NoSQL data.
+  - Ability to view, store and modify BLOB binary data of any type.
+  - Many more advanced features.
+
+.. image:: http://www.spviewer.com/softimg/nosqlviewer_screen.png
+   :width: 600px
 
 Third-Party Commercial Tools
 ----------------------------
@@ -480,7 +586,7 @@ Features:
 - View Server and database statistics
 - Supports RDBMS (MySQL, postgres, ...)
 
-.. image:: /images/admin-uis-DatabaseMasterMainView.gif
+.. image:: /figures/admin-uis-DatabaseMasterMainView.gif
 
 MongoDBPumper for Oracle
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -490,8 +596,8 @@ is a tool that facilitates data transfer between Oracle
 and MongoDB databases, and includes the following features:
 
 - Intuitive GUI wizard to facilitate data mapping and transfer operation.
-- Support for all Oracle database versions including 8.1.7, 9.0.1, 9.2.0, 10.1.0, 10.2.0, 11.1.0, 11.2.0
-- Support for all MongoDB database versions including 2.0, 2.2
+- Support for all Oracle database versions including 8.1.7, 9.0.1, 9.2.0, 10.1.0, 10.2.0, 11.1.0, 11.2.0, 12.1.0
+- Support for all MongoDB database versions including 2.0, 2.2, 2.4, 2.6
 - Support of two-way data transfer between Oracle and MongoDb databases.
 - Supports most data types and performs data type conversions.
 - Support of parallel data transfer operations for optimal performance.
@@ -527,7 +633,7 @@ MongoMonitor
 Connect to your MongoDB databases directly from your iPhone with
 `MongoMonitor <http://mariussoutier.com/products/mongodb-app.html>`_.
 
-.. image:: /images/admin-uis-mongo-monitor.jpg
+.. image:: /figures/admin-uis-mongo-monitor.jpg
 
 - Connect to your MongoDB databases, supporting single hosts, Replica Sets and shards
 - Check your database's status, statistics and indexes
@@ -558,7 +664,7 @@ Features:
 
 - Super simple query interface which supports multiple formats
 - Different result views with paging and sorting
-- MongoDB 2.4 and 2.6 compatible
+- MongoDB 2.4 / 2.6 / 3.0 compatible
 - All MongoDB CRUD operations
 - Replica-Set support
 - Manage the Indexes with a neat UI
@@ -569,6 +675,7 @@ Features:
 - Cross-platform
 - Easy installation
 - Detailed documentation
+- Multiple languages (currently English, German, Chinese, Spanish)
 
 Mongo Management Studio - Professional/Enterprise Edition
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -591,9 +698,9 @@ Features:
 
 - Super simple query interface which supports multiple formats
 - Different result views with paging and sorting
-- MongoDB 2.4 and 2.6 compatible
+- MongoDB 2.4 / 2.6 / 3.0 compatible
 - Autocomplete
-- Support for SSH Connections
+- Support for SSH Connections (including private key file authentication)
 - Save Queries for easy reuse
 - All MongoDB CRUD operations
 - Aggregation Framework queries
@@ -611,6 +718,7 @@ Features:
 - Cross-platform
 - Easy Installation
 - Detailed documentation
+- Multiple languages (currently English, German, Chinese, Spanish)
 
 Data Viewers
 ------------
@@ -618,7 +726,20 @@ Data Viewers
 mongs
 ~~~~~
 
-- <http://www.whit537.org/mongs/>
+`mongs <http://www.whit537.org/mongs/>`_
+
+Vulture
+~~~~~~~
+
+`Vulture <https://bitbucket.org/damyot/vulture>`_ is a simple yet
+powerful web-based user interface for exploring MongoDB documents.
+
+Features:
+
+- Filtering collections using regular queries
+- Built-in suport for GeoJSON indexes
+- Basic statistics on numeric fields
+
 
 Articles about 3rd-Party Admin Tools
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

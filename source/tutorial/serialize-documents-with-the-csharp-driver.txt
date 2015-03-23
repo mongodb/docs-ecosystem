@@ -1,5 +1,3 @@
-.. http://www.mongodb.org/display/DOCS/CSharp+Driver+Serialization+Tutorial WRITING-89
-
 .. _serialize-documents-with-the-csharp-driver:
 
 ======================================
@@ -228,7 +226,7 @@ used). For example:
 
 .. code-block:: csharp
 
-   var myConventions = new ConventionPack();
+   var pack = new ConventionPack();
    pack.Add(new CamelCaseElementNameConvention());
 
    ConventionRegistry.Register(

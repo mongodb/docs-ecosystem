@@ -1,5 +1,3 @@
-.. http://www.mongodb.org/display/DOCS/Java+Language+Center WRITING-79
-
 .. _java-language-center:
 
 ===================
@@ -36,20 +34,145 @@ Specific Topics and How-To
 - :ref:`Read Preferences and Tagging
   <java-driver-read-preferences-and-tagging>`
 
+Compatibility
+~~~~~~~~~~~~~
+
+.. include:: /includes/compatibility-legend.rst
+
+MongoDB Compatibility
+`````````````````````
+
+.. list-table::
+   :header-rows: 1
+   :class: compatibility
+   
+   * -
+     -
+     -
+     -
+     - MongoDB Version
+   * - 
+     -
+     - 2.4
+     - 2.6
+     - 3.0
+   * -
+     - ``2.9``
+     - Minor incompatibility
+     - Minor incompatibility
+     - Minor incompatibility
+   * -
+     - ``2.10``
+     - Minor incompatibility
+     - Minor incompatibility
+     - Minor incompatibility
+   * -
+     - ``2.11``
+     - Supported
+     - Minor incompatibility
+     - Minor incompatibility
+   * -
+     - ``2.12``
+     - Supported
+     - Supported
+     - Minor incompatibility
+   * -
+     - ``2.13``
+     - Supported
+     - Supported
+     - Supported
+   * - Driver Version
+     - ``3.0``
+     - Supported
+     - Supported
+     - Supported
+
+.. include:: /includes/older-server-versions-unsupported.rst
+
+Language Compatibility
+``````````````````````
+
+.. list-table::
+  :header-rows: 1
+  :class: compatibility
+
+  * -
+    -
+    -
+    -
+    -
+    - Language Version
+  * -
+    - 
+    - Java 5
+    - Java 6
+    - Java 7
+    - Java 8
+  * -
+    - ``2.7``
+    - Supported
+    - Supported
+    - Supported
+    - Supported
+  * -
+    - ``2.8``
+    - Supported
+    - Supported
+    - Supported
+    - Supported
+  * -
+    - ``2.9``
+    - Supported
+    - Supported
+    - Supported
+    - Supported
+  * -
+    - ``2.10``
+    - Supported
+    - Supported
+    - Supported
+    - Supported
+  * -
+    - ``2.11``
+    - Supported
+    - Supported
+    - Supported
+    - Supported
+  * -
+    - ``2.12``
+    - Supported
+    - Supported
+    - Supported
+    - Supported
+  * -
+    - ``2.13``
+    - Supported
+    - Supported
+    - Supported
+    - Supported
+  * - Driver Version
+    - ``3.0``
+    - Unsupported
+    - Supported
+    - Supported
+    - Supported
+
 Third Party Frameworks and Libraries
 ------------------------------------
 
 POJO Mappers
 ~~~~~~~~~~~~
 
-- `Morphia - Type-Safe Wrapper with DAO/Datastore abstractions`_
+- `Morphia`_
+    Type-Safe Wrapper with DAO/Datastore abstractions
 
 - `Morphium`_
       feature rich POJO Mapper
       including features like declarative caching, cluster awareness, validation, partial updates
       supports aggregation framwork
 
-- `Mungbean (w/clojure support)`_
+- `Mungbean`_
+      (w/clojure support)
 
 - `Spring MongoDB`_
       Provides Spring users with a familiar data access features
@@ -68,6 +191,11 @@ POJO Mappers
 - `Kundera`_
       JPA compliant ORM. Works with multiple datastores.
 
+- `MongoFS <http://dbuschman7.github.io/mongoFS/>`_
+      Enhanced file storage library with support for file compression,
+      encryption, and Zip file expansion. Can be used on top of a
+      GridFS-compatible bucket.
+
 - `Jongo`_
       Query in Java as in :program:`mongo` shell (using strings),
       unmarshall results into Java objects (using Jackson)
@@ -78,13 +206,16 @@ POJO Mappers
 - `Hibernate OGM <http://www.hibernate.org/ogm/>`_
       Provides Java Persistence support for MongoDB.
 
-.. _`Morphia - Type-Safe Wrapper with DAO/Datastore abstractions`:
+- `Morphix <http://github.com/ParaPenguin/morphix>`_
+      Lightweight, easy-to-use POJO mapper.
+
+.. _`Morphia`:
    https://github.com/mongodb/morphia
 
 .. _`Morphium`:
    http://sboesebeck.github.io/morphium/
 
-.. _`Mungbean (w/clojure support)`:
+.. _`Mungbean`:
    http://github.com/jannehietamaki/mungbean
 
 .. _`Spring MongoDB`: http://www.springsource.org/spring-data/mongodb
@@ -194,21 +325,6 @@ JavaScript (Rhino)
       A toolset to provide full integration between the Rhino
       JavaScript engine for the JVM and MongoDB. Uses the MongoDB Java
       driver.
-
-JRuby
------
-
-- `jmongo <https://github.com/guyboertje/jmongo>`_
-      A thin ruby wrapper around the mongo-java-driver for vastly
-      better jruby performance.
-
-If there is a project missing here, just add a comment or email the
-list and we'll add it.
-
-.. TODO add linke to Scala Language Center
-   Scala
-   -----
-   - :ref:`Scala Language Center <scala-language-center>`
 
 Hadoop
 ------

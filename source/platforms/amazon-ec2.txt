@@ -1,5 +1,3 @@
-.. http://www.mongodb.org/display/DOCS/Amazon+EC2
-
 .. _amazon-ec2:
 
 ==========
@@ -10,20 +8,18 @@ Amazon EC2
 
 MongoDB runs well on `Amazon EC2 <http://aws.amazon.com/ec2/>`_. To
 deploy MongoDB on EC2 you can either set up a new instance manually
-(refer to :ref:`deploy-mongodb-ec2`) or deploy a pre-configured AMI
-from the `AWS Marketplace <http://aws.amazon.com/marketplace>`_ (refer
-to :ref:`deploy-from-aws-marketplace` for more information).
+(refer to :ref:`deploy-mongodb-ec2`) or :mms:`provision machines on EC2 </tutorial/provision-aws-servers/>` using
+:mms:`MMS Automation </tutorial/nav/automation/>`.
 
 .. _storage-considerations:
 
 Storage Considerations
 ----------------------
 
-EC2 instances can be configured either with ephemeral storage or
+EC2 instances can be configured with either ephemeral storage or
 persistent storage using the Elastic Block Store (EBS). Ephemeral
-storage is lost when instances are terminated so it is generally not
-recommended for use unless you're comfortable with the data-loss
-implications.
+storage is lost when instances are terminated, so it is generally not
+recommended unless you understand the data loss implications.
 
 For almost all deployments EBS will be the better choice. For
 production systems we recommend using
@@ -31,40 +27,26 @@ production systems we recommend using
 * EBS-optimized EC2 instances
 * Provisioned IOPS (PIOPS) EBS volumes
 
-Storage configurations can vary from one deployment to the next but
-for the best performance we recommend one volume for each of the
-following: data directory, journal, and log. Each of those has
-different write behaviours and we use one volume for each to reduce IO
-contention. Different RAID levels such as RAID0, RAID1, or RAID10 can
-also be used to provide volume level redundancy or capacity. Different
-storage configurations will have different cost implications
-especially when combined with PIOPS EBS volumes.
+Storage configuration needs vary among deployments, but for best
+performance we recommend separate volumes for *data files*, the
+*journal*, and the *log*. Each has different write behavior, and
+placing them on separate volumes reduces I/O contention.
 
-.. _deploy-from-aws-marketplace:
-
-Deploy from the AWS Marketplace
--------------------------------
-
-There are three officially maintained `MongoDB AMIs on the AWS Marketplace
-<https://aws.amazon.com/marketplace/seller-profile/ref=dtl_pcp_sold_by?ie=UTF8&id=c9032c7b-70dd-459f-834f-c1e23cf3d092>`_. Each
-AMI comes pre-configured with individual PIOPS EBS volumes for data,
-journal, and the log.
-
-* `MongoDB 2.4 with 1000 IOPS <https://aws.amazon.com/marketplace/pp/B00CO7AVMY/ref=sp_mpg_product_title?ie=UTF8&sr=0-4>`_ - data: 200 GB @ 1000 IOPS, journal: 25 GB @ 250 IOPS, log: 10 GB @ 100 IOPS
-* `MongoDB 2.4 with 2000 IOPS <https://aws.amazon.com/marketplace/pp/B00CO7GSTY/ref=sp_mpg_product_title?ie=UTF8&sr=0-3>`_ - data: 200 GB @ 2000 IOPS, journal: 25 GB @ 250 IOPS, log: 15 GB @ 150 IOPS
-* `MongoDB 2.4 with 4000 IOPS <https://aws.amazon.com/marketplace/pp/B00COAAEH8/ref=sp_mpg_product_title?ie=UTF8&sr=0-2>`_ - data: 400 GB @ 4000 IOPS, journal: 25 GB @ 250 IOPS, log: 20 GB @ 200 IOPS
-
-For specific information about how each instance was configured, refer to :ref:`deploy-mongodb-ec2`.
+Using RAID levels such as RAID0, RAID1, or RAID10 can provide
+volume-level redundancy or capacity. Different storage configurations
+will have different cost implications, especially when combined with
+PIOPS EBS volumes.
 
 .. _deploy-mongodb-ec2:
 
-Deploy MongoDB on EC2
----------------------
+Manually Deploy MongoDB on EC2
+------------------------------
 
-The following steps can be used to deploy MongoDB on EC2. The instances will be configured with the following characteristics:
+The following steps can be used to deploy MongoDB on EC2 yourself. The
+instances will be configured with the following characteristics:
 
 * Amazon Linux
-* MongoDB 2.4.x installed via Yum
+* MongoDB installed via ``yum``
 * Individual PIOPS EBS volumes for data (1000 IOPS), journal (250 IOPS), and log (100 IOPS)
 * Updated read-ahead values for each block device
 * Update ulimit settings
@@ -113,7 +95,7 @@ After login, update installed packages, add the MongoDB yum repo, and install Mo
 
     $ sudo yum install -y mongodb-org-server mongodb-org-shell mongodb-org-tools
 
-Next, create/configure the mount points, mount each volume, set ownership (MongoDB runs under the :setting:`mongod` user/group), and set the :file:`/journal` link:
+Next, create/configure the mount points, mount each volume, set ownership (MongoDB runs under the :setting:`mongodb` user/group), and set the :file:`/journal` link:
 
 .. code-block:: sh
 
@@ -131,7 +113,7 @@ Next, create/configure the mount points, mount each volume, set ownership (Mongo
     $ sudo mount /journal
     $ sudo mount /log
 
-    $ sudo chown mongod:mongod /data /journal /log
+    $ sudo chown mongodb:mongodb /data /journal /log
 
     $ sudo ln -s /journal /data/journal
 
@@ -186,13 +168,13 @@ Once again, repeat the above command for all required volumes (note:
 the device we created was named :file:`/dev/xvdf` but the name used by
 the system is :file:`xvdf`).
 
-To startup MongoDB, issue the following command:
+To start :program:`mongod`, issue the following command:
 
 .. code-block:: sh
 
     $ sudo service mongod start
 
-And now connect to the MongoDB instance using the :program:`mongo` shell:
+Then connect to the MongoDB instance using the :program:`mongo` shell:
 
 .. code-block:: sh
 
@@ -234,23 +216,22 @@ freshest ec2 hardware.
 Running MongoDB
 ```````````````
 
-Before running the database one should decide where to put
-datafiles.  Run :program:`df -h` to see volumes.
-On some images :file:`/mnt`
-will be the many locally attached storage volume. Alternatively you may
-want to use `Elastic Block Store <http://aws.amazon.com/ebs/>`_ which will
-have a different mount point.
+Before starting a :program:`mongod` instance, decide where to put your
+data files.  Run :program:`df -h` to see a list of available
+volumes. On some images, :file:`/mnt` will be the locally-attached
+storage volume. Alternatively, you may want to use `Elastic Block Store
+<http://aws.amazon.com/ebs/>`_ which will have a different mount
+point.
 
-If you mount the file-system, ensure that you mount with the
-:option:`noatime <mount -o noatime>` and
-:option:`nodiratime <mount -o nodiratime>` attributes, for example:
+Mounting the filesystem with the :option:`noatime <mount -o noatime>`
+attribute can improve disk performance. For example:
 
 .. code-block:: sh
 
-   /dev/mapper/my_vol /var/lib/mongodb xfs noatime,noexec,nodiratime 0 0
+   /dev/mapper/my_vol /var/lib/mongodb xfs noatime,noexec 0 0
 
-Create the mongodb datafile directory in the desired location and then
-run the database:
+Create the mongodb data file directory in the desired location and then
+start the :program:`mongod` server:
 
 .. code-block:: sh
 

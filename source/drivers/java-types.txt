@@ -1,5 +1,3 @@
-.. http://www.mongodb.org/display/DOCS/Java+Types WRITING-111
-
 .. _java-types:
 
 ==========
@@ -49,6 +47,8 @@ The `java.util.Date`_ class is used for dates.
    collection.save(time);
 
 .. _`java.util.Date`: http://java.sun.com/javase/6/docs/api/java/util/Date.html
+
+.. _java-dbobject-to-perform-saves:
 
 Database References
 -------------------

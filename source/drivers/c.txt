@@ -1,5 +1,3 @@
-.. http://www.mongodb.org/display/DOCS/C+Language+Center  WRITING-75
-
 .. _c-driver-library:
 
 ================
@@ -31,3 +29,81 @@ You can download the latest stable releases from
 `GitHub <https://github.com/mongodb/mongo-c-driver/releases>`_.
 
 Consult the building docs for detailed instructions on building the driver.
+
+Compatibility
+-------------
+
+.. include:: /includes/compatibility-legend.rst
+
+MongoDB Compatibility
+~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+   :header-rows: 1
+   :class: compatibility
+   
+   * -
+     -
+     -
+     -
+     - MongoDB Version
+   * -
+     - 
+     - 2.4
+     - 2.6
+     - 3.0
+   * -
+     - ``0.90.0``
+     - Supported
+     - Supported
+     - Unsupported
+   * -
+     - ``0.92.0``
+     - Supported
+     - Supported
+     - Unsupported
+   * -
+     - ``0.92.2``
+     - Supported
+     - Supported
+     - Unsupported
+   * -
+     - ``0.92.3 (git)``
+     - Supported
+     - Supported
+     - Unsupported
+   * - 
+     - ``1.0.0``
+     - Supported
+     - Supported
+     - Supported
+   * - Driver Version
+     - ``1.1.0``
+     - Supported
+     - Supported
+     - Supported
+
+.. include:: /includes/older-server-versions-unsupported.rst
+
+Language Compatibility
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+   :header-rows: 1
+   :class: compatibility
+   
+   * -
+     - 
+     -
+     -
+     - Language Version
+   * -
+     - 
+     - C89
+     - C99
+     - C11
+   * - Driver Version
+     - all versions
+     - Supported
+     - Supported
+     - Supported

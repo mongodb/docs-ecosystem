@@ -1,5 +1,3 @@
-.. http://www.mongodb.org/display/DOCS/Ruby+Language+Center
-
 .. _ruby-language-center:
 
 ===================
@@ -75,6 +73,157 @@ Or Manually:
    gem build bson_ext.gemspec; gem install bson_ext-x.x.x.gem
    gem build mongo.gemspec; gem install mongo-x.x.x.gem
 
+Compatibility
+~~~~~~~~~~~~~
+
+.. include:: /includes/compatibility-legend.rst
+
+MongoDB Compatibility
+`````````````````````
+
+.. list-table::
+   :header-rows: 1
+   :class: compatibility
+   
+   * - 
+     -
+     -
+     -
+     - MongoDB Version
+   * -
+     - 
+     - 2.4
+     - 2.6
+     - 3.0
+   * -
+     - ``1.6``
+     - Unsupported
+     - Unsupported
+     - Unsupported
+   * -
+     - ``1.7``
+     - Unsupported
+     - Unsupported
+     - Unsupported
+   * -
+     - ``1.8``
+     - Supported
+     - Minor incompatibility
+     - Minor incompatibility
+   * -
+     - ``1.9``
+     - Supported
+     - Minor incompatibility
+     - Minor incompatibility
+   * -
+     - ``1.10``
+     - Supported
+     - Supported
+     - Minor incompatibility
+   * -
+     - ``1.11``
+     - Supported
+     - Supported
+     - Minor incompatibility
+   * -
+     - ``1.12``
+     - Supported
+     - Supported
+     - Supported
+   * - Driver Version
+     - ``2.0``
+     - Supported
+     - Supported
+     - Supported
+     
+Language Compatibility
+``````````````````````
+
+.. list-table::
+   :header-rows: 1
+   :class: compatibility
+
+   * -
+     - 
+     -
+     -
+     -
+     -
+     -
+     - Language Version
+   * -
+     - 
+     - 1.8.7
+     - 1.9
+     - 2.0
+     - 2.1
+     - JRuby
+     - Rubinius
+   * -
+     - ``1.6``
+     - Supported
+     - Supported
+     - Minor incompatibility
+     - Minor incompatibility
+     - Supported
+     - Minor incompatibility
+   * -
+     - ``1.7``
+     - Supported
+     - Supported
+     - Minor incompatibility
+     - Minor incompatibility
+     - Supported
+     - Minor incompatibility
+   * -
+     - ``1.8``
+     - Supported
+     - Supported
+     - Supported
+     - Minor incompatibility
+     - Supported
+     - Minor incompatibility
+   * -
+     - ``1.9``
+     - Supported
+     - Supported
+     - Supported
+     - Supported
+     - Supported
+     - Minor incompatibility
+   * -
+     - ``1.10``
+     - Supported
+     - Supported
+     - Supported
+     - Supported
+     - Supported
+     - Minor incompatibility
+   * -
+     - ``1.11``
+     - Supported
+     - Supported
+     - Supported
+     - Supported
+     - Supported
+     - Minor incompatibility
+   * -
+     - ``1.12``
+     - Supported
+     - Supported
+     - Supported
+     - Supported
+     - Supported
+     - Minor incompatibility
+   * - Driver Version
+     - ``2.0``
+     - Unsupported
+     - Supported
+     - Supported
+     - Supported
+     - Supported
+     - Minor incompatibility
+
 BSON
 ~~~~
 
@@ -107,6 +256,8 @@ when you require ``bson``.
 To learn more about the Ruby driver, see the
 `Ruby Tutorial <https://github.com/mongodb/mongo-ruby-driver/wiki/Tutorial>`_ and
 `Ruby Documentation <http://api.mongodb.org/ruby/current/index.html>`_.
+
+.. _ruby-object-mappers:
 
 Object Mappers
 --------------

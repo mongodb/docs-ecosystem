@@ -1,5 +1,3 @@
-.. http://www.mongodb.org/display/DOCS/Http+Interface
-
 .. _http-interface:
 
 ==============
@@ -63,7 +61,7 @@ AMID
 interface for MongoDB. Written in Node.js, supports multi-threading
 and a modular architecture to perform custom search operation.
 AMID also provides an optional extjs GUI for queries: `AMIDGUI
-<https://github.com/mariano-fiorentino/amidGUI>`
+<https://github.com/mariano-fiorentino/amidGUI>`_.
 
 Mongodb Java REST server
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -92,21 +90,21 @@ Sleepy Mongoose (Python)
 `Sleepy Mongoose <http://www.kchodorow.com/blog/2010/02/22/sleepy-mongoose-a-mongodb-rest-interface/>`_
 is a full featured HTTP interface for MongoDB.
 
-HTTP Console
-------------
+HTTP Status Interface
+---------------------
 
-MongoDB provides a simple http interface listing information of interest
+MongoDB provides a simple HTTP interface listing information of interest
 to administrators. If you enable the interface with the ``--rest``
 option to :program:`mongod`, you may access it via a port that is
 1000 more than the configured :program:`mongod` port. The default
-port for the http interface is ``28017``. To access the http interface an
+port for the HTTP interface is ``28017``. To access the HTTP interface an
 administrator may, for example, point a browser to
 ``http://localhost:28017`` if :program:`mongod` is running with the default port on the
 local machine.
 
-.. image:: /images/http-interface-console.png
+.. image:: /figures/http-interface-console.png
 
-Here is a description of the informational elements of the http
+Here is a description of the informational elements of the HTTP
 interface:
 
 .. list-table::
@@ -151,27 +149,41 @@ interface:
    * - dt
      - Timing information about the primary :program:`mongod` mutex
 
-HTTP Console Security
-~~~~~~~~~~~~~~~~~~~~~
+HTTP Status Interface Security
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. warning:: Ensure that the HTTP status interface, the REST API, and
+   the JSON API are all disabled in production environments to prevent
+   potential data exposure and vulnerability to attackers.
+
+   See :ref:`Security and MongoDB API Interfaces <http-interface-security>`
 
 If security is configured for a :program:`mongod` instance,
-authentication is required for a client to access the http interface
+authentication is required for a client to access the HTTP status interface
 from another machine.
 
-.. note:: While MongoDB Enterprise does support Kerberos authentication,
-   Kerberos is not supported in HTTP Console in any version of
-   MongoDB.
+.. note::
 
-Simple REST Interface
----------------------
+   While MongoDB Enterprise does support Kerberos authentication,
+   Kerberos is not supported by the HTTP status interface in any
+   version of MongoDB.
 
-The :program:`mongod` process includes a simple REST interface as a convenience. With no support for
+   .. versionchanged:: 3.0
+
+   Neither the HTTP status interface nor the REST API support the
+   :ref:`SCRAM-SHA-1 <authentication-scram-sha-1>` challenge-response
+   user authentication mechanism introduced in version 3.0.
+
+Simple REST API
+---------------
+
+The :program:`mongod` process includes a simple REST API as a convenience. With no support for
 insert, update, or remove operations, it is generally used
 for monitoring, alert scripts, and administrative tasks. For full REST
 capabilities, consider using an external :ref:`REST Interface <rest-interface>` such as
 `Sleepy.Mongoose <http://www.kchodorow.com/blog/2010/02/22/sleepy-mongoose-a-mongodb-rest-interface/>`_.
 
-**v1.4+**: This interface is disabled by default, as it could provide unauthenticated access to data.
+**v1.4+**: This API is disabled by default, as it could provide unauthenticated access to data.
 Use ``--rest`` on the command line to enable, but be aware of security implications.
 
 To get the contents of a collection (note the trailing slash):
@@ -217,10 +229,10 @@ To count documents in a collection:
 
    http://host:port/db/$cmd/?filter_count=collection&limit=1
 
-JSON in the simple REST interface
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+JSON in the simple REST API
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The simple REST interface uses strict JSON (as opposed to the shell,
+The simple REST API uses strict JSON (as opposed to the shell,
 which uses Dates, regular expressions, etc.). To display non-JSON types,
 the web interface wraps them in objects and uses the key for the type.
 For example:
@@ -257,7 +269,7 @@ browser. Once there, click Replica Set Status
 (`/_replSet <http://127.0.0.1:28017/_replSet>`_) to move to the Replica
 Set Status page.
 
-.. image:: /images/http-interface-rs.png
+.. image:: /figures/http-interface-rs.png
 
 See Also
 --------
