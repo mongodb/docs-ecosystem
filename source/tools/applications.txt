@@ -33,6 +33,10 @@ Applications Using MongoDB
 - `Calipso <http://calip.so/>`_
 
   Content management system built using NodeJS and MongoDB.
+  
+- `Countly <http://count.ly>`_
+
+  Countly is a real-time mobile and web analytics platform, either self-hosted or on cloud.
 
 - `Cube <http://square.github.com/cube/>`_
 
