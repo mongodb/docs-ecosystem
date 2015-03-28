@@ -19,16 +19,15 @@ If You Don't Have a dotCloud Account Yet
 
 Well, what are you waiting for? :-)
 
-Go ahead and `create one <https://www.dotcloud.com/accounts/register/>`_ (it's free!) and
+Go ahead and `create one <https://www.dotcloud.com/accounts/register/>`_  and
 install the CLI:
 
 .. code-block:: sh
 
    sudo easy_install pip; sudo pip install dotcloud
 
-If you need help to get the CLI running, check the
-`dotCloud install docs <https://docs.dotcloudapp.com/firststeps/install/>`_ and don't
-hesitate to `ask for help <http://answers.dotcloud.com/questions/>`_.
+If you need help to get the CLI running, check the [docs](http://docs.dotcloud.com/firststeps/install/)
+or file a ticket via support@dotcloud.com
 
 With a dotCloud Account
 -----------------------
@@ -43,8 +42,10 @@ time:
    db:
      type: mongodb
    EOF
-   dotcloud push mongorocks mongodb-on-dotcloud
-   dotcloud info mongorocks.db
+   cd mongodb-on-dotcloud
+   dotcloud create mongorocks
+   dotcloud push
+   dotcloud info db
 
 The last command will show you the host, port, and credentials to be
 used to connect to your database.
@@ -67,7 +68,7 @@ SSH access:
 
 .. code-block:: sh
 
-   dotcloud ssh mongorocks.db
+   dotcloud run db.0
 
 More Docs
 ---------
@@ -76,8 +77,7 @@ More Docs
 
 - `generic introduction to dotCloud <http://docs.dotcloud.com/>`_ (in
   case you want to run not only MongoDB, but also Node.js, Python,
-  Ruby, Perl, Java, RabbitMQ, Redis, MySQL, PostgreSQL, CouchDB, Riak,
-  Erlang, or something else, on dotCloud)
+  Ruby, Perl, Java, Redis, MySQL, PostgreSQL, or something else, on dotCloud)
 
 Ready-to-use Apps
 -----------------
@@ -91,6 +91,5 @@ All you need to do to run them is a ``git clone`` and a ``dotcloud push``:
 Getting help
 ------------
 
-dotCloud has a `Q&A site <http://answers.dotcloud.com/questions/>`_,
-and the dotCloud team can be reached through the FreeNode IRC network
+The dotCloud team can be reached through the FreeNode IRC network
 on hash tag "dotcloud".
