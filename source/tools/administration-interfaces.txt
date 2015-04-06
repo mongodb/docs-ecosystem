@@ -182,7 +182,7 @@ development.  It unites a user-friendly GUI and the power of the Mongo shell.
    :width: 600px
 
 Features:
- 
+
 - Fully functional Mongo shell
 
 - Easy-to-use document viewer and editor
@@ -273,35 +273,14 @@ Features:
 
 - Easily and freely available on Github
 - Supports user authentication
-- Web interface for all queries 
+- Web interface for all queries
 - Search in Web interface
 - Delete multiple records in one go
-- Read-only mode configurable 
+- Read-only mode configurable
 - Import and Export
 
 .. image:: https://raw.githubusercontent.com/phpmongodb/images/master/admin-uis-PHPmongoDB-insert.png
    :width: 600px
-
-RockMongo
-~~~~~~~~~
-
-`RockMongo <http://www.rockmongo.com>`_ is a MongoDB management tool, written in PHP 5.
-
-Main features:
-
-- easy to install, and open source
-- multiple hosts, and multiple administrators for one host
-- password protection
-- query dbs
-- advanced collection query tool
-- read, insert, update, duplicate and remove single row
-- query, create and drop indexes
-- clear collection
-- remove and change (only work in higher PHP-MongoDB version) criteria
-  matched rows
-- view collection statistics
-
-.. image:: /figures/admin-uis-rockmongo.png
 
 Genghis
 ~~~~~~~
