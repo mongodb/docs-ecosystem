@@ -92,6 +92,10 @@ Applications Using MongoDB
   be migrated to any desired language as required using it's future
   APIs.
 
+- `Mongo Mail Server <https://github.com/srault95/mongo-mail-server/>`_ 
+
+  Python SMTP server with message recording in Mongodb.
+
 - `MongoPress <http://www.mongopress.org/>`_ 
 
   A flexible CMS that uses MongoDB and PHP.
