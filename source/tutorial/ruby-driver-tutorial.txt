@@ -464,21 +464,21 @@ the modification occurs.
     find_one_and_replace({ '$set' => { :name => 'José' }}, :return_document => :after)
   doc #=> Return the document after the update.
 
-Removing
+Deleting
 --------
 
-Removing documents from a collection is done either in single or multiples.
+Deleting documents from a collection is done either in single or multiples.
 
 .. code-block:: ruby
 
   client = Mongo::Client.new([ '127.0.0.1:27017' ], :database => 'music')
   artists = client[:artists]
 
-  result = artists.find(:name => 'Björk').remove_one
+  result = artists.find(:name => 'Björk').delete_one
   result.n #=> Returns 1.
 
-  result = artists.find(:label => 'Mute').remove_many
-  result.n #=> Returns the number removed.
+  result = artists.find(:label => 'Mute').delete_many
+  result.n #=> Returns the number deleted.
 
 Collections
 -----------
