@@ -502,7 +502,7 @@ NoSQL Viewer
   framework for data manipulation and database object management in
   your MongoDB databases from a single application. Features include:
 
-  - Full support of MongoDB and popular NoSQL databases.
+  - Full support of MongoDB up to version 3.0 and other popular NoSQL databases.
   - Convenient GUI framework to query, view, and modify data in MongoDB and NoSQL databases.
   - Support for database object management.
   - High-performance data copying between MongoDB collections and different databases.
@@ -511,6 +511,7 @@ NoSQL Viewer
   - Designed for MongoDB and NoSQL database developers, analysts and database administrators.
   - An intuitive GUI to access and modify NoSQL data.
   - Ability to view, store and modify BLOB binary data of any type.
+  - Support SQL commands like SELECT,UPDATE,DELETE to query and modify data in MongoDB databases. 
   - Many more advanced features.
 
 .. image:: http://www.spviewer.com/softimg/nosqlviewer_screen.png
@@ -601,12 +602,14 @@ and MongoDB databases, and includes the following features:
 
 - Intuitive GUI wizard to facilitate data mapping and transfer operation.
 - Support for all Oracle database versions including 8.1.7, 9.0.1, 9.2.0, 10.1.0, 10.2.0, 11.1.0, 11.2.0, 12.1.0
-- Support for all MongoDB database versions including 2.0, 2.2, 2.4, 2.6
+- Support for all MongoDB database versions up to 3.0
 - Support of two-way data transfer between Oracle and MongoDb databases.
 - Supports most data types and performs data type conversions.
 - Support of parallel data transfer operations for optimal performance.
 - Support of loading MongoDb nested collections.
 
+.. image:: http://www.spviewer.com/softimg/mongodbpumper_screen.png
+   :width: 600px
 
 JSON Studio
 ~~~~~~~~~~~
