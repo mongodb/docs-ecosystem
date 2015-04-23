@@ -464,10 +464,10 @@ the modification occurs.
     find_one_and_replace({ '$set' => { :name => 'José' }}, :return_document => :after)
   doc #=> Return the document after the update.
 
-Removing
+Deleting
 --------
 
-Removing documents from a collection is done either in single or multiples.
+Deleting documents from a collection is done either in single or multiples.
 
 .. code-block:: ruby
 
