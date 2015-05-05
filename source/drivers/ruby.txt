@@ -78,22 +78,22 @@ MongoDB Compatibility
      - Minor incompatibility
    * -
      - ``1.10``
-     - Supported
+     - Minor incompatibility
      - Supported
      - Minor incompatibility
    * -
      - ``1.11``
-     - Supported
+     - Minor incompatibility
      - Supported
      - Minor incompatibility
    * -
      - ``1.12``
-     - Supported
+     - Minor incompatibility
      - Supported
      - Supported
    * - Driver Version
      - ``2.0``
-     - Supported
+     - Minor incompatibility
      - Supported
      - Supported
      
