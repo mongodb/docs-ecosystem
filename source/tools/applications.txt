@@ -160,3 +160,7 @@ Applications Using MongoDB
 
      - Websko is a content management system designed for individual
        Web developers and cooperative teams.
+   
+   * - `Which Is English? <http://www.whichisenglish.com/>`_
+
+     - Which Is English? challenges you to choose "the best or morst natural English" of two phrases. How many can you get right?
