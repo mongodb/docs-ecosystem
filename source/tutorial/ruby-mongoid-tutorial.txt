@@ -1704,7 +1704,7 @@ Eager Loading
 
 Mongoid provides a facility to eager load documents
 from relations to prevent the n+1 issue when
-iterating over documents with relation access. Eager loaded is supported on
+iterating over documents with relation access. Eager loading is supported on
 all relations with the exception of polymorphic ``belongs_to``
 associations.
 
@@ -3039,7 +3039,7 @@ Mongoid also provides a rake task to delete all secondary indexes.
 Rails
 -----
 
-Mongoid was built and targeted towards Rails applications, even though it will
+Mongoid was built and targeted to work with Rails applications, even though it will
 work in any environment. However if you are using Rails consult the next sections
 on how Mongoid hooks into a Rails application.
 
@@ -3051,6 +3051,10 @@ a Rails application with Mongoid.
 
 Configuration
 *************
+
+If you notice that edits to your mongoid.yml config file are not being reflected in your
+application, you may have to add mongoid.yml to Spring's watched files list. See the
+documentation for the Spring gem about watching files and directories for how to do this.
 
 You can set Mongoid configuration options in your application.rb along with other Rails
 environment specific options by accessing config.mongoid. Options set here will override
