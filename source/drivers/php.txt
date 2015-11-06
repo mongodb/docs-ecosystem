@@ -61,7 +61,7 @@ Windows
 ~~~~~~~
 
 - Download the correct driver for your environment from
-  <https://pecl.php.net/package/mongo>.
+  <https://pecl.php.net/package/mongo> (legacy) or <https://pecl.php.net/package/mongodb> (new).
   Thread safe builds are used when running PHP as an Apache module (typical
   installation); non-thread safe builds, which include "nts" in the filename,
   are used for CGI.
