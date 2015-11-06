@@ -180,7 +180,7 @@ replacement:
   driver: MongoDB PHP driver
 post: |
    In the table below, `mongo <https://pecl.php.net/package/mongo>`_ and
-   `mongodb <https://pecl.php.net/package/mongo>`_ refer to the legacy and new
+   `mongodb <https://pecl.php.net/package/mongodb>`_ refer to the legacy and new
    {{driver}}, respectively.
 ---
 ref: php-driver-compatibility-matrix-language
@@ -192,7 +192,7 @@ replacement:
   language: PHP
 post: |
    In the table below, `mongo <https://pecl.php.net/package/mongo>`_ and
-   `mongodb <https://pecl.php.net/package/mongo>`_ refer to the legacy and new
+   `mongodb <https://pecl.php.net/package/mongodb>`_ refer to the legacy and new
    {{driver}}, respectively.
 ---
 ref: php-driver-compatibility-full-mongodb
