@@ -3,7 +3,7 @@
 .. _ruby-mongoid-tutorial:
 
 ========================
-Mongoid Tutorial (5.0.0)
+Mongoid Tutorial (5.1.0)
 ========================
 
 .. default-domain:: mongodb
@@ -38,7 +38,7 @@ To install the gem with bundler, include the following in your Gemfile:
 
 .. code-block:: ruby
 
-    gem 'mongoid', '~> 5.0.0'
+    gem 'mongoid', '~> 5.1'
 
 Compatibility
 `````````````
@@ -279,7 +279,7 @@ comments above each key.
       use_utc: false
 
       # Set the Mongoid and Ruby driver log levels. (default: :info)
-      level_level: :info
+      log_level: :info
 
 Logging
 *******
@@ -3154,7 +3154,7 @@ Mongoid provides the following rake tasks when used in a Rails 3 environment:
 Upgrading
 ---------
 
-Upgrading to 5.0.0
+Upgrading to the 5.x series
 ``````````````````
 
 The underlying driver has changed from Moped to the official MongoDB Ruby driver.
