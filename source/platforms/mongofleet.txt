@@ -1,0 +1,114 @@
+.. _MongoFleet:
+
+=======
+MongoFleet
+=======
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+`MongoFleet <https://mongofleet.com>`_ is the very first MongoDB hosting
+platform built on Docker Cloud.
+
+Every deployment offers a highly-available MongoDB replicaset, spread
+over 3 datacenters and 2 availability zones: Europe and North America.
+
+While running on isolated docker containers, MongoFleet offers an easy,
+flexible and economical way to scale up or down your infrastructure. As
+the optimal ratio between storage and memory highly depends on the data
+and the usage of your MongoDB database, we allow you to scale RAM and DISK
+independently to better fit your needs, at the right cost.
+
+.. image:: https://mongofleet.com/dam?media-id=5731dcf16090bffb008b4606&width=600
+   :width: 600px
+
+MongoFleet integrates with `Mongoclient <https://github.com/rsercano/mongoclient>`_
+to provide an easy way to manage your databases and monitor your performance,
+directly from your desktop (available on Linux, Windows and Mac OSx).
+
+Beyond automatic fail-over, daily backups of your data are kept for seven
+days.
+
+Create your account
+---------------------
+
+To get started with MongoFleet you must create an account.
+Use a valid business e-mail to be able to confirm your account creation.
+
+.. image:: https://mongofleet.com/dam?media-id=5717970867c4c723008b4623&width=600
+   :width: 600px
+
+Create your stack
+---------------------
+
+Once your account has been validated, you can create your stack by choosing
+a deployment zone (the continent where your the data instances - primary and
+secondary - of your MongoDB replicaset will be deployed. At this time we
+provide two deployment zones (Europe and North America) but more zones could
+eventually be available in the future.
+
+.. image:: https://mongofleet.com/dam?media-id=5717970767c4c745008b45d8&width=600
+   :width: 600px
+
+Once created (it only takes a minute or two) you should see your 3 mongo
+replicas (nodes) live on your dashboard.
+
+.. image:: https://mongofleet.com/dam?media-id=5717970967c4c77a098b4569&width=600
+   :width: 600px
+
+For every node you can see:
+
+- its role: Primary / Secondary / Backup
+- its IP and port number
+- its Status : Running or Stopped
+
+You can also display the MongoDB logs for each node.
+
+Connect to your admin database
+---------------------
+
+By default the only database created is the admin database.
+The initial connection is very simple thanks to Mongo Client,
+but you can also log in in Console Mode using the connection
+string that you can grab from your dashboard.
+
+.. code-block:: sh
+
+   Download and Install Mongo Client from your Dashboard
+   Click on "Connect", then "Link your MongoFleet account"
+   Fill your MongoFleet credentials and click "Link your account"
+
+A new connection for the user "root" on the "admin" db has been created
+
+Create a database and a user
+---------------------
+
+.. code-block:: sh
+
+   Connect to the admin database
+   Check the Management/Quick user + database creation menu
+   Fill the creation form with the new user name, password and db name
+   Execute the Query
+
+A new database has been created with the created user as a "owner".
+
+.. code-block:: sh
+
+   Disconnect from the admin database
+   Connect to your new database
+
+Continue using Mongo Client or your favorite driver!
+
+Help
+------------------
+
+- `MongoFleet Q&A <https://mongofleet.com/en/faq>`_
+
+- `Contact the MongoFLeet Team <https://mongofleet.com/en/contact>`_
+
+- `Follow @MongoFleet Twitter <http://www.twitter.com/MongoFleet>`_

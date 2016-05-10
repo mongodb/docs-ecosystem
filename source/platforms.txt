@@ -34,7 +34,7 @@ Joyent Cloud
    :maxdepth: 1
 
    tutorial/joyent-cloud
-   
+
 Modulus
 ------------
 
@@ -42,6 +42,14 @@ Modulus
    :maxdepth: 1
 
    platforms/modulus
+
+MongoFleet
+------------
+
+.. toctree::
+   :maxdepth: 1
+
+   platforms/mongofleet
 
 Rackspace Cloud
 ---------------
