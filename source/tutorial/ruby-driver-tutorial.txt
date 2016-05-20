@@ -468,6 +468,10 @@ when querying and their corresponding methods as examples.
        .. code-block:: ruby
 
          client[:artists].find.sort(:name => -1)
+   * - ``#max_time_ms``
+     - The maximum amount of time to allow the query to run in milliseconds.
+   * - ``#cursor_type``
+     - The type of cursor to use. Can be :tailable or :tailable_await.
 
 Additional Query Operations
 ```````````````````````````
@@ -487,6 +491,26 @@ To get an array of distinct field values, use ``distinct``.
   client = Mongo::Client.new([ '127.0.0.1:27017' ], :database => 'music')
 
   client[:artists].find.distinct(:name)
+
+Tailable Cursors
+````````````````
+
+For capped collections you may use a Tailable Cursor that remains open after the client exhausts the results in
+the initial cursor. The following code example shows how a tailable cursor might be used:
+
+.. code-block:: ruby
+
+  client = Mongo::Client.new([ '127.0.0.1:27017' ], :database => 'music')
+  client[:artists, capped: true, size: 512].create
+  # insert documents
+
+  enum = client[:artists].find({}, cursor_type: :tailable_await).to_enum
+
+  while true
+    doc = enum.next
+    # do something
+    sleep(1)
+  end
 
 Updating
 --------
