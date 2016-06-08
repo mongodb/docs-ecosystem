@@ -43,6 +43,12 @@ Applications Using MongoDB
 
      - Content management system built using NodeJS and MongoDB.
 
+   * - `Countly <http://count.ly/>`_
+
+     - Enterprise grade, self-hosted mobile and web analytics platform based 
+     on NodeJS and MongoDB. Countly also includes a push notification & crash 
+     analytics service.
+
    * - `Cube <http://square.github.com/cube/>`_
 
      - Cube is an open-source system for visualizing time series data,
