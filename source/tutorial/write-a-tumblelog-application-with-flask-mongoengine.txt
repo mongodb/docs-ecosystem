@@ -170,7 +170,7 @@ Install the Flask_ extension and add the configuration. Update
 .. seealso:: The `MongoEngine Settings`_ documentation for
    additional configuration options.
 
-   .. _`MongoEngine Settings`: http://readthedocs.org/docs/mongoengine-odm/en/latest/guide/connecting.html
+   .. _`MongoEngine Settings`: https://flask-mongoengine.readthedocs.io/en/latest/
 
 Define the Schema
 ~~~~~~~~~~~~~~~~~
