@@ -32,10 +32,10 @@ To install the gem with bundler, include the following in your Gemfile:
 
 .. code-block:: ruby
 
-    gem 'bson', '~> 3.0'
+    gem 'bson', '~> 4.0'
 
-The BSON gem is compatible with MRI 1.9.3, 2.0.x, 2.1.x, 2.2.x, JRuby 1.7.x, and
-Rubinius 2.5.x
+The BSON gem is compatible with MRI 1.9.3, 2.0.x, 2.1.x, 2.2.x, 2.3.x,
+JRuby 1.7.x, and Rubinius 2.5.x
 
 BSON Serialization
 ------------------
@@ -54,7 +54,7 @@ you wish to instantiate and passing it a ``ByteBuffer`` instance.
 .. code-block:: ruby
 
   String.from_bson(byte_buffer)
-  Int32.from_bson(byte_buffer)
+  BSON::Int32.from_bson(byte_buffer)
 
 Byte Buffers
 ------------
@@ -96,8 +96,8 @@ Reading from the buffer is done via the following API:
   buffer.get_int64 # Pulls a 64-bit integer (8 bytes) from the buffer.
   buffer.get_string # Pulls a UTF-8 string from the buffer.
 
-Convertig a buffer to it's raw bytes, for example to send over a socket,
-is done by simply calling `to_s` on the buffer.
+Converting a buffer to its raw bytes (for example, for sending over a socket)
+is done by simply calling ``to_s`` on the buffer.
 
 .. code-block:: ruby
 
@@ -119,8 +119,8 @@ specific to the specification:
 ``BSON::Binary``
 ````````````````
 
-This is a representation of binary data, and must provide the raw data and
-a subtype when constructing.
+This is a representation of binary data. The raw data and a subtype must be
+provided when constructing.
 
 .. code-block:: ruby
 
@@ -150,7 +150,7 @@ Represents a string of Javascript code with a hash of values.
 ``BSON::Document``
 ``````````````````
 
-This is a subclass of a hash that stores all keys as strings but allows access to
+This is a subclass of Hash that stores all keys as strings but allows access to
 them with symbol keys.
 
 .. code-block:: ruby
