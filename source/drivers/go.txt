@@ -32,8 +32,12 @@ MongoDB Compatibility
      - MongoDB 2.4
      - MongoDB 2.6
      - MongoDB 3.0
+     - MongoDB 3.2
+     - MongoDB 3.3
 
    * - v2
+     - |checkmark|
+     - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -56,8 +60,10 @@ Language Compatibility
      - go1.2
      - go1.3
      - go1.4
+     - go1.5
 
    * - v2
+     - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
