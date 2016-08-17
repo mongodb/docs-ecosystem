@@ -701,18 +701,24 @@ schema of your MongoDB data:
 
 Database Master
 ~~~~~~~~~~~~~~~
+Nucleon Database Master is an  Windows based desktop GUI tool for MongoDB and other releational database systems.
+It provides MongoDB Shell like Query (JSON) and SQL Query, database and collection browser, data export (Word, Excel, XML, PDF etc.) and import, table and tree data view, user and GridFS manager,  Map&Reduce editor and more features.
 
 - Database Master from `Nucleon Software <http://www.nucleonsoftware.com/>`_
 
-.. REMOVED THIS TEXT:
-   Seems to be written in .net for windows (windows installer).
-
 Features:
-
-- Tree view for databases and collections
-- Create/Drop indexes
+- Server explorer
+- Manage multiple server connections 
+- Tree/Table view for databases and collections
+- Create/Drop collections and indexes
+- GridFS and user manager
+- MongoDB Shell like query (JSON Query Editor)
+- Data export to Word, Excel, PDF, XML, Html5, HTML, CSV, MSAccess, SQLite etc.
+- Data import from other data sources
 - View Server and database statistics
-- Supports RDBMS (MySQL, postgres, ...)
+- Monitor tool for MongoDB Servers
+- Supports RDBMS (Oracle, MySQL, Postgres, SQLite, Firebird, DB2 ...)
+- and more features and tools for MongoDB
 
 .. image:: /figures/admin-uis-DatabaseMasterMainView.gif
 
