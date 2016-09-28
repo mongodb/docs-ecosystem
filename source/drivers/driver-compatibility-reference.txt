@@ -100,25 +100,25 @@ MongoDB Compatibility
      - MongoDB 3.0
      - MongoDB 3.2
 
-   * - C++11 0.3.0
+   * - mongocxx-3.0.x
      - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
 
-   * - legacy-1.1.0+
+   * - legacy-1.1.x
      - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
 
-   * - legacy-1.0.0+
+   * - legacy-1.0.x
      - |checkmark|
      - |checkmark|
      - |checkmark|
      -
 
-   * - legacy-0.0-26compat-2.6.4+
+   * - legacy-0.0-26compat
      -
      - |checkmark|
      -
@@ -144,12 +144,17 @@ Language Compatibility
      - C++11
      - C++14
 
-   * - legacy-1.0.0+
+   * - mongocxx-3.x
+     -
+     - |checkmark|
+     - |checkmark|
+
+   * - legacy-1.x
      - |checkmark|
      - |checkmark|
      - |checkmark|
 
-   * - legacy-0.0-26compat-2.6.4+
+   * - legacy-0.0-26compat
      - |checkmark|
      - |checkmark|
      - |checkmark|
