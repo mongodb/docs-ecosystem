@@ -435,6 +435,15 @@ which is available as either a Ruby or PHP script.
 
 .. image:: /figures/admin-uis-genghis.png
 
+MongoCMS
+~~~~~~~
+
+- <http://www.josebrowne.com/open/mongocms/>
+
+A content manager specifically developed to manage rich content applications such as Blogs and other web data.
+
+.. image:: https://raw.github.com/digitalmaster/MongoCMS/master/img/screenshots/doc-edit.png
+
 Meclipse
 ~~~~~~~~
 
