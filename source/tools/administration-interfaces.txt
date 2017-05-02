@@ -406,27 +406,6 @@ Features:
 .. image:: https://raw.githubusercontent.com/phpmongodb/images/master/admin-uis-PHPmongoDB-insert.png
    :width: 600px
 
-RockMongo
-~~~~~~~~~
-
-`RockMongo <http://www.rockmongo.com>`_ is a MongoDB management tool, written in PHP 5.
-
-Main features:
-
-- easy to install, and open source
-- multiple hosts, and multiple administrators for one host
-- password protection
-- query dbs
-- advanced collection query tool
-- read, insert, update, duplicate and remove single row
-- query, create and drop indexes
-- clear collection
-- remove and change (only work in higher PHP-MongoDB version) criteria
-  matched rows
-- view collection statistics
-
-.. image:: /figures/admin-uis-rockmongo.png
-
 Genghis
 ~~~~~~~
 
