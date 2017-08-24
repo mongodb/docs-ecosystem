@@ -27,11 +27,8 @@ Munin is made up of two components:
 Requirements
 ------------
 
-The Munin plugin only supports Python 2.x. You cannot use Munin with
-Python 3.x.
-
 For the :ref:`mongodb-munin-plugin` requirements, see
-`<https://github.com/comerford/mongo-munin>`_.
+`<https://github.com/Wicloz/mongodb-munin-3.4>`_.
 
 Install
 -------
@@ -128,17 +125,12 @@ In the configuration:
 MongoDB Munin Plugin
 --------------------
 
-A `plugin <https://github.com/comerford/mongo-munin>`_ is available that
-provide metrics for:
+A `plugin <https://github.com/Wicloz/mongodb-munin-3.4>`_ is available that
+provides several metrics.
 
-- B-Tree stats
-- Current connections
-- Memory usage
-- Database operations (inserts, updates, queries etc.)
-
-The plugin can be installed on each node where MongoDB. For
+The plugin can be installed on each node that has MongoDB. For
 requirements and instructions to installing the MongoDB Munin Plugin,
-see `<https://github.com/comerford/mongo-munin>`_.
+see `<https://github.com/Wicloz/mongodb-munin-3.4/tree/master/plugins>`_.
 
 Check your setup
 ----------------
@@ -192,16 +184,16 @@ and deletes for the cluster:
    cluster_ops.graph_order insert update delete
    cluster_ops.insert.label insert
    cluster_ops.insert.sum \
-     db1-ec2-174-129-52-161.compute-1.amazonaws.com:mongo_ops.insert \
-     db2-ec2-184-72-191-169.compute-1.amazonaws.com:mongo_ops.insert
+     db1-ec2-174-129-52-161.compute-1.amazonaws.com:mongodb_ops.insert \
+     db2-ec2-184-72-191-169.compute-1.amazonaws.com:mongodb_ops.insert
    cluster_ops.update.label update
    cluster_ops.update.sum \
-     db1-ec2-174-129-52-161.compute-1.amazonaws.com:mongo_ops.update \
-     db2-ec2-184-72-191-169.compute-1.amazonaws.com:mongo_ops.update
+     db1-ec2-174-129-52-161.compute-1.amazonaws.com:mongodb_ops.update \
+     db2-ec2-184-72-191-169.compute-1.amazonaws.com:mongodb_ops.update
    cluster_ops.delete.label delete
    cluster_ops.delete.sum \
-     db1-ec2-174-129-52-161.compute-1.amazonaws.com:mongo_ops.delete \
-     db2-ec2-184-72-191-169.compute-1.amazonaws.com:mongo_ops.delete
+     db1-ec2-174-129-52-161.compute-1.amazonaws.com:mongodb_ops.delete \
+     db2-ec2-184-72-191-169.compute-1.amazonaws.com:mongodb_ops.delete
 
 In the example:
 
@@ -222,7 +214,7 @@ In the example:
 - ``db1-ec2-174-129-52-161.compute-1.amazonaws.com``: indicates the node
   to aggregate.
 
-- ``mongo_ops.insert``: indicates the chart (``mongo_ops``) and the counter
+- ``mongodb_ops.insert``: indicates the chart (``mongodb_ops``) and the counter
   (``insert``) to aggregate.
 
   And this is what it looks like
