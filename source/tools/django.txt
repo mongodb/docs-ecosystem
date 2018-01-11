@@ -1,0 +1,43 @@
+.. _django-connector:
+
+============================
+MongoDB Connector for Django
+============================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+The MongoDB Connector for Django(Djongo) is a backend database connector for 
+Django with MongoDB as the backend database.
+
+The source code is available on `Github
+<https://github.com/nesdis/djongo/>`_ and a `detailed technical implementation
+<https://nesdis.github.io/djongo/>`_ is available as well.
+
+
+Installation
+------------
+
+#. Download and install djongo from pypi:
+   
+   pip install djongo
+
+#. Into settings.py file of your Django project, add:
+   
+   DATABASES = {
+      'default': {
+        'ENGINE': 'djongo',
+        'NAME': 'your-db-name',
+    }
+  }
+  
+#. Run manage.py migrate (ONLY the first time to create collections in mongoDB)
+
+You are set!
+
+For more detailed information do check documentation on `integrating Django with MongoDB<https://nesdis.github.io/djongo/>`_
