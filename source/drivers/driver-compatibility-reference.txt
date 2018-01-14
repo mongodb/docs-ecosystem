@@ -516,8 +516,10 @@ MongoDB Compatibility
      - MongoDB 3.0
      - MongoDB 3.2
      - MongoDB 3.4
+     - MongoDB 3.6
 
    * - >=2.2.12
+     - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -528,15 +530,18 @@ MongoDB Compatibility
      - |checkmark|
      -
      -
+     -
 
    * - >=1.4.29
      - |checkmark|
      - |checkmark|
      -
      -
+     -
 
    * - 1.4.X
      - |checkmark|
+     -
      -
      -
      -
