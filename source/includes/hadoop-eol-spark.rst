@@ -1,5 +1,6 @@
-.. note::
+.. admonition:: MongoDB Connector for Hadoop is no longer supported
+   :class: important
 
-   The MongoDB Connector for Hadoop is no longer supported and has been
-   succeeded by the
-   `MongoDB Connector for Spark <https://docs.mongodb.com/spark-connector/current/>`__.
+   The MongoDB Connector for Hadoop is no longer supported. If you would
+   like to access MongoDB databases using the Apache Spark libraries,
+   use the `MongoDB Connector for Spark <https://docs.mongodb.com/spark-connector/current/>`__.
