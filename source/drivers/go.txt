@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 ========================
 MongoDB Go Driver (beta)
 ========================
+=======
+=====================
+MongoDB Go Driver
+=====================
+>>>>>>> cdff4cb9cbce9ae456c3c54dde64a8f81bcd563a
 
 .. default-domain:: mongodb
 
@@ -10,7 +16,11 @@ MongoDB Go Driver (beta)
    :depth: 1
    :class: twocols
 
+<<<<<<< HEAD
 The official Go Driver is now available in beta on `github <https://github.com/mongodb/mongo-go-driver/>`_. See the `README <https://github.com/mongodb/mongo-go-driver/blob/master/README.md>`_ for more details on installation and bugs/feature reporting.
+=======
+The official Go Driver is available on `github <https://github.com/mongodb/mongo-go-driver/>`_. See the `README <https://github.com/mongodb/mongo-go-driver/blob/master/README.md>`_ for more details on installation and bugs/feature reporting.
+>>>>>>> cdff4cb9cbce9ae456c3c54dde64a8f81bcd563a
 
 MongoDB Go Driver Compatibility
 ---------------------------------
