@@ -37,6 +37,8 @@ Stand-alone Libraries
   **mongodb** extension. It is schema-less and supports fast object hydration
   and persistence, which makes it well-suited for modeling aggregation results.
 
+- `Mongolid <https://github.com/leroy-merlin-br/mongolid>`_: Easy, powerful and ultrafast ODM for PHP and MongoDB.
+
 Framework Integrations
 ~~~~~~~~~~~~~~~~~~~~~~
 
@@ -60,6 +62,8 @@ Framework Integrations
     library and includes an abstract model, a helper class for handling bulk
     writes, database wrappers for Laravel and Lumen, and some necessary helper
     functions.
+
+  - `Mongolid Laravel <https://github.com/leroy-merlin-br/mongolid-laravel>`_: Easy, powerful and ultrafast MongoDB ODM for Laravel.
     
 - Symfony
 
