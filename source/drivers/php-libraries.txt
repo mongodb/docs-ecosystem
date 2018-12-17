@@ -18,7 +18,8 @@ Libraries for the ``mongodb`` Extension
 Stand-alone Libraries
 ~~~~~~~~~~~~~~~~~~~~~
 
-- `Xenus <https://github.com/abellion/xenus>`_ is an extendable, easy to use MongoDB ODM supporting relationships, embedded documents and more.
+- `Xenus <https://github.com/abellion/xenus>`_ is an extendable and easy to use
+   MongoDB ODM that supports relationships, embedded documents, and more.
 
 - `Mongo Queue PHP <https://github.com/dominionenterprises/mongo-queue-php>`_ is
   a PHP message queue, which uses MongoDB as a backend.
