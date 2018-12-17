@@ -37,7 +37,9 @@ Stand-alone Libraries
   **mongodb** extension. It is schema-less and supports fast object hydration
   and persistence, which makes it well-suited for modeling aggregation results.
 
-- `Mongolid <https://github.com/leroy-merlin-br/mongolid>`_: Easy, powerful and ultrafast ODM for PHP and MongoDB.
+- `Mongolid <https://github.com/leroy-merlin-br/mongolid>`_: Easy, powerful,
+   and ultrafast ODM for PHP and MongoDB. Implements both ActiveRecord and
+   DataMapper design patterns.
 
 Framework Integrations
 ~~~~~~~~~~~~~~~~~~~~~~
