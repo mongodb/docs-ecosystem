@@ -38,8 +38,9 @@ Stand-alone Libraries
   and persistence, which makes it well-suited for modeling aggregation results.
 
 - `Mongolid <https://github.com/leroy-merlin-br/mongolid>`_: Easy, powerful,
-   and ultrafast ODM for PHP and MongoDB. Implements both ActiveRecord and
-   DataMapper design patterns.
+   and ultrafast ODM for PHP and MongoDB. Implements ActiveRecord design
+   pattern accounting for MongoDB concepts. It supports embedded and referenced
+   documents.
 
 Framework Integrations
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -65,8 +66,12 @@ Framework Integrations
     writes, database wrappers for Laravel and Lumen, and some necessary helper
     functions.
 
-  - `Mongolid Laravel <https://github.com/leroy-merlin-br/mongolid-laravel>`_: Easy, powerful and ultrafast MongoDB ODM for Laravel.
-    
+  - `Mongolid Laravel <https://github.com/leroy-merlin-br/mongolid-laravel>`_: 
+  Built on top of `Mongolid`, it provides many integrations with the framework,
+  while leveraging some core features of it. You might find some similarities 
+  with `Eloquent`, but this library is not a replacement for it, as it tries 
+  to follow MongoDB concepts.
+
 - Symfony
 
   - `MongoDB Bundle <https://github.com/facile-it/mongodb-bundle>`_: A
