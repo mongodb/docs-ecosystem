@@ -40,7 +40,7 @@ raw: ecosystem/drivers/ruby -> https://docs.mongodb.com/ruby-driver/master
 raw: ecosystem/drivers/ruby-resources -> https://docs.mongodb.com/ruby-driver/master/reference/additional-resources
 raw: ecosystem/tutorial/ruby-driver-tutorial -> https://docs.mongodb.com/ruby-driver/v2.2
 raw: ecosystem/tutorial/ruby-driver-tutorial-2-0 -> https://docs.mongodb.com/ruby-driver/v2.0
-raw: ecosystem/tutorial/ruby-bson-tutorial -> https://docs.mongodb.com/ruby-driver/master/tutorials/bson-v3
+raw: ecosystem/tutorial/ruby-bson-tutorial -> https://docs.mongodb.com/ruby-driver/master/tutorials/bson-v4
 raw: ecosystem/tutorial/ruby-bson-tutorial-4-0 -> https://docs.mongodb.com/ruby-driver/master/tutorials/bson-v4
 raw: ecosystem/tutorial/ruby-mongoid-tutorial -> https://docs.mongodb.com/ruby-driver/master/mongoid-tutorials
 raw: ecosystem/tutorial/mongoid-callbacks -> https://docs.mongodb.com/ruby-driver/master/tutorials/mongoid-callbacks
