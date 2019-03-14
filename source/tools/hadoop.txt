@@ -1,8 +1,12 @@
+:orphan:
+
 .. _hadoop-connector:
 
 ============================
 MongoDB Connector for Hadoop
 ============================
+
+.. include:: /includes/attention-docs-eol.rst
 
 .. default-domain:: mongodb
 
@@ -11,6 +15,8 @@ MongoDB Connector for Hadoop
    :backlinks: none
    :depth: 1
    :class: singlecol
+
+.. include:: /includes/hadoop-eol-spark.rst
 
 The MongoDB Connector for Hadoop is a plugin for Hadoop that provides
 the ability to use MongoDB as an input source and/or an output destination.
@@ -40,7 +46,7 @@ Installation
    <https://github.com/mongodb/mongo-hadoop/blob/master/README.md#building>`_.
    The JARs are universal and will work with any version of Hadoop.
 
-#. Obtain a JAR for the :doc:`MongoDB Java Driver </drivers/java>`.
+#. Obtain a JAR for the `MongoDB Java Driver <http://mongodb.github.io/mongo-java-driver/?jmp=docs>`_.
 #. Move these JARs onto each node of the Hadoop cluster.
    You may provision each node so that the jars are somewhere on Hadoop's `CLASSPATH`
    (e.g. ``$HADOOP_PREFIX/share/hadoop/common``), or you can use the Hadoop

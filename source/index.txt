@@ -20,16 +20,22 @@ MongoDB Drivers
 For information on MongoDB licensing, see `MongoDB Licensing
 <https://www.mongodb.com/community/licensing>`_.
 
+MongoDB ODM (Object-Document-Mapper) 
+------------------------------------
+
+Mongoid is the officially supported ODM (Object-Document-Mapper)
+framework for MongoDB in Ruby. For documentation, see `Mongoid
+Documentation <https://docs.mongodb.com/mongoid/current/>`_.
+
+
 Tools and Integration Frameworks
 --------------------------------
 
 .. toctree::
    :maxdepth: 1
 
-   tools/hadoop
+   MongoDB Connector for Business Intelligence <https://docs.mongodb.com/bi-connector/current/>
    tools/http-interfaces
-   tools/munin
-   tools/wireshark
 
 Platforms and Services
 ----------------------
@@ -38,11 +44,6 @@ Platforms and Services
    :maxdepth: 1
 
    platforms/amazon-ec2
-   platforms/red-hat-enterprise-linux
-   platforms/dotcloud
-   platforms/rackspace-cloud
-   platforms/red-hat-openshift
-   platforms/vmware-cloud-foundry
    platforms/windows-azure
    platforms/windows
 
@@ -53,7 +54,6 @@ Use Cases
    :maxdepth: 1
 
    /use-cases/storing-log-data
-   /use-cases/pre-aggregated-reports-mmapv1
    /use-cases/hierarchical-aggregation
 
    /use-cases/product-catalog

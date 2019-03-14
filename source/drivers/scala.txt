@@ -14,7 +14,7 @@ MongoDB Scala Drivers
 
 This is an overview of the available tools for using Scala with
 MongoDB. Those wishing to skip to more detailed discussion should check
-out the `Mongo Scala Driver Tutorial <http://mongodb.github.io/mongo-scala-driver/2.1/getting-started/>`_. 
+out the `Mongo Scala Driver Tutorial <http://mongodb.github.io/mongo-scala-driver/2.4/getting-started/>`_. 
 
 
 Mongo Scala Driver
@@ -24,9 +24,9 @@ The `Mongo Scala Driver <http://github.com/mongodb/mongo-scala-driver>`_ is the 
 It's a modern idiomatic Scala driver with asynchronous and non-blocking IO.
 
 - `Documentation Hub <http://mongodb.github.io/mongo-scala-driver/>`_
-- `API ScalaDoc <http://mongodb.github.io/mongo-scala-driver/1.0/scaladoc/>`_
-- `Getting Started Guide <http://mongodb.github.io/mongo-scala-driver/1.0/getting-started/>`_
-- :doc:`Java Driver </drivers/java>`
+- `API ScalaDoc <http://mongodb.github.io/mongo-scala-driver/2.4/scaladoc/>`_
+- `Getting Started Guide <http://mongodb.github.io/mongo-scala-driver/2.4/getting-started/>`_
+- `Java <http://mongodb.github.io/mongo-java-driver/?jmp=docs>`_
 
 Compatibility
 ~~~~~~~~~~~~~
@@ -39,49 +39,39 @@ MongoDB Compatibility
 .. list-table::
    :header-rows: 1
    :stub-columns: 1
-   :class: compatibility
+   :class: compatibility-large
 
    * - Scala Driver
-     - MongoDB 2.4
-     - MongoDB 2.6
-     - MongoDB 3.0
-     - MongoDB 3.2
+     - MongoDB 4.0
+     - MongoDB 3.6
      - MongoDB 3.4
+     - MongoDB 3.2
+     - MongoDB 3.0
+     - MongoDB 2.6
 
-   * - 2.1
+   * - 2.4
      - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-
-   * - 2.0
      - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
 
-   * - 1.2
+   * - 2.3
+     - 
      - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
 
-   * - 1.1
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
+   * - 2.2
      -
-
-   * - 1.0
      - |checkmark|
      - |checkmark|
      - |checkmark|
-     -
-     -
+     - |checkmark|
+     - |checkmark|
 
 .. include:: /includes/extracts/scala-driver-compatibility-full-mongodb.rst
 
@@ -101,182 +91,18 @@ Language Compatibility
      - Scala 2.11
      - Scala 2.12
 
-   * - 2.1
+   * - 2.4
      - |checkmark|
      - |checkmark|
 
-   * - 2.0
+   * - 2.3
      - |checkmark|
      - |checkmark|
 
-   * - 1.1
+   * - 2.2
      - |checkmark|
      - |checkmark|
-
-   * - 1.1
-     - |checkmark|
-     -
-
-   * - 1.0
-     - |checkmark|
-     -
 
 .. include:: /includes/extracts/scala-driver-compatibility-full-language.rst
 
-Casbah
-------
-
-`Casbah <http://github.com/mongodb/casbah>`_ is the legacy Scala driver for MongoDB.
-It provides wrappers and extensions to the
-:doc:`Java Driver </drivers/java>`
-meant to allow a more Scala-friendly interface to MongoDB.
-It supports serialization/deserialization of common Scala types (including
-collections and regex), Scala collection versions of DBObject and
-DBList and a fluid query DSL.
-
-- `API documentation <http://mongodb.github.io/casbah/>`_
-- `Mailing List <http://groups.google.com/group/mongodb-casbah-users>`_
-- :doc:`Java Driver </drivers/java>`
-
-Compatibility
-~~~~~~~~~~~~~
-
-MongoDB Compatibility
-`````````````````````
-
-.. include:: /includes/extracts/casbah-driver-compatibility-matrix-mongodb.rst
-
-.. list-table::
-   :header-rows: 1
-   :stub-columns: 1
-   :class: compatibility
-
-   * - Casbah
-     - MongoDB 2.6
-     - MongoDB 3.0
-     - MongoDB 3.2
-     - MongoDB 3.4
-
-   * - 3.1
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-
-   * - 3.0
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     -
-
-   * - 2.8
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     -
-
-.. include:: /includes/extracts/casbah-driver-compatibility-full-mongodb.rst
-
-.. include:: /includes/older-server-versions-unsupported.rst
-
-Language Compatibility
-``````````````````````
-
-.. include:: /includes/extracts/casbah-driver-compatibility-matrix-language.rst
-
-.. list-table::
-   :header-rows: 1
-   :stub-columns: 1
-   :class: compatibility
-
-   * - Casbah
-     - Scala 2.9.3
-     - Scala 2.10
-     - Scala 2.11
-     - Scala 2.12
-
-   * - 3.1
-     -
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-
-   * - 3.0
-     -
-     - |checkmark|
-     - |checkmark|
-     -
-
-   * - 2.8
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     -
-
-.. include:: /includes/extracts/casbah-driver-compatibility-full-language.rst
-
 .. include:: /includes/unicode-checkmark.rst
-
-Community
----------
-
-- `Reactive-Mongo <http://reactivemongo.org/>`_ a reactive driver that
-  allows you to design very scalable applications unleashing MongoDB
-  capabilities like streaming infinite live collections and files for
-  modern Realtime Web applications.
-
-  - `Repo <https://github.com/ReactiveMongo/ReactiveMongo>`__
-  - `Blog post <http://stephane.godbillon.com/2012/08/30/reactivemongo-for-casbah-unleashing-mongodb-streaming-capabilities-for-realtime-web>`_
-
-- `Tepkin <http://jeroenr.github.io/tepkin/>`_ a reactive driver built on top of Akka.io and Akka Streams that
-  has a powerful DSL to easily create MongoDB records. It allows you to design very scalable applications by 
-  asynchronously inserting and retrieving (infinite) streams of data with non-blocking backpressure directly into 
-  respectively out of MongoDB through Akka streams.
-
-  - `Repo <https://github.com/jeroenr/tepkin>`__
-  - `Code samples <https://github.com/jeroenr/tepkin/tree/master/examples/src/main/scala/com/github/jeroenr/tepkin/examples>`_
-
-- `Rogue: A Type-Safe Scala DSL <http://engineering.foursquare.com/2011/01/21/rogue-a-type-safe-scala-dsl-for-querying-mongodb/>`_
-  - Foursquare's DSL for querying MongoDB alongside Lift-MongoDB-Record.
-  - `Tutorial/Intro <http://engineering.foursquare.com/2011/01/21/rogue-a-type-safe-scala-dsl-for-querying-mongodb/>`_
-  - `Source/Downloads <https://github.com/foursquare/fsqio/tree/master/src/jvm/io/fsq/rogue>`_
-
-- `frontlets <https://github.com/riedelcastro/frontlets>`_ lightweight
-  typed wrappers around Scala maps, with strong mongo support and JSON
-  integration. Supports type-safe queries in spirit of the original
-  mongo collection interface, object graph traversal, immutable
-  objects among other features.
-
-- `Subset2 <https://github.com/osinka/subset2>`_ MongoDB document
-  parser combinators and builders for use with the Java driver.
-
-- `Hammersmith <https://github.com/bwmcadams/hammersmith>`_ is a
-  Scala-based, asynchronous Netty driver for MongoDB with type-class
-  based fast custom object encoding.
-
-- `Salat <https://github.com/novus/salat/>`_ is a simple serialization
-  library for case classes. Leverages MongoDB's DBObject
-  (which uses BSON underneath) as its target format. Salat is focused
-  on fostering a DWIM and intuitive usage pattern for the end-user's
-  benefit, without sacrificing run time performance.
-
-- `Blue Eyes <http://github.com/jdegoes/blueeyes>`_ is a lightweight
-  framework for building REST APIs with strong MongoDB integration
-  including a DSL and Mock MongoDB for testing.
-
-- `Lift Web Framework <http://liftweb.net/>`_ supports MongoDB through
-  `Lift-MongoDB <http://www.assembla.com/wiki/show/liftweb/MongoDB>`_
-  and object mapping via the
-  `Record <http://www.assembla.com/wiki/show/liftweb/Record>`_ back-end
-  implementation.
-
-- `Mssd (MongoDB Synchronous Scala Driver)
-  <http://www.webpageanalyse.com/dev/mssd>`_ is a synchronous Scala
-  driver which wraps the plain old java driver with a more elegant
-  scala friendly API. Mssd focuses on simplicity of use with not too
-  much magic involved.
-
-- `Mongolia <https://github.com/nilskp/mongolia>`_ is a type-safe Scala
-  DSL, based on the v2.+ Java driver. It enforces type-safety by implicitly
-  converting non-BSON values to BSON, fully configurable. It also bypasses
-  the Java drivers' UUID bug by storing UUIDs as type 4 Binary.

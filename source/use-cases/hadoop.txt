@@ -1,8 +1,12 @@
+:orphan:
+
 .. _hadoop-and-mongodb-use-cases:
 
 ============================
 Hadoop and MongoDB Use Cases
 ============================
+
+.. include:: /includes/attention-docs-eol.rst
 
 .. default-domain:: mongodb
 
@@ -11,6 +15,8 @@ Hadoop and MongoDB Use Cases
    :backlinks: none
    :depth: 1
    :class: singlecol
+
+.. include:: /includes/hadoop-eol-spark.rst
 
 The following are some example deployments with MongoDB and Hadoop. The
 goal is to provide a high-level description of how MongoDB and Hadoop

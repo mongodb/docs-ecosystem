@@ -1,3 +1,5 @@
+:orphan:
+
 .. _getting-started-with-hadoop:
 
 ===========================
@@ -6,11 +8,15 @@ Getting Started with Hadoop
 
 .. default-domain:: mongodb
 
+.. include:: /includes/attention-docs-eol.rst
+
 .. contents:: On this page
    :local:
    :backlinks: none
    :depth: 1
    :class: singlecol
+
+.. include:: /includes/hadoop-eol-spark.rst
 
 MongoDB and Hadoop are a powerful combination and can be used together
 to deliver complex analytics and data processing for data stored in
@@ -73,8 +79,8 @@ primary shard as well.
 .. [#authrequired] :program:`mongod` requires clients to
    authenticate as user when you specify the
    :setting:`security.authorization` or :setting:`security.keyFile`
-   settings or the corresponding :option:`--auth <mongod --auth>` or
-   :option:`--keyFile <mongod --keyFile>` command line options.
+   settings or the corresponding :option:`--auth <mongod.--auth>` or
+   :option:`--keyFile <mongod.--keyFile>` command line options.
 
 Miscellaneous
 ~~~~~~~~~~~~~
