@@ -36,7 +36,7 @@
      - `JIRA <https://jira.mongodb.org/browse/GODRIVER>`__
      -
 
-   * - `Java <http://mongodb.github.io/mongo-java-driver/?jmp=docs>`_
+   * - :doc:`Java </drivers/java>`
      - `Releases <https://github.com/mongodb/mongo-java-driver/releases>`__
      - `Source <https://github.com/mongodb/mongo-java-driver>`__
      - `API <http://api.mongodb.com/java/current>`__
