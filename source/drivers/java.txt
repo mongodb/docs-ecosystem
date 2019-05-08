@@ -73,6 +73,7 @@ to the MongoClient constructor:
    MongoClient mongoClient = new MongoClient(
        new MongoClientURI("mongodb://host1:27017,host2:27017,host3:27017"));
 
+
 Connect to a Sharded Cluster
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -96,6 +97,21 @@ with their hostnames and ports:
       new MongoClientURI("mongodb://host1:27017,host2:27017")
    );
 
+
+
+Connect to Atlas
+~~~~~~~~~~~~~~~~
+
+To connect to a `MongoDB Atlas <https://docs.atlas.mongodb.com/>`_ cluster, use the :manual:`Atlas connection string <https://docs.atlas.mongodb.com/driver-connection>` for your cluster:
+
+.. code-block:: java
+
+   MongoClientURI uri = new MongoClientURI(
+     "mongodb+srv://<username>:<password>@<cluster-address>/test?retryWrites=true"
+   );
+
+   MongoClient mongoClient = new MongoClient(uri);
+   MongoDatabase database = mongoClient.getDatabase("test");
 
 
 See `Connect to MongoDB <http://mongodb.github.io/mongo-java-driver/3.10/driver/tutorials/connect-to-mongodb/>`__
