@@ -43,7 +43,7 @@
      - `JIRA <https://jira.mongodb.org/browse/JAVA>`__
      - `Course <https://university.mongodb.com/courses/M101J/about>`__
 
-   * - `Node.js <https://mongodb.github.io/node-mongodb-native/?jmp=docs>`_
+   * - :doc:`Node.js </drivers/node>`
      - `Releases <https://github.com/mongodb/node-mongodb-native/releases>`__
      - `Source <https://github.com/mongodb/node-mongodb-native>`__
      - `API <https://mongodb.github.io/node-mongodb-native/>`__

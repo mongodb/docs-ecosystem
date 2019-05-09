@@ -1,0 +1,345 @@
+.. include:: /includes/unicode-checkmark.rst
+
+======================
+MongoDB Node.js Driver
+======================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: twocols
+
+Introduction
+------------
+
+The official MongoDB Node.js driver provides both callback-based and Promise-based
+interaction with MongoDB, allowing applications to take full advantage of the new
+features in ES6. The 2.x series of the driver is powered by a brand new core
+driver and BSON library.
+
+- `Tutorials <http://mongodb.github.io/node-mongodb-native/3.2/tutorials/main/>`__
+
+- `Usage Guide <http://mongodb.github.io/node-mongodb-native/3.2/reference/main/>`__
+
+- `API Documentation <http://mongodb.github.io/node-mongodb-native/3.2/api/>`_
+
+- `Changelog <http://mongodb.github.io/node-mongodb-native/3.2/upgrade-migration/main/>`__
+
+- `Source Code <https://github.com/mongodb/node-mongodb-native>`__
+
+
+MongoDB University
+------------------
+
+.. list-table::
+
+   * - .. cssclass:: bordered-figure
+       .. figure:: /figures/M220JS_hero.jpg
+
+     - `M220JS: MongoDB for JavaScript Developers <https://university.mongodb.com/courses/M220JS/about>`__
+ 
+       Learn the essentials of Node.js application development with MongoDB.
+
+
+Installation
+------------
+
+The recommended way to get started using the Node.js 2.0 driver is by using 
+`NPM (Node Package Manager) <https://www.npmjs.com/>`__ to install the dependency in your project.
+
+After you’ve created your project with ``npm init``, you can install the MongoDB driver and its dependencies
+with the command:
+
+.. code-block:: sh
+
+   npm install mongodb --save
+
+This will download the MongoDB driver and add a dependency entry in your package.json file.
+
+
+Connect to MongoDB
+------------------
+
+Connect to a Standalone MongoDB Instance
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To connect to a single MongoDB instance, specify the URI of the MongoDB instance to connect to:
+
+.. code-block:: javascript
+
+   const MongoClient = require('mongodb').MongoClient;
+   const assert = require('assert');
+
+   // Connection URL
+   const url = 'mongodb://localhost:27017';
+
+   // Database Name
+   const dbName = 'myproject';
+
+   // Create a new MongoClient
+   const client = new MongoClient(url);
+
+   // Use connect method to connect to the Server
+   client.connect(function(err) {
+     assert.equal(null, err);
+     console.log("Connected successfully to server");
+
+     const db = client.db(dbName);
+
+     client.close();
+   });
+
+
+Connect to a Replica Set
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+To connect to a :manual:`replica set </replication>`, include a seedlist of replica set
+members and the name of the replica set in the URI connection string.
+
+In the following example, the connection string specifies two of the replica set members
+running on localhost:27017 and localhost:27018 and the name of the replica set (foo):
+
+.. code-block:: javascript
+
+   const MongoClient = require('mongodb').MongoClient;
+   const assert = require('assert');
+
+   // Connection URL
+   const url = 'mongodb://localhost:27017,localhost:27018/?replicaSet=foo';
+
+   // Database Name
+   const dbName = 'myproject';
+
+   // Create a new MongoClient
+   const client = new MongoClient(url);
+
+   // Use connect method to connect to the Server
+   client.connect(function(err) {
+     assert.equal(null, err);
+     console.log("Connected correctly to server");
+
+     const db = client.db(dbName);
+
+     client.close();
+   });
+
+
+Connect to a Sharded Cluster
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To connect to a :manual:`sharded cluster </sharding>`, specify the mongos instance or instances 
+in the URI connection string.
+
+In the following example, the connection string specifies the mongos instances running on
+localhost:50000 and localhost:50001:
+
+.. code-block:: javascript
+
+   const MongoClient = require('mongodb').MongoClient;
+   const assert = require('assert');
+
+   // Connection URL
+   const url = 'mongodb://localhost:50000,localhost:50001';
+
+   // Database Name
+   const dbName = 'myproject';
+
+   // Create a new MongoClient
+   const client = new MongoClient(url);
+
+   // Use connect method to connect to the Server
+   client.connect(function(err, client) {
+     assert.equal(null, err);
+     console.log("Connected successfully to server");
+
+     const db = client.db(dbName);
+
+     client.close();
+   });
+
+
+Connect to Atlas
+~~~~~~~~~~~~~~~~
+
+To connect to a `MongoDB Atlas <https://docs.atlas.mongodb.com/>`_ cluster, use the
+`Atlas connection string <https://docs.atlas.mongodb.com/driver-connection>`__ for your cluster:
+
+.. code-block:: javascript
+
+   const MongoClient = require('mongodb').MongoClient;
+   const uri = "mongodb+srv://<username>:<password>@<your-cluster-url>/test?retryWrites=true";
+   const client = new MongoClient(uri, { useNewUrlParser: true });
+   client.connect(err => {
+     const collection = client.db("test").collection("devices");
+     // perform actions on the collection object
+     client.close();
+   });
+
+
+See `Connect to MongoDB <http://mongodb.github.io/node-mongodb-native/3.2/tutorials/connect/>`__
+for more information.
+
+
+Compatibility
+-------------
+
+.. _reference-compatibility-mongodb-node:
+
+MongoDB Compatibility
+~~~~~~~~~~~~~~~~~~~~~
+
+.. include:: /includes/extracts/node-driver-compatibility-matrix-mongodb.rst
+
+.. list-table::
+   :header-rows: 1
+   :stub-columns: 1
+   :class: compatibility-large
+
+   * - Node.js Driver
+     - MongoDB 4.0
+     - MongoDB 3.6
+     - MongoDB 3.4
+     - MongoDB 3.2
+     - MongoDB 3.0
+     - MongoDB 2.6
+
+   * - >= 3.1
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+
+   * - >= 3.0
+     -
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+
+   * - >=2.2.12
+     -
+     -
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+
+   * - >=2.0.14
+     -
+     -
+     -
+     -
+     - |checkmark|
+     - |checkmark|
+
+   * - >=1.4.29
+     -
+     -
+     -
+     -
+     - |checkmark|
+     - |checkmark|
+
+.. include:: /includes/older-server-versions-unsupported.rst
+
+.. _reference-compatibility-language-node:
+
+Language Compatibility
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. include:: /includes/extracts/node-driver-compatibility-matrix-language.rst
+
+.. list-table::
+   :header-rows: 1
+   :stub-columns: 1
+   :class: compatibility-large
+
+   * - Node.js Driver
+     - Node.js v0.8.X
+     - Node.js v0.10.X
+     - Node.js v0.12.X
+     - Node.js v4.X.X
+     - Node.js v6.X.X
+     - Node.js v8.X.X
+     - Node.js v10.x.x
+
+   * - 3.1.X
+     - 
+     - 
+     - 
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+
+
+   * - 3.0.X
+     - 
+     - 
+     - 
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+
+
+   * - 2.2.X
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     -
+
+   * - 2.1.X
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     -
+
+   * - 2.0.X
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     -
+
+   * - >=1.4.18
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     -
+     -
+     -
+     -
+
+   * - 1.4.X
+     - |checkmark|
+     - |checkmark|
+     -
+     -
+     -
+     -
+     -
+
+How to get help
+---------------
+
+- Join our `Google Group <http://groups.google.com/group/mongodb-user>`__.
+- Ask on `Stack Overflow <http://stackoverflow.com/questions/tagged/mongodb+nodejs>`__.
+- Visit our `Support Channels <http://www.mongodb.org/about/support>`__.
+- See `Issues & Help <http://mongodb.github.io/node-mongodb-native/3.2/issues-help/>`__.
+
+

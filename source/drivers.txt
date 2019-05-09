@@ -37,7 +37,7 @@ For information on MongoDB licensing, see `MongoDB Licensing
       C# and .NET Driver </drivers/csharp>
       Go Driver </drivers/go>
       Java Driver </drivers/java>
-      Node.js Driver <https://mongodb.github.io/node-mongodb-native/?jmp=docs>
+      Node.js Driver </drivers/node>
       Perl Driver </drivers/perl>
       PHP Driver </drivers/php>
       Python Driver </drivers/python>
