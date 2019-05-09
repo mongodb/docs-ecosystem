@@ -32,7 +32,7 @@ For information on MongoDB licensing, see `MongoDB Licensing
    .. toctree::
       :titlesonly:
 
-      C Driver <http://mongoc.org/?jmp=docs>
+      C Driver </drivers/c>
       C++ Driver<https://mongodb.github.io/mongo-cxx-driver/?jmp=docs>
       C# and .NET Driver </drivers/csharp>
       Go Driver </drivers/go>
