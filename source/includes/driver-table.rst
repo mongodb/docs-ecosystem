@@ -16,7 +16,7 @@
      - `JIRA <https://jira.mongodb.org/browse/CDRIVER>`__
      -
 
-   * - `C++11 <https://mongodb.github.io/mongo-cxx-driver/?jmp=docs>`__
+   * - :doc:`C++11 </drivers/cxx>`
      - `Releases <https://github.com/mongodb/mongo-cxx-driver/releases>`__
      - `Source <https://github.com/mongodb/mongo-cxx-driver>`__
      - `API <http://mongodb.github.io/mongo-cxx-driver/api/current/>`__
