@@ -60,8 +60,6 @@ for more ways to connect.
 Compatibility
 -------------
 
-.. _reference-compatibility-mongodb-c:
-
 MongoDB Compatibility
 ~~~~~~~~~~~~~~~~~~~~~
 
@@ -70,8 +68,6 @@ MongoDB Compatibility
 .. include:: /includes/mongodb-compatibility-table-c.rst
 
 .. include:: /includes/older-server-versions-unsupported.rst
-
-.. _reference-compatibility-language-c:
 
 Language Compatibility
 ~~~~~~~~~~~~~~~~~~~~~~

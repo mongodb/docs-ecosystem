@@ -39,7 +39,7 @@ Connect to MongoDB Atlas
 
 To connect to a `MongoDB Atlas <https://docs.atlas.mongodb.com/>`_ cluster, use the `Atlas connection string <https://docs.atlas.mongodb.com/driver-connection>`__ for your cluster:
 
-.. code-block:: cxx
+.. code-block:: cpp
 
    #include <mongocxx/client.hpp>
    #include <mongocxx/instance.hpp>
@@ -59,8 +59,6 @@ To connect to a `MongoDB Atlas <https://docs.atlas.mongodb.com/>`_ cluster, use 
 Compatibility
 -------------
 
-.. _reference-compatibility-mongodb-cpp:
-
 MongoDB Compatibility
 ~~~~~~~~~~~~~~~~~~~~~
 
@@ -69,8 +67,6 @@ MongoDB Compatibility
 .. include:: /includes/mongodb-compatibility-table-cxx.rst
 
 .. include:: /includes/older-server-versions-unsupported.rst
-
-.. _reference-compatibility-language-cpp:
 
 Language Compatibility
 ~~~~~~~~~~~~~~~~~~~~~~
