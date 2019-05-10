@@ -67,120 +67,18 @@ MongoDB Compatibility
 
 .. include:: /includes/extracts/c-driver-compatibility-matrix-mongodb.rst
 
-.. list-table::
-   :header-rows: 1
-   :stub-columns: 1
-   :class: compatibility-large
-
-   * - C Driver Version
-     - MongoDB 4.0
-     - MongoDB 3.6
-     - MongoDB 3.4
-     - MongoDB 3.2
-     - MongoDB 3.0
-     - MongoDB 2.6
-
-   * - Version 1.11
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     -
-
-   * - Version 1.10
-     - 
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     -
-
-   * - Version 1.9
-     - 
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-
-   * - Version 1.8
-     - 
-     -
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-
-   * - Version 1.7
-     - 
-     -
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-
-   * - Version 1.6
-     - 
-     -
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-
-   * - Version 1.5
-     - 
-     -
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-
-   * - Version 1.3
-     - 
-     -
-     -
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-
-   * - Version 1.1.0
-     - 
-     -
-     -
-     -
-     - |checkmark|
-     - |checkmark|
-
-   * - Version 1.0.0
-     - 
-     -
-     -
-     -
-     - |checkmark|
-     - |checkmark|
+.. include:: /includes/mongodb-compatibility-table-c.rst
 
 .. include:: /includes/older-server-versions-unsupported.rst
+
+.. _reference-compatibility-language-c:
 
 Language Compatibility
 ~~~~~~~~~~~~~~~~~~~~~~
 
 .. include:: /includes/extracts/c-driver-compatibility-matrix-language.rst
 
-.. list-table::
-   :header-rows: 1
-   :stub-columns: 1
-   :class: compatibility
-   :widths: 55 15 15 15
-
-   * - C Driver Versions
-     - C11
-     - C99
-     - C89
-   * - All Versions
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
+.. include:: /includes/language-compatibility-table-c.rst
 
 
 How to get help

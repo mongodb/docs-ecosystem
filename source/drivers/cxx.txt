@@ -1,8 +1,8 @@
 .. include:: /includes/unicode-checkmark.rst
 
-================
+==================
 MongoDB C++ Driver
-================
+==================
 
 .. default-domain:: mongodb
 
@@ -66,73 +66,18 @@ MongoDB Compatibility
 
 .. include:: /includes/extracts/cpp-driver-compatibility-matrix-mongodb.rst
 
-.. list-table::
-   :header-rows: 1
-   :stub-columns: 1
-   :class: compatibility-large
-
-   * - C++ Driver Version
-     - MongoDB 3.6
-     - MongoDB 3.4
-     - MongoDB 3.2
-     - MongoDB 3.0
-     - MongoDB 2.6
-
-   * - mongocxx 3.3.x
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     - 
-
-   * - mongocxx 3.2.x
-     -
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
- 
-   * - mongocxx 3.1.x
-     -
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-
-   * - mongocxx-3.0.x
-     -
-     -
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
+.. include:: /includes/mongodb-compatibility-table-cxx.rst
 
 .. include:: /includes/older-server-versions-unsupported.rst
+
+.. _reference-compatibility-language-cpp:
 
 Language Compatibility
 ~~~~~~~~~~~~~~~~~~~~~~
 
 .. include:: /includes/extracts/cpp-driver-compatibility-matrix-language.rst
 
-.. list-table::
-   :header-rows: 1
-   :stub-columns: 1
-   :class: compatibility
-   :widths: 55 15 15 15
-
-   * - C++ Driver Version
-     - C++03
-     - C++11
-     - C++14
-
-   * - mongocxx-3.x
-     -
-     - |checkmark|
-     - |checkmark|
-
-   * - legacy-1.x
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
+.. include:: /includes/language-compatibility-table-cxx.rst
 
 
 How to get help
