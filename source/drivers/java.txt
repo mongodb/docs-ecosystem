@@ -49,60 +49,10 @@ management system. See
 `Installation Guide <http://mongodb.github.io/mongo-java-driver/3.10/driver/getting-started/installation/>`__
 
 
-Connect to MongoDB
-------------------
+Connect to MongoDB Atlas
+------------------------
 
-Connect to a Standalone MongoDB Instance
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-To connect to a standalone MongoDB instance:
-
-.. code-block:: java
-
-   MongoClient mongoClient = new MongoClient(new MongoClientURI("mongodb://host1:27017"));
-
-
-Connect to a Replica Set
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-To connect to a :manual:`replica set </replication>`, you must specify one or more members
-to the MongoClient constructor:
-
-.. code-block:: java
-
-   MongoClient mongoClient = new MongoClient(
-       new MongoClientURI("mongodb://host1:27017,host2:27017,host3:27017"));
-
-
-Connect to a Sharded Cluster
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-To connect to a :manual:`sharded cluster </sharding>`, specify the mongos instance or instances 
-to the MongoClient constructor.
-
-To connect to a single ``mongos`` instance, you can specify the hostname and the port (or you can
-omit the parameters if mongos is running on localhost and port 27017):
-
-.. code-block:: java
-
-   MongoClient mongoClient = new MongoClient( "localhost" , 27017 );
-
-
-To connect to multiple ``mongos`` instances, you can specify the ``MongoClientURI`` connection string
-with their hostnames and ports:
-
-.. code-block:: java
-
-   MongoClient mongoClient = new MongoClient(
-      new MongoClientURI("mongodb://host1:27017,host2:27017")
-   );
-
-
-
-Connect to Atlas
-~~~~~~~~~~~~~~~~
-
-To connect to a `MongoDB Atlas <https://docs.atlas.mongodb.com/>`_ cluster, use the `Atlas connection string <https://docs.atlas.mongodb.com/driver-connection>` for your cluster:
+To connect to a `MongoDB Atlas <https://docs.atlas.mongodb.com/>`_ cluster, use the `Atlas connection string <https://docs.atlas.mongodb.com/driver-connection>`__ for your cluster:
 
 .. code-block:: java
 
@@ -115,7 +65,7 @@ To connect to a `MongoDB Atlas <https://docs.atlas.mongodb.com/>`_ cluster, use 
 
 
 See `Connect to MongoDB <http://mongodb.github.io/mongo-java-driver/3.10/driver/tutorials/connect-to-mongodb/>`__
-for more information.
+for more ways to connect.
 
 
 Compatibility

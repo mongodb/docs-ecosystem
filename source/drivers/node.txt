@@ -60,109 +60,8 @@ with the command:
 This will download the MongoDB driver and add a dependency entry in your package.json file.
 
 
-Connect to MongoDB
-------------------
-
-Connect to a Standalone MongoDB Instance
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-To connect to a single MongoDB instance, specify the URI of the MongoDB instance to connect to:
-
-.. code-block:: javascript
-
-   const MongoClient = require('mongodb').MongoClient;
-   const assert = require('assert');
-
-   // Connection URL
-   const url = 'mongodb://localhost:27017';
-
-   // Database Name
-   const dbName = 'myproject';
-
-   // Create a new MongoClient
-   const client = new MongoClient(url);
-
-   // Use connect method to connect to the Server
-   client.connect(function(err) {
-     assert.equal(null, err);
-     console.log("Connected successfully to server");
-
-     const db = client.db(dbName);
-
-     client.close();
-   });
-
-
-Connect to a Replica Set
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-To connect to a :manual:`replica set </replication>`, include a seedlist of replica set
-members and the name of the replica set in the URI connection string.
-
-In the following example, the connection string specifies two of the replica set members
-running on localhost:27017 and localhost:27018 and the name of the replica set (foo):
-
-.. code-block:: javascript
-
-   const MongoClient = require('mongodb').MongoClient;
-   const assert = require('assert');
-
-   // Connection URL
-   const url = 'mongodb://localhost:27017,localhost:27018/?replicaSet=foo';
-
-   // Database Name
-   const dbName = 'myproject';
-
-   // Create a new MongoClient
-   const client = new MongoClient(url);
-
-   // Use connect method to connect to the Server
-   client.connect(function(err) {
-     assert.equal(null, err);
-     console.log("Connected correctly to server");
-
-     const db = client.db(dbName);
-
-     client.close();
-   });
-
-
-Connect to a Sharded Cluster
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-To connect to a :manual:`sharded cluster </sharding>`, specify the mongos instance or instances 
-in the URI connection string.
-
-In the following example, the connection string specifies the mongos instances running on
-localhost:50000 and localhost:50001:
-
-.. code-block:: javascript
-
-   const MongoClient = require('mongodb').MongoClient;
-   const assert = require('assert');
-
-   // Connection URL
-   const url = 'mongodb://localhost:50000,localhost:50001';
-
-   // Database Name
-   const dbName = 'myproject';
-
-   // Create a new MongoClient
-   const client = new MongoClient(url);
-
-   // Use connect method to connect to the Server
-   client.connect(function(err, client) {
-     assert.equal(null, err);
-     console.log("Connected successfully to server");
-
-     const db = client.db(dbName);
-
-     client.close();
-   });
-
-
-Connect to Atlas
-~~~~~~~~~~~~~~~~
+Connect to MongoDB Atlas
+------------------------
 
 To connect to a `MongoDB Atlas <https://docs.atlas.mongodb.com/>`_ cluster, use the
 `Atlas connection string <https://docs.atlas.mongodb.com/driver-connection>`__ for your cluster:
@@ -180,7 +79,7 @@ To connect to a `MongoDB Atlas <https://docs.atlas.mongodb.com/>`_ cluster, use 
 
 
 See `Connect to MongoDB <http://mongodb.github.io/node-mongodb-native/3.2/tutorials/connect/>`__
-for more information.
+for more ways to connect.
 
 
 Compatibility
