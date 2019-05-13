@@ -15,7 +15,8 @@ MongoDB C++ Driver
 Introduction
 ------------
 
-The MongoDB C++ Driver is the official client library for >C++11 applications.
+The MongoDB C++ Driver is the official client library for C++ applications
+using the C++11 (or later) standard.
 
 - `Tutorial <http://mongocxx.org/mongocxx-v3/tutorial/>`__
 

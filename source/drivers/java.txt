@@ -56,11 +56,16 @@ To connect to a `MongoDB Atlas <https://docs.atlas.mongodb.com/>`_ cluster, use 
 
 .. code-block:: java
 
-   MongoClientURI uri = new MongoClientURI(
-     "mongodb+srv://<username>:<password>@<cluster-address>/test?retryWrites=true"
-   );
+   import com.mongodb.ConnectionString;
+   import com.mongodb.client.MongoClients;
+   import com.mongodb.client.MongoClient;
+   import com.mongodb.client.MongoDatabase;
 
-   MongoClient mongoClient = new MongoClient(uri);
+   // ...
+
+   MongoClient mongoClient = MongoClients.create(
+      "mongodb+srv://<username>:<password>@<cluster-address>/test?retryWrites=true"
+   );
    MongoDatabase database = mongoClient.getDatabase("test");
 
 
