@@ -60,12 +60,17 @@ To connect to a `MongoDB Atlas <https://docs.atlas.mongodb.com/>`_ cluster, use 
    import com.mongodb.client.MongoClients;
    import com.mongodb.client.MongoClient;
    import com.mongodb.client.MongoDatabase;
+   import com.mongodb.MongoClientSettings;
 
    // ...
-
-   MongoClient mongoClient = MongoClients.create(
-      "mongodb+srv://<username>:<password>@<cluster-address>/test?retryWrites=true"
+   ConnectionString connString = new ConnectionString(
+       "mongodb+srv://<username>:<password>@<cluster-address>/test"
    );
+   MongoClientSettings settings = MongoClientSettings.builder()
+       .applyConnectionString(connString)
+       .retryWrites(true)
+       .build();
+   MongoClient mongoClient = MongoClients.create(settings);
    MongoDatabase database = mongoClient.getDatabase("test");
 
 
