@@ -31,8 +31,8 @@ driver and BSON library.
 - `Source Code <https://github.com/mongodb/node-mongodb-native>`__
 
 
-MongoDB University
-------------------
+Take the free online course taught by MongoDB
+---------------------------------------------
 
 .. list-table::
 

@@ -28,8 +28,8 @@ The official MongoDB Java Driver providing both synchronous and asynchronous int
 - `Source Code <https://github.com/mongodb/mongo-java-driver/>`__
 
 
-MongoDB University
-------------------
+Take the free online course taught by MongoDB
+---------------------------------------------
 
 .. list-table::
 
