@@ -36,19 +36,6 @@ It is compatible with `Tornado <http://www.tornadoweb.org/>`_ and
 - `All Motor articles on A. Jesse Jiryu Davis's blog <http://emptysqua.re/blog/category/motor/>`_
 
 
-Take the free online course taught by MongoDB
----------------------------------------------
-
-.. list-table::
-
-   * - .. cssclass:: bordered-figure
-       .. figure:: /figures/M220P_hero.jpg
-
-     - `M220J: MongoDB for Python Developers <https://university.mongodb.com/courses/M220J/about>`__
- 
-       Learn the essentials of Python application development with MongoDB.
-
-
 Installation
 ------------
 

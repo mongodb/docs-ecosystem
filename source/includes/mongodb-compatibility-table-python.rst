@@ -1,61 +1,108 @@
-
 .. list-table::
    :header-rows: 1
    :stub-columns: 1
-   :class: compatibility
+   :class: compatibility-large
 
-   * - Motor (Python async) Driver
+   * - Python Driver
+     - MongoDB 4.0
      - MongoDB 3.6
      - MongoDB 3.4
      - MongoDB 3.2
      - MongoDB 3.0
      - MongoDB 2.6
-     - MongoDB 2.4
 
-   * - 1.2
+   * - 3.8
      - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
-     -
+     - |checkmark|     
 
-   * - 1.1
-     -
+   * - 3.7
      - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-
-   * - 1.0
-     -
      - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
 
-   * - 0.7
+   * - 3.6
+     - 
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+
+   * - 3.5
      -
-     -
+     - 
      - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
 
-   * - 0.4
+   * - 3.4
      -
-     -
-     -
+     - 
+     - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
 
-   * - 0.3
+   * - 3.3
      -
      -
-     -
-     -
+     - 
      - |checkmark|
+     - |checkmark|
+     - |checkmark|
+
+   * - 3.2
+     -
+     -
+     - 
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+
+   * - 3.1
+     -
+     -
+     -
+     - 
+     - |checkmark|
+     - |checkmark|
+
+   * - 3.0
+     -
+     -
+     -
+     - 
+     - |checkmark|
+     - |checkmark|
+
+   * - 2.9
+     -
+     -
+     -
+     - 
+     - |checkmark|
+     - |checkmark|
+
+   * - 2.8
+     -
+     -
+     -
+     - 
+     - |checkmark|
+     - |checkmark|
+
+   * - 2.7
+     -
+     -
+     -
+     -
+     - 
      - |checkmark|
