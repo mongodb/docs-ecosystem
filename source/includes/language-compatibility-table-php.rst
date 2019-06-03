@@ -36,5 +36,3 @@
      - |checkmark|
      - |checkmark|
      -
-
-.. include:: /includes/extracts/php-driver-compatibility-full-language.rst
