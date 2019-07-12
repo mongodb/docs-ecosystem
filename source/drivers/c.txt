@@ -51,6 +51,7 @@ To connect to a `MongoDB Atlas <https://docs.atlas.mongodb.com/>`_ cluster, use 
 
    // test commit
    // two
+   // three
 
    #include <mongoc/mongoc.h>
 
