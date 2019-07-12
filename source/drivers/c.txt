@@ -49,8 +49,6 @@ To connect to a `MongoDB Atlas <https://docs.atlas.mongodb.com/>`_ cluster, use 
 
 .. code-block:: c
 
-   // password authentication
-   // more authentication
 
    #include <mongoc/mongoc.h>
 
