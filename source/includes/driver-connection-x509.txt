@@ -1,0 +1,33 @@
+tabs:
+
+- id: c
+  .. note::
+     .. include:: #TODO: some notes here?
+
+  .. tabs::
+
+     tabs:
+
+     - id: mongodb3_6
+       name: MongoDB Version 3.6 or later
+
+       content: |
+
+         .. code-block:: c
+
+         client = blah
+         db = blah
+
+       .. list-table::
+          :header-rows: 1
+          # compatibility table
+- id: cpp
+- id: csharp
+- id: go
+- id: java
+- id: nodejs
+- id: perl
+- id: php
+- id: python
+- id: ruby
+- id: scala
