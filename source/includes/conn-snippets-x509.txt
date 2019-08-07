@@ -31,3 +31,4 @@ tabs:
 - id: python
 - id: ruby
 - id: scala
+- id: swift
