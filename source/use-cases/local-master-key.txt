@@ -1,7 +1,7 @@
 A. Create a Local Master Key
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Client-Side Field Level Encryption for MongoDB uses the envelope encryption mechanism in which there are two types of keys: 1) **data encryption keys** which are used to encrypted/decrypt the sensitive data fields and 2) a **master key** that is used to encrypt the **data encryption keys**.
+Client-Side Field Level Encryption for MongoDB uses the envelope encryption mechanism in which there are two types of keys: 1) **data encryption keys** which are used to encrypt/decrypt the sensitive data fields and 2) a **master key** that is used to encrypt the **data encryption keys**.
 
 The **master key** is stored separately in a Key Management System (KMS) in order to prevent the **data encryption keys** from being used directly to access the sensitive data.
 
