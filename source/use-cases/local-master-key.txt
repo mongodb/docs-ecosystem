@@ -1,0 +1,89 @@
+A. Create a Local Master Key
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Client-Side Field Level Encryption for MongoDB uses the envelope encryption mechanism in which there are two types of keys: 1) **data encryption keys** which are used to encrypted/decrypt the sensitive data fields and 2) a **master key** that is used to encrypt the **data encryption keys**.
+
+The **master key** is stored separately in a Key Management System (KMS) in order to prevent the **data encryption keys** from being used directly to access the sensitive data.
+
+The **data encryption keys** can safely be stored in a MongoDB collection alongside the encrypted sensitive data fields since they have been encrypted by the **master key**.
+
+In Client-Side Field Level Encryption, a client that has access to both **master key** and **data encryption keys** is necessary to perform encryption/decryption.
+
+In the code example below, we will set up the **master key** in a local KMS store as a file. This setup should only be used for local testing purposes and never for production. A secure service such as AWS KMS should always be used in production environments to ensure the **master key** is not compromised.
+
+
+Generate the local **master key** and save it to a file. You should only need to run this once:
+
+.. tabs::
+
+   tabs:
+
+     - id: java-master-key-generator
+       name: "Java"
+       content: |
+
+         .. code-block:: java
+
+           import java.io.FileOutputStream;
+           import java.io.IOException;
+           import java.security.SecureRandom;
+
+           public class CreateMasterKeyFile {
+             public static void main(final String[] args) {
+
+               final byte[] localMasterKey = new byte[96];
+               new SecureRandom().nextBytes(localMasterKey);
+
+               String path = "master-key.txt";
+               try (FileOutputStream stream = new FileOutputStream(path)) {
+                 stream.write(localMasterKey);
+               } catch (IOException e)  {
+                 e.printStackTrace();
+               }
+             }
+           }
+
+     - id: linux-macos-mater-key-generator
+       name: "Linux or MacOS"
+       content: |
+
+         .. code-block:: shell
+
+           echo $(head -c 64 /dev/urandom | base64 | tr -d '\n') >  'master-key.txt'
+
+     - id: windows-10plus-master-key-generator
+       name: "Windows 10+ Powershell"
+       content: |
+
+         .. code-block:: shell
+
+           powershell -command "[Convert]::ToBase64String((1..64|%{[byte](Get-Random -Max 256)}))" | Out-File -FilePath .\master-key.txt
+
+     - id: windows-pre10-master-key-generator
+       name: "Windows 8 and older Powershell"
+       content: |
+
+         .. code-block:: shell
+
+           powershell -command "$r=[byte[]]::new(64);$g=[System.Security.Cryptography.RandomNumberGenerator]::Create();$g.GetBytes($r);[Convert]::ToBase64String($r)" | Out-File -FilePath .\master-key.txt
+
+Next, in our MongoDB client application, add the following logic to read the **master key** from the file we created and construct the KMS settings:
+
+.. code-block:: java
+
+  byte[] masterKey = new byte[96];
+  String path = "master-key.txt";
+  try (FileInputStream fis = new FileInputStream(path)) {
+    masterKey = fis.readAllBytes();
+  } catch (IOException e) {
+    e.printStackTrace();
+  }
+
+  // Specify a local master key in the KMS provider settings
+  Map<String, Map<String, Object>> kmsProviders = new HashMap<String, Map<String, Object>>() {{
+    put("local", new HashMap<String, Object>() {{
+        put("key", localMasterKey);
+    }});
+  }};
+
+The ``kmsProviders`` Map defined above will be used later when specifying the KMS in the encryption settings for the client. At this stage, you should now have a **master key** in a file and code to load it into a Map that will be appended to the configuration of your client.
