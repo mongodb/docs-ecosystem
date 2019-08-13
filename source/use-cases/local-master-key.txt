@@ -21,5 +21,3 @@ In the steps below, we set up a local master key saved to a file and load it int
    We will demonstrate how to transition from a local key to AWS KMS in a later step of this guide.
 
 .. include:: /includes/steps/create-local-master-key.rst
-
-The ``kmsProviders`` Map defined above will be used later when specifying the KMS in the encryption settings for the client. At this stage, you should now have a master key in a file and code to load it into a Map that will be appended to the configuration of your client.
