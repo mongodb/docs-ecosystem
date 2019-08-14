@@ -1,23 +1,48 @@
 A. Create a Local Master Key
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Client-Side Field Level Encryption for MongoDB uses an encryption strategy called envelope encryption in which keys used to encrypt/decrypt data (called **data encryption keys**) are encrypted with another key (called the **master key**). 
+MongoDB Client-Side Field Level Encryption (CSFLE) uses an encryption strategy called envelope encryption in which keys used to encrypt/decrypt data (called **data encryption keys**) are encrypted with another key (called the **master key**). For more information on the features of envelope encryption and key management concepts, see `AWS Key Management Service Concepts <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#enveloping`_.
 
-This strategy bolsters the security, minimizes encryption/decryption overhead, and allows the data encryption keys to be stored in the same replica set as the encrypted data. If a basic encryption strategy was used instead of envelope encryption, the computational and network load of encryption and decryption would need to be handled by the system that manages your keys. For more information on envelope encryption and key management concepts, read `this AWS article <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#enveloping>`_.
+In CSFLE, the master key, used by the MongoDB driver to create and encrypt data keys, is securely stored in a Key Management Service (KMS). The data encryption keys, used to encrypt document fields, is stored in a user-specified collection alongside the encrypted data. 
 
-The master key is stored separately in a Key Management System (KMS) in order to prevent the data encryption keys from being used directly to access the sensitive data.
+To encrypt and decrypt document fields, you must use a client using a MongoDB driver compatible with CSFLE, and it must be able to access both the master key and data encryption keys.
 
-The data encryption keys can safely be stored in a MongoDB collection alongside the encrypted sensitive data fields since they have been encrypted by the master key.
-
-In Client-Side Field Level Encryption, a client that can access both master key and data encryption keys is necessary to perform encryption/decryption.
-
-In the steps below, we set up a local master key saved to a file and load it into the MongoDB client settings in your development environment.
+In the code below, we generate the local master key -- a 96-byte, randomly generated value -- and save it to a file.
 
 .. admonition:: Local Master Keys Are Not Secure
    :class: important
    
    To ensure that the master key cannot be compromised, do not use a local master key in a production environment. Instead, use a secure `Key Management System <https://en.wikipedia.org/wiki/Key_management#Key_management_system>`_ such as `AWS KMS <https://aws.amazon.com/kms/>`_.
    
-   We will demonstrate how to transition from a local key to AWS KMS in a later step of this guide.
+   We demonstrate how to transition from a local key to AWS KMS in a later step of this guide.
 
-.. include:: /includes/steps/create-local-master-key.rst
+.. tabs::
+
+  tabs:
+
+    - id: java-master-key-generator
+      name: "Java"
+      content: |
+
+        The following script generates a 96-byte local master key and saves it to a file called ``master-key.txt`` in the directory from which the script is executed.
+
+        .. code-block:: java
+
+          import java.io.FileOutputStream;
+          import java.io.IOException;
+          import java.security.SecureRandom;
+
+          public class CreateMasterKeyFile {
+            public static void main(final String[] args) {
+
+              final byte[] localMasterKey = new byte[96];
+              new SecureRandom().nextBytes(localMasterKey);
+
+              String path = "master-key.txt";
+              try (FileOutputStream stream = new FileOutputStream(path)) {
+                stream.write(localMasterKey);
+              } catch (IOException e)  {
+                e.printStackTrace();
+              }
+            }
+          }
