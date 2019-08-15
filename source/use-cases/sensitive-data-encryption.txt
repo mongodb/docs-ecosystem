@@ -100,7 +100,36 @@ testabc
             import java.io.IOException;
             import java.security.SecureRandom;
 
+.. tabs::
 
+   tabs:
+
+     - id: java-master-key-generator
+      name: "Java"
+      content: |
+
+         The following script generates a 96-byte local master key and saves it to a file called ``master-key.txt`` in the directory from which the script is executed.
+
+         .. code-block:: java
+
+           import java.io.FileOutputStream;
+          import java.io.IOException;
+          import java.security.SecureRandom;
+
+           public class CreateMasterKeyFile {
+            public static void main(final String[] args) {
+
+               final byte[] localMasterKey = new byte[96];
+              new SecureRandom().nextBytes(localMasterKey);
+
+               String path = "master-key.txt";
+              try (FileOutputStream stream = new FileOutputStream(path)) {
+                stream.write(localMasterKey);
+              } catch (IOException e)  {
+                e.printStackTrace();
+              }
+            }
+          }
 
 
 C. Configure the MongoDB Client
