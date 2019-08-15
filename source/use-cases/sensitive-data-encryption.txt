@@ -84,8 +84,6 @@ The structure for our schema will be as follows:
 * Medical Records are randomly encrypted because entire array's are only encryptable with random encryption
 
 
-In this example, the same key is used for the each encrypted field in the document. The following code illustrates how to create the above schema and 
-
 .. tabs::
 
    tabs:
