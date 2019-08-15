@@ -57,12 +57,53 @@ cubilia Curae; Nunc non interdum purus, ultricies laoreet tortor.
 B. Define a JSON Schema
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-Proin non mi a felis luctus vulputate nec pharetra odio. Ut pretium
-scelerisque nulla, sed euismod nisi pellentesque sit amet. Proin mollis
-mauris eu libero ullamcorper rutrum. Pellentesque vitae enim sed magna
-accumsan maximus et quis mi. Ut vel laoreet turpis. Vivamus vitae odio
-sed arcu finibus pretium vel maximus nisi. Nullam gravida consequat
-porta.
+MongoDB uses JSON Schema to to validate data which is written to a collection.
+Within the context of Field Level Encryption, we use JSON Schema to specify several
+configuration details. For instance, we can specify the form of encryption we want to use 
+- deterministic or random. We can also specify the BSON Type of the field we are encrypting. 
+In addition, we can specify the key we want to use. This is particularly important, because
+it means that we can use different keys for different fields.
+
+In the following example, we will go over creation of a schema for a collection which represents patient data
+in a medical office. Some fields use deterministic encryption, and others use random (probabilistic encryption). 
+
+The structure for our schema will be as follows:
+
+ .. code::
+
+    fullName: String
+    address: Encrypted String using random encryption
+    ssn: Encrypted Int using deterministic encryption
+    last4SSN: Int
+    appointments: Object
+    medicalRecords: Encrypted array of documents using random encryption
+
+
+* Address randomly encrypted because it is more secure for strings to be randomly encrypted to prevent hackers from decrypting by building a cipher dictionary
+* SSN is deterministically encrypted because deterministic encryption provides filtering ability 
+* Medical Records are randomly encrypted because entire array's are only encryptable with random encryption
+
+
+In this example, the same key is used for the each encrypted field in the document. The following code illustrates how to create the above schema and 
+
+.. tabs::
+
+   tabs:
+
+     - id: java-master-key-generator
+      name: "Java"
+      content: |
+
+         The following code creates a collection using the schema above and inserts it into a database using MongoDB.
+
+         .. code-block:: java
+
+            import java.io.FileOutputStream;
+            import java.io.IOException;
+            import java.security.SecureRandom;
+
+
+
 
 C. Configure the MongoDB Client
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
