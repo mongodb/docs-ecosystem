@@ -103,9 +103,9 @@ Explanation of encryption choices
        
         The following code creates a collection using the schema above and inserts
         it into a database using MongoDB.
-        The createSecureClient is a method that calls getJSONSchema and passes it
+        The createSecureClient is a method that calls createJSONSchema and passes it
         a dataKey id in order to create a client that uses the JSONSchema returned
-        from getJSONSchema. However, the createSecureClient is abstracted from
+        from createJSONSchema. However, the createSecureClient is abstracted from
         this section for focus on the creation of schema. 
 
         .. code-block:: java
@@ -151,23 +151,23 @@ Explanation of encryption choices
                     encryptedFieldWrap.put("encrypt", encrypt);
                     return encryptedFieldWrap;
                 }
-                public static JSONObject getStandardField(String bsonType) {
+                public static JSONObject createStandardFieldType(String bsonType) {
                     JSONObject standardField = new JSONObject();
                     standardField.put("bsonType", bsonType);
                     standardField.put("description", "must be a " + bsonType + " and is required");
                     return standardField;
                 }
-                public static String getJSONSchema(String keyId) {
+                public static String createJSONSchema(String keyId) {
                     JSONObject properties = new JSONObject();
-                    properties.put("fullName", getStandardField("string"));
+                    properties.put("fullName", createStandardFieldType("string"));
                     properties.put("address", createEncryptedFieldType(keyId, "string", false));
                     properties.put("ssn", createEncryptedFieldType(keyId, "int", true));
-                    properties.put("last4SSN", getStandardField("int"));
+                    properties.put("last4SSN", createStandardFieldType("int"));
                     JSONObject patientInfo = new JSONObject();
                     patientInfo.put("bsonType", "object");
                     JSONObject patientInfoProperties = new JSONObject();
                     patientInfoProperties.put("phone", createEncryptedFieldType(keyId, "int", true));
-                    patientInfoProperties.put("provider", getStandardField("string"));
+                    patientInfoProperties.put("provider", createStandardFieldType("string"));
                     patientInfo.put("properties", patientInfoProperties);
                     properties.put("patientInfo", patientInfo);
 
