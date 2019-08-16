@@ -122,7 +122,7 @@ Explanation of encryption choices:
                 static String collectionName = "patients";
                 public static void main(String[] args) {
                     // MongoCollection secureCollection = createSecureClient().getDatabase(dbName).getCollection(collectionName);
-                    ...
+                    // ...
                 }
                 public static JSONObject getEncryptedField(String keyId, String chosenBsonType, Boolean isDeterministic) {
                     JSONObject binaryForKey = new JSONObject();
@@ -175,7 +175,7 @@ Explanation of encryption choices:
                     return patientsSchemaAsString;
                 }
                 public static MongoClient createSecureClient() {
-                    ...
+                    // ...
                 }
             }
 
