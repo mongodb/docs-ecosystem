@@ -131,7 +131,7 @@ Explanation of encryption choices
                     // MongoCollection secureCollection = createSecureClient().getDatabase(dbName).getCollection(collectionName);
                     // ...
                 }
-                public static JSONObject getEncryptedField(String keyId, String chosenBsonType, Boolean isDeterministic) {
+                public static JSONObject createEncryptedFieldType(String keyId, String bsonType, boolean isDeterministic) {
                     JSONObject binaryForKey = new JSONObject();
                     binaryForKey.put("base64", keyId);
                     binaryForKey.put("subType", "04");
@@ -139,7 +139,7 @@ Explanation of encryption choices
                     binWrapper.put("$binary", binaryForKey);
                     JSONObject encryptedFieldWrap = new JSONObject();
                     JSONObject encrypt = new JSONObject();
-                    encrypt.put("bsonType", chosenBsonType);
+                    encrypt.put("bsonType", bsonType);
 
                     if (isDeterministic) {
                         encrypt.put("algorithm", "AEAD_AES_256_CBC_HMAC_SHA_512-Deterministic");
@@ -151,27 +151,27 @@ Explanation of encryption choices
                     encryptedFieldWrap.put("encrypt", encrypt);
                     return encryptedFieldWrap;
                 }
-                public static JSONObject getStandardField(String chosenBsonType) {
+                public static JSONObject getStandardField(String bsonType) {
                     JSONObject standardField = new JSONObject();
-                    standardField.put("bsonType", chosenBsonType);
-                    standardField.put("description", "must be a " + chosenBsonType + " and is required");
+                    standardField.put("bsonType", bsonType);
+                    standardField.put("description", "must be a " + bsonType + " and is required");
                     return standardField;
                 }
                 public static String getJSONSchema(String keyId) {
                     JSONObject properties = new JSONObject();
                     properties.put("fullName", getStandardField("string"));
-                    properties.put("address", getEncryptedField(keyId, "string", false));
-                    properties.put("ssn", getEncryptedField(keyId, "int", true));
+                    properties.put("address", createEncryptedFieldType(keyId, "string", false));
+                    properties.put("ssn", createEncryptedFieldType(keyId, "int", true));
                     properties.put("last4SSN", getStandardField("int"));
                     JSONObject patientInfo = new JSONObject();
                     patientInfo.put("bsonType", "object");
                     JSONObject patientInfoProperties = new JSONObject();
-                    patientInfoProperties.put("phone", getEncryptedField(keyId, "int", true));
+                    patientInfoProperties.put("phone", createEncryptedFieldType(keyId, "int", true));
                     patientInfoProperties.put("provider", getStandardField("string"));
                     patientInfo.put("properties", patientInfoProperties);
                     properties.put("patientInfo", patientInfo);
 
-                    JSONObject medicalRecords = getEncryptedField(keyId, "array", false);
+                    JSONObject medicalRecords = createEncryptedFieldType(keyId, "array", false);
                     properties.put("medicalRecords", medicalRecords);
 
 
@@ -185,8 +185,6 @@ Explanation of encryption choices
                     // ...
                 }
             }
-
-
 
 Running the makeJSONSchema method will return the following JSON schema:
 
@@ -262,7 +260,7 @@ Running the makeJSONSchema method will return the following JSON schema:
                 "keyId": [
                 {
                     "$binary": {
-                    "base64": "<keyId>",
+                    "base64": <keyId>,
                     "subType": "04"
                     }
                 }
