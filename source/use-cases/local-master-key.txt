@@ -1,20 +1,18 @@
 A. Create a Local Master Key
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-MongoDB Client-Side Field Level Encryption (CSFLE) uses an encryption strategy called envelope encryption in which keys used to encrypt/decrypt data (called **data encryption keys**) are encrypted with another key (called the **master key**). For more information on the features of envelope encryption and key management concepts, see `AWS Key Management Service Concepts <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#enveloping`_.
+MongoDB Client-Side Field Level Encryption (CSFLE) uses an encryption strategy called envelope encryption in which keys used to encrypt/decrypt data (called **data encryption keys**) are encrypted with another key (called the **master key**). For more information on the features of envelope encryption and key management concepts, see `AWS Key Management Service Concepts <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#enveloping>`_.
 
-In CSFLE, the master key, used by the MongoDB driver to create and encrypt data keys, is securely stored in a Key Management Service (KMS). The data encryption keys, used to encrypt document fields, is stored in a user-specified collection alongside the encrypted data. 
+In CSFLE, the master key, used by the MongoDB driver to create and encrypt data keys, is securely stored in a Key Management Service (KMS). The data encryption keys, used to encrypt document fields, are stored in a user-specified collection alongside the encrypted data. 
 
-To encrypt and decrypt document fields, you must use a client using a MongoDB driver compatible with CSFLE, and it must be able to access both the master key and data encryption keys.
-
-In the code below, we generate the local master key -- a 96-byte, randomly generated value -- and save it to a file.
+In the code below, we generate the local master key -- a 96-byte, randomly generated string -- and save it to a file.
 
 .. admonition:: Local Master Keys Are Not Secure
    :class: important
    
    To ensure that the master key cannot be compromised, do not use a local master key in a production environment. Instead, use a secure `Key Management System <https://en.wikipedia.org/wiki/Key_management#Key_management_system>`_ such as `AWS KMS <https://aws.amazon.com/kms/>`_.
    
-   We demonstrate how to transition from a local key to AWS KMS in a later step of this guide.
+   We demonstrate how to transition from a locally-hosted master key to a remote AWS KMS master key in a later step of this guide.
 
 .. tabs::
 
