@@ -102,6 +102,8 @@ Explanation of encryption choices:
          .. code-block:: java
 
             import com.mongodb.*;
+
+            import com.mongodb.*;
             import com.mongodb.client.MongoClient;
             import com.mongodb.client.MongoClients;
             import com.mongodb.client.MongoCollection;
@@ -119,36 +121,36 @@ Explanation of encryption choices:
                 static String dbName = "fieldLevelEncryptionDemo001";
                 static String collectionName = "patients";
                 public static void main(String[] args) {
-                    MongoCollection secureCollection = createSecureClient().getDatabase(dbName).getCollection(collectionName);
+                    // MongoCollection secureCollection = createSecureClient().getDatabase(dbName).getCollection(collectionName);
                     ...
                 }
-                public static JSONObject getEncryptedField(String keyId, String chosenBsonType, Boolean isDeterministic){
+                public static JSONObject getEncryptedField(String keyId, String chosenBsonType, Boolean isDeterministic) {
                     JSONObject binaryForKey = new JSONObject();
                     binaryForKey.put("base64", keyId);
                     binaryForKey.put("subType", "04");
                     JSONObject binWrapper = new JSONObject();
                     binWrapper.put("$binary", binaryForKey);
-                    
                     JSONObject encryptedFieldWrap = new JSONObject();
                     JSONObject encrypt = new JSONObject();
-
                     encrypt.put("bsonType", chosenBsonType);
-                    if(isDeterministic){
+
+                    if (isDeterministic) {
                         encrypt.put("algorithm", "AEAD_AES_256_CBC_HMAC_SHA_512-Deterministic");
-                    }else{
+                    } else {
                         encrypt.put("algorithm", "AEAD_AES_256_CBC_HMAC_SHA_512-Random");
                     }
+            
                     encrypt.put("keyId", new JSONArray().put(binWrapper));
                     encryptedFieldWrap.put("encrypt", encrypt);
                     return encryptedFieldWrap;
                 }
-                public static JSONObject getStandardField(String chosenBsonType){
+                public static JSONObject getStandardField(String chosenBsonType) {
                     JSONObject standardField = new JSONObject();
                     standardField.put("bsonType", chosenBsonType);
                     standardField.put("description", "must be a " + chosenBsonType + " and is required");
                     return standardField;
                 }
-                public static String getJSONSchema(String keyId){
+                public static String getJSONSchema(String keyId) {
                     JSONObject properties = new JSONObject();
                     properties.put("fullName", getStandardField("string"));
                     properties.put("address", getEncryptedField(keyId, "string", false));
@@ -157,22 +159,22 @@ Explanation of encryption choices:
                     JSONObject patientInfo = new JSONObject();
                     patientInfo.put("bsonType", "object");
                     JSONObject patientInfoProperties = new JSONObject();
-                        patientInfoProperties.put("phone", getEncryptedField(keyId, "int", true));
-                        patientInfoProperties.put("provider", getStandardField("string"));
+                    patientInfoProperties.put("phone", getEncryptedField(keyId, "int", true));
+                    patientInfoProperties.put("provider", getStandardField("string"));
                     patientInfo.put("properties", patientInfoProperties);
                     properties.put("patientInfo", patientInfo);
 
                     JSONObject medicalRecords = getEncryptedField(keyId, "array", false);
-                    properties.put("medicalRecords",medicalRecords);
+                    properties.put("medicalRecords", medicalRecords);
 
-                    
+
                     JSONObject patientsSchema = new JSONObject();
                     patientsSchema.put("properties", properties);
                     patientsSchema.put("bsonType", "object");
                     String patientsSchemaAsString = patientsSchema.toString();
                     return patientsSchemaAsString;
                 }
-                public static MongoClient createSecureClient(){
+                public static MongoClient createSecureClient() {
                     ...
                 }
             }
