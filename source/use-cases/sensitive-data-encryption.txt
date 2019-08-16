@@ -108,9 +108,7 @@ Explanation of encryption choices
         from getJSONSchema. However, the createSecureClient is abstracted from
         this section for focus on the creation of schema. 
 
-         .. code-block:: java
-
-            import com.mongodb.*;
+        .. code-block:: java
 
             import com.mongodb.*;
             import com.mongodb.client.MongoClient;
