@@ -186,7 +186,7 @@ Explanation of encryption choices
                 }
             }
 
-Running the makeJSONSchema method will return the following JSON schema:
+Running the createJSONSchema method will return the following JSON schema:
 
 .. code::
 
