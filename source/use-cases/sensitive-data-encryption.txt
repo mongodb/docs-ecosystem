@@ -97,8 +97,7 @@ Explanation of encryption choices:
        content: |
 
          The following code creates a collection using the schema above and inserts it into a database using MongoDB.
-         For the "Define a JSON Schema" section, the createSecureClient method is abstracted to focus on creation of a schema.
-         But that function uses getJSONSchema and passes it a dataKey id in order to create a client that uses the specified JSON schema.
+         The createSecureClient is a method that calls getJSONSchema and passes it a dataKey id in order to create a client that uses the JSONSchema returned from getJSONSchema. However, the createSecureClient is abstracted from this section for focus on creation of schema. 
 
          .. code-block:: java
 
