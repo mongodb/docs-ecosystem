@@ -58,16 +58,16 @@ B. Define a JSON Schema
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 MongoDB uses JSON Schema to validate data that is written to a collection.
-Within the context of Field Level Encryption, we use JSON Schema to specify several
-configuration details. For instance, we can specify the form of encryption we want to use 
-- deterministic or random. We can also specify the BSON Type of the field we are encrypting. 
-In addition, we can specify the key we want to use. This is particularly important, because
-it means that we can use different keys for different fields.
+Within the context of Field Level Encryption, you use JSON Schema to specify several
+configuration details. For instance, you can specify the form of encryption you want to use 
+- deterministic or random. You can also specify the BSON Type of the field you are encrypting. 
+In addition, you can specify the key you want to use. This is particularly important, because
+it means that you can use different keys for different fields.
 
-In the following example, we will go over creation of a schema for a collection which represents patient data
+The following example goes over the creation of a schema for a collection which represents patient data
 in a medical office. Some fields use deterministic encryption, and others use random (probabilistic encryption). 
 
-The structure for our schema will be as follows:
+The structure for the schema will be as follows:
 
 .. code::
 
@@ -97,9 +97,8 @@ Explanation of encryption choices:
        content: |
 
          The following code creates a collection using the schema above and inserts it into a database using MongoDB.
-         For the "Define a JSON Schema" section we've abstracted the createSecureClient, to focus on creation of a schema.
-         But that function uses getJSONSchema and passes it a dataKey id in order to create a client which uses the JSONSchema
-         we want to use. 
+         For the "Define a JSON Schema" section, the createSecureClient method is abstracted to focus on creation of a schema.
+         But that function uses getJSONSchema and passes it a dataKey id in order to create a client that uses the specified JSON schema.
 
          .. code-block:: java
 
