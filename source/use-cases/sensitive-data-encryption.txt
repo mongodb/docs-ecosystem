@@ -65,7 +65,7 @@ specify the key you want to use. This is particularly important, because
 it means that you can use different keys for different fields.
 
 The following example goes over the creation of a schema for a collection that represents patient data
-in a medical office. Some fields use deterministic encryption, and others use random (probabilistic encryption). 
+in a medical office. Some fields use deterministic encryption, and others use random (probabilistic) encryption. 
 
 The structure for the schema will be as follows:
 
