@@ -57,7 +57,7 @@ cubilia Curae; Nunc non interdum purus, ultricies laoreet tortor.
 B. Define a JSON Schema
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-MongoDB uses JSON Schema to to validate data which is written to a collection.
+MongoDB uses JSON Schema to validate data that is written to a collection.
 Within the context of Field Level Encryption, we use JSON Schema to specify several
 configuration details. For instance, we can specify the form of encryption we want to use 
 - deterministic or random. We can also specify the BSON Type of the field we are encrypting. 
