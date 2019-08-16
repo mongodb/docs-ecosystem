@@ -85,12 +85,12 @@ The structure for the schema will be as follows:
     patientInfo.provider String
     medicalRecords: Encrypted array of documents using random encryption
 
-Explanation of encryption choices:
+Explanation of encryption choices
 ``````````````````````````````````
-* address is randomly encrypted because it is more secure for strings to be randomly encrypted to prevent hackers from decrypting by building a cipher-dictionary
-* ssn is deterministically encrypted because deterministic encryption provides filtering ability 
-* patientInfo.phone is deterministically encrypted for the same reason as ssn, and also it provides an example of encryption with a nested document
-* medicalRecords are randomly encrypted because entire arrays are only encryptable with random encryption
+* ``address`` is randomly encrypted because it is more secure for strings to be randomly encrypted to prevent hackers from decrypting by building a cipher-dictionary
+* ``ssn`` is deterministically encrypted because deterministic encryption provides filtering ability 
+* ``patientInfo.phone`` is deterministically encrypted for the same reason as ssn, and also it provides an example of encryption with a nested document
+* ``medicalRecords`` are randomly encrypted because entire arrays are only encryptable with random encryption
 
 
 .. tabs::
