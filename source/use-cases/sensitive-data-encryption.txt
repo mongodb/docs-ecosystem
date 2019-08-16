@@ -100,13 +100,13 @@ Explanation of encryption choices
      - id: java-jsonschema-generation
        name: "Java"
        content: |
-
-        The following code creates a collection using the schema above
-        and inserts it into a database using MongoDB.
+       
+        The following code creates a collection using the schema above and inserts
+        it into a database using MongoDB.
         The createSecureClient is a method that calls getJSONSchema and passes it
         a dataKey id in order to create a client that uses the JSONSchema returned
         from getJSONSchema. However, the createSecureClient is abstracted from
-        this section for focus on creation of schema. 
+        this section for focus on the creation of schema. 
 
          .. code-block:: java
 
