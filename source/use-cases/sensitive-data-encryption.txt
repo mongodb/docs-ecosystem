@@ -60,12 +60,13 @@ B. Define a JSON Schema
 MongoDB uses JSON Schema to validate data that is written to a collection.
 Within the context of Field Level Encryption, JSONSchema is used to
 specify several configuration details.
-For instance, you can specify the form of encryption you want to use  -
-deterministic or random.
-You can also specify the BSON Type of the field you are encrypting. In
-addition, you can 
-specify the key you want to use. This is particularly important, because
-it means that you can use different keys for different fields.
+
+* Drivers can automatically encrypt and decrypt fields
+* To do so, you need to specify two things in JSON Schema for each encrypted field:
+    a) The encryption type (deterministic or random)
+    b) The data key
+* You can use a single data key for all encrypted fields or you can use individual data keys that are specific to each field.
+
 
 The following example goes over the creation of a schema for a collection
 that represents patient data
@@ -101,10 +102,9 @@ Explanation of encryption choices
        name: "Java"
        content: |
        
-        The following code creates a collection using the schema above and inserts
-        it into a database using MongoDB.
-        The createSecureClient is a method that calls createJSONSchema and passes it
-        a dataKey id in order to create a client that uses the JSONSchema returned
+        The following code creates a JSONSchema object that enforces encryption on various 
+        fields. The createSecureClient is a method that calls createJSONSchema and passes 
+        it a dataKey id in order to create a client that uses the JSONSchema returned
         from createJSONSchema. However, the createSecureClient is abstracted from
         this section for focus on the creation of schema. 
 
