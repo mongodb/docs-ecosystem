@@ -13,18 +13,19 @@ Sensitive Data Encryption
 Introduction
 ------------
 
-If you store information in MongoDB such as confidential personal details, payment information, or proprietary data, you are probably interested in protecting your data from unauthorized access. In addition, the data you store may be subject to governance, privacy, and security compliance mandates. 
+Many applications make use of sensitive information such as confidential personal details, payment information, or proprietary data. In some jurisdictions, this data may be subject to governance, privacy, and security compliance mandates. Unauthorized access of data or a failure to comply to a mandate often results in significant reputation damage and financial penalties. Therefore, it is important to keep sensitive data secure.
 
-MongoDB offers several methods that reduce your risk of a data breach resulting from unauthorized access whether accidental or by a malicious act including:
-
+MongoDB offers several methods that protect your data from unauthorized access including:
+ 
 * `Role-based access control <https://docs.mongodb.com/manual/core/authorization/>`_
 * `Monitoring and logging <https://docs.mongodb.com/manual/core/auditing/>`_
 * `TLS/SSL network transport encryption <https://docs.mongodb.com/manual/core/security-transport-encryption/>`_
-* `Data encryption at rest <https://docs.mongodb.com/manual/core/security-encryption-at-rest/>`_
-* `Client-side field level encryption <https://docs.mongodb.com/manual/core/security-client-side-encryption/>`_
+* `Encryption at rest <https://docs.mongodb.com/manual/core/security-encryption-at-rest/>`_
 
-This document guides you through setup and implementation of Client-Side Field Level Encryption (CSFLE), a feature that encrypts document fields specified by a developer, in a example scenario to demonstrate how it can be used to secure your data.
+Another feature that enables 
 
+This document guides you through setup and implementation of `Client-Side Field Level Encryption (CSFLE) <https://docs.mongodb.com/manual/core/security-client-side-encryption/>`_, a MongoDB feature that encrypts document fields specified by a developer, 
+In the following scenario demonstrates how it can be used to secure your data.
 .. note::
 
   Client-side Field Level Encryption is available starting in MongoDB 4.2 Enterprise only
@@ -32,32 +33,45 @@ This document guides you through setup and implementation of Client-Side Field L
 Problem
 ~~~~~~~
 
-In this scenario, we secure sensitive data on a Medical Care Management System which stores patients' personal information, appointments, and vital sign measurement reports for a fictitious company, *MedcoMD*. While none of this data should ever be exposed to the public, if a malicious user gained access to data such as the patient's social security number (SSN) or their vital sign measurements, it would be disastrous and damaging to the company.
+In this scenario, we secure sensitive data on a Medical Care Management System which stores patients' personal information, appointments, and vital sign measurement reports for a fictitious company, *MedcoMD*. None of the patient data is public, and certain data such as their social security number (SSN) and vital sign measurements are particularly sensitive. It is important for the company and the patient that the data is kept private and secure.
 
-MedcoMD provides access to this system for two types of users:
+MedcoMD needs this system to satisfy the following use cases:
 
-1.  Receptionists, who use the system to schedule appointments for Patients, identified by a combination of contact information and their SSN.
-2.  Doctors, who use the system to access and enter Patients' vital sign measurements
+- Doctors use the system to access Patients' medical records and add new vital sign measurements.
+- Receptionists use the system to schedule appointments for Patients, who are identified by a combination of contact information and their SSN.
+- Receptionists cannot access nor update Patients' medical records.
 
-While MedcoMD trusts their employees never to retrieve sensitive data, there are several ways it could be exposed if left unencrypted including by leaving it exposed on a screen or print-out, by sniffing the data from network packets on an insecure network, or by obtaining unauthorized access to the database. If they store complete, encrypted documents on the server, every query would require decrypting the entire collection which is too computationally expensive, and therefore, slow.
+MedcoMD is also concerned with disclosure of private information through any of the following methods:
+
+- Printing the information or leaving it displayed on a screen where unauthorized people can view it
+- Communicating on an insecure network
+- Gaining access to the database on one of the permissioned users
 
 What can MedcoMD do to balance the functionality and access restrictions of their Medical Care Management System?
 
 Solution
 ~~~~~~~~
 
-MongoDB CSFLE allows the developer to specify the sensitive fields of a document to keep encrypted on the server. The client encrypts the specified, sensitive fields upon writes and transparently decrypts them upon access when necessary. The collections can be queried by any of the unencrypted fields without additional cost, and encrypted fields can be queried -- with restrictions documented in the following section, :ref:`DeterministicVsRandom` -- with minimal overhead.
+The MedcoMD software engineers review the Medical Care Management System specification and determine that Doctors and Receptionists require different levels of access to the data.
 
-If an attacker manages to gain access to the MongoDB database, unless they also gain access to an authorized client, they will only be able to see the sensitive fields in encrypted form.
+
+While role-based access control could separate the access, the granularity is only as fine as a collection
+
+
+In order to minimize the chance of disclosure of sensitive data, they decide encryption is the best option
+
+
+The MedcoMD developers decide this is an ideal opportunity to use CSFLE which allows them to select specific fields of a document that should be kept encrypted on the server. This feature will perform validation and encryption of the specified sensitive data fields, ensuring that they remain encrypted on the server. 
+
+be provided with a client that can access and
+ and the Receptionists will be provided
+
+
+The client encrypts the specified, sensitive fields upon writes and transparently decrypts them upon access when necessary. The collections can be queried by any of the unencrypted fields without additional cost, and encrypted fields can be queried -- with restrictions documented in the :ref:`DeterministicVsRandom` section -- with minimal overhead.
+
+If an unauthorized user manages to gain access to the MongoDB database, unless they also gain access to an authorized client, they will only be able to see the sensitive fields in encrypted form.
 
 MedcoMD can now be confident that MongoDB will keep their sensitive data secure and in compliance with data privacy regulations.
-
-.. _DeterministicVsRandom:
-
-Deterministic vs Random Encryption
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-TODO
 
 Procedure
 ---------
@@ -81,6 +95,11 @@ cubilia Curae; Nunc non interdum purus, ultricies laoreet tortor.
 
 B. Define a JSON Schema
 ~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _DeterministicVsRandom:
+
+Deterministic vs Random Encryption
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Proin non mi a felis luctus vulputate nec pharetra odio. Ut pretium
 scelerisque nulla, sed euismod nisi pellentesque sit amet. Proin mollis
