@@ -10,7 +10,7 @@ In this step, we generate a local master key to expedite setup of our developmen
 .. admonition:: Local Master Keys Are Not Secure
    :class: important
 
-   Do not use a local master key in a production environment to ensure that it cannot be compromised. Instead, use a secure KMS such as `AWS KMS <https://aws.amazon.com/kms/>`_.
+   To ensure that the master key cannot be compromised, do not use a local master key in a production environment. Instead, use a secure KMS such as `AWS KMS <https://aws.amazon.com/kms/>`_.
 
    We demonstrate how to transition from a locally-hosted master key to a remote AWS KMS master key in a later step of this guide.
 
