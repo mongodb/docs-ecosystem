@@ -72,6 +72,7 @@ specify several configuration details.
 To create a field that is encrypted, you first have to define it's schema. The following illustrates a quick example of a JSONSchema of a deterministically encrypted field called address:
 
 .. code::
+
     "address": {
         "encrypt": {
             "bsonType": "string",
