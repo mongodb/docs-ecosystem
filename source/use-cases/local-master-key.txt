@@ -1,7 +1,7 @@
 A. Create a Local Master Key
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-MongoDB `Client-Side Field Level Encryption (CSFLE)<https://docs.mongodb.com/manual/core/security-client-side-encryption/>`_ uses an encryption strategy called *envelope encryption* in which keys used to encrypt/decrypt data (called **data encryption keys**) are encrypted with another key (called the **master key**). For more information on the features of envelope encryption and key management concepts, see `AWS Key Management Service Concepts <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#enveloping>`_.
+MongoDB `Client-Side Field Level Encryption (CSFLE) <https://docs.mongodb.com/manual/core/security-client-side-encryption/>`_ uses an encryption strategy called *envelope encryption* in which keys used to encrypt/decrypt data (called **data encryption keys**) are encrypted with another key (called the **master key**). For more information on the features of envelope encryption and key management concepts, see `AWS Key Management Service Concepts <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#enveloping>`_.
 
 The master key, used by the MongoDB driver to create and encrypt data keys, should be stored remotely in a Key Management Service (KMS). The data encryption keys, generated and used by the MongoDB driver to encrypt and decrypt document fields, are stored in a key vault collection in the same database as the encrypted data.
 
