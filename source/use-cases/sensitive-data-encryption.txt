@@ -74,7 +74,8 @@ that represents patient data
 in a medical office. Some fields use deterministic encryption, and others
 use random (probabilistic) encryption. 
 
-The structure for the schema will be as follows:
+The structure for the schema will be as follows. Note that each field falls under
+3 categories: unencrypted fields, randomly encrypted fields, deterministically encrypted fields. 
 
 .. code::
 
