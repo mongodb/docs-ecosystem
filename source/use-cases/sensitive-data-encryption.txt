@@ -69,7 +69,26 @@ specify several configuration details.
 * You can use a single data key for all encrypted fields or you can use individual data keys that are specific to each field.
 
 
-The following example goes over the creation of a schema for a collection
+To create a field that is encrypted, you first have to define it's schema. The following illustrates a quick example of a JSONSchema of a deterministically encrypted field called address:
+
+.. code::
+    "address": {
+        "encrypt": {
+            "bsonType": "string",
+            "keyId": [
+                {
+                    "$binary": {
+                    "base64": <keyId>,
+                    "subType": "04"
+                    }
+                }
+            ],
+            "algorithm": "AEAD_AES_256_CBC_HMAC_SHA_512-Deterministic"
+        }
+    }
+
+
+In this complete example we will go over the creation of a schema for a collection
 that represents patient data
 in a medical office. Some fields use deterministic encryption, and others
 use random (probabilistic) encryption. 
