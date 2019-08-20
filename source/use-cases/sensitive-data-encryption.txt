@@ -80,8 +80,8 @@ The structure for the schema will be as follows. Note that each field falls unde
 .. code::
 
     fullName: String
-    address: Encrypted String using random encryption
-    ssn: Encrypted Int using deterministic encryption
+    address: Encrypted String using deterministic encryption
+    ssn: Encrypted Int using random encryption
     last4SSN: Int
     patientInfo: Object
     patientInfo.phone Encrypted Int using deterministic encryption
@@ -90,8 +90,8 @@ The structure for the schema will be as follows. Note that each field falls unde
 
 Explanation of encryption choices
 ``````````````````````````````````
-* ``address`` is randomly encrypted because it is more secure for strings to be randomly encrypted to prevent hackers from decrypting by building a cipher-dictionary
-* ``ssn`` is deterministically encrypted because deterministic encryption provides filtering ability 
+* ``address`` is deterministically encrypted because deterministic encryption provides filtering ability. 
+* ``ssn`` is randomly encrypted because ssn does not need to be filterable and random encryption provides additional security
 * ``patientInfo.phone`` is deterministically encrypted for the same reason as ssn, and also it provides an example of encryption with a nested document
 * ``medicalRecords`` array is randomly encrypted because array fields cannot be encrypted deterministically
 
@@ -162,8 +162,8 @@ Explanation of encryption choices
                 public static String createJSONSchema(String keyId) {
                     JSONObject properties = new JSONObject();
                     properties.put("fullName", createStandardFieldType("string"));
-                    properties.put("address", createEncryptedFieldType(keyId, "string", false));
-                    properties.put("ssn", createEncryptedFieldType(keyId, "int", true));
+                    properties.put("address", createEncryptedFieldType(keyId, "string", true));
+                    properties.put("ssn", createEncryptedFieldType(keyId, "int", false));
                     properties.put("last4SSN", createStandardFieldType("int"));
                     JSONObject patientInfo = new JSONObject();
                     patientInfo.put("bsonType", "object");
@@ -208,7 +208,7 @@ Running the createJSONSchema method will return the following JSON schema:
                     }
                 }
                 ],
-                "algorithm": "AEAD_AES_256_CBC_HMAC_SHA_512-Random"
+                "algorithm": "AEAD_AES_256_CBC_HMAC_SHA_512-Deterministic"
             }
             },
             "last4SSN": {
@@ -267,7 +267,7 @@ Running the createJSONSchema method will return the following JSON schema:
                     }
                 }
                 ],
-                "algorithm": "AEAD_AES_256_CBC_HMAC_SHA_512-Deterministic"
+                "algorithm": "AEAD_AES_256_CBC_HMAC_SHA_512-Random"
             }
             }
         }
