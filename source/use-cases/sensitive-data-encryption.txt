@@ -57,7 +57,7 @@ cubilia Curae; Nunc non interdum purus, ultricies laoreet tortor.
 B. Define a JSON Schema
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-In MongoDB, we can create and specify a JSON Schema on a collection to `validate data 
+In MongoDB, we can create and specify a `JSON Schema <https://docs.mongodb.com/manual/reference/operator/query/jsonSchema/#json-schema>`_ on a collection to `validate data 
 <https://docs.mongodb.com/manual/core/schema-validation/>`_ during insert and update operations.
 Within the context of Field Level Encryption, JSONSchema is used to
 specify several configuration details.
