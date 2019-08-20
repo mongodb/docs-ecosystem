@@ -22,10 +22,10 @@ MongoDB offers several methods that protect your data from unauthorized access i
 * `TLS/SSL network transport encryption <https://docs.mongodb.com/manual/core/security-transport-encryption/>`_
 * `Encryption at rest <https://docs.mongodb.com/manual/core/security-encryption-at-rest/>`_
 
-Another feature that enables 
+Another MongoDB feature that prevents unauthorized access of data is `Client-Side Field Level Encryption (CSFLE) <https://docs.mongodb.com/manual/core/security-client-side-encryption/>`_. This feature allows a developer to selectively encrypt individual fields of a document on the client-side before it is sent to the server. This keeps the encrypted data private from the providers hosting the database as well as any user that has direct access to the database.
 
-This document guides you through setup and implementation of `Client-Side Field Level Encryption (CSFLE) <https://docs.mongodb.com/manual/core/security-client-side-encryption/>`_, a MongoDB feature that encrypts document fields specified by a developer, 
-In the following scenario demonstrates how it can be used to secure your data.
+This guide provides steps for setup and implementation of CSFLE.
+
 .. note::
 
   Client-side Field Level Encryption is available starting in MongoDB 4.2 Enterprise only
