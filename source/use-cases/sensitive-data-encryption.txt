@@ -109,8 +109,7 @@ The structure for the schema will be as follows. Note that each field falls unde
 
 Explanation of encryption choices
 ``````````````````````````````````
-* ``ssn`` is deterministically encrypted because deterministic encrypted fields are
-queryable unique fields, and a receptionist might want to query this 
+* ``ssn`` is deterministically encrypted because deterministic encrypted fields are queryable unique fields, and a receptionist might want to query this 
 * ``bloodType`` has low cardinality, meaning there is a very limited amount of values this field can have, so we will use random encryption for this field in order to prevent against hackers building a dictionary of ciphertexts for blood types (which is possible if the field is deterministically encrypted and has low cardinality).
 * ``insurance.policyNumber`` is deterministically encrypted for the same reason as ssn, and also it provides an example of encryption with a nested document
 * ``medicalRecords`` array is randomly encrypted because array fields cannot be encrypted deterministically
