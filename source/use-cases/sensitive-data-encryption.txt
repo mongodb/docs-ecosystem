@@ -206,8 +206,6 @@ Explanation of encryption choices
 Running the createJSONSchema method will return the following JSON schema:
 
 .. code::
-
-
     
     {
         "bsonType": "object",
