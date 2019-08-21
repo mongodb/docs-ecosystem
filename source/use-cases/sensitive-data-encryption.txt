@@ -99,20 +99,20 @@ The structure for the schema will be as follows. Note that each field falls unde
 
 .. code::
 
-    fullName: String
-    address: Encrypted String using deterministic encryption
-    ssn: Encrypted Int using random encryption
-    last4SSN: Int
-    patientInfo: Object
-    patientInfo.phone Encrypted Int using deterministic encryption
+    name: String
+    ssn: Encrypted Int using deterministic encryption
+    bloodType: Encrypted String using random encryption
+    insurance: Object
+    insurance.policyNumber Encrypted Int using deterministic encryption
     patientInfo.provider String
     medicalRecords: Encrypted array of documents using random encryption
 
 Explanation of encryption choices
 ``````````````````````````````````
-* ``address`` is deterministically encrypted because deterministic encryption provides filtering ability. 
-* ``ssn`` is randomly encrypted because ssn does not need to be filterable and random encryption provides additional security
-* ``patientInfo.phone`` is deterministically encrypted for the same reason as ssn, and also it provides an example of encryption with a nested document
+* ``ssn`` is deterministically encrypted because deterministic encrypted fields are
+queryable unique fields, and a receptionist might want to query this 
+* ``bloodType`` has low cardinality, meaning there is a very limited amount of values this field can have, so we will use random encryption for this field in order to prevent against hackers building a dictionary of ciphertexts for blood types (which is possible if the field is deterministically encrypted and has low cardinality).
+* ``insurance.policyNumber`` is deterministically encrypted for the same reason as ssn, and also it provides an example of encryption with a nested document
 * ``medicalRecords`` array is randomly encrypted because array fields cannot be encrypted deterministically
 
 
@@ -179,24 +179,20 @@ Explanation of encryption choices
                     standardField.put("description", "must be a " + bsonType + " and is required");
                     return standardField;
                 }
-                public static String createJSONSchema(String keyId) {
+                public static String getJSONSchema(String keyId){
                     JSONObject properties = new JSONObject();
-                    properties.put("fullName", createStandardFieldType("string"));
-                    properties.put("address", createEncryptedFieldType(keyId, "string", true));
-                    properties.put("ssn", createEncryptedFieldType(keyId, "int", false));
-                    properties.put("last4SSN", createStandardFieldType("int"));
-                    JSONObject patientInfo = new JSONObject();
-                    patientInfo.put("bsonType", "object");
-                    JSONObject patientInfoProperties = new JSONObject();
-                    patientInfoProperties.put("phone", createEncryptedFieldType(keyId, "int", true));
-                    patientInfoProperties.put("provider", createStandardFieldType("string"));
-                    patientInfo.put("properties", patientInfoProperties);
-                    properties.put("patientInfo", patientInfo);
-
-                    JSONObject medicalRecords = createEncryptedFieldType(keyId, "array", false);
-                    properties.put("medicalRecords", medicalRecords);
-
-
+                    properties.put("name", getStandardField("string"));
+                    properties.put("ssn", getEncryptedField(keyId, "int", true));
+                    properties.put("bloodType", getEncryptedField(keyId, "string", false)); 
+                    JSONObject insurance = new JSONObject();
+                    insurance.put("bsonType", "object");
+                    JSONObject insuranceProperties = new JSONObject();
+                        insuranceProperties.put("policyNumber", getEncryptedField(keyId, "int", true));
+                        insuranceProperties.put("provider", getStandardField("string"));
+                    insurance.put("properties", insuranceProperties);
+                    properties.put("insurance", insurance);
+                    JSONObject medicalRecords = getEncryptedField(keyId, "array", false);
+                    properties.put("medicalRecords",medicalRecords);
                     JSONObject patientsSchema = new JSONObject();
                     patientsSchema.put("properties", properties);
                     patientsSchema.put("bsonType", "object");
@@ -217,78 +213,74 @@ Running the createJSONSchema method will return the following JSON schema:
     {
         "bsonType": "object",
         "properties": {
-            "address": {
-            "encrypt": {
-                "bsonType": "string",
-                "keyId": [
-                {
-                    "$binary": {
-                    "base64": <keyId>,
-                    "subType": "04"
+            "insurance": {
+                "bsonType": "object",
+                "properties": {
+                    "provider": {
+                        "bsonType": "string",
+                        "description": "must be a string and is required"
+                    },
+                    "policyNumber": {
+                        "encrypt": {
+                            "bsonType": "int",
+                            "keyId": [
+                            {
+                                "$binary": {
+                                "base64": "VPdDvc8/QAaLwj0J0ZjCpA==",
+                                "subType": "04"
+                                }
+                            }
+                            ],
+                            "algorithm": "AEAD_AES_256_CBC_HMAC_SHA_512-Deterministic"
+                        }
                     }
                 }
-                ],
-                "algorithm": "AEAD_AES_256_CBC_HMAC_SHA_512-Deterministic"
-            }
-            },
-            "last4SSN": {
-            "bsonType": "int",
-            "description": "must be a int and is required"
             },
             "medicalRecords": {
-            "encrypt": {
-                "bsonType": "array",
-                "keyId": [
-                {
-                    "$binary": {
-                    "base64": <keyId>,
-                    "subType": "04"
+                "encrypt": {
+                    "bsonType": "array",
+                    "keyId": [
+                    {
+                        "$binary": {
+                        "base64": "VPdDvc8/QAaLwj0J0ZjCpA==",
+                        "subType": "04"
+                        }
                     }
+                    ],
+                    "algorithm": "AEAD_AES_256_CBC_HMAC_SHA_512-Random"
                 }
-                ],
-                "algorithm": "AEAD_AES_256_CBC_HMAC_SHA_512-Random"
-            }
             },
-            "fullName": {
-            "bsonType": "string",
-            "description": "must be a string and is required"
+            "name": {
+                "bsonType": "string",
+                "description": "must be a string and is required"
             },
-            "patientInfo": {
-            "bsonType": "object",
-            "properties": {
-                "phone": {
+            "bloodType": {
+                "encrypt": {
+                    "bsonType": "string",
+                    "keyId": [
+                    {
+                        "$binary": {
+                            "base64": "VPdDvc8/QAaLwj0J0ZjCpA==",
+                            "subType": "04"
+                        }
+                    }
+                    ],
+                    "algorithm": "AEAD_AES_256_CBC_HMAC_SHA_512-Random"
+                }
+            },
+            "ssn": {
                 "encrypt": {
                     "bsonType": "int",
                     "keyId": [
                     {
                         "$binary": {
-                        "base64": <keyId>,
-                        "subType": "04"
+                            "base64": "VPdDvc8/QAaLwj0J0ZjCpA==",
+                            "subType": "04"
                         }
                     }
                     ],
                     "algorithm": "AEAD_AES_256_CBC_HMAC_SHA_512-Deterministic"
                 }
-                },
-                "provider": {
-                "bsonType": "string",
-                "description": "must be a string and is required"
-                }
-            }
-            },
-            "ssn": {
-            "encrypt": {
-                "bsonType": "int",
-                "keyId": [
-                {
-                    "$binary": {
-                    "base64": <keyId>,
-                    "subType": "04"
-                    }
-                }
-                ],
-                "algorithm": "AEAD_AES_256_CBC_HMAC_SHA_512-Random"
-            }
             }
         }
     }
