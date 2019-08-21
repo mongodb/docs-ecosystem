@@ -33,45 +33,37 @@ This guide provides steps for setup and implementation of CSFLE.
 Problem
 ~~~~~~~
 
-In this scenario, we secure sensitive data on a Medical Care Management System which stores patients' personal information, appointments, and vital sign measurement reports for a fictitious company, *MedcoMD*. None of the patient data is public, and certain data such as their social security number (SSN) and vital sign measurements are particularly sensitive. It is important for the company and the patient that the data is kept private and secure.
+In this scenario, we secure sensitive data on a Medical Care Management System which stores patients' personal information, insurance information, and medical records for a fictional company, *MedcoMD*. None of the patient data is public, and certain data such as their social security number (SSN), insurance policy number, and vital sign measurements are particularly sensitive and subject to privacy compliance. It is important for the company and the patient that the data is kept private and secure.
 
 MedcoMD needs this system to satisfy the following use cases:
 
-- Doctors use the system to access Patients' medical records and add new vital sign measurements.
-- Receptionists use the system to schedule appointments for Patients, who are identified by a combination of contact information and their SSN.
-- Receptionists cannot access nor update Patients' medical records.
+- Doctors use the system to access Patients' medical records, insurance information, and add new vital sign measurements.
+- Receptionists use the system to verify the Patients' identity, using a combination of their contact information and last four digits of their Social Security Number (SSN).
+- Receptionists can view a Patient's insurance policy provider, but not the number
+- Receptionists cannot access a Patient's medical records
 
 MedcoMD is also concerned with disclosure of private information through any of the following methods:
 
-- Printing the information or leaving it displayed on a screen where unauthorized people can view it
-- Communicating on an insecure network
-- Gaining access to the database on one of the permissioned users
+- Accidental disclosure of data on the Receptionist's publicly-viewable screen
+- Communication of the data over an insecure network
+- Direct access to the database by a superuser such as a database administrator
 
 What can MedcoMD do to balance the functionality and access restrictions of their Medical Care Management System?
 
 Solution
 ~~~~~~~~
 
-The MedcoMD software engineers review the Medical Care Management System specification and determine that Doctors and Receptionists require different levels of access to the data.
+The MedcoMD software engineers review the Medical Care Management System specification and determine they must decide the proper method of limiting access to the sensitive data.
 
+The first MongoDB security feature they evaluated was `Encryption at Rest<https://docs.mongodb.com/manual/core/security-encryption-at-rest/>`_ which encrypts data at the storage level. However, this solution did not address the potential issue of database administrators or Receptionists viewing or exposing the sensitive data.
 
-While role-based access control could separate the access, the granularity is only as fine as a collection
+The next MongoDB security feature they evaluated was `Role-Based Access Control<https://docs.mongodb.com/manual/core/authorization/>`_ which allows them to define distinct permissions for users. However, this was insufficient because it did not allow them to differentiate access to specific fields within a document nor does it keep the datasafe when transmitted over an insecure network.  
 
+Finally, the MedcoMD developers discover Client-side Field Level Encryption which allows them to specify fields of a document that should be stored in encrypted form on the server. Before sending the data to the server, the client encrypts the specified, sensitive fields. After retrieving data from the server, the client decrypts any encrypted fields transparently and automatically. This prevents any unencrypted sensitive data from being passed over the network as well as access to the data by a user with direct access to the database.
 
-In order to minimize the chance of disclosure of sensitive data, they decide encryption is the best option
+The Doctors will be provided with a client with CSFLE enabled and will therefore be able to access the sensitive data. The Receptionists will be provided a client without CSFLE enabled and therefore will never be able to access the sensitive data nor accidentally leave it displayed on-screen in a public area.
 
-
-The MedcoMD developers decide this is an ideal opportunity to use CSFLE which allows them to select specific fields of a document that should be kept encrypted on the server. This feature will perform validation and encryption of the specified sensitive data fields, ensuring that they remain encrypted on the server. 
-
-be provided with a client that can access and
- and the Receptionists will be provided
-
-
-The client encrypts the specified, sensitive fields upon writes and transparently decrypts them upon access when necessary. The collections can be queried by any of the unencrypted fields without additional cost, and encrypted fields can be queried -- with restrictions documented in the :ref:`DeterministicVsRandom` section -- with minimal overhead.
-
-If an unauthorized user manages to gain access to the MongoDB database, unless they also gain access to an authorized client, they will only be able to see the sensitive fields in encrypted form.
-
-MedcoMD can now be confident that MongoDB will keep their sensitive data secure and in compliance with data privacy regulations.
+MedcoMD can now be confident that MongoDB will keep their sensitive data secure and compliant with data privacy regulations.
 
 Procedure
 ---------
