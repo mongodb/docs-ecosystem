@@ -13,7 +13,7 @@ Sensitive Data Encryption
 Introduction
 ------------
 
-Many applications make use of sensitive information such as confidential personal details, payment information, or proprietary data. In some jurisdictions, this data may be subject to governance, privacy, and security compliance mandates. Unauthorized access of data or a failure to comply to a mandate often results in significant reputation damage and financial penalties. Therefore, it is important to keep sensitive data secure.
+Many applications make use of sensitive data such as confidential personal details, payment information, or proprietary data. In some jurisdictions, this type of data is subject to governance, privacy, and security compliance mandates. Unauthorized access of sensitive data or a failure to comply to a mandate often results in significant reputation damage and financial penalties. Therefore, it is important to keep sensitive data secure.
 
 MongoDB offers several methods that protect your data from unauthorized access including:
  
@@ -28,7 +28,7 @@ This guide provides steps for setup and implementation of CSFLE with a practical
 
 .. note::
 
-  Client-side Field Level Encryption is available starting in MongoDB 4.2 Enterprise only
+  Client-side Field Level Encryption is available starting in MongoDB 4.2 Enterprise only.
 
 Problem
 ~~~~~~~
@@ -55,11 +55,11 @@ Solution
 
 The MedcoMD software engineers review the Medical Care Management System specification and determine they must decide the proper method of limiting access to the sensitive data.
 
-The first MongoDB security feature they evaluated was `Encryption at Rest<https://docs.mongodb.com/manual/core/security-encryption-at-rest/>`_ which encrypts data at the storage level. However, this solution did not address the potential issue of database administrators or Receptionists viewing or exposing the sensitive data.
+The first MongoDB security feature they evaluated was `Encryption at Rest <https://docs.mongodb.com/manual/core/security-encryption-at-rest/>`_ which encrypts data at the storage level. However, this solution did not address the potential issue of database administrators or Receptionists viewing or exposing the sensitive data.
 
-The next MongoDB security feature they evaluated was `Role-Based Access Control<https://docs.mongodb.com/manual/core/authorization/>`_ which allows them to define distinct permissions for users. However, this was insufficient because it did not allow them to differentiate access to specific fields within a document nor does it keep the data safe when transmitted over an insecure network.  
+The next MongoDB security feature they evaluated was `Role-Based Access Control <https://docs.mongodb.com/manual/core/authorization/>`_ which allows them to define distinct permissions for users. However, this solution did not allow them to differentiate access to specific fields within a document nor keep the data safe when transmitted over an insecure network.  
 
-Finally, the MedcoMD developers discover Client-side Field Level Encryption which allows them to specify fields of a document that should be stored in encrypted form on the server. Before sending the data to the server, the client encrypts the specified, sensitive fields. After retrieving data from the server, the client decrypts any encrypted fields transparently and automatically. This prevents any unencrypted sensitive data from being passed over the network as well as access to the data by a user with direct access to the database.
+Finally, the MedcoMD developers discovered Client-side Field Level Encryption which allows them to specify fields of a document that should be stored in encrypted form on the server. Before sending the data to the server, the client encrypts the specified, sensitive fields. After retrieving data from the server, the client decrypts any encrypted fields transparently and automatically. This prevents any unencrypted sensitive data from being passed over the network as well as access to the data by a user with direct access to the database.
 
 The Doctors will be provided with a client with CSFLE enabled and will therefore be able to access the sensitive data. The Receptionists will be provided a client without CSFLE enabled and therefore will never be able to access the sensitive data nor accidentally leave it displayed on-screen in a public area.
 
