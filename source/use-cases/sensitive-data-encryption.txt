@@ -40,9 +40,30 @@ Procedure
 Requirements
 ~~~~~~~~~~~~
 
-- Point to setup and install directions
-- Nullam imperdiet lorem vitae vulputate lacinia.
-- Donec eget velit tincidunt, gravida diam ac, efficitur lacus.
+Server Software
+^^^^^^^^^^^^^^^
+
+* **MongoDB Server 4.2 Enterprise**. `Installation guide <https://docs.mongodb.com/manual/installation/>`_.
+
+Client development
+^^^^^^^^^^^^^^^^^^
+
+* **MongoDB Driver compatible with CSFLE**. Refer to the `driver compatibility table <https://docs.mongodb.com/manual/core/security-client-side-encryption/#driver-compatibility-table>`_.
+
+External Services
+^^^^^^^^^^^^^^^^^
+* **AWS Key Management Service**
+  - Access to an existing master key or to create a new one (`AWS KMS key creation guide <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html>`_.
+  - IAM user with list and read access to the master key
+
+Permissions
+^^^^^^^^^^^
+
+* **MongoDB**
+  - `ReadWrite access <https://docs.mongodb.com/manual/reference/built-in-roles/#readWrite>`_ for the client on the key vault collection. After initial setup, if no additional data keys will be created, only `listCollections <https://docs.mongodb.com/manual/reference/command/listCollections/#dbcmd.listCollections>`_ is necessary.
+
+* Client application or a privileged user needs permissions to start the **mongocryptd** process on the client-host
+
 
 A. Create a Master Key
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
