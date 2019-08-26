@@ -97,7 +97,7 @@ or `Random encryption <https://docs.mongodb.com/manual/core/security-client-side
 
 
 You will use the secure client, created in an earlier, by passing it a JSON object that contains your schema. 
-In the JSON, you can specify `encryptionMetadata <https://docs.mongodb.com/manual/reference/security-client-side-automatic-json-schema/#encryptmetadata-schema-keyword>`_ that is passed down to the fields under the ``properties``
+In the JSON, you can specify `encryptMetadata <https://docs.mongodb.com/manual/reference/security-client-side-automatic-json-schema/#encryptmetadata-schema-keyword>`_ that is passed down to the fields under the ``properties``
 nested object. 
 
 .. code::
