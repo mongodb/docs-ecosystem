@@ -57,12 +57,127 @@ cubilia Curae; Nunc non interdum purus, ultricies laoreet tortor.
 B. Define a JSON Schema
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-Proin non mi a felis luctus vulputate nec pharetra odio. Ut pretium
-scelerisque nulla, sed euismod nisi pellentesque sit amet. Proin mollis
-mauris eu libero ullamcorper rutrum. Pellentesque vitae enim sed magna
-accumsan maximus et quis mi. Ut vel laoreet turpis. Vivamus vitae odio
-sed arcu finibus pretium vel maximus nisi. Nullam gravida consequat
-porta.
+An important concept in database interaction is `data validation 
+<https://docs.mongodb.com/manual/core/schema-validation/>`_. MongoDB 
+works to make this as simple as possible, using 
+`JSON Schema <https://docs.mongodb.com/manual/reference/operator/query/jsonSchema/#json-schema>`_ 
+for validation during insert and update operations. Within the context of Field Level Encryption,
+JSON Schema is used to specify several configuration details, allowing the drivers
+to automatically encrypt and decrypt fields. 
+
+* To do so, you need to specify two things in JSON Schema for each encrypted field:
+    a) The encryption type (deterministic or random)
+    b) The data key
+    c) The BSON Type
+* You can use a single data key for all encrypted fields or you can use individual data keys that are specific to each field.
+
+
+The following table represents the fields of data, MedcoMD will be using in their Medical Care Management System. Each field
+will be either unencrypted or encrypted. Encrypted fields will be encrypted through `Deterministic Encryption <https://docs.mongodb.com/manual/core/security-client-side-encryption/#deterministic-encryption>`_
+or `Random encryption <https://docs.mongodb.com/manual/core/security-client-side-encryption/#random-encryption>`_.
+
+.. table:: 
+    :widths: 50 50
+
+    +-----------------------------+---------------------+---------------------+
+    |Field type                   |Encryption Algorithm | BSON Type           |
+    +=============================+=====================+=====================+
+    | Name                        | Non-Encrypted       | String              |
+    +-----------------------------+---------------------+---------------------+
+    | SSN                         | Deterministic       |  Int                |
+    +-----------------------------+---------------------+---------------------+
+    | Blood Type                  | Random              |  String             |
+    +-----------------------------+---------------------+---------------------+
+    | Medical Records             | Random              |  Array              |
+    +-----------------------------+---------------------+---------------------+
+    | Insurace: Policy Number     | Deterministic       |  (Nested) Int       |
+    +-----------------------------+---------------------+---------------------+
+    | Insurance: Provider         | Non-Encrypted       |  (Nested) String)   |
+    +-----------------------------+---------------------+---------------------+
+
+
+You will use the secure client, created in an earlier, by passing it a JSON object that contains your schema. 
+In the JSON, you can specify `encryptionMetadata <https://docs.mongodb.com/manual/reference/security-client-side-automatic-json-schema/#encryptmetadata-schema-keyword>`_ that is passed down to the fields under the ``properties``
+nested object. 
+
+.. code::
+
+        {
+            "bsonType" : "object",
+            "encryptMetadata" : {
+                "keyId" : // copy and paste your keyID generated here
+            },
+            "properties": {
+                // copy and paste your fields here 
+            }
+        }
+
+For the MedcoMD system, we will create JSON objects for each field and paste them into the properties 
+object of the JSON Schema above.
+
+
+.. code::
+
+    // Deterministic encryption supports querying and is equally as secure as random encryption for high cardinality (very unique) fields such as SSN. A privileged user in the MedcoMD system might want to query on SSN to verify a patient's identity. One thing to note is that you do not have to include keyId if you specified it in the top-level encryptMetadata field. Though you could include it if you want different users with specific keys to be able to access a specific subset of the encrypted data.
+
+    "ssn": {
+        "encrypt": {
+            "bsonType": "int",
+            "keyId": <keyID>,
+            "algorithm": "AEAD_AES_256_CBC_HMAC_SHA_512-Deterministic"
+        }
+    }
+
+
+.. code:: javascript
+
+    // Random encryption does not support filtering and is best used on fields with low cardinality (very few unique fields) to prevent against frequency analysis attacks. Since there are only 8 blood types, this field will be randomly encrypted. To decrypt this data, a privileged user would have to query on another field via a secure collection, and this data would be returned unencrypted.
+
+    "bloodType": {
+        "encrypt": {
+            "bsonType": "string",
+            "keyId": <keyId>,
+            "algorithm": "AEAD_AES_256_CBC_HMAC_SHA_512-Random"
+        }
+    }
+
+
+.. code:: javascript
+
+    // Arrays can only be auto-encrypted via random encryption. 
+
+    "medicalRecords": {
+        "encrypt": {
+            "bsonType": "array",
+            "keyId": <keyID>,
+            "algorithm": "AEAD_AES_256_CBC_HMAC_SHA_512-Random"
+        }
+    }
+
+.. code:: javascript
+
+    // insurance.policyNumber number is deterministically encrypted because the policy number is a very unique field. Note, that the JSON for policyNumber follows the same structure the JSON for SSN, however, policyNumber is nested inside insurance.properties because it is a nested field.
+
+    "insurance": {
+        "bsonType": "object",
+        "properties": {
+            "policyNumber": {
+                "encrypt": {
+                    "bsonType": "int",
+                    "keyId": <keyID>,
+                    "algorithm": "AEAD_AES_256_CBC_HMAC_SHA_512-Deterministic"
+                }
+            }
+        }
+    }    
+
+
+
+- View the full JSON Schema for this MedcoMD guide `here <https://raw.githubusercontent.com/mongodb/docs-assets/DOCSP-json-schema-helper-and-json/MedcoMDSchema.json>`_
+- View the helper code to generate the full JSON Schema for this MedcoMD guide in java `here <https://raw.githubusercontent.com/mongodb/docs-assets/DOCSP-json-schema-helper-and-json/HelperCode.java>`_ Note: this helper code is not the full helper code for this guide, it only contains the code to generate a JSON Schema for this section. 
+
+
+
 
 C. Configure the MongoDB Client
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
