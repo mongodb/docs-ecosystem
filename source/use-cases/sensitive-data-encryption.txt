@@ -90,7 +90,7 @@ or `Random encryption <https://docs.mongodb.com/manual/core/security-client-side
     +-----------------------------+---------------------+---------------------+
     | Medical Records             | Random              |  Array              |
     +-----------------------------+---------------------+---------------------+
-    | Insurace: Policy Number     | Deterministic       |  (Nested) Int       |
+    | Insurance: Policy Number     | Deterministic       |  (Nested) Int       |
     +-----------------------------+---------------------+---------------------+
     | Insurance: Provider         | Non-Encrypted       |  (Nested) String)   |
     +-----------------------------+---------------------+---------------------+
