@@ -13,7 +13,7 @@ Sensitive Data Encryption
 Introduction
 ------------
 
-Many applications make use of sensitive data such as confidential personal details, payment information, or proprietary data. In some jurisdictions, this type of data is subject to governance, privacy, and security compliance mandates. Unauthorized access of sensitive data or a failure to comply to a mandate often results in significant reputation damage and financial penalties. Therefore, it is important to keep sensitive data secure.
+Many applications make use of sensitive data such as confidential personal details, payment information, or proprietary data. In some jurisdictions, this type of data is subject to governance, privacy, and security compliance mandates. Unauthorized access of sensitive data or a failure to comply with a mandate often results in significant reputation damage and financial penalties. Therefore, it is important to keep sensitive data secure.
 
 MongoDB offers several methods that protect your data from unauthorized access including:
  
@@ -38,8 +38,8 @@ In this scenario, we secure sensitive data on a Medical Care Management System w
 MedcoMD needs this system to satisfy the following use cases:
 
 - Doctors use the system to access Patients' medical records, insurance information, and add new vital sign measurements.
-- Receptionists use the system to verify the Patients' identity, using a combination of their contact information and last four digits of their Social Security Number (SSN).
-- Receptionists can view a Patient's insurance policy provider, but not the number.
+- Receptionists use the system to verify the Patients' identity, using a combination of their contact information and the last four digits of their Social Security Number (SSN).
+- Receptionists can view a Patient's insurance policy provider, but not their policy number.
 - Receptionists cannot access a Patient's medical records.
 
 MedcoMD is also concerned with disclosure of sensitive data through any of the following methods:
@@ -57,15 +57,15 @@ Solution
 
 The MedcoMD software engineers review the Medical Care Management System specification and research the proper solution for limiting access to the sensitive data.
 
-The first MongoDB security feature they evaluated was `Role-Based Access Control <https://docs.mongodb.com/manual/core/authorization/>`_ which allows administrators to grant and restrict collection-level permissions for users. With the appropriate role definition and assignment, this solution prevents accidental disclosure of data and access by a superuser. However, it does not prevent capture of data over an insecure network, access to data by reading the the server's memory, or access to on-disk data by reading database or backup files.
+The first MongoDB security feature they evaluated was `Role-Based Access Control <https://docs.mongodb.com/manual/core/authorization/>`_ which allows administrators to grant and restrict collection-level permissions for users. With the appropriate role definition and assignment, this solution prevents accidental disclosure of data and access. However, it does not prevent capture of data over an insecure network, direct access of data by a superuser, access to data by reading the server's memory, or access to on-disk data by reading the database or backup files.
 
 The next MongoDB security features they evaluated were `Encryption at Rest <https://docs.mongodb.com/manual/core/security-encryption-at-rest/>`_ which encrypts the database files on disk and `Transport Encryption using TLS/SSL <https://docs.mongodb.com/manual/core/security-transport-encryption/>`_ which encrypts data over the network. When applied together, these two features prevent access to on-disk database files as well as capture of the data on the network, respectively. When combined with Role-Based Access Control, these three security features offer near-comprehensive security coverage of the sensitive data, but lack a mechanism to prevent the data from being read from the server's memory.
 
 Finally, the MedcoMD developers discovered a feature that independently satisfies all the security criteria. Client-side Field Level Encryption allows the developers to specify the fields of a document that should be kept encrypted. Sensitive data is transparently encrypted/decrypted by the client and only communicated to and from the server in encrypted form. This mechanism keeps the specified data fields secure in encrypted form on both the server and the network. While all clients have access to the non-sensitive data fields, only appropriately-configured CSFLE clients are able to read and write the sensitive data fields.
 
-The Receptionists are be provided a client without CSFLE enabled and therefore cannot view the sensitive data fields nor accidentally leave them displayed on-screen in a public area. Doctors are provided a client with CSFLE enabled and therefore be able to access the sensitive data fields in the privacy of their office. 
+MedcoMD will provide Receptionists with a client that is not configured to access data encrypted with CSFLE. This will prevent them from viewing the sensitive fields and accidentally leaving them displayed on-screen in a public area. MedcoMD will provide Doctors with a client with CSFLE enabled which will allow them to access the sensitive data fields in the privacy of their own office.
 
-Equipped with CSFLE, MedcoMD can be confident that they can keep their sensitive data secure and compliant to data privacy regulations with MongoDB.
+Equipped with CSFLE, MedcoMD can keep their sensitive data secure and compliant to data privacy regulations with MongoDB.
 
 Procedure
 ---------
