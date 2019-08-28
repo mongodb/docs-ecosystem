@@ -66,13 +66,13 @@ JSON Schema is used to specify several configuration details, allowing the drive
 to automatically encrypt and decrypt fields. 
 
 * With CSFLE enabled, the driver will automatically encrypt and decrypt fields if the following properties are specified in the JSON Schema:
-    a) The encryption algorithm (deterministic or random)
-    b) The data key
-    c) The BSON Type
+    - The encryption algorithm (deterministic or random)
+    - The data key
+    - The BSON Type
 * You can use a single data key for all encrypted fields or you can use individual data keys that are specific to each field.
 
 
-The following table represents the fields of data, MedcoMD will be using in their Medical Care Management System. Each field
+The following table represents the fields of data that MedcoMD will be using in their Medical Care Management System. Each field
 will be either unencrypted or encrypted. Encrypted fields will be encrypted through `Deterministic Encryption <https://docs.mongodb.com/manual/core/security-client-side-encryption/#deterministic-encryption>`_
 or `Random encryption <https://docs.mongodb.com/manual/core/security-client-side-encryption/#random-encryption>`_.
 
