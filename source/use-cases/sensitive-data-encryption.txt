@@ -40,29 +40,41 @@ Procedure
 Requirements
 ~~~~~~~~~~~~
 
-Server Software
-^^^^^^^^^^^^^^^
+MongoDB Server 4.2 Enterprise
+  * For installation instructions, refer to the 
+    `Enterprise Edition Installation Tutorials <https://docs.mongodb.com/manual/installation/#mongodb-enterprise-edition-installation-tutorials>`_.
 
-* **MongoDB Server 4.2 Enterprise**. `Installation guide <https://docs.mongodb.com/manual/installation/>`_.
 
-Client development
-^^^^^^^^^^^^^^^^^^
+MongoDB Driver Compatible with CSFLE 
+  * For a list of drivers that support CSFLE, refer to the
+    `driver compatibility table <https://docs.mongodb.com/manual/core/security-client-side-encryption/#driver-compatibility-table>`_.
 
-* **MongoDB Driver compatible with CSFLE**. Refer to the `driver compatibility table <https://docs.mongodb.com/manual/core/security-client-side-encryption/#driver-compatibility-table>`_.
 
-External Services
-^^^^^^^^^^^^^^^^^
-* **AWS Key Management Service**
-  - Access to an existing master key or to create a new one (`AWS KMS key creation guide <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html>`_.
-  - IAM user with list and read access to the master key
+AWS Key Management Service (KMS)
+  * AWS KMS is required for the secure deployment of CSFLE.
 
-Permissions
-^^^^^^^^^^^
+  * Compatible drivers currently include integration with AWS KMS. Support for
+    other KMS providers may be added in the future.
 
-* **MongoDB**
-  - `ReadWrite access <https://docs.mongodb.com/manual/reference/built-in-roles/#readWrite>`_ for the client on the key vault collection. After initial setup, if no additional data keys will be created, only `listCollections <https://docs.mongodb.com/manual/reference/command/listCollections/#dbcmd.listCollections>`_ is necessary.
+  * The client application will need AWS KMS permissions to the GenerateDataKey,
+    Encrypt, and Decrypt actions.
+ 
 
-* Client application or a privileged user needs permissions to start the **mongocryptd** process on the client-host
+MongoDB Authorization Privileges
+  * In order to create data encryption keys, the client needs the
+    `ReadWrite <https://docs.mongodb.com/manual/reference/built-in-roles/#readWrite>`_ 
+    built-in role on the key vault collection which is specified in the client 
+    configuration.
+
+  * If no additional data encryption keys need to be created, the client can 
+    be downgraded to the `listCollections <https://docs.mongodb.com/manual/reference/privilege-actions/#listCollections>`_
+    privilege on the key vault collection.
+
+
+Server or VM Permissions
+  * The client application or a privileged user needs permissions to start the 
+    `mongocryptd <https://docs.mongodb.com/manual/core/security-client-side-encryption/#field-level-encryption-mongocryptd>`_
+    process on the host. While the drivers contain code to spawn the process.
 
 
 A. Create a Master Key
