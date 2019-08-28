@@ -66,7 +66,7 @@ JSON Schema is used to specify several configuration details, allowing the drive
 to automatically encrypt and decrypt fields. 
 
 * With CSFLE enabled, the driver will automatically encrypt and decrypt fields if the following properties are specified in the JSON Schema:
-    a) The encryption type (deterministic or random)
+    a) The encryption algorithm (deterministic or random)
     b) The data key
     c) The BSON Type
 * You can use a single data key for all encrypted fields or you can use individual data keys that are specific to each field.
