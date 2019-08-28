@@ -65,7 +65,7 @@ for validation during insert and update operations. Within the context of Field 
 JSON Schema is used to specify several configuration details, allowing the drivers
 to automatically encrypt and decrypt fields. 
 
-* To do so, you need to specify two things in JSON Schema for each encrypted field:
+* With CSFLE enabled, the driver will automatically encrypt and decrypt fields if the following properties are specified in the JSON Schema:
     a) The encryption type (deterministic or random)
     b) The data key
     c) The BSON Type
