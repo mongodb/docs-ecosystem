@@ -117,7 +117,7 @@ object of the JSON Schema above.
 
 .. code::
 
-    // Deterministic encryption supports querying and is equally as secure as random encryption for high cardinality (very unique) fields such as SSN. A privileged user in the MedcoMD system might want to query on SSN to verify a patient's identity. One thing to note is that you do not have to include keyId if you specified it in the top-level encryptMetadata field. Though you could include it if you want different users with specific keys to be able to access a specific subset of the encrypted data.
+    // Deterministic encryption supports querying and is equally as secure as random encryption for high cardinality (very unique) fields such as SSN. A privileged user in the MedcoMD Medical Care Management System might want to query on SSN to verify a patient's identity. One thing to note is that you do not have to include keyId if you specified it in the top-level encryptMetadata field. Though you could include it if you want different users with specific keys to be able to access a specific subset of the encrypted data.
 
     "ssn": {
         "encrypt": {
