@@ -57,13 +57,7 @@ cubilia Curae; Nunc non interdum purus, ultricies laoreet tortor.
 B. Define a JSON Schema
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-An important concept in database interaction is `data validation 
-<https://docs.mongodb.com/manual/core/schema-validation/>`_. MongoDB 
-works to make this as simple as possible, using 
-`JSON Schema <https://docs.mongodb.com/manual/reference/operator/query/jsonSchema/#json-schema>`_ 
-for validation during insert and update operations. Within the context of Field Level Encryption,
-JSON Schema is used to specify several configuration details, allowing the drivers
-to automatically encrypt and decrypt fields. 
+While designing your database you may want to enforce particular datatypes on certain fields. MongoDB uses JSON Schema to reduce the complexity of data validation during insert and update operations. Field Level Encryption with MongoDB requires the use of JSON Schema to specify several configuration details, allowing the drivers to automatically encrypt and decrypt fields.
 
 * With CSFLE enabled, the driver will automatically encrypt and decrypt fields if the following properties are specified in the JSON Schema:
     - The encryption algorithm (deterministic or random)
