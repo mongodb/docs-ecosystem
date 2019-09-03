@@ -124,6 +124,151 @@ In this step, we generate a local master key to expedite setup of our developmen
           }
 
 
+B. Create a Data Encryption Key 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In this section, we use the MongoDB driver to create and store a data 
+encryption key, used by CSFLE to automatically encrypt and decrypt data on 
+document fields. The following configuration values are required by the client 
+to generate a new data encryption key:
+
+* The local master key or AWS KMS master key access settings.
+* A MongoDB connection string that authenticates to a running server.
+* The key vault database and collection name.
+
+Upon creating a data encryption key, the driver returns the ``id`` field of
+a document that stores information about the encrypted key including:
+
+* The data encryption key, encrypted by the master key.
+* The key management service provider data.
+
+In this section, we generate a single data encryption key from the local
+master key.
+
+.. note::
+
+  If using AWS KMS to provide the master key, refer to "Convert to a Remote 
+  Master Key" section for the appropriate settings.
+
+First, read the file containing the local master key generated in the "Create
+a Master Key" section:
+
+.. tabs::
+
+  tabs:
+
+    - id: java-master-key-reader
+      name: "Java"
+      content: |
+
+        .. code-block:: java
+
+          String path = "master-key.txt";
+
+          byte[] fileBytes = new byte[96];
+
+          try (FileInputStream fis = new FileInputStream(path)) {
+            fileBytes = fis.readAllBytes();
+          } catch (IOException e) {
+            e.printStackTrace();
+          }
+
+          final byte[] localMasterKey = Arrays.copyOf(fileBytes, 96);
+
+
+Next, specify the KMS provider settings. Since we are using a local master
+key, the provider name is ``local``:
+
+.. tabs::
+
+  tabs:
+
+    - id: java-kms-settings-local
+      name: "Java"
+      content: |
+
+        .. code-block:: java
+
+          String kmsProvider = "local";
+
+          Map<String, Map<String, Object>> kmsProviders = new HashMap<String, Map<String, Object>>() {{
+             put(kmsProvider, new HashMap<String, Object>() {{
+                 put("key", localMasterKey);
+             }});
+          }};
+      
+
+Create the client with the MongoDB connection string and key vault namespace
+(database and collection name): 
+
+.. tabs::
+
+  tabs:
+
+    - id: java-keyvault-settings-local
+      name: "Java"
+      content: |
+
+        .. code-block:: java
+
+          String connectionString = "mongodb://localhost:27017";
+          String keyVaultNamespace = "encryption.__keyVault";
+          
+          ClientEncryptionSettings clientEncryptionSettings = ClientEncryptionSettings.builder()
+                  .keyVaultMongoClientSettings(MongoClientSettings.builder()
+                          .applyConnectionString(new ConnectionString(connectionString))
+                          .build())
+                  .keyVaultNamespace(keyVaultNamespace)
+                  .kmsProviders(kmsProviders)
+                  .build();
+
+          ClientEncryption clientEncryption = ClientEncryptions.create(clientEncryptionSettings);
+
+
+.. note::
+
+  Ensure that the client has `ReadWrite
+  <https://docs.mongodb.com/manual/reference/built-in-roles/#readWrite>`_
+  permissions to the specified key vault 
+  namespace.
+  
+Use the client to generate a data encryption key and convert the returned key
+id to base64 for usage in the following "Define a JSON Schema" section.
+
+.. tabs::
+
+  tabs:
+
+    - id: java-kms-settings-local
+      name: "Java"
+      content: |
+
+        .. code-block:: java
+
+          BsonBinary dataKeyId = clientEncryption.createDataKey("local", new DataKeyOptions());
+          final String base64DataKeyId = Base64.getEncoder().encodeToString(dataKeyId.getData());
+
+
+
+Verify that the key was created in your MongoDB replica set in the specified 
+key vault namespace. The document should resemble the following:
+
+.. code-block:: javascript
+
+  {
+    "_id" : UUID("..."),
+    "keyMaterial" : BinData(0,"..."),
+    "creationDate" : ISODate("..."),
+    "updateDate" : ISODate("..."),
+    "status" : 0,
+    "masterKey" : {
+      "provider" : "local"
+    }
+  }
+
+Click here for the source code used to generate the data encryption key in this
+section. 
+
 B. Define a JSON Schema
 ~~~~~~~~~~~~~~~~~~~~~~~
 
