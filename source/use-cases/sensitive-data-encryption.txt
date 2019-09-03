@@ -57,7 +57,7 @@ AWS Key Management Service (KMS)
     * :aws-docs:`Encrypt <kms/latest/APIReference/API_Encrypt.html>`
     * :aws-docs:`Decrypt <kms/latest/APIReference/API_Decrypt.html>`
 
-    To learn how to create an IAM user to assign these
+    To learn how to create an IAM user and assign these
     permissions, see :aws-docs:`AWS IAM Users </IAM/latest/UserGuide/id_users.html>`
     .
 
