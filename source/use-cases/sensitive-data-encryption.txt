@@ -69,9 +69,7 @@ While designing your database you may want to enforce particular datatypes on ce
     A single data key can be used for all encrypted fields or you can use individual data keys that are specific to each field.
 
 
-The following table represents the fields of data that MedcoMD will be using in their Medical Care Management System. Each field
-will be either unencrypted or encrypted. Encrypted fields will be encrypted through `Deterministic Encryption <https://docs.mongodb.com/manual/core/security-client-side-encryption/#deterministic-encryption>`_
-or `Random encryption <https://docs.mongodb.com/manual/core/security-client-side-encryption/#random-encryption>`_.
+The MedcoMD engineers receive specific requirements for the fields of data. Deterministic Encryption and Random encryption are the two methods of encrypting sensitive fields. The following table illustrates the data model of the Medco Management System.
 
 .. table:: 
     :widths: 50 50
