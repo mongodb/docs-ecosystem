@@ -123,7 +123,7 @@ Create JSON objects for each field and append them to the `properties` map.
 
 .. code:: javascript
 
-    // Random encryption does not support filtering and is best used on fields with low cardinality (very few unique fields) to prevent against frequency analysis attacks. Since there are only 8 blood types, this field will be randomly encrypted. To decrypt this data, a privileged user would have to query on another field via a secure collection, and this data would be returned unencrypted.
+    // Random encryption does not support filtering and is best used on fields with low cardinality (very few unique fields) to prevent against frequency analysis attacks. Since there are only 8 blood types, this field is randomly encrypted. To decrypt this data, a privileged user would have to query on another field via a secure collection, and this data would be returned unencrypted.
 
     "bloodType": {
         "encrypt": {
