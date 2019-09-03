@@ -166,7 +166,7 @@ Create JSON objects for each field and append them to the `properties` map.
 
 
 - View the full JSON Schema for the Medco Medical Management System `here <https://raw.githubusercontent.com/mongodb/docs-assets/DOCSP-json-schema-helper-and-json/MedcoMDSchema.json>`_
-- View the `helper code <https://raw.githubusercontent.com/mongodb/docs-assets/DOCSP-json-schema-helper-and-json/FieldLevelEncryptionJSONSchema.java>`_ to generate the full JSON Schema for this MedcoMD guide in Java. Note: this helper code is not the full helper code for this guide, it only contains the code to generate a JSON Schema for this section. 
+- View the `helper code <https://raw.githubusercontent.com/mongodb/docs-assets/DOCSP-json-schema-helper-and-json/FieldLevelEncryptionJSONSchema.java>`_ to generate the full JSON Schema for this MedcoMD guide in Java. Note: this helper code is not the full helper code for this guide; it only contains the code to generate a JSON Schema for this section. 
 
 
 
