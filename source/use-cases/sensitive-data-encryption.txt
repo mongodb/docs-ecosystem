@@ -57,16 +57,16 @@ cubilia Curae; Nunc non interdum purus, ultricies laoreet tortor.
 B. Define a JSON Schema
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-While designing your database you may want to enforce particular datatypes on certain fields. MongoDB uses JSON Schema to reduce the complexity of data validation during insert and update operations. Field Level Encryption with MongoDB requires the use of JSON Schema to specify several configuration options, allowing the drivers to automatically encrypt and decrypt fields.
+While designing your database, you may want to enforce particular datatypes in specific fields. MongoDB uses JSON Schema to reduce the complexity of data validation during insert and update operations. Field Level Encryption with MongoDB requires the use of JSON Schema to specify several configuration options, allowing the drivers to automatically encrypt and decrypt fields.
 
-* With CSFLE enabled, the driver will automatically encrypt and decrypt fields if the following configuration options are specified in the JSON Schema:
+* With CSFLE enabled, the driver automatically encrypts and decrypted fields that have the following configuration options specified:
     - The encryption algorithm (deterministic or random)
     - The data key
     - The BSON Type
 
 .. note::
 
-    A single data key can be used for all encrypted fields or you can use individual data keys that are specific to each field.
+    A single data key can be used for all encrypted fields, or you can use individual data keys that are specific to each field.
 
 
 The MedcoMD engineers receive specific requirements for the fields of data. `Deterministic Encryption <https://docs.mongodb.com/manual/core/security-client-side-encryption/#deterministic-encryption>`_ and `Random encryption <https://docs.mongodb.com/manual/core/security-client-side-encryption/#random-encryption>`_ are the two different methods of encrypting sensitive fields. The following table illustrates the data model of the Medco Management System.
