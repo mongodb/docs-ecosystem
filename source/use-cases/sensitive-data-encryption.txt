@@ -89,7 +89,7 @@ The MedcoMD engineers receive specific requirements for the fields of data. `Det
     | Insurance: Provider         | Non-Encrypted       |  String (embedded inside `insurance` object) |
     +-----------------------------+---------------------+----------------------------------------------+
 
-Pass the schema as a JSON object to the secure client to specify the encrypted field properties.
+To automatically encrypt and decrypt create a JSON Schema using the information in the data model and pass the schema as a JSON object to the secure client to specify the encrypted field properties.
 In the JSON, you can specify `encryptMetadata <https://docs.mongodb.com/manual/reference/security-client-side-automatic-json-schema/#encryptmetadata-schema-keyword>`_ that is passed down to the fields under the ``properties``
 nested object. 
 
