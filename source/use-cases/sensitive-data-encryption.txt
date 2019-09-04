@@ -90,7 +90,7 @@ The MedcoMD engineers receive specific requirements for the fields of data. `Det
     +-----------------------------+---------------------+----------------------------------------------+
 
 To automatically encrypt and decrypt create a JSON Schema using the information in the data model and pass the schema as a JSON object to the secure client to specify the encrypted field properties.
-In the JSON, you can specify `encryptMetadata <https://docs.mongodb.com/manual/reference/security-client-side-automatic-json-schema/#encryptmetadata-schema-keyword>`_ to specify top-level encryption Configuration options such as a keyId or encryption algorithm. Fields under the ``properties`` key inherit their encryption properties from encryptionMetaData.
+In the JSON, you can specify `encryptMetadata <https://docs.mongodb.com/manual/reference/security-client-side-automatic-json-schema/#encryptmetadata-schema-keyword>`_ to specify top-level encryption Configuration options such as a keyId or encryption algorithm. Fields under the ``properties`` key inherit their encryption properties from encryptMetadata.
 
 
 
