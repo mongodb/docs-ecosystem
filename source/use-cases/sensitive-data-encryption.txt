@@ -90,8 +90,9 @@ The MedcoMD engineers receive specific requirements for the fields of data. `Det
     +-----------------------------+---------------------+----------------------------------------------+
 
 To automatically encrypt and decrypt create a JSON Schema using the information in the data model and pass the schema as a JSON object to the secure client to specify the encrypted field properties.
-In the JSON, you can specify `encryptMetadata <https://docs.mongodb.com/manual/reference/security-client-side-automatic-json-schema/#encryptmetadata-schema-keyword>`_ that is passed down to the fields under the ``properties``
-nested object. 
+In the JSON, you can specify `encryptMetadata <https://docs.mongodb.com/manual/reference/security-client-side-automatic-json-schema/#encryptmetadata-schema-keyword>`_ to specify top-level encryption Configuration options such as a keyId or encryption algorithm. Fields under the ``properties`` key inherit their encryption properties from encryptionMetaData.
+
+
 
 .. code::
 
@@ -122,7 +123,7 @@ Create JSON objects for each field and append them to the `properties` map.
 
 .. code:: javascript
 
-    // Random encryption does not support filtering and is best used on fields with low cardinality (very few unique fields) to prevent against frequency analysis attacks. Since there are only 8 blood types, this field is randomly encrypted. This field is decrypted by a CSFLE-enabled client with appropriate access once the document is retrieved.
+    // Random encryption does not support filtering and is best used on fields with low cardinality (very few unique fields) to prevent against frequency analysis attacks. Since there are only 8 blood types, this field is randomly encrypted. While a CSFLE-enabled client cannot filter on a randomly encrypted field, it can perform a query on a deterministic field, or a field that is not encrypted at all. Doing so would return the decrypted results of all the fields including randomly encrypted fields, such as blood type.
 
     "bloodType": {
         "encrypt": {
