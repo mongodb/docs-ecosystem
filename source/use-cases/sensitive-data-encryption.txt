@@ -114,7 +114,7 @@ Create JSON objects for each field and append them to the `properties` map.
     "ssn": {
         "encrypt": {
             "bsonType": "int",
-            "keyId": <keyID>,
+            "keyId": <keyId>,
             "algorithm": "AEAD_AES_256_CBC_HMAC_SHA_512-Deterministic"
         }
     }
@@ -140,7 +140,7 @@ Create JSON objects for each field and append them to the `properties` map.
     "medicalRecords": {
         "encrypt": {
             "bsonType": "array",
-            "keyId": <keyID>,
+            "keyId": <keyId>,
             "algorithm": "AEAD_AES_256_CBC_HMAC_SHA_512-Random"
         }
     }
@@ -155,7 +155,7 @@ Create JSON objects for each field and append them to the `properties` map.
             "policyNumber": {
                 "encrypt": {
                     "bsonType": "int",
-                    "keyId": <keyID>,
+                    "keyId": <keyId>,
                     "algorithm": "AEAD_AES_256_CBC_HMAC_SHA_512-Deterministic"
                 }
             }
