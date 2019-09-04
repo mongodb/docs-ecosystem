@@ -57,7 +57,7 @@ cubilia Curae; Nunc non interdum purus, ultricies laoreet tortor.
 B. Define a JSON Schema
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-While designing your database, you may want to enforce particular datatypes in specific fields. MongoDB uses JSON Schema to reduce the complexity of data validation during insert and update operations. Client Side Field Level Encryption with MongoDB requires the use of JSON Schema for automatic encryption. Encrypted fields require specifying the following configuration options:
+While designing your database, you may want to enforce particular datatypes in specific fields. MongoDB uses JSON Schema to reduce the complexity of data validation during insert and update operations. Client-Side Field Level Encryption with MongoDB requires the use of JSON Schema for automatic encryption. Encrypted fields require specifying the following configuration options:
 
 * The encryption algorithm (deterministic or random)
 * The data key
