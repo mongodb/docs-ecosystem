@@ -169,7 +169,7 @@ Create JSON objects for each field and append them to the `properties` map.
 
 .. note::
 
-    this helper code is not the full code for this guide; it only contains the code to generate a JSON Schema for this section
+    This helper code is not the full code for this guide; it only contains the code to generate a JSON Schema for this section.
 
 
 
