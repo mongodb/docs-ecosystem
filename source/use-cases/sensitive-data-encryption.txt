@@ -57,7 +57,7 @@ cubilia Curae; Nunc non interdum purus, ultricies laoreet tortor.
 B. Define a JSON Schema
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-MongoDB uses JSON Schema to enforce particular datatypes for specific fields during insert and update operations. MongoDB CSFLE requires JSON Schema to identify fields to automatically encrypt and decrypt, the data encryption key id, and the type of encryption algorithm to use:
+MongoDB uses JSON Schema to enforce particular datatypes for specific fields during insert and update operations. MongoDB CSFLE requires the following properties in the JSON Schema to identify the fields that should be automatically encrypted and decrypted:
 
 * The encryption algorithm (deterministic or random)
 * The data key
