@@ -16,7 +16,7 @@ Introduction
 Many applications make use of sensitive data such as confidential personal details, payment information, or proprietary data. In some jurisdictions, this type of data is subject to governance, privacy, and security compliance mandates. Unauthorized access of sensitive data or a failure to comply with a mandate often results in significant reputation damage and financial penalties. Therefore, it is important to keep sensitive data secure.
 
 MongoDB offers several methods that protect your data from unauthorized access including:
- 
+
 * `Role-based access control <https://docs.mongodb.com/manual/core/authorization/>`_
 * `Monitoring and logging <https://docs.mongodb.com/manual/core/auditing/>`_
 * `TLS/SSL network transport encryption <https://docs.mongodb.com/manual/core/security-transport-encryption/>`_
@@ -124,34 +124,35 @@ In this step, we generate a local master key to expedite setup of our developmen
           }
 
 
-B. Create a Data Encryption Key 
+B. Create a Data Encryption Key
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this section, we use the MongoDB driver to create and store a data 
-encryption key, used by CSFLE to automatically encrypt and decrypt data on 
-document fields. The following configuration values are required by the client 
+In this section, we use the MongoDB driver to create and store a data
+encryption key, used by CSFLE to automatically encrypt and decrypt data on
+document fields. The following configuration values are required by the client
 to generate a new data encryption key:
 
 * The local master key or AWS KMS master key access settings.
-* A MongoDB connection string that authenticates to a running server.
+* A MongoDB connection string that authenticates on a running server.
 * The key vault database and collection name.
 
-Upon creating a data encryption key, the driver returns the ``id`` field of
-a document that stores information about the encrypted key including:
+Upon creating a data encryption key, the driver returns the ``_id`` field
+(as a `UUID <https://en.wikipedia.org/wiki/Universally_unique_identifier>`_)
+of a document that stores information about the key including:
 
 * The data encryption key, encrypted by the master key.
 * The key management service provider data.
 
-In this section, we generate a single data encryption key from the local
-master key.
+Follow the steps below to generate a single data encryption key from the
+local master key.
 
 .. note::
 
-  If using AWS KMS to provide the master key, refer to "Convert to a Remote 
-  Master Key" section for the appropriate settings.
+  If using AWS KMS to provide the master key, refer to the "`F. Convert to
+  a Remote Master Key`_" section for the appropriate settings.
 
-First, read the file containing the local master key generated in the "Create
-a Master Key" section:
+First, read the file containing the local master key generated in the "`A.
+Create a Master Key`_" section:
 
 .. tabs::
 
@@ -196,10 +197,10 @@ key, the provider name is ``local``:
                  put("key", localMasterKey);
              }});
           }};
-      
+
 
 Create the client with the MongoDB connection string and key vault namespace
-(database and collection name): 
+(database and collection name):
 
 .. tabs::
 
@@ -213,7 +214,7 @@ Create the client with the MongoDB connection string and key vault namespace
 
           String connectionString = "mongodb://localhost:27017";
           String keyVaultNamespace = "encryption.__keyVault";
-          
+
           ClientEncryptionSettings clientEncryptionSettings = ClientEncryptionSettings.builder()
                   .keyVaultMongoClientSettings(MongoClientSettings.builder()
                           .applyConnectionString(new ConnectionString(connectionString))
@@ -229,11 +230,11 @@ Create the client with the MongoDB connection string and key vault namespace
 
   Ensure that the client has `ReadWrite
   <https://docs.mongodb.com/manual/reference/built-in-roles/#readWrite>`_
-  permissions to the specified key vault 
+  permissions to the specified key vault
   namespace.
-  
+
 Use the client to generate a data encryption key and convert the returned key
-id to base64 for usage in the following "Define a JSON Schema" section.
+id to base64 for usage in the following "`C. Define a JSON Schema`_" section.
 
 .. tabs::
 
@@ -249,8 +250,7 @@ id to base64 for usage in the following "Define a JSON Schema" section.
           final String base64DataKeyId = Base64.getEncoder().encodeToString(dataKeyId.getData());
 
 
-
-Verify that the key was created in your MongoDB replica set in the specified 
+Verify that the key was created in your MongoDB replica set in the specified
 key vault namespace. The document should resemble the following:
 
 .. code-block:: javascript
@@ -266,10 +266,11 @@ key vault namespace. The document should resemble the following:
     }
   }
 
-Click here for the source code used to generate the data encryption key in this
-section. 
+`Click here <https://raw.githubusercontent.com/mongodb/docs-assets/DOCSP-csfle-data-encryption-key/DataEncryptionKeyGenerator.java>`_
+for the source code used to generate the data encryption key in this section.
 
-B. Define a JSON Schema
+
+C. Define a JSON Schema
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 .. _DeterministicVsRandom:
@@ -292,7 +293,7 @@ Suspendisse commodo sagittis ante in ullamcorper. Etiam viverra
 pellentesque suscipit. Pellentesque interdum egestas libero, ut varius
 velit congue vel.
 
-D. Perform Encrypted Read/Write Operations
+E. Perform Encrypted Read/Write Operations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Etiam hendrerit posuere justo, ac hendrerit lorem pellentesque sed.
@@ -310,7 +311,7 @@ in faucibus orci luctus et ultrices posuere cubilia Curae.
 Praesent feugiat arcu non risus elementum eleifend. Nullam sed iaculis
 erat.
 
-E. Convert to a Remote Master Key
+F. Convert to a Remote Master Key
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Fusce porta lectus et enim vehicula malesuada. In porttitor ipsum eu
