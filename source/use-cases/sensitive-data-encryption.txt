@@ -161,9 +161,6 @@ GitHub <https://raw.githubusercontent.com/mongodb/docs-assets/DOCSP-csfle-data-e
 
 .. include:: /includes/steps/create-data-encryption-key.rst
 
-`Download the source code <https://raw.githubusercontent.com/mongodb/docs-assets/DOCSP-csfle-data-encryption-key/DataEncryptionKeyGenerator.java>`_
-used to generate the data encryption key in this section.
-
 .. _fle-define-a-json-schema:
 
 C. Define a JSON Schema

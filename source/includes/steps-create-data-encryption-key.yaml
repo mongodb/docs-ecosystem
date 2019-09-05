@@ -103,8 +103,15 @@ title: Verify the data encryption key was created
 ref: verify-data-key-created
 level: 4
 content: |
-  Verify that the key was created in your MongoDB replica set in the specified
-  key vault namespace. The document should resemble the following:
+  Verify that the key document was created in your MongoDB replica set in the 
+  key vault collection. This document contains the following data:
+  
+  * Data encryption key, in encrypted form.
+  * Data encryption key UUID.
+  * KMS provider information for the master key.
+  * Other metadata such as creation and last modified date.
+ 
+  The document in the key vault collection should resemble the following:
 
   .. code-block:: none
   
