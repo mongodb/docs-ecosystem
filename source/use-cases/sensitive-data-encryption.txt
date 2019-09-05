@@ -102,7 +102,7 @@ In the JSON, you can specify `encryptMetadata <https://docs.mongodb.com/manual/r
 
 
 
-.. code::
+.. code-block:: javascript
 
         {
             "bsonType" : "object",
@@ -116,7 +116,7 @@ In the JSON, you can specify `encryptMetadata <https://docs.mongodb.com/manual/r
 
 Create JSON objects for each field and append them to the `properties` map.
 
-.. code::
+.. code-block:: javascript
 
     // Deterministic encryption supports querying and is equally as secure as random encryption for high cardinality (very unique) fields such as SSN. A privileged user in the MedcoMD Medical Care Management System might want to query on SSN to verify a patient's identity. One thing to note is that you do not have to include keyId if you specified it in the top-level encryptMetadata field. You could include keyId if you want different users with specific keys to be able to access a specific subset of the encrypted data.
 
@@ -129,7 +129,7 @@ Create JSON objects for each field and append them to the `properties` map.
     }
 
 
-.. code:: javascript
+.. code-block:: javascript
 
     // Random encryption does not support filtering and is best used on fields with low cardinality (very few unique fields) to prevent against frequency analysis attacks. Since there are only 8 blood types, this field is randomly encrypted. While a CSFLE-enabled client cannot filter on a randomly encrypted field, it can perform a query on a deterministic field, or a field that is not encrypted at all. Doing so would return the decrypted results of all the fields including randomly encrypted fields, such as blood type.
 
@@ -142,7 +142,7 @@ Create JSON objects for each field and append them to the `properties` map.
     }
 
 
-.. code:: javascript
+.. code-block:: javascript
 
     // Arrays can only be auto-encrypted via random encryption. 
 
@@ -154,7 +154,7 @@ Create JSON objects for each field and append them to the `properties` map.
         }
     }
 
-.. code:: javascript
+.. code-block:: javascript
 
     // insurance.policyNumber number is deterministically encrypted because the policy number is a very unique field. Note, that the JSON for policyNumber follows the same structure the JSON for SSN, however, policyNumber is nested inside insurance.properties because it is a nested field.
 
