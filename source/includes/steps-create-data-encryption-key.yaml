@@ -1,9 +1,9 @@
-title: Read the local master key from a file
+title: Read the Local Master Key from a File
 ref: read-local-master-key-from-file
 level: 4
 content: |
-  First, read the file containing the local master key, generated in the
-  :ref:`Create a Master Key <fle-create-a-master-key>` section:
+  First, read the file containing the local master key that you generated in 
+  the :ref:`Create a Master Key <fle-create-a-master-key>` section:
 
   .. tabs::
 
@@ -30,7 +30,7 @@ content: |
 
 
 ---
-title: Specify KMS provider settings
+title: Specify KMS Provider Settings
 ref: specify-kms-provider-settings
 level: 4
 content: |
@@ -58,13 +58,13 @@ content: |
 
 
 ---
-title: Construct the client
-ref: construct-the-client
+title: Create a Data Encryption Key
+ref: create-a-data-encryption-key
 level: 4
 content: |
-  Create the client using the MongoDB connection string and key vault 
-  namespace. In this example, we specify the ``encryption`` database and the 
-  ``__keyVault`` collection:
+  Construct a client with the MongoDB connection string and key vault 
+  namespace configuration, and create a data encryption key. The key vault in 
+  this example uses the ``encryption`` database and ``__keyVault`` collection.
 
   .. tabs::
 

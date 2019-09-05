@@ -131,20 +131,17 @@ In this step, we generate a local master key to expedite setup of our developmen
 B. Create a Data Encryption Key
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this section, we configure the MongoDB driver generate a data
+In this section, we configure the MongoDB driver to generate a data
 encryption key using the master key. The data encryption key, used to 
 automatically encrypt and decrypt fields in a document, is stored in a MongoDB 
 collection called the *key vault collection*.
 
-The following configuration values are required by the client to generate a new
-data encryption key:
+The client requires the following configuration values to generate a new data
+encryption key:
 
 * The local master key or AWS KMS master key access settings.
 * A MongoDB connection string that authenticates on a running server.
 * The key vault namespace (database and collection).
-
-In this guide, we use the ``encryption`` database and ``__keyvault`` 
-collection as our key vault collection.
 
 The MongoDB driver performs the following to generate the data encryption key:
 
@@ -153,7 +150,8 @@ The MongoDB driver performs the following to generate the data encryption key:
 #.  Returns the ``_id`` field of the inserted document as a `UUID <https://en.wikipedia.org/wiki/Universally_unique_identifier>`_.
 
 Follow the steps below to generate a single data encryption key from the
-local master key.
+local master key. You can also download the `complete code example on
+GitHub <https://raw.githubusercontent.com/mongodb/docs-assets/DOCSP-csfle-data-encryption-key/DataEncryptionKeyGenerator.java>`_.
 
 .. note::
 
