@@ -61,7 +61,7 @@ MongoDB uses JSON Schema to enforce particular datatypes for specific fields dur
 
 * The encryption algorithm (deterministic or random)
 * The data key
-* The BSON Type
+* The BSON Type (only required by deterministically encrypted fields)
 
 .. note::
 
