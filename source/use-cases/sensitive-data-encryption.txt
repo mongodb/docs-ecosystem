@@ -68,7 +68,7 @@ MongoDB uses JSON Schema to enforce particular datatypes for specific fields dur
     A single data key can be used for all encrypted fields, or you can use individual data keys that are specific to each field.
 
 
-The MedcoMD engineers receive specific requirements for the fields of data. The following table illustrates the data model of the Medco Management System.
+The MedcoMD engineers receive specific requirements for the fields of data and their encryption strategies. The following table illustrates the data model of the Medco Management System.
 
 
 
