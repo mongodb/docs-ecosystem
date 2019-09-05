@@ -143,15 +143,14 @@ data encryption key:
 * A MongoDB connection string that authenticates on a running server.
 * The key vault namespace (database and collection).
 
-In this example, we use the ``encryption`` database and ``__keyvault`` 
+In this guide, we use the ``encryption`` database and ``__keyvault`` 
 collection as our key vault collection.
 
-Upon creating a data encryption key, the driver returns the ``_id`` field
-(as a `UUID <https://en.wikipedia.org/wiki/Universally_unique_identifier>`_)
-of a document that stores information about the key including:
+The MongoDB driver performs the following to generate the data encryption key:
 
-* The data encryption key, encrypted by the master key.
-* The key management service provider data.
+1.  Creates a data encryption key.
+#.  Inserts a new document into the key vault collection.
+#.  Returns the ``_id`` field of the inserted document as a `UUID <https://en.wikipedia.org/wiki/Universally_unique_identifier>`_.
 
 Follow the steps below to generate a single data encryption key from the
 local master key.
