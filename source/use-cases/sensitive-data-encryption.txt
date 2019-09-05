@@ -77,6 +77,8 @@ Requirements
 - Nullam imperdiet lorem vitae vulputate lacinia.
 - Donec eget velit tincidunt, gravida diam ac, efficitur lacus.
 
+.. _fle-create-a-master-key:
+
 A. Create a Master Key
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -124,17 +126,25 @@ In this step, we generate a local master key to expedite setup of our developmen
           }
 
 
+.. _fle-create-a-data-encryption-key:
+
 B. Create a Data Encryption Key
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this section, we use the MongoDB driver to create and store a data
-encryption key, used by CSFLE to automatically encrypt and decrypt data on
-document fields. The following configuration values are required by the client
-to generate a new data encryption key:
+In this section, we configure the MongoDB driver generate a data
+encryption key using the master key. The data encryption key, used to 
+automatically encrypt and decrypt fields in a document, is stored in a MongoDB 
+collection called the *key vault collection*.
+
+The following configuration values are required by the client to generate a new
+data encryption key:
 
 * The local master key or AWS KMS master key access settings.
 * A MongoDB connection string that authenticates on a running server.
-* The key vault database and collection name.
+* The key vault namespace (database and collection).
+
+In this example, we use the ``encryption`` database and ``__keyvault`` 
+collection as our key vault collection.
 
 Upon creating a data encryption key, the driver returns the ``_id`` field
 (as a `UUID <https://en.wikipedia.org/wiki/Universally_unique_identifier>`_)
@@ -148,127 +158,16 @@ local master key.
 
 .. note::
 
-  If using AWS KMS to provide the master key, refer to the "`F. Convert to
-  a Remote Master Key`_" section for the appropriate settings.
+  If using AWS KMS to provide the master key, refer to the :ref:`Convert
+  to a Remote Master Key <fle-convert-to-a-remote-master-key>` section for
+  the appropriate settings.
 
-First, read the file containing the local master key generated in the "`A.
-Create a Master Key`_" section:
+.. include:: /includes/steps/create-data-encryption-key.rst
 
-.. tabs::
+`Download the source code <https://raw.githubusercontent.com/mongodb/docs-assets/DOCSP-csfle-data-encryption-key/DataEncryptionKeyGenerator.java>`_
+used to generate the data encryption key in this section.
 
-  tabs:
-
-    - id: java-master-key-reader
-      name: "Java"
-      content: |
-
-        .. code-block:: java
-
-          String path = "master-key.txt";
-
-          byte[] fileBytes = new byte[96];
-
-          try (FileInputStream fis = new FileInputStream(path)) {
-            fileBytes = fis.readAllBytes();
-          } catch (IOException e) {
-            e.printStackTrace();
-          }
-
-          final byte[] localMasterKey = Arrays.copyOf(fileBytes, 96);
-
-
-Next, specify the KMS provider settings. Since we are using a local master
-key, the provider name is ``local``:
-
-.. tabs::
-
-  tabs:
-
-    - id: java-kms-settings-local
-      name: "Java"
-      content: |
-
-        .. code-block:: java
-
-          String kmsProvider = "local";
-
-          Map<String, Map<String, Object>> kmsProviders = new HashMap<String, Map<String, Object>>() {{
-             put(kmsProvider, new HashMap<String, Object>() {{
-                 put("key", localMasterKey);
-             }});
-          }};
-
-
-Create the client with the MongoDB connection string and key vault namespace
-(database and collection name):
-
-.. tabs::
-
-  tabs:
-
-    - id: java-keyvault-settings-local
-      name: "Java"
-      content: |
-
-        .. code-block:: java
-
-          String connectionString = "mongodb://localhost:27017";
-          String keyVaultNamespace = "encryption.__keyVault";
-
-          ClientEncryptionSettings clientEncryptionSettings = ClientEncryptionSettings.builder()
-                  .keyVaultMongoClientSettings(MongoClientSettings.builder()
-                          .applyConnectionString(new ConnectionString(connectionString))
-                          .build())
-                  .keyVaultNamespace(keyVaultNamespace)
-                  .kmsProviders(kmsProviders)
-                  .build();
-
-          ClientEncryption clientEncryption = ClientEncryptions.create(clientEncryptionSettings);
-
-
-.. note::
-
-  Ensure that the client has `ReadWrite
-  <https://docs.mongodb.com/manual/reference/built-in-roles/#readWrite>`_
-  permissions to the specified key vault
-  namespace.
-
-Use the client to generate a data encryption key and convert the returned key
-id to base64 for usage in the following "`C. Define a JSON Schema`_" section.
-
-.. tabs::
-
-  tabs:
-
-    - id: java-kms-settings-local
-      name: "Java"
-      content: |
-
-        .. code-block:: java
-
-          BsonBinary dataKeyId = clientEncryption.createDataKey("local", new DataKeyOptions());
-          final String base64DataKeyId = Base64.getEncoder().encodeToString(dataKeyId.getData());
-
-
-Verify that the key was created in your MongoDB replica set in the specified
-key vault namespace. The document should resemble the following:
-
-.. code-block:: javascript
-
-  {
-    "_id" : UUID("..."),
-    "keyMaterial" : BinData(0,"..."),
-    "creationDate" : ISODate("..."),
-    "updateDate" : ISODate("..."),
-    "status" : 0,
-    "masterKey" : {
-      "provider" : "local"
-    }
-  }
-
-`Click here <https://raw.githubusercontent.com/mongodb/docs-assets/DOCSP-csfle-data-encryption-key/DataEncryptionKeyGenerator.java>`_
-for the source code used to generate the data encryption key in this section.
-
+.. _fle-define-a-json-schema:
 
 C. Define a JSON Schema
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -310,6 +209,8 @@ in faucibus orci luctus et ultrices posuere cubilia Curae.
 
 Praesent feugiat arcu non risus elementum eleifend. Nullam sed iaculis
 erat.
+
+.. _fle-convert-to-a-remote-master-key:
 
 F. Convert to a Remote Master Key
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
