@@ -181,7 +181,7 @@ pressure, weight, and heart rate.  This field is sensitive and should be
 encrypted. MedcoMD engineers have decided upon random encryption based on 
 the following properties:
 
-* Array fields are required to use random encryption with CSFLE to enable auto-encryption
+* Array fields must use random encryption with CSFLE to enable auto-encryption
 
 .. code-block:: json
 
