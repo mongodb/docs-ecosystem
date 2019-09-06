@@ -145,7 +145,6 @@ upon deterministic encryption based on the following properties:
     "ssn": {
         "encrypt": {
             "bsonType": "int",
-            "keyId": <keyId>,
             "algorithm": "AEAD_AES_256_CBC_HMAC_SHA_512-Deterministic"
         }
     }
@@ -166,7 +165,6 @@ upon random encryption based on the following properties:
     "bloodType": {
         "encrypt": {
             "bsonType": "string",
-            "keyId": <keyId>,
             "algorithm": "AEAD_AES_256_CBC_HMAC_SHA_512-Random"
         }
     }
@@ -187,7 +185,6 @@ the following properties:
     "medicalRecords": {
         "encrypt": {
             "bsonType": "array",
-            "keyId": <keyId>,
             "algorithm": "AEAD_AES_256_CBC_HMAC_SHA_512-Random"
         }
     }
@@ -210,7 +207,6 @@ deterministic encryption based on the following properties:
             "policyNumber": {
                 "encrypt": {
                     "bsonType": "int",
-                    "keyId": <keyId>,
                     "algorithm": "AEAD_AES_256_CBC_HMAC_SHA_512-Deterministic"
                 }
             }
