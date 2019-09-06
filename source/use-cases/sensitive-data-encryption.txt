@@ -133,7 +133,7 @@ the `properties` map.
 
 SSN
 +++
-``SSN`` is a field representing the patient's social security number. This
+``ssn`` is a field representing the patient's social security number. This
 field is sensitive and should be encrypted. MedcoMD engineers decide 
 upon deterministic encryption based on the following properties:
 
@@ -153,7 +153,7 @@ upon deterministic encryption based on the following properties:
 
 Blood Type
 ++++++++++
-``Blood Type`` is a field representing the patient's blood type. This field is 
+``bloodType`` is a field representing the patient's blood type. This field is 
 sensitive and should be encrypted. MedcoMD engineers decide 
 upon random encryption based on the following properties:
 
@@ -172,7 +172,7 @@ upon random encryption based on the following properties:
 
 Medical Records
 +++++++++++++++
-``Medical Records`` is an array field holding a set of medical records. Each 
+``medicalRecords`` is an array field holding a set of medical records. Each 
 medical record document specifies information, such as the patient's blood 
 pressure, weight, and heart rate.  This field is sensitive and should be 
 encrypted. MedcoMD engineers decide upon random encryption based on 
@@ -191,7 +191,7 @@ the following properties:
 
 Insurance: Policy Number
 ++++++++++++++++++++++++
-``Insurance: Policy Number`` is a field embedded inside the ``Insurance`` object 
+``insurance.policyNumber`` is a field embedded inside the ``Insurance`` object 
 field and represents the patient's policy number. This policy number is a 
 distinct and sensitive field. MedcoMD engineers decide upon 
 deterministic encryption based on the following properties:
