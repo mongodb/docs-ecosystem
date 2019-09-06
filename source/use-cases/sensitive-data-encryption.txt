@@ -153,12 +153,6 @@ Follow the steps below to generate a single data encryption key from the
 local master key. You can also download the `complete code example on
 GitHub <https://raw.githubusercontent.com/mongodb/docs-assets/DOCSP-csfle-data-encryption-key/DataEncryptionKeyGenerator.java>`_.
 
-.. note::
-
-  If using AWS KMS to provide the master key, refer to the :ref:`Convert
-  to a Remote Master Key <fle-convert-to-a-remote-master-key>` section for
-  the appropriate settings.
-
 .. include:: /includes/steps/create-data-encryption-key.rst
 
 .. _fle-define-a-json-schema:

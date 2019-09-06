@@ -2,8 +2,8 @@ title: Read the Local Master Key from a File
 ref: read-local-master-key-from-file
 level: 4
 content: |
-  First, read the file containing the local master key that you generated in 
-  the :ref:`Create a Master Key <fle-create-a-master-key>` section:
+  First, retrieve the contents of the local master key file that you generated
+  in the :ref:`Create a Master Key <fle-create-a-master-key>` section:
 
   .. tabs::
 
@@ -34,8 +34,9 @@ title: Specify KMS Provider Settings
 ref: specify-kms-provider-settings
 level: 4
 content: |
-  Next, specify the KMS provider settings. Set the provider name to ``local``
-  when using a local master key:
+  Next, specify the KMS provider settings. The client uses these settings to 
+  discover the master key. Set the provider name to ``local`` when using a local 
+  master key:
 
   .. tabs::
 
