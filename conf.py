@@ -32,6 +32,7 @@ extensions = [
     'mongodb',
     'directives',
     'intermanual',
+    'tabs',
     'fasthtml'
 ]
 
