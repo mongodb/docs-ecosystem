@@ -229,7 +229,7 @@ for the Medco Medical Management System <https://raw.githubusercontent.com/mongo
        name: "Java"
        content: |
        
-        View the `helper code in java <https://gist.github.com/ccho-mongodb/088176b1bed3b9e54cdc0c2c3c537d1b>`_. 
+        View the `helper code in Java <https://gist.github.com/ccho-mongodb/088176b1bed3b9e54cdc0c2c3c537d1b>`_. 
 
 C. Configure the MongoDB Client
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
