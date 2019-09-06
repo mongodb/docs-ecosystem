@@ -58,10 +58,9 @@ B. Define a JSON Schema
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 `JSON Schema
-<https://docs.mongodb.com/manual/reference/security-client-side-automatic-json-schema/#encryptmetadata-schema-keyword>`_
-is a standard that allows you to define attributes for fields of a
-document. MongoDB CSFLE uses JSON Schema to automatically encrypt and
-decrypt the fields of documents in a collection. 
+<http://json-schema.org/>`_ is a vocabulary that allows you to annotate and 
+validate JSON documents. MongoDB extends the JSON Schema standard to allow CSFLE
+to use automatically encrypt and decrypt the fields of documents in a collection. 
 
 The following fields are required in the JSON Schema to enable automatic 
 encryption and decryption for each field:
