@@ -159,6 +159,7 @@ Blood Type
 sensitive and should be encrypted. MedcoMD engineers have decided 
 upon random encryption based on the following properties:
 
+* No plans to query
 * Low cardinality 
 
 .. code-block:: json
