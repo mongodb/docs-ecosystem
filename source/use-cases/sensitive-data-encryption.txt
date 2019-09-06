@@ -134,7 +134,7 @@ the `properties` map.
 SSN
 +++
 ``SSN`` is a field representing the patient's social security number. This
-field is sensitive and should be encrypted. MedcoMD engineers have decided 
+field is sensitive and should be encrypted. MedcoMD engineers decide 
 upon deterministic encryption based on the following properties:
 
 * Queryable
@@ -154,7 +154,7 @@ upon deterministic encryption based on the following properties:
 Blood Type
 ++++++++++
 ``Blood Type`` is a field representing the patient's blood type. This field is 
-sensitive and should be encrypted. MedcoMD engineers have decided 
+sensitive and should be encrypted. MedcoMD engineers decide 
 upon random encryption based on the following properties:
 
 * No plans to query
@@ -175,7 +175,7 @@ Medical Records
 ``Medical Records`` is an array field holding a set of medical records. Each 
 medical record document specifies information, such as the patient's blood 
 pressure, weight, and heart rate.  This field is sensitive and should be 
-encrypted. MedcoMD engineers have decided upon random encryption based on 
+encrypted. MedcoMD engineers decide upon random encryption based on 
 the following properties:
 
 * Array fields must use random encryption with CSFLE to enable auto-encryption
@@ -193,7 +193,7 @@ Insurance: Policy Number
 ++++++++++++++++++++++++
 ``Insurance: Policy Number`` is a field embedded inside the ``Insurance`` object 
 field and represents the patient's policy number. This policy number is a 
-distinct and sensitive field. MedcoMD engineers have decided upon 
+distinct and sensitive field. MedcoMD engineers decide upon 
 deterministic encryption based on the following properties:
 
 * Queryable
@@ -216,7 +216,7 @@ deterministic encryption based on the following properties:
 
 Recap
 +++++++
-MedcoMD engineers created a JSON Schema that satisfied their requirements of 
+MedcoMD engineers created a JSON Schema that satisfies their requirements of 
 making sensitive data queryable and secure. View the full `JSON Schema 
 for the Medco Medical Management System <https://raw.githubusercontent.com/mongodb/docs-assets/DOCSP-json-schema-helper-and-json/MedcoMDSchema.json>`_. 
 
