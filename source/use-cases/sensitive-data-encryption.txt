@@ -131,10 +131,9 @@ In this step, we generate a local master key to expedite setup of our developmen
 B. Create a Data Encryption Key
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this section, we configure the MongoDB driver to generate a data
-encryption key. The data encryption key, used to automatically encrypt and 
-decrypt fields in a document, is stored in a MongoDB collection called the
-*key vault collection*.
+In this section, we generate a data encryption key. The MongoDB driver stores 
+the key in a key vault collection where CSFLE-enabled clients can access the
+key for automatic encryption and decryption.
 
 The client requires the following configuration values to generate a new data
 encryption key:
@@ -144,8 +143,19 @@ encryption key:
 * The key vault namespace (database and collection).
 
 Follow the steps below to generate a single data encryption key from the
-local master key. You can also download the `complete code example on
-GitHub <https://raw.githubusercontent.com/mongodb/docs-assets/DOCSP-csfle-data-encryption-key/DataEncryptionKeyGenerator.java>`_.
+local master key. 
+
+.. tabs::
+  
+  hidden: true
+  tabs:
+    - id: use-cases-fle-guide-java
+      name: "Java"
+      content: |
+      
+        You can also download the `complete code example on GitHub 
+        <https://raw.githubusercontent.com/mongodb/docs-assets/DOCSP-csfle-data-encryption-key/DataEncryptionKeyGenerator.java>`_.
+
 
 .. include:: /includes/steps/create-data-encryption-key.rst
 
