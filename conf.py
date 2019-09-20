@@ -70,6 +70,7 @@ extlinks = {
     'guides': ('https://docs.mongodb.com/guides%s', ''),
     'aws-docs': ('https://docs.aws.amazon.com/%s', ''),
     'wikipedia': ('https://en.wikipedia.org/wiki/%s', ''),
+    'java-docs-latest': ('http://mongodb.github.io/mongo-java-driver/3.11/%s', ''),
 }
 
 intersphinx_mapping = {}
