@@ -261,7 +261,7 @@ locally-managed master key.
    .. tab::
       :tabid: java-sync
        
-      You can also download the `complete code example on GitHub
+      You can also download the `complete code example
       <https://raw.githubusercontent.com/mongodb/docs-assets/DOCSP-csfle-data-encryption-key/DataEncryptionKeyGenerator.java>`_.
 
 .. include:: /includes/steps/create-data-encryption-key.rst
