@@ -109,6 +109,14 @@ content: |
            final String base64DataKeyId = Base64.getEncoder().encodeToString(dataKeyId.getData());
            System.out.println("base64DataKeyId:" + base64DataKeyId);
 
+
+        The output from this code should resemble the following:
+
+        .. code-block:: none
+
+           uuidDataKeyId:de4d775a-4499-48bc-bb93-3f81c3c90704
+           base64DataKeyId:3k13WkSZSLy7kwAAP4HDyQ==
+
   Next, verify that the key document was created in your MongoDB replica set
   in the key vault collection. This document contains the following data:
   
