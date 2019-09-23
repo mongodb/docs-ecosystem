@@ -1,4 +1,4 @@
-title: Read the Locally-managed Master Key from a File
+title: Read the Locally-Managed Master Key from a File
 ref: read-local-master-key-from-file
 level: 4
 content: |
@@ -63,7 +63,7 @@ content: |
         :tabid: java-sync
 
         .. code-block:: java
-           :emphasize-lines: 8,9,12
+           :emphasize-lines: 8,9,12,13
         
            String connectionString = "mongodb://localhost:27017";
            String keyVaultNamespace = "encryption.__keyVault";
@@ -77,6 +77,7 @@ content: |
              .build();
         
            ClientEncryption clientEncryption = ClientEncryptions.create(clientEncryptionSettings);
+           BsonBinary dataKeyId = clientEncryption.createDataKey(kmsProvider, new DataKeyOptions());
 
   .. note::
 
@@ -84,7 +85,7 @@ content: |
      <https://docs.mongodb.com/manual/reference/built-in-roles/#readWrite>`_
      permissions on the specified key vault namespace.
 ---
-title: Verify the data encryption key was created
+title: Verify that the Data Encryption Key was Created
 ref: verify-data-key-created
 level: 4
 content: |
@@ -108,7 +109,6 @@ content: |
 
            final String base64DataKeyId = Base64.getEncoder().encodeToString(dataKeyId.getData());
            System.out.println("base64DataKeyId:" + base64DataKeyId);
-
 
         The output from this code should resemble the following:
 

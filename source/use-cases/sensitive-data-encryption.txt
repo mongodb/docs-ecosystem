@@ -289,14 +289,16 @@ information:
 - The BSON Type of each field (only required for deterministically
   encrypted fields)
 
-.. note::
+.. admonition::JSON Schema Validation
+   :important:
    
-   While a MongoDB client can use JSON Schema for validating types and values
-   of a document, the encrypted client can only process instructions for
-   automatic client-side encryption and decryption. In this example, we define
-   a JSON Schema for the encrypted client only. For information on type 
-   and value validation with JSON Schema, see 
-   :manual:`Schema Validation </core/schema-validation/>`.
+   MongoDB drivers only use JSON Schema to configure automatic client-side
+   field level encryption. If you specify a document validation instance 
+   without an ``encrypt`` property, the client will either ignore it or throw
+   an error.
+
+   For information on how to use JSON Schema on the server to validate
+   data, see :manual:`Schema Validation </core/schema-validation/>`.
 
 The MedcoMD engineers receive specific requirements for the fields of
 data and their encryption strategies. The following table illustrates
@@ -647,7 +649,7 @@ researching the available options, MedcoMD determined that MongoDB
 Client-Side Field Level Encryption satisfies their requirements and
 decided to implement it in their application. To implement CSFLE they:
 
-**1. Created a Locally-managed Master Encryption Key**
+**1. Created a Locally-Managed Master Encryption Key**
 
 A locally-managed master key allowed MedcoMD to rapidly develop the client
 application without external dependencies and avoid accidentally leaking
