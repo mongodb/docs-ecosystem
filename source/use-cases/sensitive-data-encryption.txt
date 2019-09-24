@@ -262,7 +262,7 @@ locally-managed master key.
       :tabid: java-sync
        
       You can also download the `complete code example
-      <https://raw.githubusercontent.com/mongodb/docs-assets/DOCSP-csfle-data-encryption-key/DataEncryptionKeyGenerator.java>`_.
+      <https://raw.githubusercontent.com/mongodb/docs-assets/DOCSP-json-schema-helper-and-json/DataEncryptionKeyGenerator.java>`_.
 
 .. include:: /includes/steps/fle-create-data-encryption-key.rst
 
@@ -289,16 +289,15 @@ information:
 - The BSON Type of each field (only required for deterministically
   encrypted fields)
 
-.. admonition::JSON Schema Validation
+.. admonition::Automatic Client-Side Field Level Encryption JSON Schema Does Not Support Document Validation
    :important:
    
-   MongoDB drivers only use JSON Schema to configure automatic client-side
-   field level encryption. If you specify a document validation instance 
-   without an ``encrypt`` property, the client will either ignore it or throw
-   an error.
-
-   For information on how to use JSON Schema on the server to validate
-   data, see :manual:`Schema Validation </core/schema-validation/>`.
+   MongoDB drivers only use JSON Schema syntax to configure automatic
+   client-side field level encryption and support *only* field-level
+   encryption-specific keywords documented in :manual:`Automatic Encryption
+   JSON Schema Syntax </reference/security-client-side-automatic-json-schema/>`.
+   If you specify a document validation instance without an ``encrypt``
+   property, the client will either ignore it or throw an error.
 
 The MedcoMD engineers receive specific requirements for the fields of
 data and their encryption strategies. The following table illustrates
@@ -465,7 +464,7 @@ full `JSON Schema for the Medco Medical Management System
       :tabid: java-sync
        
       View the `helper code in Java
-      <https://gist.github.com/ccho-mongodb/088176b1bed3b9e54cdc0c2c3c537d1b>`_.
+      <https://raw.githubusercontent.com/mongodb/docs-assets/DOCSP-json-schema-helper-and-json/JSONSchemaCreator.java>`_.
 
 D. Create the MongoDB Client
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -518,8 +517,8 @@ MedcoMD engineers write a function to create a new patient record:
          }
 
 When a CSFLE-enabled client inserts a new patient record into the Medical Care
-Management System, it automatically encrypts the fields. This operation
-produces a document similar to the following:
+Management System, it automatically encrypts the fields specified in the
+JSON Schema. This operation creates a document similar to the following:
 
 .. code-block:: json
 
@@ -542,7 +541,7 @@ produces a document similar to the following:
    to enforce encrypted writes for fields that should be encrypted.
 
 Query for Documents on a Deterministically Encrypted Field
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Queries on encrypted fields can be done using traditional MongoDB driver
 methods as well. When a query is made using a client configured to use

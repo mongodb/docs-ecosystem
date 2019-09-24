@@ -78,6 +78,23 @@ content: |
         
            ClientEncryption clientEncryption = ClientEncryptions.create(clientEncryptionSettings);
            BsonBinary dataKeyId = clientEncryption.createDataKey(kmsProvider, new DataKeyOptions());
+           System.out.println("DataKeyId [UUID]: " + dataKeyId.asUuid());
+
+           final String base64DataKeyId = Base64.getEncoder().encodeToString(dataKeyId.getData());
+           System.out.println("DataKeyId [base64]: " + base64DataKeyId);
+
+        The ``createDataKey()`` method returns a :java-docs-latest:`BsonBinary
+        <javadoc/org/bson/BsonBinary.html>` object from which we can extract
+        the UUID and Base64 representations of the key ID.
+
+  The ``_id`` field of the data encryption key is represented as a **UUID**
+  and is encoded in **base64** format. The output from the code above should
+  resemble the following:
+
+  .. code-block:: none
+
+     DataKeyId [UUID]: de4d775a-4499-48bc-bb93-3f81c3c90704
+     DataKeyId [base64]: 3k13WkSZSLy7kwAAP4HDyQ==
 
   .. note::
 
@@ -89,53 +106,49 @@ title: Verify that the Data Encryption Key was Created
 ref: verify-data-key-created
 level: 4
 content: |
-  First, verify that the command to create the data encryption key returns the
-  ID of the newly-created key:
+  Query the key vault collection for the data encryption key that was inserted
+  as a document into your MongoDB replica set using the key id from the prior
+  step.
 
   .. tabs-drivers::
 
      .. tab::
         :tabid: java-sync
 
-        The ``createDataKey()`` method returns a :java-docs-latest:`BsonBinary
-        <javadoc/org/bson/BsonBinary.html>` object from which we can extract
-        the UUID and Base64 representations of the key ID.
-
         .. code-block:: java
-           :emphasize-lines: 2,5
+           :emphasize-lines: 4
 
-           BsonBinary dataKeyId = clientEncryption.createDataKey(kmsProvider, new DataKeyOptions());
-           System.out.println("uuidDataKeyId:" + dataKeyId.asUuid());
+           String connectionString = "mongodb://localhost:27017";
+           String keyVaultDb = "encryption";
+           String keyVaultCollection = "__keyVault";
+           String base64KeyId = "3k13WkSZSLy7kwAAP4HDyQ=="; // use the base64 data key id returned by createKey() in the prior step
 
-           final String base64DataKeyId = Base64.getEncoder().encodeToString(dataKeyId.getData());
-           System.out.println("base64DataKeyId:" + base64DataKeyId);
+           MongoClient mongoClient = MongoClients.create(connectionString);
+           MongoCollection<Document> collection = mongoClient.getDatabase(keyVaultDb).getCollection(keyVaultCollection);
 
-        The output from this code should resemble the following:
+           Bson query = Filters.eq("_id", new Binary((byte) 4, Base64.getDecoder().decode(base64KeyId)));
+           Document doc = collection
+               .find(query)
+               .first();
+
+           System.out.println(doc);
+
+        This code example should print a retrieved document that resembles the following:
 
         .. code-block:: none
 
-           uuidDataKeyId:de4d775a-4499-48bc-bb93-3f81c3c90704
-           base64DataKeyId:3k13WkSZSLy7kwAAP4HDyQ==
+           Document{{
+               _id=dad3a063-4f9b-48f8-bf4e-7ca9d323fd1c,
+               keyMaterial=org.bson.types.Binary@40e1535,
+               creationDate=Wed Sep 25 22:22:54 EDT 2019,
+               updateDate=Wed Sep 25 22:22:54 EDT 2019,
+               status=0,
+               masterKey=Document{{provider=local}}
+           }}
 
-  Next, verify that the key document was created in your MongoDB replica set
-  in the key vault collection. This document contains the following data:
+  This retrieved document contains the following data:
   
-  * Data encryption key, in encrypted form.
   * Data encryption key UUID.
+  * Data encryption key, in encrypted form.
   * KMS provider information for the master key.
   * Other metadata such as creation and last modified date.
- 
-  The document in the key vault collection should resemble the following:
-
-  .. code-block:: none
-  
-     {
-       "_id" : UUID("..."),
-       "keyMaterial" : BinData(0,"..."),
-       "creationDate" : ISODate("..."),
-       "updateDate" : ISODate("..."),
-       "status" : 0,
-       "masterKey" : {
-         "provider" : "local"
-       }
-     }
