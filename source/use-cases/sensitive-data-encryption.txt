@@ -118,7 +118,7 @@ Access Control, these three security features offer near-comprehensive
 security coverage of the sensitive data, but lack a mechanism to prevent
 the data from being read from the server's memory.
 
-Finally, the MedcoMD engineer discovered a feature that independently
+Finally, the MedcoMD engineers discovered a feature that independently
 satisfies all the security criteria. Client-side Field Level Encryption
 allows the engineers to specify the fields of a document that should be
 kept encrypted. Sensitive data is transparently encrypted/decrypted by
