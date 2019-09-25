@@ -107,8 +107,8 @@ ref: verify-data-key-created
 level: 4
 content: |
   Query the key vault collection for the data encryption key that was inserted
-  as a document into your MongoDB replica set using the key id from the prior
-  step.
+  as a document into your MongoDB replica set using the key id printed in the
+  prior step.
 
   .. tabs-drivers::
 
@@ -133,7 +133,8 @@ content: |
 
            System.out.println(doc);
 
-        This code example should print a retrieved document that resembles the following:
+        This code example should print a retrieved document that resembles the
+        following:
 
         .. code-block:: none
 
