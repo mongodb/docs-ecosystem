@@ -25,12 +25,14 @@ sys.path.append(os.path.join(conf.paths.projectroot, conf.paths.buildsystem, 'sp
 
 needs_sphinx = '1.0'
 
+
 extensions = [
     'sphinx.ext.extlinks',
     'sphinx.ext.todo',
     'mongodb',
     'directives',
     'intermanual',
+    'tabs',
     'fasthtml'
 ]
 
@@ -62,10 +64,13 @@ extlinks = {
     'api': ('http://api.mongodb.com/%s', ''),
     'manual': ('http://docs.mongodb.org/manual%s', ''),
     'gettingstarted': ('http://docs.mongodb.org/getting-started%s', ''),
-    'atlas': ('https://docs.atlas.mongodb.com%s',''), 
+    'atlas': ('https://docs.atlas.mongodb.com%s',''),
     'mms-docs': ('https://docs.cloud.mongodb.com%s', ''),
     'mms-home': ('https://cloud.mongodb.com%s', ''),
     'guides': ('https://docs.mongodb.com/guides%s', ''),
+    'java-docs-latest': ('http://mongodb.github.io/mongo-java-driver/3.11/%s', ''),
+    'aws-docs': ('https://docs.aws.amazon.com/%s', ''),
+    'wikipedia': ('https://en.wikipedia.org/wiki/%s', ''),
 }
 
 intersphinx_mapping = {}

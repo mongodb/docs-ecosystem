@@ -8,10 +8,6 @@ The MongoDB Ecosystem contains documentation for the drivers,
 frameworks, tools, and platform services that work with MongoDB. For
 the main MongoDB documentation, see the :manual:`MongoDB Manual </>`.
 
-.. admonition:: Announcing new online course
-
-   `Adobe Experience Manager and MongoDB <https://university.mongodb.com/courses/M212/about?jmp=docs>`_
-
 MongoDB Drivers
 ---------------
 
@@ -20,7 +16,7 @@ MongoDB Drivers
 For information on MongoDB licensing, see `MongoDB Licensing
 <https://www.mongodb.com/community/licensing>`_.
 
-MongoDB ODM (Object-Document-Mapper) 
+MongoDB ODM (Object-Document-Mapper)
 ------------------------------------
 
 Mongoid is the officially supported ODM (Object-Document-Mapper)
@@ -55,10 +51,9 @@ Use Cases
 
    /use-cases/storing-log-data
    /use-cases/hierarchical-aggregation
-
    /use-cases/product-catalog
    /use-cases/inventory-management
    /use-cases/category-hierarchy
-
    /use-cases/metadata-and-asset-management
    /use-cases/storing-comments
+   /use-cases/sensitive-data-encryption
