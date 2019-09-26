@@ -1,0 +1,59 @@
+.. _kafka-connect-migration:
+
+==========================
+Migrate from Kafka Connect
+==========================
+
+.. default-domain:: mongodb
+
+This section lists the changes needed to migrate from the deprecated,
+community-developed version of the Kafka Connector (hosted in the
+`hpgrahsl/kafka-connect-mongodb GitHub repository
+<https://github.com/hpgrahsl/kafka-connect-mongodb>`_) to the `official
+connector <https://github.com/mongodb/mongo-kafka>`_.
+
+Once your project build file is updated to reference the official Kafka
+Connect library, use the following information to migrate your
+project.
+
+
+Package and Class Name Changes
+------------------------------
+
+- The package name for the Kafka Connect library used was changed from
+  ``at.grahsl.kafka.connect.mongodb`` to ``com.mongodb.kafka.connect``
+
+- The ``MongoDbSinkConnector`` class has been renamed ``MongoSinkConnector``
+
+- The ``MongoDbSinkConnectorConfig`` class has been split into
+  ``sink.MongoSinkConfig`` and ``sink.MongoSinkTopicConfig`` classes. Refer to
+  the source for a complete list of properties in `MongoSinkConfig
+  <https://github.com/mongodb/mongo-kafka/blob/master/src/main/java/com/mongodb/kafka/connect/sink/MongoSinkConfig.java>`_
+  and `MongoSinkTopicConfig
+  <https://github.com/mongodb/mongo-kafka/blob/master/src/main/java/com/mongodb/kafka/connect/sink/MongoSinkTopicConfig.java>`_.
+
+Configuration Changes
+---------------------
+
+- The "``mongodb.``" prefix has been removed from all configuration property
+  names
+
+- The ``mongodb.collection`` configuration settings have been removed to
+  simplify the per-topic and collection overrides. settings See
+  `Topic-Specific Configuration Settings
+  <https://github.com/mongodb/mongo-kafka/blob/master/docs/sink.md#topic-specific-configuration-settings>`_
+  for available per-topic and override options.
+
+- The ``document.id.strategies`` configuration setting key has been removed.
+  Instead, to include a strategy, implement the `IdStrategy
+  <https://github.com/mongodb/mongo-kafka/blob/master/src/main/java/com/mongodb/kafka/connect/sink/processor/id/strategy/IdStrategy.java>`_
+  interface.
+
+PostProcessor Changes
+---------------------
+
+- The method parameter signatures have changed in the PostProcessor abstract
+  class and therefore may require rewriting any concrete subclasses. The
+  `PostProcessor class
+  <https://github.com/mongodb/mongo-kafka/blob/master/src/main/java/com/mongodb/kafka/connect/sink/processor/PostProcessor.java>`_
+  is now designed to be immutable and self-contained.
