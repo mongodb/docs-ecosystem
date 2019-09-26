@@ -244,6 +244,23 @@ To begin development, MedcoMD engineers generate a local master key:
             }
           }
         }
+   .. tab::
+      :tabid: nodejs
+
+      The following script generates a 96-byte local master key and
+      saves it to a file called ``master-key.txt`` in the directory
+      from which the script is executed.
+
+      .. code-block:: javascript
+
+        const fs = require('fs');
+        const secureRandom = require('secure-random');
+
+        const wstream = fs.createWriteStream('master-key.txt');
+        const data = secureRandom.randomUint8Array(96);
+        wstream.write(data);
+        wstream.end();
+
 
 .. _fle-create-a-data-encryption-key:
 
