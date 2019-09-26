@@ -1,0 +1,35 @@
+.. _kafka-installation:
+
+===============================
+Install MongoDB Kafka Connector
+===============================
+
+.. default-domain:: mongodb
+
+Install with Confluent Hub Client (Recommended)
+-----------------------------------------------
+
+1. Install the `Confluent Hub Client <https://docs.confluent.io/current/connect/managing/confluent-hub/client.html>`_
+   if necessary.
+
+2. Install the `MongoDB Connector for Apache Kafka <https://www.confluent.io/hub/mongodb/kafka-connect-mongodb>`_
+   component using the Confluent Hub Client.
+
+Install Manually
+----------------
+
+If you require an alternative installation method, the connector release
+versions are available from
+`Maven Central <https://search.maven.org/search?q=g:org.mongodb.kafka%20AND%20a:mongo-kafka-connect/>`_
+and build snapshots are available from the `Sonatype OSS Snapshot Repository
+<https://oss.sonatype.org/content/repositories/snapshots/org/mongodb/kafka/mongo-kafka-connect/>`_.
+
+1. Download the uber jar which is suffixed with ``all`` to obtain all the
+   dependencies required for the connector.
+
+2. After downloading the uber jar, refer to the official Confluent documentation
+   for `Manually Installing Community Connectors
+   <https://docs.confluent.io/current/connect/managing/community.html#manually-installing-community-connectors>`_.
+
+   - Use the `official MongoDB Kafka Connector
+     <https://github.com/mongodb/mongo-kafka>`_ GitHub repository.

@@ -1,0 +1,9 @@
+.. _kafka-connect-migration:
+
+==========================
+Migrate from Kafka Connect
+==========================
+
+.. default-domain:: mongodb
+
+
