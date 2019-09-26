@@ -296,8 +296,8 @@ information:
    client-side field level encryption and support *only* field-level
    encryption-specific keywords documented in :manual:`Automatic Encryption
    JSON Schema Syntax </reference/security-client-side-automatic-json-schema/>`.
-   If you specify a document validation instance without an ``encrypt``
-   property, the client will either ignore it or throw an error.
+   Any other document validation instances will cause the client to throw
+   an error.
 
 The MedcoMD engineers receive specific requirements for the fields of
 data and their encryption strategies. The following table illustrates
