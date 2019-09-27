@@ -219,8 +219,11 @@ For an example configuration file see `MongoSinkConnector.properties
        configuration. The customized overrides are merged with the default
        configuration, to create the specific configuration for a topic.
        For example, ``topic.override.foo.collection=bar`` will store data
-       from the foo topic into the bar collection. Note: All configuration
-       options apart from 'connection.uri' and 'topics' are overridable.
+       from the foo topic into the bar collection. 
+       .. note::
+
+          All configuration options apart from 'connection.uri' and 
+          'topics' are overridable.
      - string
      - ""
      - Topic override
@@ -235,8 +238,10 @@ be overriden using the ``topic.override.<topicName>.<configurationName>``
 syntax. This allows any individual configuration to be overridden on a per
 topic basis.
 
-**Note:** The ``topics`` and ``connection.uri`` configurations are global and
-*cannot* be overridden.
+.. note::
+
+   The ``topics`` and ``connection.uri`` configurations are global and
+   *cannot* be overridden.
 
 The following configuration fragments show how to apply different settings for
 the *topicA* and *topicC* topics.
@@ -305,9 +310,10 @@ The sink connector implementation is configurable in order to support:
 Since key and value settings can be independently configured, it is possible
 to work with different data formats for records' keys and values respectively.
 
-*Note: Even when using RAW JSON mode i.e. with `StringConverter
-<https://kafka.apache.org/21/javadoc/index.html?org/apache/kafka/connect/storage/StringConverter.html>`_
-the expected Strings have to be valid JSON.*
+.. note:: 
+   Even when using RAW JSON mode i.e. with `StringConverter
+   <https://kafka.apache.org/21/javadoc/index.html?org/apache/kafka/connect/storage/StringConverter.html>`_
+   the expected Strings have to be valid JSON.
 
 See the excellent Confluent post `Serializers Explained
 <https://www.confluent.io/blog/kafka-connect-deep-dive-converters-serialization-explained>`_
@@ -473,21 +479,25 @@ definitions should make this clearer:
        ]
      }
 
-Note: If you are using AVRO code generation for logical types in order to
-use them from a Java-based producer app you end-up with the following Java
-type mappings:
+.. note::
 
-- org.joda.time.LocalDate myDateField
-- org.joda.time.LocalTime mytimeMillisField
-- long myTimeMicrosField
-- org.joda.time.DateTime myTimestampMillisField
-- long myTimestampMicrosField
+   If you are using AVRO code generation for logical types in order to
+   use them from a Java-based producer app you end-up with the following Java
+   type mappings:
 
-See `this discussion <https://github.com/mongodb/mongo-kafka/issues/5>`_ if
-you are interested in some more details.
+   - org.joda.time.LocalDate myDateField
+   - org.joda.time.LocalTime mytimeMillisField
+   - long myTimeMicrosField
+   - org.joda.time.DateTime myTimestampMillisField
+   - long myTimestampMicrosField
 
-Note: AVRO 1.9.0 will support native Java 8 date time types. Logical types
-can only be supported for **AVRO** and **JSON + Schema** data.
+   See `this discussion <https://github.com/mongodb/mongo-kafka/issues/5>`_ if
+   you are interested in some more details.
+
+.. note::
+
+   AVRO 1.9.0 will support native Java 8 date time types. Logical types
+   can only be supported for **AVRO** and **JSON + Schema** data.
 
 Configuration example for AVRO
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -562,7 +572,10 @@ the **configured document id generation strategy**\ , which can be one of the fo
 * **partial key** using parts of the sink record's key structure
 * **partial value** using parts of the sink record's value structure
 
-*Note: the latter two of which can be configured to use the blacklist/whitelist field projection mechanisms described below.*
+.. note:: 
+
+   The latter two of which can be configured to use the blacklist/whitelist 
+   field projection mechanisms described below.
 
 The strategy is set by means of the following property:
 
@@ -698,8 +711,12 @@ exclude (blacklist) any fieldname at the corresponding level. A part from that t
 for **'**'** which can be used at any level to include/exclude the full sub structure
 (i.e. all nested levels further down in the hierarchy).
 
-*NOTE: A bunch of more concrete examples of field projections including wildcard pattern matching can be found in a corresponding
-`test class <https://github.com/mongodb/mongo-kafka/blob/master/src/test/java/com/mongodb/kafka/connect/sink/processor/field/projection/FieldProjectorTest.java>`_.*
+
+.. note:: 
+
+   A bunch of more concrete examples of field projections including wildcard 
+   pattern matching can be found in a corresponding `test class 
+   <https://github.com/mongodb/mongo-kafka/blob/master/src/test/java/com/mongodb/kafka/connect/sink/processor/field/projection/FieldProjectorTest.java>`_.
 
 Whitelist examples:
 ~~~~~~~~~~~~~~~~~~~
@@ -779,9 +796,12 @@ These settings cause:
 #. **All field names of the key structure containing 'my'** to be renamed so that **'my' is removed**
 #. **All field names of the value structure containing a '-'** to be renamed by replacing **'-' with '_'**
 
-Note: The use of the **"." character** as navigational operator in both examples. It's used in order to refer to nested fields in sub
-documents of the record structure. The prefix at the very beginning is used as a simple convention to distinguish between the *key* and
-*value* structure of a document.
+.. note::
+
+   The use of the **"." character** as navigational operator in both examples. 
+   It's used in order to refer to nested fields in subdocuments of the record
+   structure. The prefix at the very beginning is used as a simple convention 
+   to distinguish between the *key* and *value* structure of a document.
 
 Custom Write Models
 ^^^^^^^^^^^^^^^^^^^
@@ -803,11 +823,14 @@ strategies are implemented:
 * **add inserted/modified timestamps** (see `use case 2 <https://github.com/mongodb/mongo-kafka#use-case-2-add-inserted-and-modified-timestamps>`_ below)
   com.mongodb.kafka.connect.sink.writemodel.strategy.\ **UpdateOneTimestampsStrategy**
 
-*Note:* Future versions will allow to make use of arbitrary, individual strategies that can be registered and easily used as
-*mongodb.writemodel.strategy* configuration setting.
+.. note::
+   
+   Future versions will allow to make use of arbitrary, individual strategies
+   that can be registered and easily used as *mongodb.writemodel.strategy* 
+   configuration setting.
 
 Use Case 1: Employing Business Keys
-"""""""""""""""""""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Let's say you want to re-use a unique business key found in your sink records while at the same time have *Bson ObjectIds* created for
 the resulting MongoDB documents.
@@ -874,7 +897,7 @@ This will create a MongoDB document looking like:
 All upsert operations are done based on the unique business key which for this example is a compound one that consists of the two fields *(fieldA,fieldB)*.
 
 Use Case 2: Add Inserted and Modified Timestamps
-""""""""""""""""""""""""""""""""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Let's say you want to attach timestamps to the resulting MongoDB documents such that you can store the point in time of the document insertion and at the same time maintain a second timestamp reflecting when a document was modified.
 
@@ -984,11 +1007,11 @@ Also note that **both serialization formats (JSON+Schema & AVRO) can be used** d
 use case.
 
 CDC Handler Configuration
-"""""""""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The sink connector configuration offers a property called *mongodb.change.data.capture.handler* which is set to the fully qualified class
 name of the respective CDC format handler class. These classes must extend from the provided abstract class
-*\ `CdcHandler <https://github.com/mongodb/mongo-kafka/blob/master/src/main/java/com/mongodb/kafka/connect/sink/cdc/CdcHandler.java>`_\ *.
+`CdcHandler <https://github.com/mongodb/mongo-kafka/blob/master/src/main/java/com/mongodb/kafka/connect/sink/cdc/CdcHandler.java>`_.
 As soon as this configuration property is set the connector runs in **CDC operation mode**.
 
 An example JSON configuration the sink connector which uses the current default implementation that is capable to process
@@ -1013,7 +1036,7 @@ Debezium CDC MongoDB events. This config can be posted to the
    }
 
 Convention-based deletion on null values
-""""""""""""""""""""""""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 There are scenarios in which there is no CDC enabled source connector in place. However, it might be required to still be able to handle
 record deletions. For these cases the sink connector can be configured to delete records in MongoDB whenever it encounters sink records
