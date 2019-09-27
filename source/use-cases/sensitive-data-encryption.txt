@@ -146,7 +146,7 @@ Procedure
    .. tab::
       :tabid: java-sync
       
-      For more information, including 'full examples, see the `Client
+      For more information, including full examples, see the `Client
       Side Encryption
       <https://mongodb.github.io/mongo-java-driver/3.11/driver/tutorials/client-side-encryption/>`_
       page in the official Java driver documentation.
