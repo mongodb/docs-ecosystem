@@ -7,7 +7,6 @@ Kafka Sink Connector Guide
 .. default-domain:: mongodb
 
 .. contents:: On this page
-
    :local:
    :backlinks: none
    :depth: 2
@@ -526,7 +525,7 @@ After the conversion into a Bson document, the documents undergo a **chain of po
 
 Further post processors can be easily implemented based on the provided abstract base class
 `PostProcessor <https://github.com/mongodb/mongo-kafka/blob/master/src/main/java/com/mongodb/kafka/connect/sink/processor/PostProcessor.java>`_
- eg:
+E.g.:
 
 
 * Remove fields with null values
@@ -547,7 +546,7 @@ can be built more or less arbitrarily.
 The next section covers configuring the default post processors:
 
 DocumentIdAdder
-"""""""""""""""
+~~~~~~~~~~~~~~~
 
 The sink connector is able to process both, the key and value parts of kafka records. After the conversion to MongoDB Bson documents,
 an *_id* field is automatically added to value documents which are finally persisted in a MongoDB collection. The *_id* itself is filled by
@@ -588,7 +587,7 @@ due to the re-processing on retries after failures. The other strategies permit 
 the document *_id* are guaranteed to be unique in the first place.
 
 Blacklist / Whitelist Projector (optional)
-""""""""""""""""""""""""""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 By default the current implementation converts and persists the full value structure of the sink records.
 Key and/or value handling can be configured by using either a **blacklist or whitelist** approach in order to remove/keep fields
@@ -600,17 +599,32 @@ Given the following fictional data record:
 
 .. code-block:: json
 
-   { "name": "Anonymous",
+   {
+     "name": "Anonymous",
      "age": 42,
      "active": true,
-     "address": {"city": "Unknown", "country": "NoWhereLand"},
-     "food": ["Austrian", "Italian"],
-     "data": [{"k": "foo", "v": 1}],
-     "lut": {"key1": 12.34, "key2": 23.45}
+     "address": {
+       "city": "Unknown",
+       "country": "NoWhereLand"
+     },
+     "food": [
+       "Austrian",
+       "Italian"
+     ],
+     "data": [
+       {
+         "k": "foo",
+         "v": 1
+       }
+     ],
+     "lut": {
+       "key1": 12.34,
+       "key2": 23.45
+     }
    }
 
 Example blacklist projection:
-"""""""""""""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: properties
 
@@ -621,16 +635,28 @@ will result in:
 
 .. code-block:: json
 
-   { "name": "Anonymous",
+   {
+     "name": "Anonymous",
      "active": true,
-     "address": {"country": "NoWhereLand"},
-     "food": ["Austrian", "Italian"],
-     "data": [{"k": "foo"}],
-     "lut": {"key1": 12.34}
+     "address": {
+       "country": "NoWhereLand"
+     },
+     "food": [
+       "Austrian",
+       "Italian"
+     ],
+     "data": [
+       {
+         "k": "foo"
+       }
+     ],
+     "lut": {
+       "key1": 12.34
+     }
    }
 
 Example whitelist projection:
-"""""""""""""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: properties
 
@@ -641,10 +667,19 @@ will result in:
 
 .. code-block:: json
 
-   { "age": 42,
-     "address": {"city": "Unknown"},
-     "data": [{"v": 1}],
-     "lut": {"key2": 23.45}
+   {
+     "age": 42,
+     "address": {
+       "city": "Unknown"
+     },
+     "data": [
+       {
+         "v": 1
+       }
+     ],
+     "lut": {
+       "key2": 23.45
+     }
    }
 
 To have more flexibility in this regard there might be future support for:
@@ -655,7 +690,7 @@ To have more flexibility in this regard there might be future support for:
   simple/primitive type elements
 
 How wildcard pattern matching works:
-""""""""""""""""""""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The configuration supports wildcard matching using a **'*'** character notation. A wildcard
 is supported on any level in the document structure in order to include (whitelist) or
@@ -667,7 +702,7 @@ for **'**'** which can be used at any level to include/exclude the full sub stru
 `test class <https://github.com/mongodb/mongo-kafka/blob/master/src/test/java/com/mongodb/kafka/connect/sink/processor/field/projection/FieldProjectorTest.java>`_.*
 
 Whitelist examples:
-"""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~
 
 The following example will include the *age* field, the *lut* field and all its immediate sub-fields (i.e. one level down):
 
@@ -691,7 +726,7 @@ The final whitelist example will include all fields on the 1st and 2nd level:
    [key|value].projection.list=*.*
 
 Blacklist examples:
-"""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~
 
 The following example will exclude the *age* field, the *lut* field and all its immediate subfields (i.e. one level down):
 
@@ -715,7 +750,7 @@ The final blacklist example will exclude: all fields on the 1st and 2nd level:
    [key|value].projection.list=*.*
 
 Field Renaming (optional)
-"""""""""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 There are two different options to rename any fields in the record, namely a simple and rigid 1:1 field name mapping or a more
 flexible approach using regular expressions. Both config options are defined by inline JSON arrays containing objects which describe the renaming.
@@ -796,7 +831,12 @@ Given the following Kafka record:
      "fieldA": "Anonymous",
      "fieldB": 42,
      "active": true,
-     "values": [12.34, 23.45, 34.56, 45.67]
+     "values": [
+       12.34,
+       23.45,
+       34.56,
+       45.67
+     ]
    }
 
 Together with the sink connector config:
@@ -819,11 +859,16 @@ This will create a MongoDB document looking like:
 .. code-block:: json
 
    {
-     "_id": ObjectId("5abf52cc97e51aae0679d237"),
+     "_id": ObjectId('5abf52cc97e51aae0679d237'),
      "fieldA": "Anonymous",
      "fieldB": 42,
      "active": true,
-     "values": [12.34, 23.45, 34.56, 45.67]
+     "values": [
+       12.34,
+       23.45,
+       34.56,
+       45.67
+     ]
    }
 
 All upsert operations are done based on the unique business key which for this example is a compound one that consists of the two fields *(fieldA,fieldB)*.
@@ -837,8 +882,7 @@ All that needs to be done is use the **UpdateOneTimestampsStrategy** instead of 
 the custom write model will take care of attaching two timestamps to MongoDB documents:
 
 1) **_insertedTS**\ : will only be set once in case the upsert operation results in a new MongoDB document being inserted into the corresponding collection
-2) **_modifiedTS**\ : will be set each time the upsert operation
-results in an existing MongoDB document being updated in the corresponding collection
+2) **_modifiedTS**\ : will be set each time the upsert operation results in an existing MongoDB document being updated in the corresponding collection
 
 Given the following Kafka record
 
@@ -849,7 +893,12 @@ Given the following Kafka record
      "fieldA": "Anonymous",
      "fieldB": 42,
      "active": true,
-     "values": [12.34, 23.45, 34.56, 45.67]
+     "values": [
+       12.34,
+       23.45,
+       34.56,
+       45.67
+     ]
    }
 
 Together with the sink connector config:
@@ -871,12 +920,17 @@ This will create a MongoDB document looking like:
 
    {
      "_id": "ABCD-1234",
-     "_insertedTS": ISODate("2018-07-22T09:19:000Z"),
+     "_insertedTS": ISODate('2018-07-22T09:19:000Z"),
      "_modifiedTS": ISODate("2018-07-22T09:19:000Z"),
      "fieldA": "Anonymous",
      "fieldB": 42,
      "active": true,
-     "values": [12.34, 23.45, 34.56, 45.67]
+     "values": [
+       12.34,
+       23.45,
+       34.56,
+       45.67
+     ]
    }
 
 If at some point in time later there was a Kafka record referring to the same _id but containing updated data:
@@ -888,7 +942,10 @@ If at some point in time later there was a Kafka record referring to the same _i
      "fieldA": "anonymous",
      "fieldB": -23,
      "active": false,
-     "values": [12.34, 23.45]
+     "values": [
+       12.34,
+       23.45
+     ]
    }
 
 Then the existing MongoDB document will get updated together with a fresh timestamp for the **_modifiedTS** value:
@@ -897,12 +954,15 @@ Then the existing MongoDB document will get updated together with a fresh timest
 
    {
      "_id": "ABCD-1234",
-     "_insertedTS": ISODate("2018-07-22T09:19:000Z"),
-     "_modifiedTS": ISODate("2018-07-31T19:09:000Z"),
+     "_insertedTS": "ISODate('2018-07-22T09:19:000Z')",
+     "_modifiedTS": "ISODate('2018-07-31T19:09:000Z')",
      "fieldA": "anonymous",
      "fieldB": -23,
      "active": false,
-     "values": [12.34, 23.45]
+     "values": [
+       12.34,
+       23.45
+     ]
    }
 
 Change Data Capture Mode
@@ -940,10 +1000,10 @@ Debezium CDC MongoDB events. This config can be posted to the
    {
      "name": "mongo-sink-debezium-cdc",
      "config": {
-       "key.converter":"io.confluent.connect.avro.AvroConverter",
-       "key.converter.schema.registry.url":"http://localhost:8081",
-       "value.converter":"io.confluent.connect.avro.AvroConverter",
-       "value.converter.schema.registry.url":"http://localhost:8081",
+       "key.converter": "io.confluent.connect.avro.AvroConverter",
+       "key.converter.schema.registry.url": "http://localhost:8081",
+       "value.converter": "io.confluent.connect.avro.AvroConverter",
+       "value.converter.schema.registry.url": "http://localhost:8081",
        "connector.class": "com.mongodb.kafka.connect.sink.MongoSinkConnector",
        "topics": "myreplset.kafkaconnect.mongosrc",
        "connection.uri": "mongodb://mongodb:27017/kafkaconnect?w=1&journal=true",
