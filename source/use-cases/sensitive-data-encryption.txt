@@ -479,6 +479,11 @@ full `JSON Schema for the Medco Medical Management System
        
       View the `helper code in Java
       <https://gist.github.com/ccho-mongodb/088176b1bed3b9e54cdc0c2c3c537d1b>`_.
+   .. tab::
+      :tabid: nodejs
+       
+      View the `helper code in Javascript
+      <https://gist.github.com/mongomoe/a94c59a8e3acdfc96b82d76eb5ea654d>`_.
 
 D. Create the MongoDB Client
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
