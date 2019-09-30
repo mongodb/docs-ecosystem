@@ -110,8 +110,7 @@ content: |
                 useUnifiedTopology: true
             });
 
-            client.connect()
-            .then((clientConnection)=>{
+            client.connect().then((clientConnection)=>{
               const encryption = new ClientEncryption(client, {
                   keyVaultNamespace,
                   kmsProviders
