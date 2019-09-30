@@ -529,6 +529,32 @@ MedcoMD engineers write a function to create a new patient record:
                  .append("insurance", insurance);
              collection.insertOne(patient);
          }
+.. tabs-drivers::
+   
+   .. tab::
+      :tabid: nodejs
+      
+      .. code-block:: javascript
+      
+         function insertPatient(collection, name, ssn, bloodType, medicalRecords,  policyNumber, provider) {
+             collection.insertOne({
+             name: name,
+             ssn: ssn,
+             bloodType: bloodType,
+             medicalRecords: medicalRecords,
+             insurance: {
+                 policyNumber: policyNumber,
+                 provider: provider
+             }
+             })
+             .then((writeResult) => {
+                 console.log('writeResult: \t', writeResult);
+             })
+             .catch((writeError) => {
+                 console.log('writeError occurred: \t', writeError);
+             })
+         }
+
 
 When a CSFLE-enabled client inserts a new patient record into the Medical Care
 Management System, it automatically encrypts the fields. This operation

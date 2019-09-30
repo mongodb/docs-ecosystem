@@ -48,7 +48,7 @@ content: |
            
            const kmsProviders = {
              local: {
-               key: fileBytes
+               key: localMasterKey
              }
            }
 
@@ -114,6 +114,29 @@ content: |
               final Map<String, Object> extraOptions = new HashMap<String, Object>() {{
                 put("mongocryptdBypassSpawn", true);
               }};
+     .. tab::
+        :tabid: nodejs
+        
+        .. code-block:: javascript
+           :emphasize-lines: 2
+           
+           const extraOptions = {
+            mongocryptdPath: "/usr/local/bin/mongocryptd";
+           }
+        
+        .. admonition:: Encryption Binary Daemon
+           :class: note
+        
+           If the ``mongocryptd`` daemon is already running, you can
+           configure the client to skip starting it by passing the
+           following option:
+           
+           .. code-block:: javascript
+              :emphasize-lines: 2
+              
+               const extraOptions = {
+                 mongocryptdBypassSpawn: true;
+               }
 ---
 title: Create the MongoClient
 ref: create-the-mongoclient
@@ -153,7 +176,8 @@ content: |
                autoEncryption: { 
                  keyVaultNamespace, 
                  kmsProviders, 
-                 schemaMap: patientSchema 
+                 schemaMap: patientSchema,
+                 extraOptions: extraOptions
                }
            });
 ...
