@@ -529,8 +529,6 @@ MedcoMD engineers write a function to create a new patient record:
                  .append("insurance", insurance);
              collection.insertOne(patient);
          }
-.. tabs-drivers::
-   
    .. tab::
       :tabid: nodejs
       
