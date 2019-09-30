@@ -541,14 +541,14 @@ MedcoMD engineers write a function to create a new patient record:
       
          function insertPatient(collection, name, ssn, bloodType, medicalRecords,  policyNumber, provider) {
              collection.insertOne({
-             name: name,
-             ssn: ssn,
-             bloodType: bloodType,
-             medicalRecords: medicalRecords,
-             insurance: {
-                 policyNumber: policyNumber,
-                 provider: provider
-             }
+                name: name,
+                ssn: ssn,
+                bloodType: bloodType,
+                medicalRecords: medicalRecords,
+                insurance: {
+                    policyNumber: policyNumber,
+                    provider: provider
+                }
              })
              .then((writeResult) => {
                  console.log('writeResult: \t', writeResult);
@@ -738,13 +738,8 @@ check out the reference docs in the server manual:
    .. tab::
       :tabid: java-sync
       
-      See more information on `Client Side Encryption using the official
-      Java driver
-      <https://mongodb.github.io/mongo-java-driver/3.11/driver/tutorials/client-side-encryption/>`_
-
+      For additional information on CSFLE, see the `official Java driver documentation <https://mongodb.github.io/mongo-java-driver/3.11/driver/tutorials/client-side-encryption/>`_
    .. tab::
       :tabid: nodejs
 
-      See more information on `Client Side Encryption using the official
-      Node.js driver
-      <https://www.npmjs.com/package/mongodb-client-encryption>`_
+      For additional information on CSFLE, see the `official Node.js driver documentation <https://www.npmjs.com/package/mongodb-client-encryption>`_
