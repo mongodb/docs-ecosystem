@@ -17,10 +17,22 @@ MongoDB Kafka Connector
 Introduction
 ------------
 
-Lorem ipsum
+`Apache Kafka <https://kafka.apache.org>`_ is a *distributed streaming 
+platform* that implements a publish-subscribe pattern to offer streams of 
+data with a durable and scalable framework.
 
-Descriptions and links to each section here.
+The `Apache Kafka Connect API <https://www.confluent.io/connectors/>`_ is
+an interface that simplifies integration of a data system, such as
+a database or distributed cache, with a new *data source* or *data sink*.
 
+The `MongoDB Kafka connector <https://www.mongodb.com/kafka-connector>`_ is
+a Confluent-verified connector that persists data from Kafka topics as a
+data sink into MongoDB as well as publishes changes from MongoDB into Kafka
+topics as a data source. This guide provides information on available
+configuration options and examples to help you complete your
+implementation.
+
+TODO: Descriptions and links to each section here.
 
 .. toctree::
    :titlesonly:
