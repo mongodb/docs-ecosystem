@@ -278,9 +278,16 @@ local master key.
    .. tab::
       :tabid: java-sync
        
-      You can also download the `complete code example on GitHub
+      You can also download the `complete Java data key generation code
+      example on GitHub
       <https://raw.githubusercontent.com/mongodb/docs-assets/DOCSP-csfle-data-encryption-key/DataEncryptionKeyGenerator.java>`_.
-
+   .. tab::
+      :tabid: nodejs
+       
+      You can also download the `complete Node.js data key generation
+      code example on GitHub
+      <https://raw.githubusercontent.com/mongodb/docs-assets/DOCSP-csfle-data-encryption-key/DataEncryptionKeyGenerator.js>`_.
+ 
 .. include:: /includes/steps/create-data-encryption-key.rst
 
 .. _fle-define-a-json-schema:
@@ -698,7 +705,7 @@ check out the reference docs in the server manual:
 
 .. tabs-drivers::
    :hidden: true
-   
+
    .. tab::
       :tabid: java-sync
       
