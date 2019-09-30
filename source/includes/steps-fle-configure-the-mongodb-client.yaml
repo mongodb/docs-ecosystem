@@ -76,10 +76,10 @@ content: |
         
         .. code-block:: javascript
         
-          const dataNamespace = "medicalRecords.patients";
-          const patientSchema = {
-            [dataNamespace]: jsonSchema
-          }
+           const dataNamespace = "medicalRecords.patients";
+           const patientSchema = {
+             [dataNamespace]: jsonSchema
+           }
 ---
 title: Specify the Location of the Encryption Binary
 ref: specify-the-location-of-the-encryption-binary
