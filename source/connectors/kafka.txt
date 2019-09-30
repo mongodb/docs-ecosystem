@@ -23,7 +23,8 @@ data with a durable and scalable framework.
 
 The `Apache Kafka Connect API <https://www.confluent.io/connectors/>`_ is
 an interface that simplifies integration of a data system, such as
-a database or distributed cache, with a new *data source* or *data sink*.
+a database or distributed cache, with a new **data source** or a
+**data sink**.
 
 The `MongoDB Kafka connector <https://www.mongodb.com/kafka-connector>`_ is
 a Confluent-verified connector that persists data from Kafka topics as a
