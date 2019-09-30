@@ -28,12 +28,13 @@ content: |
         :tabid: nodejs
 
         .. code-block:: javascript
-            const path = "./master-key.txt";
-            let localMasterKey;
-            fs.readFile(path, (err, data) => {
-              if (err) throw err;
-              localMasterKey = data;
-            });
+        
+           const path = "./master-key.txt";
+           let localMasterKey;
+           fs.readFile(path, (err, data) => {
+             if (err) throw err;
+             localMasterKey = data;
+           });
 
 ---
 title: Specify KMS Provider Settings

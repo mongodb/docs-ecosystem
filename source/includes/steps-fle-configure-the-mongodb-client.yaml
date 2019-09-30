@@ -46,11 +46,11 @@ content: |
         
         .. code-block:: javascript
            
-          const kmsProviders = {
-          local: {
-            key: fileBytes
-          }
-        }
+           const kmsProviders = {
+             local: {
+               key: fileBytes
+             }
+           }
 
 ---
 title: Map the JSON Schema to the Patients Collection
