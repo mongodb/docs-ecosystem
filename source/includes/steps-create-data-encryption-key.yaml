@@ -105,7 +105,7 @@ content: |
 
             const connectionString = "mongodb://localhost:27017";
             const keyVaultNamespace = "encryption.__keyVault";
-            const client = new MongoClient(process.env.MONGO_URL, {
+            const client = new MongoClient(connectionString, {
                 useNewUrlParser: true,
                 useUnifiedTopology: true
             });
