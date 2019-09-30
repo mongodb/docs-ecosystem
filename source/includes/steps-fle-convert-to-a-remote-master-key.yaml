@@ -117,12 +117,12 @@ content: |
                keyVaultNamespace,
                kmsProviders
            });
-           encryption.createDataKey('aws', {
+           encryption.createDataKey("aws", {
                masterKey: { 
-                 key: <Master Key ARN>,// e.g."arn:aws:kms:us-east-2:111122223333:alias/test-key"
-                  region: 'us-east-1' 
+                 key: "<Master Key ARN>", // e.g. "arn:aws:kms:us-east-2:111122223333:alias/test-key"
+                  region: "us-east-1"
                },
-               keyAltNames: ['key1']
+               keyAltNames: ["key1"]
            })
 ---
 title: Update the JSON Schema
