@@ -120,7 +120,7 @@ content: |
            encryption.createDataKey("aws", {
                masterKey: { 
                  key: "<Master Key ARN>", // e.g. "arn:aws:kms:us-east-2:111122223333:alias/test-key"
-                 region: "< Master Key AWS Region>", // e.g. "us-east-1"
+                 region: "<Master Key AWS Region>", // e.g. "us-east-1"
                }
            })
 ---
