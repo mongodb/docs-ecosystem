@@ -154,22 +154,25 @@ content: |
                masterKey=Document{{provider=local}}
            }}
 
-        While the ``Document`` class is the
-        :java-docs-latest:`Document type </bson/documents>`
-        most commonly used to work with query results, we can use the
-        ``BsonDocument`` class to view the internal representation of the data
-        key document. Replace the ``Document`` assignment code with the
-        following to retrieve and print a ``BsonDocument``:
+        .. admonition:: View the Extended JSON Representation of the Data Key
+           :class: note
 
-        .. code-block:: java
-           :emphasize-lines: 1,2
+           While the ``Document`` class is the
+           :java-docs-latest:`Document type </bson/documents>`
+           most commonly used to work with query results, we can use the
+           ``BsonDocument`` class to view the data key document as extended
+           JSON. Replace the ``Document`` assignment code with the following
+           to retrieve and print a ``BsonDocument``:
 
-           BsonDocument doc = collection
-               .withDocumentClass(BsonDocument.class)
-               .find(query)
-               .first();
+           .. code-block:: java
+              :emphasize-lines: 1,2
 
-           System.out.println(doc);
+              BsonDocument doc = collection
+                  .withDocumentClass(BsonDocument.class)
+                  .find(query)
+                  .first();
+
+              System.out.println(doc);
 
   This retrieved document contains the following data:
 
