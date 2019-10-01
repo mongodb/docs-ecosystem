@@ -225,6 +225,35 @@ content: |
 
               System.out.println(doc);
 
+     .. tab::
+        :tabid: nodejs
+
+        .. code-block:: javascript
+
+           const connectionString = "mongodb://localhost:27017/";
+           String keyVaultDb = "encryption";
+           String keyVaultCollection = "__keyVault";
+
+           const client = new MongoClient(connectionString, {
+             useNewUrlParser: true,
+             useUnifiedTopology: true
+           });
+
+           client.connect()
+           .then((clientConnection)=>{
+               const keyDB = clientConnection.db(keyVaultDb);
+               const keyColl = keyDB.collection(keyVaultCollection);
+               const query = {
+                   _id: key
+               }
+               keyColl.findOne(query).then((dataKey) => {
+                 console.log("Data Key Document: ", dataKey);
+               })
+           });
+
+
+
+
   This retrieved document contains the following data:
 
   * Data encryption key UUID.
