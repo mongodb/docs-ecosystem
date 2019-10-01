@@ -97,6 +97,8 @@ content: |
            
            BsonBinary dataKeyId = clientEncryption.createDataKey("aws", dataKeyOptions);
            String base64DataKeyId = Base64.getEncoder().encodeToString(dataKeyId.getData());
+
+           System.out.println("DataKeyId [base64]: " + base64DataKeyId);
 ---
 title: Update the JSON Schema
 ref: update-the-json-schema
