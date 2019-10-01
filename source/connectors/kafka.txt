@@ -29,6 +29,10 @@ Descriptions and links to each section here.
    Install MongoDB Kafka Connector </connectors/kafka-installation>
    Migrate from Kafka Connect </connectors/kafka-connect-migration>
    Create a Sink Connector </connectors/kafka-sink>
+     Sink Properties </connectors/kafka-sink-properties>
+     Sink Data Formats </connectors/kafka-sink-data-formats>
+     Sink Post-Processors </connectors/kafka-sink-postprocessors>
+     Sink CDC </connectors/kafka-sink-cdc>
    Create a Source Connector </connectors/kafka-source>
    Create a Docker Example </connectors/kafka-docker-example>
    Additional Resources </connectors/kafka-additional-resources>
