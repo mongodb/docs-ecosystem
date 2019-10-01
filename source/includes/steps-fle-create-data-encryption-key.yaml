@@ -40,7 +40,7 @@ content: |
 
         The KMS provider settings are stored in a Map in order to use the
         :java-docs-latest:`kmsProviders helper
-        method <javadoc/com/mongodb/ClientEncryptionSettings.Builder.html#kmsProviders(java.util.Map)>
+        method <javadoc/com/mongodb/ClientEncryptionSettings.Builder.html#kmsProviders(java.util.Map)>`
         for the ClientEncryptionSettings Builder.
 
         .. code-block:: java
@@ -153,6 +153,23 @@ content: |
                status=0,
                masterKey=Document{{provider=local}}
            }}
+
+        While the ``Document`` class is the
+        :java-docs-latest:`Document type </bson/documents>`
+        most commonly used to work with query results, we can use the
+        ``BsonDocument`` class to view the internal representation of the data
+        key document. Replace the ``Document`` assignment code with the
+        following to retrieve and print a ``BsonDocument``:
+
+        .. code-block:: java
+           :emphasize-lines: 1,2
+
+           BsonDocument doc = collection
+               .withDocumentClass(BsonDocument.class)
+               .find(query)
+               .first();
+
+           System.out.println(doc);
 
   This retrieved document contains the following data:
 
