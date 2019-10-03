@@ -45,13 +45,13 @@ content: |
         :tabid: nodejs
 
         .. code-block:: javascript
+           :emphasize-lines: 2,3
 
            const kmsProviders = {
              local: {
-               key: localMasterKey
+               key: localMasterKey,
              }
            }
-
 ---
 title: Map the JSON Schema to the Patients Collection
 ref: map-the-json-schema-to-the-patients-collection
@@ -75,10 +75,10 @@ content: |
         :tabid: nodejs
 
         .. code-block:: javascript
+           :emphasize-lines: 2
 
-           const dataNamespace = "medicalRecords.patients";
            const patientSchema = {
-             [dataNamespace]: jsonSchema
+             ["medicalRecords.patients"]: jsonSchema,
            }
 ---
 title: Specify the Location of the Encryption Binary
@@ -121,7 +121,7 @@ content: |
            :emphasize-lines: 2
 
            const extraOptions = {
-            mongocryptdPath: "/usr/local/bin/mongocryptd";
+             mongocryptdPath: "/usr/local/bin/mongocryptd",
            }
 
         .. admonition:: Encryption Binary Daemon
@@ -135,7 +135,7 @@ content: |
               :emphasize-lines: 2
 
                const extraOptions = {
-                 mongocryptdBypassSpawn: true;
+                 mongocryptdBypassSpawn: true,
                }
 ---
 title: Create the MongoClient
@@ -169,6 +169,7 @@ content: |
 
         .. code-block:: javascript
            :emphasize-lines: 5-9
+
            const secureClient = new MongoClient(connectionString, {
                useNewUrlParser: true,
                useUnifiedTopology: true,
@@ -177,7 +178,7 @@ content: |
                  keyVaultNamespace,
                  kmsProviders,
                  schemaMap: patientSchema,
-                 extraOptions: extraOptions
+                 extraOptions: extraOptions,
                }
            });
 ...
