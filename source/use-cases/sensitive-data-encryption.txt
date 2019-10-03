@@ -171,6 +171,39 @@ File System Permissions
     </core/security-client-side-encryption/#field-level-encryption-mongocryptd>`
     process on the host.
 
+Additional Dependencies
+  - Additional dependencies for specific language drivers are required to
+    use CSFLE or run through examples in this guide. To see the list,
+    select the appropriate driver tab below.
+
+.. tabs-drivers::
+
+   .. tab::
+      :tabid: java-sync
+
+      No additional dependencies are required for the Java driver.
+
+   .. tab::
+      :tabid: nodejs
+
+      .. list-table::
+         :header-rows: 1
+
+         * - Dependency Name
+           - Description
+
+         * - `mongodb-client-encryption
+             <https://www.npmjs.com/package/mongodb-client-encryption>`_
+           - NodeJS wrapper for the ``libmongocrypt`` encryption library.
+
+         * - `secure-random
+             <https://www.npmjs.com/package/secure-random#nodejsbrowserify>`_
+           - Generate cryptographically strong random values.
+
+         * - `uuid-base64
+             <https://www.npmjs.com/package/uuid-base64#installation>`_
+           - Convert between Base64 and hexadecimal UUIDs.
+
 .. _fle-create-a-master-key:
 
 A. Create a Master Key
