@@ -168,7 +168,7 @@ content: |
         :tabid: nodejs
 
         .. code-block:: javascript
-
+           :emphasize-lines: 5-9
            const secureClient = new MongoClient(connectionString, {
                useNewUrlParser: true,
                useUnifiedTopology: true,

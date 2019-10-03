@@ -120,7 +120,7 @@ content: |
         :tabid: nodejs
 
         .. code-block:: javascript
-           :emphasize-lines: 10,11,13
+           :emphasize-lines: 10,11,13,16
 
            const base64 = require("uuid-base64");
  
