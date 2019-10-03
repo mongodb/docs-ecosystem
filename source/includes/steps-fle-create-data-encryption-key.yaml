@@ -128,16 +128,16 @@ content: |
                useUnifiedTopology: true
            });
 
-           client.connect().then((clientConnection)=>{
+           client.connect().then((clientConnection) => {
              const encryption = new ClientEncryption(client, {
                  keyVaultNamespace,
                  kmsProviders
              });
-             encryption.createDataKey('local', (err, key) => {
+             encryption.createDataKey("local", (err, key) => {
                if (err) {
-                 console.log("dataKey creation error", err);
+                 console.error(err);
                } else {
-                 console.log("dataKey created", key)
+                 console.log(key);
                }
              });
            // ...

@@ -239,6 +239,12 @@ To begin development, MedcoMD engineers generate a locally-managed master key:
         wstream.write(data);
         wstream.end();
 
+      .. note::
+
+         This code includes a dependency on the ``secure-random``
+         npm package. See the `npmjs documentation on the secure-random
+         package <https://www.npmjs.com/package/secure-random>`_ for
+         installation instructions.
 
 .. _fle-create-a-data-encryption-key:
 
