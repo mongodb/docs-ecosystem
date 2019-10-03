@@ -231,10 +231,10 @@ To begin development, MedcoMD engineers generate a locally-managed master key:
 
       .. code-block:: javascript
 
-        const fs = require('fs');
-        const secureRandom = require('secure-random');
+        const fs = require("fs");
+        const secureRandom = require("secure-random");
 
-        const wstream = fs.createWriteStream('master-key.txt');
+        const wstream = fs.createWriteStream("master-key.txt");
         const data = secureRandom.randomUint8Array(96);
         wstream.write(data);
         wstream.end();
@@ -556,10 +556,10 @@ MedcoMD engineers write a function to create a new patient record:
                 }
              })
              .then((writeResult) => {
-                 console.log('writeResult: \t', writeResult);
+                 console.log("writeResult:", writeResult);
              })
              .catch((writeError) => {
-                 console.log('writeError occurred: \t', writeError);
+                 console.log("writeError occurred:", writeError);
              })
          }
 

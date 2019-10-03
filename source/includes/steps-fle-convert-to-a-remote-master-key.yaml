@@ -116,17 +116,19 @@ content: |
         .. code-block:: javascript
 
            const encryption = new ClientEncryption(client, {
-               keyVaultNamespace,
-               kmsProviders
+              keyVaultNamespace,
+              kmsProviders
            });
            encryption.createDataKey("aws", {
-               masterKey: {
-                 key: "<Master Key ARN>", // e.g. "arn:aws:kms:us-east-2:111122223333:alias/test-key"
-                 region: "<Master Key AWS Region>", // e.g. "us-east-1"
-               }
+              masterKey: {
+                key: "<Master Key ARN>", // e.g. "arn:aws:kms:us-east-2:111122223333:alias/test-key"
+                region: "<Master Key AWS Region>", // e.g. "us-east-1"
+              }
+           }, (err, key) => {
+            const base64DataKeyId = key.toString('base64');
+            console.log("DataKeyId [base64]: ", base64DataKeyId);
            });
 
-           // TODO: print the data key id in base64
 ---
 title: Update the JSON Schema
 ref: update-the-json-schema
@@ -135,4 +137,3 @@ content: |
   key id, so you need to generate a new JSON Schema. To do so, repeat
   the :ref:`Define a JSON Schema <fle-define-a-json-schema>` step with
   the new data key that was created with the remote master key.
-...
