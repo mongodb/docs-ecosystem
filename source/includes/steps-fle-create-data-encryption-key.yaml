@@ -73,9 +73,10 @@ content: |
 
             const kmsProviders = {
               local: {
-                key: localMasterKey
-              }
-            }
+                key: localMasterKey,
+              },
+            };
+
 ---
 title: Create a Data Encryption Key
 ref: create-a-data-encryption-key
@@ -121,28 +122,34 @@ content: |
         .. code-block:: javascript
            :emphasize-lines: 10,11,13
 
+           const base64 = require("uuid-base64");
+ 
            const connectionString = "mongodb://localhost:27017";
            const keyVaultNamespace = "encryption.__keyVault";
            const client = new MongoClient(connectionString, {
-               useNewUrlParser: true,
-               useUnifiedTopology: true
+             useNewUrlParser: true,
+             useUnifiedTopology: true,
            });
-
+ 
            client.connect()
-           .then((clientConnection) => {
-             const encryption = new ClientEncryption(client, {
+             .then((clientConnection) => {
+               const encryption = new ClientEncryption(client, {
                  keyVaultNamespace,
-                 kmsProviders
+                 kmsProviders,
+               });
+               encryption.createDataKey("local", (err, key) => {
+                 if (err) {
+                   console.error(err);
+                 } else {
+                   const base64DataKeyId = key.toString("base64");
+                   const uuidDataKeyId = base64.decode(base64DataKeyId);
+                   console.log("DataKeyId [UUID]: ", uuidDataKeyId);
+                   console.log("DataKeyId [base64]: ", base64DataKeyId);
+                 }
+               });
+               // ...
              });
-             encryption.createDataKey("local", (err, key) => {
-               if (err) {
-                 console.error(err);
-               } else {
-                 console.log(key);
-               }
-             });
-           // ...
-           })
+
 
         .. note::
 
@@ -232,33 +239,56 @@ content: |
                   .first();
 
               System.out.println(doc);
-
      .. tab::
         :tabid: nodejs
 
         .. code-block:: javascript
 
            const connectionString = "mongodb://localhost:27017/";
-           String keyVaultDb = "encryption";
-           String keyVaultCollection = "__keyVault";
-
+           const keyVaultDb = "encryption";
+           const keyVaultCollection = "__keyVault";
+ 
            const client = new MongoClient(connectionString, {
              useNewUrlParser: true,
-             useUnifiedTopology: true
+             useUnifiedTopology: true,
            });
-
+ 
            client.connect()
-           .then((clientConnection)=>{
+             .then((clientConnection) => {
                const keyDB = clientConnection.db(keyVaultDb);
                const keyColl = keyDB.collection(keyVaultCollection);
                const query = {
-                   _id: key
-               }
+                 _id: key,
+               };
                keyColl.findOne(query)
-               .then((dataKey) => {
-                 console.log("Data Key Document: ", dataKey);
-               })
-           });
+                 .then((dataKey) => {
+                   console.log("Data Key Document: ", dataKey);
+                 });
+             });
+
+        This code example should print a retrieved document that resembles the
+        following:
+
+        .. code-block:: none
+
+           Data Key Document:  {
+             _id: Binary {
+               _bsontype: 'Binary',
+               sub_type: 4,
+               position: 16,
+               buffer: <Buffer 68 ca d2 10 16 5d 45 bf 9d 1d 44 d4 91 a6 92 44>
+             },
+             keyMaterial: Binary {
+               _bsontype: 'Binary',
+               sub_type: 0,
+               position: 160,
+               buffer: <Buffer f1 4a 9f bd aa ac c9 89 e9 b3 da 48 72 8e a8 62 97 2a 4a a0 d2 d4 2d a8 f0 74 9c 16 4d  2c 95 34 19 22 05 05 84 0e 41 42 12 1e e3 b5 f0 b1 c5 a8 37 b8 ... 110 more bytes>
+             },
+             creationDate: 2019-10-03T20:47:54.017Z,
+             updateDate: 2019-10-03T20:47:54.017Z,
+             status: 0,
+             masterKey: { provider: 'local' }
+           }
 
 
 
