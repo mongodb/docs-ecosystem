@@ -247,7 +247,8 @@ content: |
                const query = {
                    _id: key
                }
-               keyColl.findOne(query).then((dataKey) => {
+               keyColl.findOne(query)
+               .then((dataKey) => {
                  console.log("Data Key Document: ", dataKey);
                })
            });
