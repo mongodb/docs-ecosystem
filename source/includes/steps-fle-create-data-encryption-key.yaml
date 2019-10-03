@@ -144,6 +144,13 @@ content: |
            // ...
            })
 
+        .. note::
+
+           This code includes a dependency on the ``uuid-base64``
+           npm package. See the `npmjs documentation on the uuid-base64
+           package <https://www.npmjs.com/package/uuid-base64>`_ for
+           installation instructions.
+
   The ``_id`` field of the data encryption key is represented as a **UUID**
   and is encoded in **Base64** format. Use your **Base64**-encoded data key
   id when specified for the remainder of this guide.
