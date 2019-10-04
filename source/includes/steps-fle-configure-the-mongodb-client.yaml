@@ -78,7 +78,7 @@ content: |
            :emphasize-lines: 2
 
            const patientSchema = {
-             ["medicalRecords.patients"]: jsonSchema,
+             "medicalRecords.patients": jsonSchema,
            }
 ---
 title: Specify the Location of the Encryption Binary
@@ -121,7 +121,7 @@ content: |
            :emphasize-lines: 2
 
            const extraOptions = {
-             mongocryptdPath: "/usr/local/bin/mongocryptd",
+             mongocryptdSpawnPath: "/usr/local/bin/mongocryptd",
            }
 
         .. admonition:: Encryption Binary Daemon
