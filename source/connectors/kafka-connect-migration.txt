@@ -6,54 +6,63 @@ Migrate from Kafka Connect
 
 .. default-domain:: mongodb
 
-This section lists the changes needed to migrate from the deprecated,
-community-developed version of the Kafka Connector (hosted in the
-`hpgrahsl/kafka-connect-mongodb GitHub repository
-<https://github.com/hpgrahsl/kafka-connect-mongodb>`_) to the `official
-connector <https://github.com/mongodb/mongo-kafka>`_.
+Follow the steps in this guide to migrate your Kafka deployments from
+`Kafka Connect <https://github.com/hpgrahsl/kafka-connect-mongodb>`_ to the
+`official MongoDB Kafka connector <https://github.com/mongodb/mongo-kafka>`_.
 
-Once your project build file is updated to reference the official Kafka
-Connect library, use the following information to migrate your
-project.
+Update Configuration Settings
+-----------------------------
 
+- Replace any property values that refer to ``at.grahsl.kafka.connect.mongodb``
+  with ``com.mongodb.kafka.connect``.
 
-Package and Class Name Changes
-------------------------------
+- Replace ``MongoDbSinkConnector`` with ``MongoSinkConnector`` as the
+  value of the ``connector.class`` key.
 
-- The package name for the Kafka Connect library used was changed from
-  ``at.grahsl.kafka.connect.mongodb`` to ``com.mongodb.kafka.connect``
+- Remove the "``mongodb.``" prefix from all configuration property key
+  names.
 
-- The ``MongoDbSinkConnector`` class has been renamed ``MongoSinkConnector``
+- Remove the ``document.id.strategies`` key if it exists. If the value of
+  this field contained references to any custom strategies, move them to the
+  ``document.id.strategy`` field and read the :ref:`custom-class-changes`
+  section for additional required changes to your classes.
 
-- The ``MongoDbSinkConnectorConfig`` class has been split into
-  ``sink.MongoSinkConfig`` and ``sink.MongoSinkTopicConfig`` classes. Refer to
-  the source for a complete list of properties in `MongoSinkConfig
-  <https://github.com/mongodb/mongo-kafka/blob/master/src/main/java/com/mongodb/kafka/connect/sink/MongoSinkConfig.java>`_
-  and `MongoSinkTopicConfig
-  <https://github.com/mongodb/mongo-kafka/blob/master/src/main/java/com/mongodb/kafka/connect/sink/MongoSinkTopicConfig.java>`_.
+- Replace any keys that were used to specify per-topic and collection
+  overrides that contain the ``mongodb.collection`` prefix with the
+  equivalent key in `Topic-Specific Configuration Settings
+  <https://github.com/mongodb/mongo-kafka/blob/master/docs/sink.md#topic-specific-configuration-settings>`_.
 
-Configuration Changes
+.. _custom-class-changes:
+
+Update Custom Classes
 ---------------------
 
-- The "``mongodb.``" prefix has been removed from all configuration property
-  names
+If you have added any classes or custom logic to your MongoDB Kafka
+connector jar file, you will need to migrate them to the new MongoDB Kafka
+connector jar file. You will also need to make the following changes:
 
-- The ``mongodb.collection`` configuration settings have been removed to
-  simplify the per-topic and collection overrides. settings See
-  `Topic-Specific Configuration Settings
-  <https://github.com/mongodb/mongo-kafka/blob/master/docs/sink.md#topic-specific-configuration-settings>`_
-  for available per-topic and override options.
+- Update imports that refer to ``at.grahsl.kafka.connect.mongodb`` to
+  ``com.mongodb.kafka.connect``.
 
-- The ``document.id.strategies`` configuration setting key has been removed.
-  Instead, to include a strategy, implement the `IdStrategy
-  <https://github.com/mongodb/mongo-kafka/blob/master/src/main/java/com/mongodb/kafka/connect/sink/processor/id/strategy/IdStrategy.java>`_
+- Replace references to the ``MongoDbSinkConnector`` class with
+  ``MongoSinkConnector``.
+
+- Update custom sink strategy classes to implement the
+  ``com.mongodb.kafka.connect.sink.processor.id.strategy.IdStrategy``
   interface.
 
-PostProcessor Changes
----------------------
+- Update references to the ``MongoDbSinkConnectorConfig`` class which
+  has been split into the `sink.MongoSinkConfig
+  <https://github.com/mongodb/mongo-kafka/blob/master/src/main/java/com/mongodb/kafka/connect/sink/MongoSinkConfig.java>`_
+  and `sink.MongoSinkTopicConfig
+  <https://github.com/mongodb/mongo-kafka/blob/master/src/main/java/com/mongodb/kafka/connect/sink/MongoSinkTopicConfig.java>`_
+  classes.
 
-- The method parameter signatures have changed in the PostProcessor abstract
-  class and therefore may require rewriting any concrete subclasses. The
-  `PostProcessor class
+Update PostProcessor Subclasses
+-------------------------------
+
+- Update any concrete methods that override methods in the Kafka Connect 
+  ``PostProcessor`` class to match the new method signatures of the
+  MongoDB Kafka Connector `PostProcessor
   <https://github.com/mongodb/mongo-kafka/blob/master/src/main/java/com/mongodb/kafka/connect/sink/processor/PostProcessor.java>`_
-  is now designed to be immutable and self-contained.
+  class.
