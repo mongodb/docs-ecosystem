@@ -19,7 +19,8 @@ Sink Data Formats
 Supported Data Formats
 ----------------------
 
-The sink connector implementation is configurable in order to support:
+The MongoDB Kafka Sink Connector supports the following data serialization
+formats:
 
 - **AVRO** (makes use of Confluent's Kafka Schema Registry and is the
   recommended format)
