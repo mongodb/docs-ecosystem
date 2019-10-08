@@ -69,6 +69,17 @@ content: |
                    secretAccessKey: "<IAM User Secret Access Key>",
                }
            }
+     .. tab::
+        :tabid: python
+
+        .. code-block:: python
+
+           'kmsProviders' = {
+               'aws': {
+                   'access_key_id':  "<IAM User Access Key ID>",
+                   'secretAccessKey': "<IAM User Secret Access Key>",
+               }
+           }
 ---
 title: Create a New Data Key
 ref: create-a-new-data-key
@@ -128,6 +139,17 @@ content: |
             const base64DataKeyId = key.toString('base64');
             console.log("DataKeyId [base64]: ", base64DataKeyId);
            });
+     .. tab::
+        :tabid: python
+
+        .. code-block:: python
+
+           connectionString = "mongodb://localhost:27017";
+           keyVaultNamespace = "encryption.__keyVault";
+           fle_opts = AutoEncryptionOpts( kms_providers , keyVaultNamespace, mongocryptd_bypass_spawn = True )
+           client = MongoClient( connectionString, auto_encryption_opts = fle_opts )  
+           client_encryption = pymongo.encryption.ClientEncryption(kms_providers, keyVaultNamespace, client, OPTS )
+           data_key = client_encryption.create_data_key('local')
 
 ---
 title: Update the JSON Schema

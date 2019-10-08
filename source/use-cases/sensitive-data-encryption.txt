@@ -203,6 +203,18 @@ Additional Dependencies
          * - `uuid-base64
              <https://www.npmjs.com/package/uuid-base64#installation>`_
            - Convert between Base64 and hexadecimal UUIDs.
+   .. tab::
+      :tabid: python
+
+      .. list-table::
+         :header-rows: 1
+
+         * - Dependency Name
+           - Description
+
+         * - `pymongocrypt
+             <hhttps://pypi.org/project/pymongocrypt/>`_
+           - Python wrapper for the ``libmongocrypt`` encryption library.
 
 .. _fle-create-a-master-key:
 
@@ -278,6 +290,21 @@ To begin development, MedcoMD engineers generate a locally-managed master key:
          npm package. See the `npmjs documentation on the secure-random
          package <https://www.npmjs.com/package/secure-random>`_ for
          installation instructions.
+   .. tab::
+      :tabid: python
+
+      The following script generates a 96-byte locally-managed master key and
+      saves it to a file called ``master-key.txt`` in the directory
+      from which the script is executed.
+      
+      .. code-block:: python
+
+        path = "master-key.txt"
+        fileBytes = os.urandom(96)
+        f = open(path, 'wb')
+        f.write(binary.Binary(fileBytes))
+        f.close()
+
 
 .. _fle-create-a-data-encryption-key:
 
@@ -603,7 +630,14 @@ MedcoMD engineers write a function to create a new patient record:
                  console.log("writeError occurred:", writeError);
              })
          }
+   .. tab::
+      :tabid: python
 
+      .. code-block:: python
+
+         def insertPatient(doc):
+           client.demoFLE.peoplePy.insert_one(doc)
+           client.demoFLE.peoplePy.find_one()
 
 When a CSFLE-enabled client inserts a new patient record into the Medical Care
 Management System, it automatically encrypts the fields specified in the

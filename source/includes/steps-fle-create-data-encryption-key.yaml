@@ -36,6 +36,16 @@ content: |
              if (err) throw err;
              localMasterKey = data;
            });
+     .. tab::
+        :tabid: python
+
+        .. code-block:: python
+           :emphasize-lines: 2
+
+           const path = "./master-key.txt";
+           localMasterKey =  binary.Binary(open(path, 'rb').read(96))
+
+
 ---
 title: Specify KMS Provider Settings
 ref: specify-kms-provider-settings
@@ -74,6 +84,17 @@ content: |
             const kmsProviders = {
               local: {
                 key: localMasterKey,
+              },
+            };
+     .. tab::
+        :tabid: python
+
+        .. code-block:: python
+           :emphasize-lines: 2,3
+
+            'kmsProviders' = {
+              'local': {
+                'key': localMasterKey,
               },
             };
 
@@ -157,6 +178,19 @@ content: |
            npm package. See the `npmjs documentation on the uuid-base64
            package <https://www.npmjs.com/package/uuid-base64>`_ for
            installation instructions.
+     .. tab::
+        :tabid: python
+
+        .. code-block:: python
+           
+           connectionString = "mongodb://localhost:27017";
+           keyVaultNamespace = "encryption.__keyVault";
+           fle_opts = AutoEncryptionOpts( kms_providers , keyVaultNamespace, mongocryptd_bypass_spawn = True )
+           client = MongoClient( connectionString, auto_encryption_opts = fle_opts )
+ 
+           client_encryption = pymongo.encryption.ClientEncryption(kms_providers, keyVaultNamespace, client, OPTS )
+           data_key = client_encryption.create_data_key('local')
+
 
   The ``_id`` field of the data encryption key is represented as a **UUID**
   and is encoded in **Base64** format. Use your **Base64**-encoded data key
@@ -291,8 +325,32 @@ content: |
              status: 0,
              masterKey: { provider: 'local' }
            }
+     .. tab::
+        :tabid: python
+
+        .. code-block:: python
+           :emphasize-lines: 4
+
+           key = client.encryption.keystore.find_one({ "_id": data_key})
+           client_encryption.close()
+           client.close()
 
 
+        This code example should print a retrieved document that resembles the
+        following:
+
+        .. code-block:: none
+
+           {
+             "_id": UUID('1e83d013-d873-47df-abb1-e57898a72d4c'),
+             "keyMaterial":  b'\x96#\xeb\xa1xKA\xa7GM\xef\x08\xc04\'gD\x96\x9c\xa4\xd3?\xe3Db0H\xbb\x86\xa5\xc2\x1f\x14\x0f\xb8\xb8\x8a\x9d\xc9\xae\xa1g\xaf\xeb\x8b\x99\xb4b"\xc0\xe8e\x07\x1b.\xeet\xf5<%\xfd\x06Y\x15o=3Yk\x9fue\xd8V#X\xc1IB\xf5\xc9+\x95\xb1\x9c\xc0\x08U?\xaf\xb1U\xc6\x84\x89\x9b\xdc\x98\xc9~\xb2\xbd\xf6\\\xa2y\x08\xdf\x8f\xa1\x03\t9\xe7_+J>_H\xb4\x97up\x93Sc\x88\x0fG-+\x86\x95\x9e\xc2\x8es\x9e\xcb%%lVQ\xa2\xf1\xe3W\x83\x10]\xc9\x1fm\x7f\xbc\xbf\xd2d',
+             "creationDate":  datetime.datetime(2019, 9, 30, 20, 43, 10, 951000),
+             "updateDate": datetime.datetime(2019, 9, 30, 20, 43, 10, 951000),
+             "status": 0,
+             "masterKey": {
+               "provider": "local"
+             }
+           }
 
 
   This retrieved document contains the following data:
