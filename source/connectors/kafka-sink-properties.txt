@@ -23,161 +23,169 @@ for an example configuration file.
 .. list-table::
    :header-rows: 1
    :stub-columns: 1
+   :widths: 1 1 3
 
    * - Name
-     - Description
      - Type
-     - Default
-     - Valid Values
+     - Description
 
    * - topics
-     - A list of Kafka topics for the sink connector.
      - list
-     -
-     - A non-empty list
+     - | A list of Kafka topics for the sink connector.
+       |
+       | **Default**: (none)
+       | **Accepted Values**: A non-empty list
 
    * - connection.uri
-     - A :manual:`standard MongoDB connection URI string
-       </reference/connection-string/#standard-connection-string-format>`.
-       For example: ``mongodb://username:password@localhost/``
      - string
-     - ``mongodb://localhost:27017``
-     - A valid connection string
+     - | A :manual:`standard MongoDB connection URI string </reference/connection-string/#standard-connection-string-format>`.
+       | For example: ``mongodb://username:password@localhost/``
+       |
+       | **Default**: ``mongodb://localhost:27017``
+       | **Accepted Values**: A valid connection string
+
 
    * - database
-     - The name of the MongoDB database the sink writes to.
      - string
-     -
-     - A non-empty string
+     - | The name of the MongoDB database the sink writes to.
+       |
+       | **Default**: (none)
+       | **Accepted Values**: A non-empty string
 
    * - collection
-     - *Optional*. Single sink MongoDB collection name to write to. If
-       the sink follows multiple topics, this is the default collection
-       they are mapped to.
      - string
-     - ``""``
-     -
+     - | *Optional*. Single sink MongoDB collection name to write to. If the sink follows multiple topics, this is the default collection they are mapped to.
+       |
+       | **Default**: ``""``
+       | **Accepted Values**: A MongoDB collection name
 
    * - document.id.strategy
-     - The IdStrategy class name to use for generating a unique document id
-       (_id).
      - string
-     - ``com.mongodb.kafka.connect.sink.processor.id.strategy.BsonOidStrategy``
-     - An empty string or a fully qualified Java class name
+     - | The IdStrategy class name to use for generating a unique document id (_id).
+       |
+       | **Default**: ``com.mongodb.kafka.connect.sink.processor.id.strategy.BsonOidStrategy``
+       | **Accepted Values**: An empty string or a fully qualified Java class name
 
    * - delete.on.null.values
-     - Whether or not the connector tries to delete documents based on key when
-       value is null.
      - boolean
-     - ``false``
-     - ``true`` or ``false``
+     - | Whether or not the connector tries to delete documents based on key when value is null.
+       |
+       | **Default**: ``false``
+       | **Accepted Values**: ``true`` or ``false``
 
    * - max.batch.size
-     - The maximum number of sink records to possibly batch together for
-       processing.
      - int
-     - ``0``
-     - An integer
+     - | The maximum number of sink records to possibly batch together for processing.
+       |
+       | **Default**: ``0``
+       | **Accepted Values**: An integer
 
    * - max.num.retries
-     - How often a retry should be done on write errors.
      - int
-     - ``3``
-     - An integer
+     - | How often a retry should be done on write errors.
+       |
+       | **Default**: ``3``
+       | **Accepted Values**: An integer
 
    * - retries.defer.timeout
-     - How long in ms a retry should get deferred.
      - int
-     - ``5000``
-     - An integer
+     - | How long in ms a retry should get deferred.
+       |
+       | **Default**: ``5000``
+       | **Accepted Values**: An integer
 
    * - change.data.capture.handler
-     - The class name of the CDC handler to use for processing.
      - string
-     - ``""``
-     - An empty string or a fully qualified Java class name
+     - | The class name of the CDC handler to use for processing.
+       |
+       | **Default**: ``""``
+       | **Accepted Values**: An empty string or a fully qualified Java class name
 
    * - field.renamer.mapping
-     - An inline JSON array with objects describing field name mappings.
-       For example:
-       ``[{ "oldName":"key.fieldA", "newName":"field1" }, { "oldName":"value.xyz", "newName":"abc" }]``
      - string
-     - ``[]``
-     - A valid JSON array
+     - | An inline JSON array with objects describing field name mappings. For example:
+       | ``[ { "oldName":"key.fieldA", "newName":"field1" }, { "oldName":"value.xyz", "newName":"abc" } ]``
+       |
+       | **Default**: ``[]``
+       | **Accepted Values**: A valid JSON array
 
    * - field.renamer.regexp
-     - An inline JSON array with objects describing regexp settings. For
-       example:
-       ``[[{"regexp":"^key\\\\..*my.*$","pattern":"my","replace":""},{"regexp":"^value\\\\..*$","pattern":"\\\\.","replace":"_"}]``
      - string
-     - ``[]``
-     - A valid JSON array
+     - | An inline JSON array with objects describing regexp settings. For example:
+       | ``[ {"regexp":"^key\\\\..*my.*$", "pattern":"my", "replace":""}, {"regexp":"^value\\\\..*$", "pattern":"\\\\.", "replace":"_"} ]``
+       |
+       | **Default**: ``[]``
+       | **Accepted Values**: A valid JSON array
 
    * - key.projection.list
-     - A comma-separated list of field names for key projection.
      - string
-     - ``""``
-     -
+     - | A comma-separated list of field names for key projection.
+       |
+       | **Default**: ``""``
+       | **Accepted Values**: A comma-separated list of field names
 
    * - key.projection.type
-     - The type of key projection to use.
      - string
-     - ``none``
-     - ``none``, ``blacklist``, or ``whitelist``
+     - | The type of key projection to use.
+       |
+       | **Default**: ``none``
+       | **Accepted Values**:  ``none``, ``blacklist``, or ``whitelist``
 
    * - post.processor.chain
-     - A comma-separated list of post-processor classes to process the data
-       before saving to MongoDB.
      - list
-     - ``[ com.mongodb.kafka.connect.sink.processor.DocumentIdAdder ]``
-     - A list of fully qualified Java class names
+     - | A comma-separated list of post-processor classes to process the data before saving to MongoDB.
+       |
+       | **Default**: ``[ com.mongodb.kafka.connect.sink.processor.DocumentIdAdder ]``
+       | **Accepted Values**: A list of fully qualified Java class names
 
    * - rate.limiting.every.n
-     - After how many processed batches the rate limit should trigger (NO rate
-       limiting if n=0)
      - int
-     - ``0``
-     - An integer
+     - | After how many processed batches the rate limit should trigger (NO rate limiting if n=0)
+       |
+       | **Default**: ``0``
+       | **Accepted Values**: An integer
 
    * - rate.limiting.timeout
-     - How long in ms processing should wait before continuing processing.
      - int
-     - ``0``
-     - An integer
+     - | How long in ms processing should wait before continuing processing.
+       |
+       | **Default**: ``0``
+       | **Accepted Values**: An integer
 
    * - value.projection.list
-     - A comma-separated list of field names for value projection.
      - string
-     - ``""``
-     -
+     - | A comma-separated list of field names for value projection.
+       |
+       | **Default**: ``""``
+       | **Accepted Values**: A comma-separated list of field names
 
    * - value.projection.type
-     - The type of value projection to use.
      - string
-     - ``none``
-     - ``none``, ``blacklist``, or ``whitelist``
+     - | The type of value projection to use.
+       |
+       | **Default**: ``none``
+       | **Accepted Values**: ``none``, ``blacklist``, or ``whitelist``
 
    * - writemodel.strategy
-     - The class that handles how build the write models for the sink
-       documents.
      - string
-     - ``com.mongodb.kafka.connect.sink.writemodel.strategy.ReplaceOneDefaultStrategy``
-     - A fully qualified Java class name
+     - | The class that handles how build the write models for the sink documents.
+       |
+       | **Default**: ``com.mongodb.kafka.connect.sink.writemodel.strategy.ReplaceOneDefaultStrategy``
+       | **Accepted Values**: A fully qualified Java class name
 
    * - topic.override.<topicName>.<propertyName>
-     - Specifies per-topic configuration overrides. For example:
-       ``topic.override.foo.collection=bar`` instructs the connector sink
-       to store data from the ``foo`` topic in the ``bar`` collection. See
-       :ref:`topic-specific-configuration` for additional examples.
+     - string
+     - | Specifies per-topic configuration overrides. For example:
+       | ``topic.override.foo.collection=bar`` instructs the connector sink to store data from the ``foo`` topic in the ``bar`` collection. See :ref:`topic-specific-configuration` for additional examples.
 
        .. note::
-
+       
           All configuration options can be specified on a per-topic basis
           except ``connection.uri`` and ``topics``.
+       
+       | **Default**:  ``""``
+       | **Accepted Values**: Value specific to the topic override property
 
-     - string
-     - ``""``
-     - Value specific to the topic override property
 
 .. _topic-specific-configuration:
 
