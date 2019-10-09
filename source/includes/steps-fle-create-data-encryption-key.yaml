@@ -42,8 +42,11 @@ content: |
         .. code-block:: python
            :emphasize-lines: 2
 
+           from bson import binary
+           
            const path = "./master-key.txt";
-           localMasterKey =  binary.Binary(open(path, 'rb').read(96))
+           local_master_key =  binary.Binary(open(path, "rb").read (96))
+
 
 
 ---
@@ -92,11 +95,11 @@ content: |
         .. code-block:: python
            :emphasize-lines: 2,3
 
-            'kmsProviders' = {
-              'local': {
-                'key': localMasterKey,
+            kms_providers = {
+              "local": {
+                "key": local_master_key,
               },
-            };
+            }
 
 ---
 title: Create a Data Encryption Key
@@ -183,13 +186,33 @@ content: |
 
         .. code-block:: python
            
-           connectionString = "mongodb://localhost:27017";
-           keyVaultNamespace = "encryption.__keyVault";
-           fle_opts = AutoEncryptionOpts( kms_providers , keyVaultNamespace, mongocryptd_bypass_spawn = True )
-           client = MongoClient( connectionString, auto_encryption_opts = fle_opts )
+           from pymongo import MongoClient
+           from pymongo.encryption_options import AutoEncryptionOpts
+           import base64
+
+           connectionString = "mongodb://localhost:27017"
+           keyVaultNamespace = "encryption.keyvault"
+           fle_opts = AutoEncryptionOpts(
+               kms_providers,
+               key_vault_namespace,
+               mongocryptd_bypass_spawn = True 
+           )
  
-           client_encryption = pymongo.encryption.ClientEncryption(kms_providers, keyVaultNamespace, client, OPTS )
-           data_key = client_encryption.create_data_key('local')
+           client = MongoClient(
+               connection_string,
+               auto_encryption_opts = fle_opts 
+           )
+ 
+           client_encryption = pymongo.encryption.ClientEncryption(
+               kms_providers,
+               key_vault_namespace,
+               client, 
+               OPTS 
+           )
+           data_key = client_encryption.create_data_key("local")
+           base64DataKeyId = base64.b64encode(data_key)
+           print("DataKeyId [uuid]: " + data_key)
+           print("DataKeyId [base64]: " + base64DataKeyId)
 
 
   The ``_id`` field of the data encryption key is represented as a **UUID**

@@ -299,10 +299,12 @@ To begin development, MedcoMD engineers generate a locally-managed master key:
       
       .. code-block:: python
 
+        import os
+
         path = "master-key.txt"
-        fileBytes = os.urandom(96)
-        f = open(path, 'wb')
-        f.write(binary.Binary(fileBytes))
+        file_bytes = os.urandom(96).strip()
+        f = open(path, "wb")
+        f.write(file_bytes.strip())
         f.close()
 
 
@@ -557,6 +559,11 @@ full `JSON Schema for the Medco Medical Management System
 
       View the `helper code in Javascript
       <https://raw.githubusercontent.com/mongodb/docs-assets/DOCSP-json-schema-helper-and-json/JSONSchemaCreator.js>`_.
+   .. tab::
+      :tabid: python
+
+      View the `helper code in Python
+      <https://raw.githubusercontent.com/mongodb/docs-assets/DOCSP-json-schema-helper-and-json/json_schema_creator.py>`_.
 
 D. Create the MongoDB Client
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -635,9 +642,19 @@ MedcoMD engineers write a function to create a new patient record:
 
       .. code-block:: python
 
-         def insertPatient(doc):
-           client.demoFLE.peoplePy.insert_one(doc)
-           client.demoFLE.peoplePy.find_one()
+         def insertPatient(collection, name, ssn, bloodType,  medicalRecords,  policyNumber, provider):
+           insurance = {
+             'policyNumber': policyNumber,
+             'provider': provider
+           }
+           doc = {
+               'name': name,
+               'ssn': ssn, 
+               'bloodType': bloodType,
+               'medicalRecords': medicalRecords,
+               'insurance': insurance
+           }
+           collection.insert_one(doc)
 
 When a CSFLE-enabled client inserts a new patient record into the Medical Care
 Management System, it automatically encrypts the fields specified in the

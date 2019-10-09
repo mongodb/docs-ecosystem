@@ -74,10 +74,10 @@ content: |
 
         .. code-block:: python
 
-           'kmsProviders' = {
-               'aws': {
-                   'access_key_id':  "<IAM User Access Key ID>",
-                   'secretAccessKey': "<IAM User Secret Access Key>",
+           "kmsProviders" = {
+               "aws": {
+                   "access_key_id":  "<IAM User Access Key ID>",
+                   "secretAccessKey": "<IAM User Secret Access Key>",
                }
            }
 ---
@@ -149,7 +149,7 @@ content: |
            fle_opts = AutoEncryptionOpts( kms_providers , keyVaultNamespace, mongocryptd_bypass_spawn = True )
            client = MongoClient( connectionString, auto_encryption_opts = fle_opts )  
            client_encryption = pymongo.encryption.ClientEncryption(kms_providers, keyVaultNamespace, client, OPTS )
-           data_key = client_encryption.create_data_key('local')
+           data_key = client_encryption.create_data_key("local")
 
 ---
 title: Update the JSON Schema
