@@ -9,37 +9,90 @@ Kafka Sink Connector Data Formats
 .. contents:: On this page
    :local:
    :backlinks: none
-   :depth: 1
+   :depth: 2
    :class: singlecol
-
-Sink Data Formats
------------------
 
 
 Supported Data Formats
 ----------------------
 
 The MongoDB Kafka Sink Connector supports the following data serialization
-formats:
+formats for reading from Kafka topics:
 
-- **AVRO** (makes use of Confluent's Kafka Schema Registry and is the
-  recommended format)
-- **JSON with Schema** (offers JSON record structure with explicit schema
-  information)
-- **JSON plain** (offers JSON record structure without any attached schema)
-- **RAW JSON** (string only - JSON structure not managed by Kafka connect)
+.. list-table::
+   :header-rows: 1
+   :stub-columns: 1
+   :widths: 1 4
 
+   * - Format Name
+     - Description
+
+   * - Avro
+     -  Offers a compact binary format to provide smaller message sizes and
+       a JSON-like API. Uses the `Confluent Schema Registry
+       <https://www.confluent.io/confluent-schema-registry>`_ to manage
+       schema definitions. 
+
+   * - JSON with Schema
+     - Offers JSON record structure with explicit schema information
+
+   * - JSON (plain)
+     - Offers JSON record structure without any attached schema
+       information
+
+   * - RAW JSON
+     - Serialized as a String only. The JSON structure will not be managed
+       by Kafka Connect.
+
+       .. note::
+
+          This format requires that the field contain valid JSON even
+          when specifying the `StringConverter
+          <https://kafka.apache.org/21/javadoc/index.html?org/apache/kafka/connect/storage/StringConverter.html>`_
+
+These settings are defined 
 Since key and value settings can be independently configured, it is possible
-to work with different data formats for records' keys and values respectively.
+to work with different data formats for keys and values in a Kafka topic.
 
-.. note:: 
+.. note::
+
+   **RAW JSON** mode 
+   requires the Strings to be valid JSON
    Even when using RAW JSON mode i.e. with `StringConverter
    <https://kafka.apache.org/21/javadoc/index.html?org/apache/kafka/connect/storage/StringConverter.html>`_
    the expected Strings have to be valid JSON.
 
-See the excellent Confluent post `Serializers Explained
-<https://www.confluent.io/blog/kafka-connect-deep-dive-converters-serialization-explained>`_
-for more information about Kafka data serialization.
+
+See `Kafka Connect Serialization Explained
+<https://www.confluent.io/blog/kafka-connect-deep-dive-converters-serialization-explained#choosing-serialization-format>`_
+for more information on Kafka data serialization.
+
+
+For more information on converters
+
+Configuration example for AVRO
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: properties
+
+   key.converter=io.confluent.connect.avro.AvroConverter
+   key.converter.schema.registry.url=http://localhost:8081
+
+   value.converter=io.confluent.connect.avro.AvroConverter
+   value.converter.schema.registry.url=http://localhost:8081
+
+
+Configuration example for JSON with Schema
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: properties
+
+   key.converter=org.apache.kafka.connect.json.JsonConverter
+   key.converter.schemas.enable=true
+
+   value.converter=org.apache.kafka.connect.json.JsonConverter
+   value.converter.schemas.enable=true
+
 
 Supported Sink Record Structure
 -------------------------------
@@ -217,26 +270,4 @@ See the following AVRO schema snippet for examples of each type:
    AVRO 1.9.0 will support native Java 8 date time types. Logical types
    can only be supported for **AVRO** and **JSON + Schema** data.
 
-Configuration example for AVRO
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code-block:: properties
-
-   key.converter=io.confluent.connect.avro.AvroConverter
-   key.converter.schema.registry.url=http://localhost:8081
-
-   value.converter=io.confluent.connect.avro.AvroConverter
-   value.converter.schema.registry.url=http://localhost:8081
-
-
-Configuration example for JSON with Schema
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code-block:: properties
-
-   key.converter=org.apache.kafka.connect.json.JsonConverter
-   key.converter.schemas.enable=true
-
-   value.converter=org.apache.kafka.connect.json.JsonConverter
-   value.converter.schemas.enable=true
 
