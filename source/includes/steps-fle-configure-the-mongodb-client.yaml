@@ -231,7 +231,6 @@ content: |
 
         .. code-block:: python
 
-           const secureClient = new MongoClient(connectionString, {
            fle_opts = AutoEncryptionOpts( 
               kms_providers, 
               key_vault_namespace,

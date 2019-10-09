@@ -44,7 +44,7 @@ content: |
 
            from bson import binary
            
-           const path = "./master-key.txt";
+           path = "./master-key.txt";
            local_master_key =  binary.Binary(open(path, "rb").read (96))
 
 
