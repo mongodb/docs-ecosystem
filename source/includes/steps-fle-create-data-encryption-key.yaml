@@ -45,7 +45,7 @@ content: |
            from bson import binary
            
            path = "./master-key.txt";
-           local_master_key =  binary.Binary(open(path, "rb").read (96))
+           local_master_key = binary.Binary(open(path, "rb").read(96))
 
 
 
@@ -144,7 +144,7 @@ content: |
         :tabid: nodejs
 
         .. code-block:: javascript
-           :emphasize-lines: 10,11,13,16
+           :emphasize-lines: 10,11,13,14,16
 
            const base64 = require("uuid-base64");
 
@@ -185,13 +185,17 @@ content: |
         :tabid: python
 
         .. code-block:: python
-           
+           :emphasize-lines: 11,12,27
+
            from pymongo import MongoClient
            from pymongo.encryption_options import AutoEncryptionOpts
+           from pymongo.encryption import ClientEncryption
            import base64
+           from bson.codec_options import CodecOptions
 
-           connectionString = "mongodb://localhost:27017"
-           keyVaultNamespace = "encryption.keyvault"
+           OPTS = CodecOptions(uuid_representation=STANDARD)
+           connection_string = "mongodb://localhost:27017"
+           key_vault_namespace = "encryption.keyvault"
            fle_opts = AutoEncryptionOpts(
                kms_providers,
                key_vault_namespace,
@@ -203,16 +207,16 @@ content: |
                auto_encryption_opts = fle_opts 
            )
  
-           client_encryption = pymongo.encryption.ClientEncryption(
+           client_encryption = ClientEncryption(
                kms_providers,
                key_vault_namespace,
                client, 
                OPTS 
            )
            data_key = client_encryption.create_data_key("local")
-           base64DataKeyId = base64.b64encode(data_key)
-           print("DataKeyId [uuid]: " + data_key)
-           print("DataKeyId [base64]: " + base64DataKeyId)
+           base_64_data_key_id = base64.b64encode(data_key)
+           print("DataKeyId [UUID]: " + data_key)
+           print("DataKeyId [base64]: " + base_64_data_key_id)
 
 
   The ``_id`` field of the data encryption key is represented as a **UUID**
@@ -352,9 +356,21 @@ content: |
         :tabid: python
 
         .. code-block:: python
-           :emphasize-lines: 4
 
-           key = client.encryption.keystore.find_one({ "_id": data_key})
+           connection_string = "mongodb://localhost:27017"
+           key_vault_namespace = "encryption.keyvault"
+
+           fle_opts = AutoEncryptionOpts(
+             kms_providers,
+             key_vault_namespace,
+             mongocryptd_bypass_spawn = True
+           )
+           client = MongoClient(
+             connection_string,
+             auto_encryption_opts = fle_opts
+           )
+           key = client.encryption.keystore.find_one({"_id": data_key})
+           print(key)
            client_encryption.close()
            client.close()
 

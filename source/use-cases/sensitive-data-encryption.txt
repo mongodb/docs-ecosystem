@@ -213,7 +213,7 @@ Additional Dependencies
            - Description
 
          * - `pymongocrypt
-             <hhttps://pypi.org/project/pymongocrypt/>`_
+             <https://pypi.org/project/pymongocrypt/>`_
            - Python wrapper for the ``libmongocrypt`` encryption library.
 
 .. _fle-create-a-master-key:
@@ -642,7 +642,7 @@ MedcoMD engineers write a function to create a new patient record:
 
       .. code-block:: python
 
-         def insertPatient(collection, name, ssn, bloodType,  medicalRecords,  policyNumber, provider):
+         def insertPatient(collection, name, ssn, bloodType, medicalRecords, policyNumber, provider):
            insurance = {
              'policyNumber': policyNumber,
              'provider': provider

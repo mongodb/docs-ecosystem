@@ -64,7 +64,7 @@ content: |
         .. code-block:: python
            :emphasize-lines: 2,3
 
-           kmsProviders = {
+           kms_providers = {
              "local": {
                "key": localMasterKey,
              }
@@ -103,7 +103,7 @@ content: |
         .. code-block:: python
            :emphasize-lines: 2
 
-           patientSchema = {
+           patient_schema = {
              "medicalRecords.patients": jsonSchema,
            }
 ---
@@ -234,9 +234,9 @@ content: |
            fle_opts = AutoEncryptionOpts( 
               kms_providers, 
               key_vault_namespace,
-              schema_map = patientSchema,
+              schema_map = patient_schema,
               mongocryptd_bypass_spawn = mongocryptd_bypass_spawn,
               mongocryptd_spawn_path=mongocryptd_spawn_path 
            )
-           client = MongoClient( connectionString, auto_encryption_opts = fle_opts )
+           client = MongoClient(connectionString, auto_encryption_opts = fle_opts)
 ...
