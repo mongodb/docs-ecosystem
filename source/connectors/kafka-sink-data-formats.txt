@@ -1,0 +1,18 @@
+.kafka-sink-data-formats
+
+=================================
+Kafka Sink Connector Data Formats
+=================================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+Sink Data Formats
+-----------------
+
+Lorem ipsum

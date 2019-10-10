@@ -1,0 +1,18 @@
+.kafka-sink-cdc
+
+==============================
+Kafka Sink Change Data Capture
+==============================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecols
+
+Change Data Capture
+-------------------
+
+Lorem ipsum

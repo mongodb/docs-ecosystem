@@ -1,0 +1,18 @@
+.kafka-sink-postprocessors
+
+====================================
+Kafka Sink Connector Post-Processors
+====================================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecols
+
+Post Processing of Documents
+----------------------------
+
+Lorem ipsum

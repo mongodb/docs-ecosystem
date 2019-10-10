@@ -37,9 +37,9 @@ Update Configuration Settings
 Update Custom Classes
 ---------------------
 
-If you have added any classes or custom logic to your MongoDB Kafka
-connector jar file, you will need to migrate them to the new MongoDB Kafka
-connector jar file. You will also need to make the following changes:
+If you added any classes or custom logic to your Kafka Connect connector,
+migrate them to the new MongoDB Kafka connector jar file and make the
+following changes to them:
 
 - Update imports that refer to ``at.grahsl.kafka.connect.mongodb`` to
   ``com.mongodb.kafka.connect``.
@@ -61,7 +61,7 @@ connector jar file. You will also need to make the following changes:
 Update PostProcessor Subclasses
 -------------------------------
 
-- Update any concrete methods that override methods in the Kafka Connect 
+- Update any concrete methods that override methods in the Kafka Connect
   ``PostProcessor`` class to match the new method signatures of the
   MongoDB Kafka Connector `PostProcessor
   <https://github.com/mongodb/mongo-kafka/blob/master/src/main/java/com/mongodb/kafka/connect/sink/processor/PostProcessor.java>`_
