@@ -15,15 +15,17 @@ Kafka Sink Connector Configuration Properties
 Sink Connector Configuration Properties
 ---------------------------------------
 
-Refer to the table below to create or migrate a properties file for your
-MongoDB Kafka sink connector. See `MongoSinkConnector.properties
-<https://github.com/mongodb/mongo-kafka/blob/master/config/MongoSinkConnector.properties>`_
-for an example configuration file.
+This section lists the available configuration settings used to compose
+a properties file for the MongoDB Kafka Sink Connector. The connector uses
+these settings to determine which topics to consume data from and what
+data to sink to MongoDB. For an example configuration file, see
+`MongoSinkConnector.properties
+<https://github.com/mongodb/mongo-kafka/blob/master/config/MongoSinkConnector.properties>`_.
 
 .. list-table::
    :header-rows: 1
    :stub-columns: 1
-   :widths: 1 1 3
+   :widths: 2 1 4
 
    * - Name
      - Type
@@ -33,63 +35,67 @@ for an example configuration file.
      - list
      - | A list of Kafka topics for the sink connector.
        |
-       | **Default**: (none)
-       | **Accepted Values**: A non-empty list
+       | *Required*
+       | **Accepted Values**: A comma-separated list of valid Kafka topics
 
    * - connection.uri
      - string
-     - | A :manual:`standard MongoDB connection URI string </reference/connection-string/#standard-connection-string-format>`.
-       | For example: ``mongodb://username:password@localhost/``
-       |
-       | **Default**: ``mongodb://localhost:27017``
-       | **Accepted Values**: A valid connection string
+     - | A :manual:`MongoDB connection URI string </reference/connection-string/#standard-connection-string-format>`.
 
+       .. example::
+
+          .. code-block:: shell
+
+             mongodb://username:password@localhost/
+
+       | **Default**: ``mongodb://localhost:27017``
+       | **Accepted Values**: A valid MongoDB connection URI string
 
    * - database
      - string
      - | The name of the MongoDB database the sink writes to.
        |
-       | **Default**: (none)
-       | **Accepted Values**: A non-empty string
+       | *Required*
+       | **Accepted Values**: A valid MongoDB database name
 
    * - collection
      - string
-     - | *Optional*. Single sink MongoDB collection name to write to. If the sink follows multiple topics, this is the default collection they are mapped to.
+     - | Single sink MongoDB collection name to write to. If the sink follows multiple topics, this is the default collection they are mapped to.
        |
-       | **Default**: ``""``
+       | *Required*
        | **Accepted Values**: A MongoDB collection name
 
    * - document.id.strategy
      - string
-     - | The IdStrategy class name to use for generating a unique document id (_id).
+     - | The class name of the class that generates a unique document ``_id`` field.
        |
        | **Default**: ``com.mongodb.kafka.connect.sink.processor.id.strategy.BsonOidStrategy``
        | **Accepted Values**: An empty string or a fully qualified Java class name
 
    * - delete.on.null.values
      - boolean
-     - | Whether or not the connector tries to delete documents based on key when value is null.
+     - | Whether the connector should delete documents with matching key values when value is null.
        |
        | **Default**: ``false``
        | **Accepted Values**: ``true`` or ``false``
 
    * - max.batch.size
      - int
-     - | The maximum number of sink records to possibly batch together for processing.
+     - | The maximum number of sink records to batch together for processing.
        |
        | **Default**: ``0``
        | **Accepted Values**: An integer
 
    * - max.num.retries
      - int
-     - | How often a retry should be done on write errors.
+     - | How many retries should be attempted on write errors.
        |
        | **Default**: ``3``
        | **Accepted Values**: An integer
 
    * - retries.defer.timeout
      - int
-     - | How long in ms a retry should get deferred.
+     - | How long (in milliseconds) a retry should get deferred.
        |
        | **Default**: ``5000``
        | **Accepted Values**: An integer
@@ -103,23 +109,33 @@ for an example configuration file.
 
    * - field.renamer.mapping
      - string
-     - | An inline JSON array with objects describing field name mappings. For example:
-       | ``[ { "oldName":"key.fieldA", "newName":"field1" }, { "oldName":"value.xyz", "newName":"abc" } ]``
-       |
+     - | An inline JSON array with objects describing field name mappings.
+
+       .. example::
+
+          .. code-block:: shell
+
+             [ { "oldName":"key.fieldA", "newName":"field1" }, { "oldName":"value.xyz", "newName":"abc" } ]
+
        | **Default**: ``[]``
        | **Accepted Values**: A valid JSON array
 
    * - field.renamer.regexp
      - string
-     - | An inline JSON array with objects describing regexp settings. For example:
-       | ``[ {"regexp":"^key\\\\..*my.*$", "pattern":"my", "replace":""}, {"regexp":"^value\\\\..*$", "pattern":"\\\\.", "replace":"_"} ]``
-       |
+     - | An inline JSON array containing regular expression statement objects.
+
+       .. example::
+
+          .. code-block:: shell
+
+             [ {"regexp":"^key\\\\..*my.*$", "pattern":"my", "replace":""}, {"regexp":"^value\\\\..*$", "pattern":"\\\\.", "replace":"_"} ]
+
        | **Default**: ``[]``
        | **Accepted Values**: A valid JSON array
 
    * - key.projection.list
      - string
-     - | A comma-separated list of field names for key projection.
+     - | A list of field names to include in the key projection.
        |
        | **Default**: ``""``
        | **Accepted Values**: A comma-separated list of field names
@@ -133,28 +149,28 @@ for an example configuration file.
 
    * - post.processor.chain
      - list
-     - | A comma-separated list of post-processor classes to process the data before saving to MongoDB.
+     - | A list of post-processor classes that process the data before saving it to MongoDB.
        |
-       | **Default**: ``[ com.mongodb.kafka.connect.sink.processor.DocumentIdAdder ]``
-       | **Accepted Values**: A list of fully qualified Java class names
+       | **Default**: ``com.mongodb.kafka.connect.sink.processor.DocumentIdAdder``
+       | **Accepted Values**: A comma-separated list of fully qualified Java class names
 
    * - rate.limiting.every.n
      - int
-     - | After how many processed batches the rate limit should trigger (NO rate limiting if n=0)
+     - | Number of processed batches that should trigger the rate limit. A value of 0 means no rate limiting.
        |
        | **Default**: ``0``
        | **Accepted Values**: An integer
 
    * - rate.limiting.timeout
      - int
-     - | How long in ms processing should wait before continuing processing.
+     - | How long (in milliseconds) to wait before continuing to process data once the rate limit is reached.
        |
        | **Default**: ``0``
        | **Accepted Values**: An integer
 
    * - value.projection.list
      - string
-     - | A comma-separated list of field names for value projection.
+     - | A list of field names to include in the value projection.
        |
        | **Default**: ``""``
        | **Accepted Values**: A comma-separated list of field names
@@ -168,21 +184,20 @@ for an example configuration file.
 
    * - writemodel.strategy
      - string
-     - | The class that handles how build the write models for the sink documents.
+     - | The class that specifies the ``WriteModel`` to use for :manual:`Bulk Writes </core/bulk-write-operations/index.html>`.
        |
        | **Default**: ``com.mongodb.kafka.connect.sink.writemodel.strategy.ReplaceOneDefaultStrategy``
-       | **Accepted Values**: A fully qualified Java class name
+       | **Accepted Values**: A fully qualified Java class name of a class that implements ``WriteModelStrategy``
 
    * - topic.override.<topicName>.<propertyName>
      - string
-     - | Specifies per-topic configuration overrides. For example:
-       | ``topic.override.foo.collection=bar`` instructs the connector sink to store data from the ``foo`` topic in the ``bar`` collection. See :ref:`topic-specific-configuration` for additional examples.
+     - | Per-topic configurations that override the corresponding global and default property settings. For example: ``topic.override.foo.collection=bar`` instructs the sink connector to store data from the ``foo`` topic in the ``bar`` collection. For additional examples, see :ref:`topic-specific-configuration`.
 
        .. note::
-       
-          All configuration options can be specified on a per-topic basis
+
+          You can specify all configuration options on a per-topic basis
           except ``connection.uri`` and ``topics``.
-       
+
        | **Default**:  ``""``
        | **Accepted Values**: Value specific to the topic override property
 
@@ -192,19 +207,17 @@ for an example configuration file.
 Topic-Specific Configuration Settings
 -------------------------------------
 
-The MongoDB Kafka Sink Connector supports sinking data from multiple topics.
-Specify properties specific to a topic using configurations in the
-``topic.override.<topicName>.<propertyName>`` format. The properties that
-are not overridden will use the global (not topic-specific) settings or
-default values.
+The MongoDB Kafka Sink Connector can be configured to sink data from
+multiple topics. You can override global or default property settings with
+a topic-specific setting in the form of
+``topic.override.<topicName>.<propertyName>``.
 
 .. note::
 
-   The ``topics`` property and ``connection.uri`` property are global and
+   The ``topics`` and ``connection.uri`` properties are global and
    **cannot** be overridden.
 
-The following examples demonstrate how to apply topic-specific settings to
-sink data:
+The following example demonstrates specifying topic-specific settings.
 
 Example: Override Connector Sink Settings on TopicA
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -212,38 +225,16 @@ Example: Override Connector Sink Settings on TopicA
 .. code-block:: properties
 
    topic.override.topicA.collection=collectionA
+   topic.override.topicA.max.batch.size=100
    topic.override.topicA.document.id.strategy=com.mongodb.kafka.connect.sink.processor.id.strategy.UuidStrategy
    topic.override.topicA.post.processor.chain=com.mongodb.kafka.connect.sink.processor.DocumentIdAdder,com.mongodb.kafka.connect.sink.processor.BlacklistValueProjector
    topic.override.topicA.value.projection.type=blacklist
    topic.override.topicA.value.projection.list=k2,k4
-   topic.override.topicA.max.batch.size=100
 
-These properties result in the following actions for messages originating
-from the ``topicA`` Kafka topic:
+The sink connector topic override settings instruct the connector to apply
+the following behavior for data consumed from ``topicA``:
 
-- Generate a UUID to be stored in the ``_id`` field for each new document.
-- Omit fields ``k2`` and ``k4`` from the value projection using a blacklist.
 - Write documents to the MongoDB collection ``collectionA`` in batches of
   up to 100.
-
-Example: Override Connector Sink Settings on TopicC
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code-block:: properties
-
-   topic.override.topicC.collection=collectionC
-   topic.override.topicC.document.id.strategy=com.mongodb.kafka.connect.sink.processor.id.strategy.ProvidedInValueStrategy
-   topic.override.topicC.post.processor.chain=com.mongodb.kafka.connect.sink.processor.WhitelistValueProjector
-   topic.override.topicC.value.projection.type=whitelist
-   topic.override.topicC.value.projection.list=k3,k5
-   topic.override.topicC.writemodel.strategy=com.mongodb.kafka.connect.sink.writemodel.strategy.UpdateOneTimestampsStrategy
-
-These properties result in the following actions for messages originating
-from the ``topicC`` Kafka topic:
-
-- Read the UUID from the Kafka message and store it in the ``_id`` field for
-  each new document.
-- Include only fields ``k3`` and ``k5`` in the value projection using
-  a whitelist.
-- Use the write model strategy ``UpdateOneTimestampsStrategy`` that
-  records inserted and modified timestamps for each document.
+- Generate a UUID to be stored in the ``_id`` field for each new document.
+- Omit fields ``k2`` and ``k4`` from the value projection using a blacklist.
