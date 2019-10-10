@@ -195,11 +195,11 @@ data to sink to MongoDB. For an example configuration file, see
 
        .. note::
 
-          You can specify all configuration options on a per-topic basis
-          except ``connection.uri`` and ``topics``.
+          You can specify any configuration on a per-topic basis except
+          for ``connection.uri`` and ``topics``.
 
        | **Default**:  ``""``
-       | **Accepted Values**: Value specific to the topic override property
+       | **Accepted Values**: Accepted values specific to the overridden property
 
 
 .. _topic-specific-configuration:
