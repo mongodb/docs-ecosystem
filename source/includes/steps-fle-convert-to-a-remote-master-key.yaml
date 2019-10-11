@@ -144,6 +144,10 @@ content: |
 
         .. code-block:: python
 
+           from bson.codec_options import CodecOptions
+           from bson.binary import (STANDARD)
+           OPTS = CodecOptions(uuid_representation=STANDARD)
+           
            connection_string = "mongodb://localhost:27017";
            key_vault_namespace = "encryption.__keyVault";
            fle_opts = AutoEncryptionOpts(kms_providers, key_vault_namespace, mongocryptd_bypass_spawn = True)
