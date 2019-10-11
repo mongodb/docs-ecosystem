@@ -104,7 +104,7 @@ content: |
            :emphasize-lines: 2
 
            patient_schema = {
-             "medicalRecords.patients": jsonSchema,
+             "medicalRecords.patients": json_schema,
            }
 ---
 title: Specify the Location of the Encryption Binary
