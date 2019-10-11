@@ -54,5 +54,5 @@ retry logic is in place.
 
    Sink Configuration Properties </connectors/kafka-sink-properties>
    Sink Data Formats </connectors/kafka-sink-data-formats>
-   Sink Post-Processor </connectors/kafka-sink-postprocessor>
+   Sink Post-Processors </connectors/kafka-sink-postprocessors>
    Sink Change Data Capture </connectors/kafka-sink-cdc>

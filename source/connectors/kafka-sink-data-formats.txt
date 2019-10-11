@@ -16,8 +16,9 @@ Kafka Sink Connector Data Formats
 Supported Data Formats
 ----------------------
 
-The MongoDB Kafka Sink Connector supports the following data serialization
-formats for reading from Kafka topics:
+The MongoDB Kafka Sink Connector ``converter`` setting specifies the
+deserialization method for data it reads from a topic. The converter 
+can deserialize the following data formats:
 
 .. list-table::
    :header-rows: 1
@@ -28,50 +29,46 @@ formats for reading from Kafka topics:
      - Description
 
    * - Avro
-     -  Offers a compact binary format to provide smaller message sizes and
-       a JSON-like API. Uses the `Confluent Schema Registry
-       <https://www.confluent.io/confluent-schema-registry>`_ to manage
-       schema definitions. 
+     - An `open source serialization system <https://avro.apache.org>`_
+       that provides a compact binary format and a JSON-like API.
+       Integrates with the
+       `Confluent Schema Registry <https://www.confluent.io/confluent-schema-registry>`_
+       to manage schema definitions.
 
    * - JSON with Schema
-     - Offers JSON record structure with explicit schema information
+     - JSON record structure with explicit schema information to
+       ensure the data matches the expected format.
 
    * - JSON (plain)
-     - Offers JSON record structure without any attached schema
-       information
+     - JSON record structure without an attached schema.
 
    * - RAW JSON
-     - Serialized as a String only. The JSON structure will not be managed
-       by Kafka Connect.
+     - Serialized as a String. The JSON structure is not managed by
+       Kafka Connect.
 
        .. note::
 
-          This format requires that the field contain valid JSON even
+          This format requires that the fields contain valid JSON even
           when specifying the `StringConverter
           <https://kafka.apache.org/21/javadoc/index.html?org/apache/kafka/connect/storage/StringConverter.html>`_
 
-These settings are defined 
-Since key and value settings can be independently configured, it is possible
-to work with different data formats for keys and values in a Kafka topic.
-
 .. note::
 
-   **RAW JSON** mode 
+   **RAW JSON** mode
    requires the Strings to be valid JSON
-   Even when using RAW JSON mode i.e. with `StringConverter
-   <https://kafka.apache.org/21/javadoc/index.html?org/apache/kafka/connect/storage/StringConverter.html>`_
+   Even when using RAW JSON mode, i.e. with `StringConverter
+   <https://kafka.apache.org/21/javadoc/index.html?org/apache/kafka/connect/storage/StringConverter.html>`_,
    the expected Strings have to be valid JSON.
 
+For more information on Kafka data serialization, see `Kafka Connect
+Serialization Explained
+<https://www.confluent.io/blog/kafka-connect-deep-dive-converters-serialization-explained#choosing-serialization-format>`_.
 
-See `Kafka Connect Serialization Explained
-<https://www.confluent.io/blog/kafka-connect-deep-dive-converters-serialization-explained#choosing-serialization-format>`_
-for more information on Kafka data serialization.
-
-
-For more information on converters
-
-Configuration example for AVRO
+Configuration Example for AVRO
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following configuration provides example settings that use the
+**AVRO data format** with a Schema Registry:
 
 .. code-block:: properties
 
@@ -81,9 +78,15 @@ Configuration example for AVRO
    value.converter=io.confluent.connect.avro.AvroConverter
    value.converter.schema.registry.url=http://localhost:8081
 
+For more information on using a Schema Registry, see `Schema Management
+<https://docs.confluent.io/current/schema-registry/index.html>`_.
 
-Configuration example for JSON with Schema
+Configuration Example for JSON with Schema
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following configuration provides example settings that use the
+**JSON with schema** data format. The Kafka topic data must be in
+JSON format and contain top-level objects ``schema`` and ``payload``.
 
 .. code-block:: properties
 
@@ -93,16 +96,60 @@ Configuration example for JSON with Schema
    value.converter=org.apache.kafka.connect.json.JsonConverter
    value.converter.schemas.enable=true
 
+Configuration Example for JSON without Schema
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following configuration provides example settings that use the **JSON
+without schema** data format. The Kafka topic data must be in JSON format.
+
+.. code-block:: properties
+
+   key.converter=org.apache.kafka.connect.json.JsonConverter
+   key.converter.schemas.enable=false
+
+   value.converter=org.apache.kafka.connect.json.JsonConverter
+   value.converter.schemas.enable=false
+
+.. admonition:: Choose the appropriate format
+   :class: note
+
+   If a top-level JSON object named ``schema`` or ``payload`` is
+   included in in the message, it will be parsed literally instead of as
+   a validation schema.
+
+Configuration Example for RAW JSON
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following configuration provides example settings that use the
+**RAW JSON** data format.
+
+.. code-block:: properties
+
+   key.converter=org.apache.kafka.connect.storage.StringConverter
+   key.converter.schemas.enable=false
+
+   value.converter=org.apache.kafka.connect.storage.StringConverter
+   value.converter.schemas.enable=false
 
 Supported Sink Record Structure
 -------------------------------
 
-Currently the connector is able to process Kafka Connect ``SinkRecord``
-objects with support for the following schema types `Schema.Type
-<https://kafka.apache.org/21/javadoc/org/apache/kafka/connect/data/Schema.Type.html>`_:
-*INT8, INT16, INT32, INT64, FLOAT32, FLOAT64, BOOLEAN, STRING, BYTES,
-ARRAY, MAP, STRUCT.*
+After getting converted, a SinkRecord is created.
+The SinkRecord 
 
+Once the converter has deserialized the data, Kafka Connect creates
+a :kafka-21-javadoc:`SinkRecord </connect/sink/SinkRecord.html>` object.
+The MongoDB Kafka Connector
+supports the following data types in the schema.
+
+
+The connector is able to process Kafka Connect ``SinkRecord``
+objects with support for all the schema types defined in
+:kafka-21-javadoc:`Schema.Type </connect/data/Schema.Type.html>`
+(``INT8``, ``INT16``, ``INT32``, ``INT64``, ``FLOAT32``, ``FLOAT64``,
+``BOOLEAN``, ``STRING``, ``BYTES``, ``ARRAY``, ``MAP``, and ``STRUCT``)
+
+The converter handles nested key or value structures 
 The conversion is able to generically deal with nested key or value structures
 based on the supported types listed above. The following example is based on
 `AVRO <https://avro.apache.org/>`_:
@@ -184,10 +231,10 @@ based on the supported types listed above. The following example is based on
      ]
    }
 
-Logical Types
-~~~~~~~~~~~~~
+AVRO Logical Types
+~~~~~~~~~~~~~~~~~~
 
-In addition to the Kafka standard schema types, you can apply the
+In addition to the Kafka standard schema types, you can specify the
 following `AVRO logical types
 <http://avro.apache.org/docs/1.8.2/spec.html#Logical+Types>`_:
 
