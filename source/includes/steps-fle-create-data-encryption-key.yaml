@@ -185,17 +185,20 @@ content: |
         :tabid: python
 
         .. code-block:: python
-           :emphasize-lines: 11,12,27
+           :emphasize-lines: 14,15,24,30
 
            from pymongo import MongoClient
            from pymongo.encryption_options import AutoEncryptionOpts
            from pymongo.encryption import ClientEncryption
            import base64
            from bson.codec_options import CodecOptions
-
+           from bson.binary import (Binary,
+                         JAVA_LEGACY,
+                         STANDARD,
+                         UUID_SUBTYPE)
            OPTS = CodecOptions(uuid_representation=STANDARD)
            connection_string = "mongodb://localhost:27017"
-           key_vault_namespace = "encryption.keyvault"
+           key_vault_namespace = "encryption.__keyvault"
            fle_opts = AutoEncryptionOpts(
                kms_providers,
                key_vault_namespace,
@@ -214,10 +217,12 @@ content: |
                OPTS 
            )
            data_key = client_encryption.create_data_key("local")
+ 
+           uuid_data_key_id = uuid.UUID(bytes=data_key)
            base_64_data_key_id = base64.b64encode(data_key)
-           print("DataKeyId [UUID]: " + data_key)
-           print("DataKeyId [base64]: " + base_64_data_key_id)
-
+ 
+           print("DataKeyId [UUID]: ", uuid_data_key_id)
+           print("DataKeyId [base64]: ", base_64_data_key_id)
 
   The ``_id`` field of the data encryption key is represented as a **UUID**
   and is encoded in **Base64** format. Use your **Base64**-encoded data key
@@ -358,7 +363,7 @@ content: |
         .. code-block:: python
 
            connection_string = "mongodb://localhost:27017"
-           key_vault_namespace = "encryption.keyvault"
+           key_vault_namespace = "encryption.__keyvault"
 
            fle_opts = AutoEncryptionOpts(
              kms_providers,
@@ -369,7 +374,9 @@ content: |
              connection_string,
              auto_encryption_opts = fle_opts
            )
-           key = client.encryption.keystore.find_one({"_id": data_key})
+           db = client["encryption"]
+           collection = db["__keyVault"]
+           key = collection.find_one({"_id": data_key})
            print(key)
            client_encryption.close()
            client.close()

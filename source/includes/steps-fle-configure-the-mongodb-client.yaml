@@ -230,6 +230,7 @@ content: |
         :tabid: python
 
         .. code-block:: python
+           :emphasize-lines: 2-6,8
 
            fle_opts = AutoEncryptionOpts( 
               kms_providers, 
@@ -239,4 +240,5 @@ content: |
               mongocryptd_spawn_path=mongocryptd_spawn_path 
            )
            client = MongoClient(connectionString, auto_encryption_opts = fle_opts)
+
 ...
