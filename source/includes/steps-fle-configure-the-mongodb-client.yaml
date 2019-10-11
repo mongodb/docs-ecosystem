@@ -239,6 +239,6 @@ content: |
               mongocryptd_bypass_spawn = mongocryptd_bypass_spawn,
               mongocryptd_spawn_path=mongocryptd_spawn_path 
            )
-           client = MongoClient(connectionString, auto_encryption_opts = fle_opts)
+           client = MongoClient(connection_string, auto_encryption_opts = fle_opts)
 
 ...
