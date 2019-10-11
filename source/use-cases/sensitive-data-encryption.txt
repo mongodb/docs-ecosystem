@@ -648,16 +648,16 @@ MedcoMD engineers write a function to create a new patient record:
 
       .. code-block:: python
 
-         def insertPatient(collection, name, ssn, bloodType, medicalRecords, policyNumber, provider):
+         def insert_patient(collection, name, ssn, blood_type, medical_records, policy_number, provider):
            insurance = {
-             'policyNumber': policyNumber,
+             'policyNumber': policy_number,
              'provider': provider
            }
            doc = {
                'name': name,
                'ssn': ssn, 
-               'bloodType': bloodType,
-               'medicalRecords': medicalRecords,
+               'bloodType': blood_type,
+               'medicalRecords': medical_records,
                'insurance': insurance
            }
            collection.insert_one(doc)
