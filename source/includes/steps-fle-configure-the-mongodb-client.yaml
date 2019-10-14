@@ -24,7 +24,7 @@ content: |
 
         .. code-block:: python
 
-           keyVaultNamespace = "encryption.__keyVault";
+           key_vault_namespace = "encryption.__keyVault"
 ---
 title: Specify the Local Master Encryption Key
 ref: specify-the-local-master-encryption-key
@@ -240,5 +240,3 @@ content: |
               mongocryptd_spawn_path=mongocryptd_spawn_path 
            )
            client = MongoClient(connection_string, auto_encryption_opts = fle_opts)
-
-...

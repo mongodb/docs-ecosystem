@@ -43,11 +43,9 @@ content: |
            :emphasize-lines: 4
 
            from bson import binary
-           
-           path = "./master-key.txt";
+
+           path = "./master-key.txt"
            local_master_key = binary.Binary(open(path, "rb").read(96))
-
-
 
 ---
 title: Specify KMS Provider Settings
@@ -96,9 +94,9 @@ content: |
            :emphasize-lines: 2,3
 
             kms_providers = {
-              "local": {
-                "key": local_master_key,
-              },
+                "local": {
+                    "key": local_master_key # local_master_key variable from the previous step
+                },
             }
 
 ---
@@ -185,44 +183,48 @@ content: |
         :tabid: python
 
         .. code-block:: python
-           :emphasize-lines: 14,15,24,30
+           :emphasize-lines: 13,14,20,30
 
            from pymongo import MongoClient
            from pymongo.encryption_options import AutoEncryptionOpts
            from pymongo.encryption import ClientEncryption
            import base64
            from bson.codec_options import CodecOptions
-           from bson.binary import (Binary,
-                         JAVA_LEGACY,
-                         STANDARD,
-                         UUID_SUBTYPE)
-           OPTS = CodecOptions(uuid_representation=STANDARD)
+           from bson.binary import STANDARD
+           import uuid
+
            connection_string = "mongodb://localhost:27017"
-           key_vault_namespace = "encryption.__keyvault"
+           key_vault_namespace = "encryption.__keyVault"
+
            fle_opts = AutoEncryptionOpts(
-               kms_providers,
-               key_vault_namespace,
-               mongocryptd_bypass_spawn = True 
+               kms_providers,  # pass in the kms_providers variable from  the previous step
+               key_vault_namespace
            )
- 
            client = MongoClient(
                connection_string,
-               auto_encryption_opts = fle_opts 
+               auto_encryption_opts=fle_opts
            )
- 
            client_encryption = ClientEncryption(
-               kms_providers,
+               kms_providers,  # pass in the kms_providers variable from  the previous step
                key_vault_namespace,
-               client, 
-               OPTS 
+               client,
+               CodecOptions(uuid_representation=STANDARD)
            )
-           data_key = client_encryption.create_data_key("local")
- 
-           uuid_data_key_id = uuid.UUID(bytes=data_key)
-           base_64_data_key_id = base64.b64encode(data_key)
- 
-           print("DataKeyId [UUID]: ", uuid_data_key_id)
-           print("DataKeyId [base64]: ", base_64_data_key_id)
+
+
+           def create_data_encryption_key():
+
+               data_key = client_encryption.create_data_key("local")
+               uuid_data_key_id = uuid.UUID(bytes=data_key)
+               base_64_data_key_id = base64.b64encode(data_key)
+
+               print("DataKeyId [UUID]: ", str(uuid_data_key_id))
+               print("DataKeyId [base64]: ", base_64_data_key_id)
+
+               return data_key
+
+           data_key = create_data_encryption_key()
+
 
   The ``_id`` field of the data encryption key is represented as a **UUID**
   and is encoded in **Base64** format. Use your **Base64**-encoded data key
@@ -362,24 +364,22 @@ content: |
 
         .. code-block:: python
 
+           from pprint import pprint
            connection_string = "mongodb://localhost:27017"
-           key_vault_namespace = "encryption.__keyvault"
+           key_vault_namespace = "encryption.__keyVault"
 
-           fle_opts = AutoEncryptionOpts(
-             kms_providers,
-             key_vault_namespace,
-             mongocryptd_bypass_spawn = True
-           )
-           client = MongoClient(
-             connection_string,
-             auto_encryption_opts = fle_opts
-           )
-           db = client["encryption"]
-           collection = db["__keyVault"]
-           key = collection.find_one({"_id": data_key})
-           print(key)
-           client_encryption.close()
-           client.close()
+
+           def verify_data_key_created(fle_opts, client, client_encryption,  data_key):
+               db = client["encryption"]
+               collection = db["__keyVault"]
+               key = collection.find_one({"_id": data_key})
+               pprint(key)
+               client_encryption.close()
+               client.close()
+
+
+           # pass in fle_opts, client, client_encryption, data_key variables created in previous section
+           verify_data_key_created(fle_opts, client, client_encryption, data_key)
 
 
         This code example should print a retrieved document that resembles the
