@@ -17,7 +17,7 @@ Supported Data Formats
 ----------------------
 
 The MongoDB Kafka Sink Connector ``converter`` setting specifies the
-deserialization method for data it reads from a topic. The converter 
+deserialization method for data it reads from a topic. The converter
 can deserialize the following data formats:
 
 .. list-table::
@@ -135,7 +135,7 @@ Supported Sink Record Structure
 -------------------------------
 
 After getting converted, a SinkRecord is created.
-The SinkRecord 
+The SinkRecord
 
 Once the converter has deserialized the data, Kafka Connect creates
 a :kafka-21-javadoc:`SinkRecord </connect/sink/SinkRecord.html>` object.
@@ -149,7 +149,7 @@ objects with support for all the schema types defined in
 (``INT8``, ``INT16``, ``INT32``, ``INT64``, ``FLOAT32``, ``FLOAT64``,
 ``BOOLEAN``, ``STRING``, ``BYTES``, ``ARRAY``, ``MAP``, and ``STRUCT``)
 
-The converter handles nested key or value structures 
+The converter handles nested key or value structures
 The conversion is able to generically deal with nested key or value structures
 based on the supported types listed above. The following example is based on
 `AVRO <https://avro.apache.org/>`_:
