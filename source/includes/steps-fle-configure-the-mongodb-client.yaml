@@ -170,7 +170,7 @@ content: |
         .. code-block:: python
            :emphasize-lines: 2
       
-           extraOptions = {
+           extra_options = {
               'mongocryptd_spawn_path': '/usr/local/bin/mongocryptd'
            }
 
@@ -184,7 +184,7 @@ content: |
            .. code-block:: python
               :emphasize-lines: 1
 
-               extraOptions['mongocryptd_bypass_spawn'] = True
+               extra_options['mongocryptd_bypass_spawn'] = True
 
 ---
 title: Create the MongoClient
@@ -240,6 +240,6 @@ content: |
               kms_providers, 
               key_vault_namespace,
               schema_map = patient_schema,
-              **extraOptions
+              **extra_options
            )
            client = MongoClient(connection_string, auto_encryption_opts = fle_opts)
