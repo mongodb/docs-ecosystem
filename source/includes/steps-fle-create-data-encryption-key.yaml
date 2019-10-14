@@ -342,7 +342,7 @@ content: |
         .. code-block:: none
 
            {
-             _id: Binary {
+             _id: Binary {o
                _bsontype: 'Binary',
                sub_type: 4,
                position: 16,

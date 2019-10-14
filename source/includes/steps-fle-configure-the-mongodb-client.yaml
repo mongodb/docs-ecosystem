@@ -168,8 +168,11 @@ content: |
         :tabid: python
 
         .. code-block:: python
+           :emphasize-lines: 2
       
-           mongocryptd_spawn_path = "/usr/local/bin/mongocryptd"
+           extraOptions = {
+              'mongocryptd_spawn_path': '/usr/local/bin/mongocryptd'
+           }
 
         .. admonition:: Encryption Binary Daemon
            :class: note
@@ -181,7 +184,7 @@ content: |
            .. code-block:: python
               :emphasize-lines: 1
 
-               mongocryptd_bypass_spawn = True
+               extraOptions['mongocryptd_bypass_spawn'] = True
 
 ---
 title: Create the MongoClient
@@ -237,7 +240,6 @@ content: |
               kms_providers, 
               key_vault_namespace,
               schema_map = patient_schema,
-              mongocryptd_bypass_spawn = mongocryptd_bypass_spawn,
-              mongocryptd_spawn_path=mongocryptd_spawn_path 
+              **extraOptions
            )
            client = MongoClient(connection_string, auto_encryption_opts = fle_opts)
