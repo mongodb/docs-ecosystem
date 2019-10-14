@@ -234,7 +234,7 @@ content: |
         :tabid: python
 
         .. code-block:: python
-           :emphasize-lines: 2-6,8
+           :emphasize-lines: 2-5
 
            fle_opts = AutoEncryptionOpts( 
               kms_providers, 
