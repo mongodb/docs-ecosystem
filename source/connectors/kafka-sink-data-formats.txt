@@ -113,9 +113,8 @@ without schema** data format. The Kafka topic data must be in JSON format.
 .. admonition:: Choose the appropriate format
    :class: note
 
-   If a top-level JSON object named ``schema`` or ``payload`` is
-   included in in the message, it will be parsed literally instead of as
-   a validation schema.
+   Top-level JSON objects named ``schema`` or ``payload`` are parsed
+   literally instead of as a validation schema.
 
 Configuration Example for RAW JSON
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -134,25 +133,47 @@ The following configuration provides example settings that use the
 Supported Sink Record Structure
 -------------------------------
 
-After getting converted, a SinkRecord is created.
-The SinkRecord
+Once the converter has deserialized the data from the Kafka topic,
+Kafka Connect creates a :kafka-21-javadoc:`SinkRecord </connect/sink/SinkRecord.html>`
+object.
 
-Once the converter has deserialized the data, Kafka Connect creates
-a :kafka-21-javadoc:`SinkRecord </connect/sink/SinkRecord.html>` object.
-The MongoDB Kafka Connector
-supports the following data types in the schema.
+The MongoDB Kafka Connector converts the ``SinkRecord`` into
+a ``SinkDocument`` which contains the key and value in BSON format. The
+convertor determines the types using schema, if provided.
+
+The connector supports all the core schema types listed in
+:kafka-21-javadoc:`Schema.Type </connect/data/Schema.Type.html>`:
+
+- **Array**
+- **Boolean**
+- **Bytes**
+- **Float32**
+- **Float64**
+- **Int16**
+- **INT32**
+- **INT64**
+- **INT8**
+- **MAP**
+- **STRING**
+- **STRUCT**
+
+The MongoDB Kafka Connector also supports the following `AVRO logical types
+<http://avro.apache.org/docs/1.8.2/spec.html#Logical+Types>`_:
+
+- **Decimal**
+- **Date**
+- **Time** (millis/micros)
+- **Timestamp** (millis/micros)
+
+For a sample AVRO schema that uses logical types, see
+:ref:`avro-logical-types-example`.
 
 
-The connector is able to process Kafka Connect ``SinkRecord``
-objects with support for all the schema types defined in
-:kafka-21-javadoc:`Schema.Type </connect/data/Schema.Type.html>`
-(``INT8``, ``INT16``, ``INT32``, ``INT64``, ``FLOAT32``, ``FLOAT64``,
-``BOOLEAN``, ``STRING``, ``BYTES``, ``ARRAY``, ``MAP``, and ``STRUCT``)
+Nested Field Schema Example
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The converter handles nested key or value structures
-The conversion is able to generically deal with nested key or value structures
-based on the supported types listed above. The following example is based on
-`AVRO <https://avro.apache.org/>`_:
+The converter handles schemas with nested key or value structures.
+The following is an example AVRO schema with nested fields:
 
 .. code-block:: json
 
@@ -231,19 +252,14 @@ based on the supported types listed above. The following example is based on
      ]
    }
 
-AVRO Logical Types
-~~~~~~~~~~~~~~~~~~
 
-In addition to the Kafka standard schema types, you can specify the
-following `AVRO logical types
-<http://avro.apache.org/docs/1.8.2/spec.html#Logical+Types>`_:
+.. _avro-logical-types-example:
 
-- **Decimal**
-- **Date**
-- **Time** (millis/micros)
-- **Timestamp** (millis/micros)
+AVRO Logical Type Example
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-See the following AVRO schema snippet for examples of each type:
+The following AVRO schema demonstrates use of each supported logical types
+(``Decimal``, ``Date``, ``Time``, and ``Timestamp``):
 
 .. code-block:: json
 
@@ -302,19 +318,29 @@ See the following AVRO schema snippet for examples of each type:
 
 .. note::
 
-   If you are using AVRO code generation for logical types in order to
-   use them from a Java-based producer app you end-up with the following Java
-   type mappings:
+   If you use AVRO code generation to generate logical types for
+   a Java-based producer application from a schema with logical types, the
+   following Java type mappings are created:
 
-   - ``org.joda.time.LocalDate myDateField``
-   - ``org.joda.time.LocalTime mytimeMillisField``
-   - ``long myTimeMicrosField``
-   - ``org.joda.time.DateTime myTimestampMillisField``
-   - ``long myTimestampMicrosField``
+   .. list-table::
+      :header-rows: 1
+      :stub-columns: 1
+      :widths: 1 2
 
-.. note::
+      * - Schema Type
+        - Java Type
 
-   AVRO 1.9.0 will support native Java 8 date time types. Logical types
-   can only be supported for **AVRO** and **JSON + Schema** data.
+      * - date
+        - ``org.joda.time.LocalDate``
 
+      * - time-millis
+        - ``org.joda.time.LocalTime``
 
+      * - time-micros
+        - ``long``
+
+      * - datetime-millis
+        - ``org.joda.time.DateTime myTimestampMillisField``
+
+      * - datetime-micros
+        - ``long``
