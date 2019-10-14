@@ -73,9 +73,10 @@ content: |
 title: Map the JSON Schema to the Patients Collection
 ref: map-the-json-schema-to-the-patients-collection
 content: |
-  The JSON Schema that MedcoMD defined doesn't explicitly specify the
-  collection to which it applies. To assign the schema, they map it to
-  the ``medicalRecords.patients`` collection namespace:
+  The MedcoMD engineers assign their schema to a variable. The JSON Schema 
+  that MedcoMD defined doesn't explicitly specify the collection to which it
+  applies. To assign the schema, they map it to the ``medicalRecords.patients``
+  collection namespace:
 
   .. tabs-drivers::
 
