@@ -149,8 +149,10 @@ content: |
            from pymongo.encryption_options import AutoEncryptionOpts
            from bson.codec_options import CodecOptions
            from bson.binary import (STANDARD)  
+
            connection_string = "mongodb://localhost:27017"
            key_vault_namespace = "encryption.__keyVault"
+           
            fle_opts = AutoEncryptionOpts(
               {
                  "aws": {
