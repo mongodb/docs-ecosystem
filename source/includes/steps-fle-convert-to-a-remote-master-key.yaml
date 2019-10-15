@@ -158,8 +158,7 @@ content: |
                        "secretAccessKey": "<IAM User Secret Access Key>"
                  }
               },
-              key_vault_namespace,
-              mongocryptd_bypass_spawn=False
+              key_vault_namespace
            )
            client = MongoClient(connection_string,
                                 auto_encryption_opts=fle_opts)  
