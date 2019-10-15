@@ -190,8 +190,7 @@ content: |
            from pymongo.encryption import ClientEncryption
            import base64
            from bson.codec_options import CodecOptions
-           from bson.binary import STANDARD
-           import uuid
+           from bson.binary import STANDARD, UUID
 
            connection_string = "mongodb://localhost:27017"
            key_vault_namespace = "encryption.__keyVault"
@@ -215,13 +214,12 @@ content: |
            def create_data_encryption_key():
 
                data_key = client_encryption.create_data_key("local")
-               uuid_data_key_id = uuid.UUID(bytes=data_key)
+               uuid_data_key_id = UUID(bytes=data_key)
                base_64_data_key_id = base64.b64encode(data_key)
-
                print("DataKeyId [UUID]: ", str(uuid_data_key_id))
                print("DataKeyId [base64]: ", base_64_data_key_id)
-
                return data_key
+
 
            data_key = create_data_encryption_key()
 
