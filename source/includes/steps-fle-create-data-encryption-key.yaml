@@ -367,16 +367,12 @@ content: |
            from pprint import pprint
            connection_string = "mongodb://localhost:27017"
            key_vault_namespace = "encryption.__keyVault"
-
-
-           def verify_data_key_created(fle_opts, client, client_encryption,  data_key):
+           
+           def verify_data_key_created(data_key, client, client_encryption, fle_opts):
                db = client["encryption"]
                collection = db["__keyVault"]
                key = collection.find_one({"_id": data_key})
                pprint(key)
-               client_encryption.close()
-               client.close()
-
 
            # pass in fle_opts, client, client_encryption, data_key variables created in previous section
            verify_data_key_created(fle_opts, client, client_encryption, data_key)
