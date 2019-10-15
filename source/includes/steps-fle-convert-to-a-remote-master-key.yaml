@@ -148,22 +148,16 @@ content: |
            from pymongo import MongoClient
            from pymongo.encryption_options import AutoEncryptionOpts
            from bson.codec_options import CodecOptions
-           from bson.binary import (STANDARD)  
+           from bson.binary import (STANDARD)
 
            connection_string = "mongodb://localhost:27017"
            key_vault_namespace = "encryption.__keyVault"
-           
+
            fle_opts = AutoEncryptionOpts(
-              {
-                 "aws": {
-                       "accessKeyId": "<IAM User Access Key ID>",
-                       "secretAccessKey": "<IAM User Secret Access Key>"
-                 }
-              },
+              kms_providers, # pass in the kms_providers from the previous step
               key_vault_namespace
            )
-           client = MongoClient(connection_string,
-                                auto_encryption_opts=fle_opts)  
+
            client_encryption = pymongo.encryption.ClientEncryption(
               {
                  "aws": {
@@ -174,7 +168,7 @@ content: |
               key_vault_namespace,
               client,
               CodecOptions(uuid_representation=STANDARD)
-           )  
+           )
            data_key = client_encryption.create_data_key("aws")
 
 ---
