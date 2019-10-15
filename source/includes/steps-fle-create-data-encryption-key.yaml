@@ -375,7 +375,7 @@ content: |
                pprint(key)
 
            # pass in fle_opts, client, client_encryption, data_key variables created in previous section
-           verify_data_key_created(fle_opts, client, client_encryption, data_key)
+           verify_data_key_created(data_key, client, client_encryption, fle_opts)
 
 
         This code example should print a retrieved document that resembles the
