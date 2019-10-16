@@ -1,4 +1,4 @@
-.kafka-sink-postprocessors
+
 
 ====================================
 Kafka Sink Connector Post-Processors
@@ -17,77 +17,109 @@ Post Processing of Documents
 
 Post processors are sink connector classes that modify data in the
 ``SinkDocument``, a class that contains a BSON representation of the
-``SinkRecord`` key and value fields, after it has been read and
-deserialized from the Kafka topic. The connector applies a
-**chain of post processors** to the ``SinkDocument`` and stores the
-resulting data to a MongoDB collection.
+``SinkRecord`` key and value fields, after it has been read from the
+Kafka topic. The connector applies a **chain of post processors** in
+which each post processor is executed in the order provided on
+the ``SinkDocument``, and the result is stored in a MongoDB collection.
 
-Post processors handle tasks including setting the document `_id`
-field, field projection, renaming fields, and redacting sensitive
-information. You can use the following pre-built post processors or
-implement your own by extending the `PostProcessor
+Post processors perform data modification tasks such as setting
+the document ``_id`` field, key or value field projection, renaming
+fields, and redacting sensitive information. You can use the
+following pre-built post processors or implement your own by extending
+the `PostProcessor
 <https://github.com/mongodb/mongo-kafka/blob/master/src/main/java/com/mongodb/kafka/connect/sink/processor/PostProcessor.java>`_
 class:
-
-TODO: this is out of date. See src/main/java/com/mongodb/kafka/connect/sink/processor/
 
 .. list-table::
    :header-rows: 1
    :stub-columns: 1
+   :widths: 1,2
 
-   * - Name
+   * - Post Processor Name
      - Description
 
    * - DocumentIdAdder
-     - uses a configured *strategy* to insert an ``_id`` field.
+     - | Full Path: ``com.mongodb.kafka.connect.sink.processor.DocumentIdAdder``
+       | Uses a configured *strategy* to insert an ``_id`` field.
 
-   * - BlacklistProjector
-     - removes matching fields (key or value) from the sink record.
+       .. seealso:: :ref:`Strategy options and configuration <config-document-id-adder>`.
 
-   * - WhitelistProjector
-     - defines explicit inclusion of fields (key or value) and
-       excludes all others from the sink record.
+   * - BlacklistKeyProjector
+     - | Full Path: ``com.mongodb.kafka.connect.sink.processor.BlacklistKeyProjector``
+       | Removes matching key fields from the sink record.
+
+       .. seealso:: :ref:`Configuration <config-blacklist-whitelist>` and :ref:`Example <blacklist-example>`.
+
+   * - BlacklistValueProjector
+     - | Full Path: ``com.mongodb.kafka.connect.sink.processor.BlacklistValueProjector``
+       | Removes matching value fields from the sink record.
+
+       .. seealso:: :ref:`Configuration <config-blacklist-whitelist>` and :ref:`Example <blacklist-example>`.
+
+   * - WhitelistKeyProjector
+     - | Full Path: ``com.mongodb.kafka.connect.sink.processor.WhitelistKeyProjector``
+       | Includes only matching key fields from the sink record.
+
+       .. seealso:: :ref:`Configuration <config-blacklist-whitelist>` and :ref:`Example <whitelist-example>`.
+
+   * - WhitelistValueProjector
+     - | Full Path: ``com.mongodb.kafka.connect.sink.processor.WhitelistValueProjector``
+       | matching value fields from the sink record.
+
+       .. seealso:: :ref:`Configuration <config-blacklist-whitelist>` and :ref:`Example <whitelist-example>`.
+
+   * - KafkaMetaAdder
+     - | Full Path: ``com.mongodb.kafka.connect.sink.processor.KafkaMetaAdder``
+       | Adds a field composed of the concatenation of Kafka topic, partition, and offset to the document.
+
+   * - RenameByMapping
+     - | Full Path: ``com.mongodb.kafka.connect.sink.processor.field.renaming.RenameByMapping``
+       | Renames fields that are an exact match to a specified key or value field.
+
+       .. seealso:: :ref:`Renamer configuration <config-field-renamer>` and :ref:`Example <field-renamer-mapping-example>`.
+
+   * - RenameByRegex
+     - | Full Path: ``com.mongodb.kafka.connect.sink.processor.field.renaming.RenameByRegex``
+       | Renames fields that match a regular expresion.
+
+       .. seealso:: :ref:`Renamer configuration <config-field-renamer>` and :ref:`Example <field-renamer-regex-example>`.
+
 
 You can configure the post processor chain by specifying an ordered,
 comma separated list of fully-qualified ``PostProcessor`` class names:
 
 .. code-block:: properties
 
-   post.processor.chain=com.mongodb.kafka.connect.sink.processor.field.renaming.Renamer
-
-   TODO: this class may be somewhere else now
-   com.mongodb.kafka.connect.sink.processor.field.renaming.RenameByMapping
+   post.processor.chain=com.mongodb.kafka.connect.sink.processor.KafkaMetaAdder,com.mongodb.kafka.connect.sink.processor.WhitelistValueProjector
 
 .. note::
 
    The ``DocumentIdAdder`` post processor is automatically added to the
    first position in the chain if not already present.
 
-Once the the data has been deserialized by the converters, the
-``SinkRecord`` is converted into a ``SinkDocument``.
+Configuration Options
+---------------------
 
+This section explains the available configuration options for post
+processors included in the MongoDB Kafka Connector.
 
-Post Processor Configuration
-----------------------------
+.. _config-document-id-adder:
 
-This section explains the configuration options for post processors
-included in the MongoDB Kafka Connector.
+DocumentIdAdder
+~~~~~~~~~~~~~~~
 
-DocumentIdAdder Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The DocumentIdAdder post processor provides an ``_id`` field for
-a ``SinkDocument`` about to be written to a MongoDB collection. This
-post processor is configured with a **strategy** that contains the logic
-for generating the value of ``_id``. The following strategies are included
-in this connector:
+The ``DocumentIdAdder`` post processor provides the ``_id`` field for
+a ``SinkDocument`` before it is written to a MongoDB collection. This
+post processor is configured using a **strategy** that contains the logic
+for generating the value of the ``_id``. The following strategies are
+provided with this connector:
 
 .. list-table::
    :header-rows: 1
    :stub-columns: 1
-   :widths: 1,4
+   :widths: 1,2
 
-   * - Class Name
+   * - Strategy Name
      - Description
 
    * - BsonOidStrategy
@@ -101,57 +133,60 @@ in this connector:
 
    * - FullKeyStrategy
      - | Full Path: ``com.mongodb.kafka.connect.sink.processor.id.strategy.FullKeyStrategy``
-       | Uses complete key structure of the ``SinkDocument``. Defaults to a blank document if no key exists.
+       | Uses complete key structure of the ``SinkDocument``.
+       | Defaults to a blank document if no key exists.
 
    * - ProvidedInKeyStrategy
      - | Full Path: ``com.mongodb.kafka.connect.sink.processor.id.strategy.ProvidedInKeyStrategy``
-       | Uses the ``_id`` field specified in the key structure of the ``SinkDocument`` if it exists. Throws an exception if the field is missing.
+       | Uses the ``_id`` field specified in the key structure of the ``SinkDocument`` if it exists.
+       | Throws an exception if the field is missing.
 
    * - ProvidedInValueStrategy
      - | Full Path: ``com.mongodb.kafka.connect.sink.processor.id.strategy.ProvidedInValueStrategy``
-       | Uses the ``_id`` field specified in the value structure of the ``SinkDocument`` if it exists. Throws an exception if the field is missing.
+       | Uses the ``_id`` field specified in the value structure of the ``SinkDocument`` if it exists.
+       | Throws an exception if the field is missing.
 
    * - PartialKeyStrategy
      - | Full Path: ``com.mongodb.kafka.connect.sink.processor.id.strategy.PartialKeyStrategy``
-       | Uses a blacklist or whitelist projection of the key structure of the ``SinkDocument``. Defaults to a blank document if no key exists.
+       | Uses a blacklist or whitelist projection of the key structure of the ``SinkDocument``.
+       | Defaults to a blank document if no key exists.
 
    * - PartialValueStrategy
      - | Full Path: ``com.mongodb.kafka.connect.sink.processor.id.strategy.PartialValueStrategy``
-       | Uses a blacklist or whitelist projection of the value structure of the ``SinkDocument``. Defaults to a blank document if no value exists.
+       | Uses a blacklist or whitelist projection of the value structure of the ``SinkDocument``.
+       | Defaults to a blank document if no value exists.
 
    * - UuidStrategy
      - | Full Path: ``com.mongodb.kafka.connect.sink.processor.id.strategy.UuidStrategy``
        | Generates a random UUID as a string.
 
-The strategy is set by means of the following property:
+You can assign the ``document.id.strategy`` property as follows:
 
 .. code-block:: properties
 
-   document.id.strategy=com.mongodb.kafka.connect.sink.processor.id.strategy.BsonOidStrategy
+   document.id.strategy=com.mongodb.kafka.connect.sink.processor.id.strategy.UuidStrategy
 
 To define a custom strategy, create a class that implements the interface
 `IdStrategy
-<https://github.com/mongodb/mongo-kafka/blob/master/src/main/java/com/mongodb/kafka/connect/sink/processor/id/strategy/IdStrategy.java>`_.
-You can include the class in the chain with the same format as the
-pre-defined ones in the ``document.id.strategy`` configuration.
+<https://github.com/mongodb/mongo-kafka/blob/master/src/main/java/com/mongodb/kafka/connect/sink/processor/id/strategy/IdStrategy.java>`_
+and provide the fully-qualified path to the ``document.id.strategy``
+setting.
 
-//TODO: admonition for the blelow
+.. admonition:: Selected strategy may have implications on delivery semantics
+   :class: note
 
-**It's important to keep in mind that the chosen / implemented id strategy has direct implications on the possible delivery semantics.**
-If it's set to BSON ObjectId or UUID respectively, it can only ever guarantee at-least-once delivery of records, since new ids will result
-due to the re-processing on retries after failures. The other strategies permit exactly-once semantics if the respective fields forming
-the document *_id* are guaranteed to be unique in the first place.
+   BSON ObjectId or UUID strategies can only guarantee at-least-once
+   delivery since new ids would be generated on retries or re-processing.
+   Other strategies permit exactly-once delivery if the fields that form
+   the document *_id* are guaranteed to be unique.
 
-Blacklist / Whitelist Projector Post Processor
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. _config-blacklist-whitelist:
 
-By default the current implementation converts and persists the full value structure of the sink records.
-Key and/or value handling can be configured by using either a **blacklist or whitelist** approach in order to remove/keep fields
-from the record's structure. By using the "." notation to access sub documents it's also supported to do
-redaction of nested fields. It is also possible to refer to fields of documents found within arrays by the same notation.
-See two concrete examples below about the behaviour of these two projection strategies.
+Blacklist / Whitelist Projector
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Given the following fictional data record:
+This section provides example projection configurations to show how they
+filter the following sample record:
 
 .. code-block:: json
 
@@ -179,15 +214,26 @@ Given the following fictional data record:
      }
    }
 
-Example blacklist projection:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. _blacklist-example:
+
+Blacklist Projection Example
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In the following example sink configuration, we specify a blacklist
+projection and the specific fields to omit from the record:
 
 .. code-block:: properties
 
+   post.processor.chain=com.mongodb.kafka.connect.sink.processor.Blacklist[Key|Value]Projector
    [key|value].projection.type=blacklist
    [key|value].projection.list=age,address.city,lut.key2,data.v
 
-will result in:
+.. note::
+
+   You can use the "." notation to reference subdocuments in the record. You
+   can also use it to reference fields of documents within an array.
+
+The record contains the following data after applying the projection:
 
 .. code-block:: json
 
@@ -211,15 +257,26 @@ will result in:
      }
    }
 
-Example whitelist projection:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. _whitelist-example:
+
+Whitelist Projection Example
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In the following example sink configuration, we specify a whitelist
+projection and the specific fields to include in the record:
 
 .. code-block:: properties
 
+   post.processor.chain=com.mongodb.kafka.connect.sink.processor.Whitelist[Key|Value]Projector
    [key|value].projection.type=whitelist
    [key|value].projection.list=age,address.city,lut.key2,data.v
 
-will result in:
+.. note::
+
+   You can use the "." notation to reference subdocuments in the record. You
+   can also use it to reference fields of documents within an array.
+
+The record contains the following data after applying the projection:
 
 .. code-block:: json
 
@@ -238,15 +295,8 @@ will result in:
      }
    }
 
-To have more flexibility in this regard there might be future support for:
-
-
-* Explicit null handling: the option to preserve / ignore fields with null values
-* Investigate if it makes sense to support array element access for field projections based on an index or a given value to project
-  simple/primitive type elements
-
-How wildcard pattern matching works:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Wildcard Pattern Matching
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The configuration supports wildcard matching using a **'*'** character notation. A wildcard
 is supported on any level in the document structure in order to include (whitelist) or
@@ -261,8 +311,8 @@ for **'**'** which can be used at any level to include/exclude the full sub stru
    pattern matching can be found in a corresponding `test class
    <https://github.com/mongodb/mongo-kafka/blob/master/src/test/java/com/mongodb/kafka/connect/sink/processor/field/projection/FieldProjectorTest.java>`_.
 
-Whitelist examples:
-~~~~~~~~~~~~~~~~~~~
+Wildcard Whitelist Example
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The following example will include the *age* field, the *lut* field and all its immediate sub-fields (i.e. one level down):
 
@@ -285,8 +335,8 @@ The final whitelist example will include all fields on the 1st and 2nd level:
    [key|value].projection.type=whitelist
    [key|value].projection.list=*.*
 
-Blacklist examples:
-~~~~~~~~~~~~~~~~~~~
+Wildcard Blacklist Example
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The following example will exclude the *age* field, the *lut* field and all its immediate subfields (i.e. one level down):
 
@@ -309,13 +359,19 @@ The final blacklist example will exclude: all fields on the 1st and 2nd level:
    [key|value].projection.type=blacklist
    [key|value].projection.list=*.*
 
-Field Renaming Post Processor
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. _config-field-renamer:
+
+Field Renamer
+~~~~~~~~~~~~~
 
 There are two different options to rename any fields in the record, namely a simple and rigid 1:1 field name mapping or a more
 flexible approach using regular expressions. Both config options are defined by inline JSON arrays containing objects which describe the renaming.
 
-Example 1:
+
+.. _field-renamer-mapping-example:
+
+Example 1
+^^^^^^^^^
 
 .. code-block:: properties
 
@@ -327,14 +383,16 @@ Will:
 #. Rename field ``fieldA`` to ``field1`` in the **key document structure**
 #. Rename field ``xyz`` to ``abc`` in the **value document structure**
 
-Example 2:
+.. _field-renamer-regex-example:
+
+Example 2
+^^^^^^^^^
 
 .. code-block:: properties
 
    field.renamer.mapping=[{"regexp":"^key\\..*my.*$","pattern":"my","replace":""},{"regexp":"^value\\..*-.+$","pattern":"-","replace":"_"}]
 
 These settings cause:
-
 
 #. **All field names of the key structure containing 'my'** to be renamed so that **'my' is removed**
 #. **All field names of the value structure containing a '-'** to be renamed by replacing **'-' with '_'**
@@ -346,12 +404,17 @@ These settings cause:
    structure. The prefix at the very beginning is used as a simple convention
    to distinguish between the *key* and *value* structure of a document.
 
+.. _custom-write-models:
+
 Custom Write Models
-^^^^^^^^^^^^^^^^^^^
+-------------------
 
 The default behaviour for the connector whenever documents are written to MongoDB collections is to make use of a proper
 `ReplaceOneModel <http://mongodb.github.io/mongo-java-driver/3.10/javadoc/com/mongodb/client/model/ReplaceOneModel.html>`_ with
-`upsert mode <http://mongodb.github.io/mongo-java-driver/3.10/javadoc/com/mongodb/client/model/ReplaceOneModel.html>`_ and **create the filter document based on the _id field** which results from applying the configured DocumentIdAdder in the value structure of the sink document.
+`upsert mode
+<http://mongodb.github.io/mongo-java-driver/3.10/javadoc/com/mongodb/client/model/ReplaceOneModel.html>`_
+and **create the filter document based on the _id field** which results
+from applying the configured ``DocumentIdAdder`` in the value structure of the sink document.
 
 However, there are other use cases which need different approaches and the **customization option for generating custom write models**
 can support these. The configuration entry (\ *mongodb.writemodel.strategy*\ ) allows for such customizations. Currently, the following
@@ -383,9 +446,9 @@ To achieve this a few simple configuration steps are necessary:
 
 
 #. Make sure to **create a unique key constraint** for the business key of your target MongoDB collection.
-#. Use the **PartialValueStrategy** as the DocumentIdAdder's strategy in order to let the connector know which fields belong to the
+#. Use the ``PartialValueStrategy`` as the ``DocumentIdAdder``'s strategy in order to let the connector know which fields belong to the
    business key.
-#. Use the **ReplaceOneBusinessKeyStrategy** instead of the default behaviour.
+#. Use the ``ReplaceOneBusinessKeyStrategy`` instead of the default behaviour.
 
 These configuration settings then allow to have **filter documents based
 on the original business key but still have *BSON ObjectIds*
