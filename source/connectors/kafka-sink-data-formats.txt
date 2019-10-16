@@ -28,7 +28,7 @@ can deserialize the following data formats:
    * - Format Name
      - Description
 
-   * - Avro
+   * - AVRO
      - An `open source serialization system <https://avro.apache.org>`_
        that provides a compact binary format and a JSON-like API.
        Integrates with the
@@ -46,19 +46,12 @@ can deserialize the following data formats:
      - Serialized as a String. The JSON structure is not managed by
        Kafka Connect.
 
-       .. note::
-
-          This format requires that the fields contain valid JSON even
-          when specifying the `StringConverter
-          <https://kafka.apache.org/21/javadoc/index.html?org/apache/kafka/connect/storage/StringConverter.html>`_
-
 .. note::
 
-   **RAW JSON** mode
-   requires the Strings to be valid JSON
-   Even when using RAW JSON mode, i.e. with `StringConverter
-   <https://kafka.apache.org/21/javadoc/index.html?org/apache/kafka/connect/storage/StringConverter.html>`_,
-   the expected Strings have to be valid JSON.
+   Even when specifying the `StringConverter
+   <https://kafka.apache.org/21/javadoc/index.html?org/apache/kafka/connect/storage/StringConverter.html>`_
+   format, the **RAW JSON** mode fields must contain valid JSON to be
+   parsed by the connector correctly.
 
 For more information on Kafka data serialization, see `Kafka Connect
 Serialization Explained
@@ -318,9 +311,8 @@ The following AVRO schema demonstrates use of each supported logical types
 
 .. note::
 
-   If you use AVRO code generation to generate logical types for
-   a Java-based producer application from a schema with logical types, the
-   following Java type mappings are created:
+   If you use compile your schema using AVRO, it maps your logical types
+   to the following non-standard Java classes:
 
    .. list-table::
       :header-rows: 1
