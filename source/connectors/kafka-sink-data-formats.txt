@@ -103,11 +103,12 @@ without schema** data format. The Kafka topic data must be in JSON format.
    value.converter=org.apache.kafka.connect.json.JsonConverter
    value.converter.schemas.enable=false
 
-.. admonition:: Choose the appropriate format
+.. admonition:: Choose the appropriate data format
    :class: note
 
-   Top-level JSON objects named ``schema`` or ``payload`` are parsed
-   literally instead of as a validation schema.
+   When you specify **JSON without Schema**, any JSON schema objects such
+   as ``schema`` or ``payload`` are read explicitly rather than as a
+   validation schema.
 
 Configuration Example for RAW JSON
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
