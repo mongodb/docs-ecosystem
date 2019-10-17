@@ -312,9 +312,11 @@ The following AVRO schema demonstrates use of each supported logical types
 
 .. note::
 
-   If you use compile your schema using AVRO, it maps your logical types
-   to the following non-standard Java classes:
-
+   If you compile your schema using `AVRO code generation
+   <https://avro.apache.org/docs/1.8.2/gettingstartedjava.html#Serializing+and+deserializing+with+code+generation>`_ 
+   for your Kafka producer application, your logical types are mapped to the
+   following non-standard Java classes: 
+   
    .. list-table::
       :header-rows: 1
       :stub-columns: 1
