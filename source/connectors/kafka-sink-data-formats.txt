@@ -313,10 +313,10 @@ The following AVRO schema demonstrates use of each supported logical types
 .. note::
 
    If you compile your schema using `AVRO code generation
-   <https://avro.apache.org/docs/1.8.2/gettingstartedjava.html#Serializing+and+deserializing+with+code+generation>`_ 
+   <https://avro.apache.org/docs/1.8.2/gettingstartedjava.html#Serializing+and+deserializing+with+code+generation>`_
    for your Kafka producer application, your logical types are mapped to the
-   following non-standard Java classes: 
-   
+   following non-standard Java classes:
+
    .. list-table::
       :header-rows: 1
       :stub-columns: 1
@@ -335,7 +335,7 @@ The following AVRO schema demonstrates use of each supported logical types
         - ``long``
 
       * - datetime-millis
-        - ``org.joda.time.DateTime myTimestampMillisField``
+        - ``org.joda.time.DateTime``
 
       * - datetime-micros
         - ``long``
