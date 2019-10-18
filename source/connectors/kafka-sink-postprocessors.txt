@@ -1,4 +1,4 @@
-
+.kafka-sink-postprocessors
 
 ====================================
 Kafka Sink Connector Post-Processors
@@ -76,14 +76,13 @@ class:
      - | Full Path: ``com.mongodb.kafka.connect.sink.processor.field.renaming.RenameByMapping``
        | Renames fields that are an exact match to a specified key or value field.
 
-       .. seealso:: :ref:`Renamer configuration <config-field-renamer>` and :ref:`Example <field-renamer-mapping-example>`.
+       .. seealso:: :ref:`Renaming configuration <config-field-renaming>` and :ref:`Example <field-renaming-mapping-example>`.
 
    * - RenameByRegex
      - | Full Path: ``com.mongodb.kafka.connect.sink.processor.field.renaming.RenameByRegex``
        | Renames fields that match a regular expresion.
 
-       .. seealso:: :ref:`Renamer configuration <config-field-renamer>` and :ref:`Example <field-renamer-regex-example>`.
-
+       .. seealso:: :ref:`Renaming configuration <config-field-renaming>` and :ref:`Example <field-renaming-regex-example>`.
 
 You can configure the post processor chain by specifying an ordered,
 comma separated list of fully-qualified ``PostProcessor`` class names:
@@ -211,8 +210,19 @@ filter the following sample record:
      "lut": {
        "key1": 12.34,
        "key2": 23.45
+     },
+     "destination: {
+       "city": "Springfield",
+       "country": "AnotherLand"
      }
    }
+
+.. note::
+
+   The following example configurations contain ``[key|value]``
+   placeholder values that represent either ``key`` or ``value`` in order
+   to avoid repetition. Specify the one appropriate to your use case when
+   creating your configuration.
 
 .. _blacklist-example:
 
@@ -230,8 +240,9 @@ projection and the specific fields to omit from the record:
 
 .. note::
 
-   You can use the "." notation to reference subdocuments in the record. You
-   can also use it to reference fields of documents within an array.
+   You can use the "." (dot) notation to reference subdocuments in the
+   record. You can also use it to reference fields of documents within an
+   array.
 
 The record contains the following data after applying the projection:
 
@@ -254,6 +265,10 @@ The record contains the following data after applying the projection:
      ],
      "lut": {
        "key1": 12.34
+     },
+     "destination: {
+       "city": "Springfield",
+       "country": "AnotherLand"
      }
    }
 
@@ -295,119 +310,311 @@ The record contains the following data after applying the projection:
      }
    }
 
-Wildcard Pattern Matching
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Projection Wildcard Pattern Matching
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The configuration supports wildcard matching using a **'*'** character notation. A wildcard
-is supported on any level in the document structure in order to include (whitelist) or
-exclude (blacklist) any fieldname at the corresponding level. A part from that there is support
-for **'**'** which can be used at any level to include/exclude the full sub structure
-(i.e. all nested levels further down in the hierarchy).
+The previous example projection configurations demonstrated exact
+string matching on field names. The projection ``list`` setting also supports
+the following wildcard patterns matching on field names:
 
+* "``*``" (`star`): matches a string of any length for the level in the
+  document in which it is specified.
 
-.. note::
+* "``**``" (`double star`): matches the current and all nested levels from
+  which it is specified.
 
-   A bunch of more concrete examples of field projections including wildcard
-   pattern matching can be found in a corresponding `test class
-   <https://github.com/mongodb/mongo-kafka/blob/master/src/test/java/com/mongodb/kafka/connect/sink/processor/field/projection/FieldProjectorTest.java>`_.
+The examples below demonstrate how to use each wildcard pattern and the
+projection output from the following sample record:
 
-Wildcard Whitelist Example
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. code-block:: json
 
-The following example will include the *age* field, the *lut* field and all its immediate sub-fields (i.e. one level down):
+   {
+     "forecast": [
+       { "day": "Monday",
+         "temp": {
+           "degrees": 25.3,
+           "units": "C",
+           "range": {
+             "low": 23.0,
+             "high": 28.7
+           }
+         },
+         "uv": 5
+       }
+     ],
+     "city": "Springfield",
+     "population: {
+       "qty": 30.7,
+       "scale": 1000,
+       "units": "people"
+     }
+   }
+
+**Whitelist Wildcard Examples**
+
+The ``*`` wildcard pattern in the example below matches all the keys named
+``temp`` in the ``forecast`` array and all fields nested a single level
+below it.
 
 .. code-block:: properties
 
    [key|value].projection.type=whitelist
-   [key|value].projection.list=age,lut.*
+   [key|value].projection.list=city,forecast.temp.*
 
-The following example will include the *active* field, the *address* field and its full sub structure (all available nested levels):
+The record contains the following data after applying the projection:
+
+.. code-block:: json
+
+   {
+     "city": "Springfield",
+     "forecast": [
+       {
+         "temp": {
+           "degrees": 25.3,
+           "units": "C",
+           "range": {
+             "low": 23.0,
+             "high": 28.7
+           }
+         }
+       }
+     ]
+   }
+
+The ``**`` wildcard pattern in the example below matches all the keys for
+all levels that contain the field ``scale``.
 
 .. code-block:: properties
 
    [key|value].projection.type=whitelist
-   [key|value].projection.list=active,address.**
+   [key|value].projection.list=**.scale
 
-The final whitelist example will include all fields on the 1st and 2nd level:
+The record contains the following data after applying the projection:
 
-.. code-block:: properties
+.. code-block:: json
 
-   [key|value].projection.type=whitelist
-   [key|value].projection.list=*.*
+   {
+     "population: {
+       "qty": 30.7,
+       "scale": 1000,
+       "units": "people"
+     }
+   }
 
-Wildcard Blacklist Example
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+**Blacklist Wildcard Examples**
 
-The following example will exclude the *age* field, the *lut* field and all its immediate subfields (i.e. one level down):
-
-.. code-block:: properties
-
-   [key|value].projection.type=blacklist
-   [key|value].projection.list=age,lut.*
-
-The following example will exclude the *active* field, the *address* field and its full sub structure (all available nested levels):
-
-.. code-block:: properties
-
-   [key|value].projection.type=blacklist
-   [key|value].projection.list=active,address.**
-
-The final blacklist example will exclude: all fields on the 1st and 2nd level:
+The wildcard character can also be used to match all field names at 
+specific levels as demonstrated in the following blacklist projection 
+configuration example:
 
 .. code-block:: properties
 
    [key|value].projection.type=blacklist
-   [key|value].projection.list=*.*
+   [key|value].projection.list=population,forecast.*.*
 
-.. _config-field-renamer:
+The record contains the following data after applying the projection:
 
-Field Renamer
-~~~~~~~~~~~~~
+.. code-block:: json
 
-There are two different options to rename any fields in the record, namely a simple and rigid 1:1 field name mapping or a more
-flexible approach using regular expressions. Both config options are defined by inline JSON arrays containing objects which describe the renaming.
+   {
+     "forecast": [
+       { "day": "Monday",
+         "uv": 5
+       }
+     ],
+     "city": "Springfield",
+   }
 
-
-.. _field-renamer-mapping-example:
-
-Example 1
-^^^^^^^^^
-
-.. code-block:: properties
-
-   field.renamer.mapping=[{"oldName":"key.fieldA","newName":"field1"},{"oldName":"value.xyz","newName":"abc"}]
-
-Will:
-
-
-#. Rename field ``fieldA`` to ``field1`` in the **key document structure**
-#. Rename field ``xyz`` to ``abc`` in the **value document structure**
-
-.. _field-renamer-regex-example:
-
-Example 2
-^^^^^^^^^
+   
+The connector configuration also supports the ``**`` (double star)
+wildcard which matches the current and all nested levels from which it is
+specified.
 
 .. code-block:: properties
 
-   field.renamer.mapping=[{"regexp":"^key\\..*my.*$","pattern":"my","replace":""},{"regexp":"^value\\..*-.+$","pattern":"-","replace":"_"}]
+   [key|value].projection.type=blacklist
+   [key|value].projection.list=**.high
+   
+   {
+     "city": "Springfield",
+     "population: {
+       "qty": 30.7,
+       "scale": 1000,
+       "units": "people"
+     }
+   }
 
-These settings cause:
+.. _config-field-renaming:
 
-#. **All field names of the key structure containing 'my'** to be renamed so that **'my' is removed**
-#. **All field names of the value structure containing a '-'** to be renamed by replacing **'-' with '_'**
+Field Renaming Post Processors
+~~~~~~~~~~~~----------------~
 
-.. note::
+This section provides example configurations for the ``RenameByMapping``
+and ``RenameByRegex`` post processors to show how they update field names
+in a sink record. The field renaming parameters specify whether to update the
+``key`` or ``value`` document in the record using dot notation as well as
+the pattern to match and replacement string in a JSON array.
 
-   The use of the **"." character** as navigational operator in both examples.
-   It's used in order to refer to nested fields in subdocuments of the record
-   structure. The prefix at the very beginning is used as a simple convention
-   to distinguish between the *key* and *value* structure of a document.
+The field renaming post processor examples use the following sample sink
+record:
+
+**Key document**
+
+.. code-block:: json
+
+   {
+     "location": "Provence",
+     "date_month": "October",
+     "date_day": 17
+   }
+
+**Value document**
+
+.. code-block:: json
+
+   {
+     "flapjacks": {
+       "purchased": 598,
+       "size": "large"
+     }
+   }
+
+.. _field-renaming-mapping-example:
+
+RenameByMapping Example
+^^^^^^^^^^^^^^^^^^^^^^^
+
+The ``RenameByMapping`` post processor setting is an array of objects.
+Each object in the array contains the following JSON element keys:
+
+Each object contains the text to match in the ``oldName`` element and
+the replacement text in the ``newName`` element.
+
+.. list-table::
+   :header-rows: 1
+   :stub-columns: 1
+   :widths: 1,2
+
+   * - Key Name
+     - Description
+
+   * - oldName  
+     - Contains a string that matches on the text to replace.
+  
+   * - newName
+     - Contains the replacement text for all matches of the string defined
+       in the ``oldName`` field.
+
+.. code-block:: properties
+
+   field.renamer.mapping=[{"oldName":"key.location","newName":"city"},{"oldName":"value.flapjacks","newName":"crepes"}]
+
+The record contains the following data after applying the ``RenameByMapping``
+post processor:
+
+**Key document**
+
+.. code-block:: json
+   :emphasize-lines: 2
+
+   {
+     "city": "Provence",
+     "date_month": "October",
+     "date_day": 17
+   }
+
+**Value document**
+
+.. code-block:: json
+   :emphasize-lines: 2
+
+   {
+     "crepes": {
+       "purchased": 598,
+       "size": "large"
+     }
+   }
+
+.. _field-renaming-regex-example:
+
+RenameByRegex
+^^^^^^^^^^^^^
+
+The ``RenameByRegex`` post processor setting is an array of objects.
+Each object in the array contains the following JSON element keys:
+
+.. list-table::
+   :header-rows: 1
+   :stub-columns: 1
+   :widths: 1,2
+
+   * - Key Name
+     - Description
+
+   * - regexp
+     - Contains a regular expression that matches fields to perform the 
+       replacement.
+
+   * - pattern
+     - Contains a regular expression that matches on the text to replace.
+
+   * - newName
+     - Contains the replacement text for all matches of the regular expression
+       defined in the ``pattern`` field.
+
+
+.. code-block:: properties
+
+   field.renamer.mapping=[{"regexp":"^key\\.date.*$","pattern":"_","replace":"-"},{"regexp":"^value\\.crepes\\..*","pattern":"purchased","replace":"quantity"}]
+
+The record contains the following data after applying the ``RenameByMapping``
+post processor:
+
+**Key document**
+
+.. code-block:: json
+   :emphasize-lines: 3,4
+
+   {
+     "city": "Provence",
+     "date-month": "October",
+     "date-day": 17
+   }
+
+**Value document**
+
+.. code-block:: json
+   :emphasize-lines: 3
+
+   {
+     "crepes": {
+       "quantity": 598,
+       "size": "large"
+     }
+   }
+
+The post processor applied the following changes:
+
+* All field names in the key document of the sink record that started with
+  "date" are matched. In the matched fields, all instances of "_" are
+  replaced with "-".
+* All field names in the value document of the sink record that are
+  subdocuments of ``crepes`` are matched. In the matched fields, all
+  instances of "purchased" are replaced with "quantity".
+
+.. admonition:: Ensure renaming does not result in duplicate keys in the same document
+
+   The renaming post processors update the key fields of a JSON document
+   which can result in duplicate keys within a document. The renaming post
+   processor skips the renaming step if the replacement key already exists
+   at the current level.
 
 .. _custom-write-models:
 
 Custom Write Models
 -------------------
+
+TODO
 
 The default behaviour for the connector whenever documents are written to MongoDB collections is to make use of a proper
 `ReplaceOneModel <http://mongodb.github.io/mongo-java-driver/3.10/javadoc/com/mongodb/client/model/ReplaceOneModel.html>`_ with
@@ -437,6 +644,14 @@ strategies are implemented:
 
 Use Case 1: Employing Business Keys
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In this use case, we want to store records that are unique by the business
+key field
+but also want to generate new BSON ObjectIds for each document.
+
+identify records by a unique business key
+already assigned
+in the Kafka data, but
 
 Let's say you want to re-use a unique business key found in your sink
 records while at the same time have *BSON ObjectIds* created for
