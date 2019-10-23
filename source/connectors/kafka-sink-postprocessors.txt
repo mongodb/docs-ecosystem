@@ -447,7 +447,7 @@ specified.
 .. _config-field-renaming:
 
 Field Renaming Post Processors
-~~~~~~~~~~~~----------------~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This section provides example configurations for the ``RenameByMapping``
 and ``RenameByRegex`` post processors to show how they update field names
@@ -562,6 +562,7 @@ Each object in the array contains the following JSON element keys:
      - Contains the replacement text for all matches of the regular expression
        defined in the ``pattern`` field.
 
+Example
 
 .. code-block:: properties
 
@@ -605,9 +606,8 @@ The post processor applied the following changes:
 .. admonition:: Ensure renaming does not result in duplicate keys in the same document
 
    The renaming post processors update the key fields of a JSON document
-   which can result in duplicate keys within a document. The renaming post
-   processor skips the renaming step if the replacement key already exists
-   at the current level.
+   which can result in duplicate keys within a document. They skip the
+   renaming step if the replacement key already exists at the current level.
 
 .. _custom-write-models:
 
@@ -615,23 +615,15 @@ Custom Write Models
 -------------------
 
 A **write model** defines the behavior of bulk write operations made on a
-MongoDB collection.
-
-. The default write model for the connector is
+MongoDB collection. The default write model for the connector is
 :java-docs-latest:`ReplaceOneModel
-<javadoc/com/mongodb/client/model/ReplaceOneModel.html>` with `ReplaceOptions
-<https://mongodb.github.io/mongo-java-driver/3.11/javadoc/com/mongodb/client/model/ReplaceOptions.html>`
+<javadoc/com/mongodb/client/model/ReplaceOneModel.html>` with
+:java-docs-latest:`ReplaceOptions </javadoc/com/mongodb/client/model/ReplaceOptions.html>`
 set to upsert mode.
 
-``DocumentIdAdder`` is the default post processor which generates an
-ObjectId and appends the ``_id`` field to the value document if one does
-not already exist.
-``BsonOidStrategy`` is the default strategy for the ``DocumentIdAdder`` post
-processor.
-
-You can override the defaults specified above by specifying a custom write
-model in the ``mongodb.writemodel.strategy`` configuration setting. The
-following strategies are provided with the connector:
+You can override the default write model by specifying a custom one in the
+``mongodb.writemodel.strategy`` configuration setting. The following
+strategies are provided with the connector:
 
 .. list-table::
    :header-rows: 1
@@ -647,17 +639,19 @@ following strategies are provided with the connector:
    * - ReplaceOneBusinessKeyStrategy
      - | Replaces at most one document that matches filters provided by the ``document.id.strategy`` setting.
        | Set the following configuration: ``writemodel.strategy=com.mongodb.kafka.connect.sink.writemodel.strategy.ReplaceOneBusinessKeyStrategy``
-       | See :ref:`writemodel-strategy-business-key` for an example.
+
+       .. seealso:: Example of usage in :ref:`writemodel-strategy-business-key`.
 
    * - DeleteOneDefaultStrategy
      - | Deletes at most one document that contain null value sink records that matches the id specified by the ``document.id.strategy`` setting.
-       | Implicitly specified when the configuration setting ``mongodb.delete.on.null.values=true`` is set. 
+       | Implicitly specified when the configuration setting ``mongodb.delete.on.null.values=true`` is set.
        | You can set this explicitly with the following configuration: ``writemodel.strategy=com.mongodb.kafka.connect.sink.writemodel.strategy.DeleteOneDefaultStrategy``
 
    * - UpdateOneTimestampsStrategy
      - | Add ``_insertedTS`` (inserted timestamp) and ``_modifiedTS`` (modified timestamp) fields into documents.
        | Set the following configuration: ``writemodel.strategy=com.mongodb.kafka.connect.sink.writemodel.strategy.UpdateOneTimestampsStrategy``
-       | See :ref:`writemodel-strategy-timestamps` for an example.
+
+       .. seealso:: Example of usage in :ref:`writemodel-strategy-timestamps`.
 
 .. note::
 
@@ -669,24 +663,25 @@ following strategies are provided with the connector:
 WriteModel Strategy: Business Keys
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-A business key is a value composed of data within the sink record that 
+A business key is a value comprised of data within the sink record that
 identifies it as a unique document. This example shows how to define
-a business key using the data contained by multiple fields in the record as 
+a business key using the data contained by multiple fields in the record as
 well as instruct the post processor to generate *BSON ObjectIds* for
 inserts, but not for updates.
 
-The following steps are required to configure this strategy: 
+The following steps are required to configure this strategy:
 
 #. Create a **unique index** that corresponds to your business key in your
    target MongoDB collection.
-#. In the connector configuration, specify the ``PartialValueStrategy`` 
+#. In the connector configuration, specify the ``PartialValueStrategy``
    as the id strategy to identify the fields that belong to the business
    key.
-#. In the connector configuration, specify the 
+#. In the connector configuration, specify the
    ``ReplaceOneBusinessKeyStrategy`` writemodel strategy.
 
-Suppose the parking usage data was being tracked for city blocks, defined 
-by distinct values for ``street`` and ``avenue``.
+Suppose the parking usage data was being tracked for city blocks, defined
+by distinct values for ``street`` and ``avenue``. An example message
+contains the following:
 
 .. code-block:: json
 
@@ -698,9 +693,9 @@ by distinct values for ``street`` and ``avenue``.
        "occupied": 352
      }
    }
-     
-First, we create a unique index on the ``street`` and ``avenue`` fields in
-the MongoDB shell:
+
+In order to implement the strategy, we first create a unique index on the
+``street`` and ``avenue`` fields in the MongoDB shell:
 
 .. code-block:: shell
 
@@ -708,7 +703,8 @@ the MongoDB shell:
 
 Next, we specify the ``PartialValueStrategy`` strategy and fields to
 include in the business key and specify the
-``ReplaceOneBusinessKeyStrategy`` writemodel strategy.
+``ReplaceOneBusinessKeyStrategy`` writemodel strategy in the configuration
+file:
 
 .. code-block:: properties
 
@@ -717,8 +713,7 @@ include in the business key and specify the
    value.projection.type=whitelist
    writemodel.strategy=com.mongodb.kafka.connect.sink.writemodel.strategy.ReplaceOneBusinessKeyStrategy"
 
-After the sample data is inserted into a collection, it resembles the
-following:
+The sample data inserted into the collection contains the following:
 
 .. code-block:: json
    :emphasize-lines: 2
@@ -733,7 +728,7 @@ following:
      }
    }
 
-When the connector receives data that matches an existing document with
+When the connector processes sink data that matches an existing document with
 the same business key field values, it updates the document with the new
 values without changing the ``_id`` field.
 
@@ -761,29 +756,27 @@ documents that are upserted by the connector. The
 following tasks:
 
 * When a new MongoDB document is inserted into the collection by the
-  connector, the ``_insertedTS`` and ``_modifiedTS`` fields will be set to 
+  connector, the ``_insertedTS`` and ``_modifiedTS`` fields will be set to
   the current time.
 
 * When an existing MongoDB document is updated in the collection by the
   connector, the ``_modifiedTS`` field will be updated to the current
   time.
 
-This is set by specifying the ``UpdateOneTimestampsStrategy`` as follows:
+This is set by specifying the ``UpdateOneTimestampsStrategy`` in the
+configuration file as follows:
 
 .. code-block:: properties
 
    writemodel.strategy=com.mongodb.kafka.connect.sink.writemodel.strategy.UpdateOneTimestampsStrategy
 
-Suppose we wanted to track the position of a train along its route.
-The departure time would be measured by the ``_insertedTS`` field and 
+For this example, we want to track the position of a train along its
+route. The ``_insertedTS`` field provides us with the time and date that the
+first position report was saved into the collection. The ``_modifiedTS`` field
+provides us with the time and date that the most recent report was saved
+into the collection.
 
-the time and date of a record that represents
-the position of a train along its route. The record 
-
-If the first position reported
-and we would also know how long ago it last reported its position
-
-Given the following value record
+The position report includes the following data in the value document:
 
 .. code-block:: json
 
@@ -794,15 +787,18 @@ Given the following value record
      "position": [ 40.8051693, -73.9388079 ]
    }
 
-Together with the sink connector config which specifies the
-``UpdateOneTimestampsStrategy``:
+The writemodel strategy is set to ``UpdateOneTimestampsStrategy`` to
+append the created and modified timestamps and the document id strategy is
+set to ``ProvidedInValueStrategy`` to identify the train using the ``_id``
+field of the value document.
 
 .. code-block:: properties
 
    document.id.strategy=com.mongodb.kafka.connect.sink.processor.id.strategy.ProvidedInValueStrategy
    writemodel.strategy=com.mongodb.kafka.connect.sink.writemodel.strategy.UpdateOneTimestampsStrategy
 
-The MongoDB document created by the first message :
+The MongoDB document inserted after processing the initial message for the
+train includes the following data:
 
 .. code-block:: json
    :emphasize-lines: 3-4
@@ -816,8 +812,8 @@ The MongoDB document created by the first message :
      "position": [ 40.805, -73.939 ]
    }
 
-After the train reports its position along its route an hour later, the 
-updated document resembles the following:
+After an hour, the train reports its current location along its route. The
+``position`` and ``_insertedTS`` fields are updated:
 
 .. code-block:: json
    :emphasize-lines: 4,7
