@@ -815,7 +815,7 @@ train includes the following data:
    }
 
 After an hour, the train reports its current location along its route. The
-``position`` and ``_insertedTS`` fields are updated:
+``position`` and ``_modifiedTS`` fields are updated:
 
 .. code-block:: json
    :emphasize-lines: 4,7
