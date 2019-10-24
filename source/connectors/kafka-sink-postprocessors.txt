@@ -418,7 +418,8 @@ The record contains the following data after applying the projection:
 
    {
      "forecast": [
-       { "day": "Monday",
+       { 
+         "day": "Monday",
          "uv": 5
        }
      ],
@@ -643,7 +644,7 @@ strategies are provided with the connector:
        .. seealso:: Example of usage in :ref:`writemodel-strategy-business-key`.
 
    * - DeleteOneDefaultStrategy
-     - | Deletes at most one document that contain null value sink records that matches the id specified by the ``document.id.strategy`` setting.
+     - | Deletes at most one document that matches the id specified by the ``document.id.strategy`` setting, only when the document contains a null value record.
        | Implicitly specified when the configuration setting ``mongodb.delete.on.null.values=true`` is set.
        | You can set this explicitly with the following configuration: ``writemodel.strategy=com.mongodb.kafka.connect.sink.writemodel.strategy.DeleteOneDefaultStrategy``
 
@@ -664,24 +665,25 @@ WriteModel Strategy: Business Keys
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A business key is a value comprised of data within the sink record that
-identifies it as a unique document. This example shows how to define
-a business key using the data contained by multiple fields in the record as
-well as instruct the post processor to generate *BSON ObjectIds* for
-inserts, but not for updates.
+identifies it as a unique document. This example defines a business key
+using data contained within multiple fields in the record as well as
+instructs the post processor to generate *BSON ObjectIds* for inserts, 
+but not for updates.
 
 The following steps are required to configure this strategy:
 
-#. Create a **unique index** that corresponds to your business key in your
-   target MongoDB collection.
+#. Create a :manual:`unique index </core/index-unique>` that corresponds to 
+   your business key in your target MongoDB collection.
 #. In the connector configuration, specify the ``PartialValueStrategy``
    as the id strategy to identify the fields that belong to the business
    key.
 #. In the connector configuration, specify the
    ``ReplaceOneBusinessKeyStrategy`` writemodel strategy.
 
-Suppose the parking usage data was being tracked for city blocks, defined
-by distinct values for ``street`` and ``avenue``. An example message
-contains the following:
+For this example, In this example, we want to track the parking usage data
+for city blocks, defined by distinct values for ``street`` and ``avenue``
+which we use for the value of our business key. An example message contains 
+the following:
 
 .. code-block:: json
 
@@ -771,7 +773,7 @@ configuration file as follows:
    writemodel.strategy=com.mongodb.kafka.connect.sink.writemodel.strategy.UpdateOneTimestampsStrategy
 
 For this example, we want to track the position of a train along its
-route. The ``_insertedTS`` field provides us with the time and date that the
+route. The ``_modifiedTS`` field provides us with the time and date that the
 first position report was saved into the collection. The ``_modifiedTS`` field
 provides us with the time and date that the most recent report was saved
 into the collection.
