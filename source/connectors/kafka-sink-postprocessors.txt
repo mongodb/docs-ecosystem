@@ -1,4 +1,4 @@
-.kafka-sink-postprocessors
+.. _kafka-sink-postprocessors:
 
 ====================================
 Kafka Sink Connector Post-Processors
