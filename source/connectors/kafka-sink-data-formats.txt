@@ -9,7 +9,6 @@ Kafka Sink Connector Data Formats
 .. contents:: On this page
    :local:
    :backlinks: none
-
    :depth: 1
    :class: singlecol
 
