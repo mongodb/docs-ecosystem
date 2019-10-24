@@ -680,28 +680,27 @@ The following steps are required to configure this strategy:
 #. In the connector configuration, specify the
    ``ReplaceOneBusinessKeyStrategy`` writemodel strategy.
 
-For this example, In this example, we want to track the parking usage data
-for city blocks, defined by distinct values for ``street`` and ``avenue``
-which we use for the value of our business key. An example message contains 
-the following:
+For this example, we track airplane capacity by the flight number and
+airport it is currently located represented by ``flight_no`` and 
+``airport_code``, respectively. An example message contains the following:
 
 .. code-block:: json
 
    {
-     "street": "50th Street",
-     "avenue": "Broadway",
-     "parking_spaces": {
-       "capacity": 407,
-       "occupied": 352
+     "flight_no": "Z342",
+     "airport_code": "LAX",
+     "passengers": {
+       "capacity": 180,
+       "occupied": 152
      }
    }
 
 In order to implement the strategy, we first create a unique index on the
-``street`` and ``avenue`` fields in the MongoDB shell:
+``flight_no`` and ``airport_code`` fields in the MongoDB shell:
 
 .. code-block:: shell
 
-   db.collection.createIndex({ "street": 1, "avenue": 1}, { unique: true })
+   db.collection.createIndex({ "flight_no": 1, "airport_code": 1}, { unique: true })
 
 Next, we specify the ``PartialValueStrategy`` strategy and fields to
 include in the business key and specify the
@@ -711,7 +710,7 @@ file:
 .. code-block:: properties
 
    document.id.strategy=com.mongodb.kafka.connect.sink.processor.id.strategy.PartialValueStrategy
-   value.projection.list=street,avenue
+   value.projection.list=flight_no,airport_code
    value.projection.type=whitelist
    writemodel.strategy=com.mongodb.kafka.connect.sink.writemodel.strategy.ReplaceOneBusinessKeyStrategy"
 
@@ -722,11 +721,11 @@ The sample data inserted into the collection contains the following:
 
    {
      "_id": ObjectId('5db0b81199b7fbcc89631d06'),
-     "street": "50th Street",
-     "avenue": "Broadway",
-     "parking_spaces": {
-       "capacity": 407,
-       "occupied": 352
+     "flight_no": "Z342"
+     "airport_code": "LAX",
+     "passengers_spaces": {
+       "capacity": 180,
+       "occupied": 152
      }
    }
 
@@ -739,14 +738,26 @@ values without changing the ``_id`` field.
 
    {
      "_id": ObjectId('5db0b81199b7fbcc89631d06'),
-     "street": "50th Street",
-     "avenue": "Broadway",
-     "parking_spaces": {
-       "capacity": 407,
-       "occupied": 402
+     "flight_no": "Z342"
+     "airport_code": "LAX",
+     "passengers_spaces": {
+       "capacity": 180,
+       "occupied": 95
      }
    }
 
+.. admonition:: Projection post processors are not compatible with PartialValueStrategy 
+   :class: warning
+
+   The ``PartialValueStrategy`` id strategy uses the 
+   ``[key|value].projection.type`` and ``[key|value].projection.list``
+   settings to define which fields are used to form the ``_id`` field. 
+   Since the Blacklist and Whitelist post processors use the same
+   projection settings, they cannot be specified separately. Use a `Single
+   Message Transform (SMT)
+   <https://docs.confluent.io/current/connect/transforms/index.html>`_
+   outside the connector to format your source data as necessary. 
+   
 .. _writemodel-strategy-timestamps:
 
 WriteModel Strategy: Inserted and Modified Timestamps
@@ -774,9 +785,7 @@ configuration file as follows:
 
 For this example, we want to track the position of a train along its
 route. The ``_modifiedTS`` field provides us with the time and date that the
-first position report was saved into the collection. The ``_modifiedTS`` field
-provides us with the time and date that the most recent report was saved
-into the collection.
+first position report was saved into the collection.
 
 The position report includes the following data in the value document:
 
