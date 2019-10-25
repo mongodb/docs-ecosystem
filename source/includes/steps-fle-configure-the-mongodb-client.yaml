@@ -123,11 +123,10 @@ content: |
 
         .. code-block:: java
            :emphasize-lines: 2
-           
+
            final Map<String, Object> extraOptions = new HashMap<String, Object>() {{
              put("mongocryptdSpawnPath", "/usr/local/bin/mongocryptd");
            }};
-
 
         .. admonition:: Encryption Binary Daemon
            :class: note
