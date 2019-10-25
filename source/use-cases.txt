@@ -81,4 +81,4 @@ posts, and media, in MongoDB.
    :titlesonly:
    :hidden:
 
-   /use-cases/client-side-field-level-encryption
+   /use-cases/client-side-field-level-encryption-guide
