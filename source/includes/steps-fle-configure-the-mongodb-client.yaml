@@ -122,13 +122,12 @@ content: |
         :tabid: java-sync
 
         .. code-block:: java
-           :emphasize-lines: 3
+           :emphasize-lines: 2
+           
+           final Map<String, Object> extraOptions = new HashMap<String, Object>() {{
+             put("mongocryptdSpawnPath", "/usr/local/bin/mongocryptd");
+           }};
 
-           final Map<String, Object> extraOptions = new HashMap<String, Object>() {
-               {
-                   put("mongocryptdSpawnPath", "/usr/local/bin/mongocryptd");
-               }
-           };
 
         .. admonition:: Encryption Binary Daemon
            :class: note
