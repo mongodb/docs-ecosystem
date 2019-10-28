@@ -837,4 +837,3 @@ After an hour, the train reports its current location along its route. The
      "destination": "Grand Central"
      "position": [ 41.156, -73.870 ]
    }
-
