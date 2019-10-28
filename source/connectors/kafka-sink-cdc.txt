@@ -15,7 +15,7 @@ Kafka Sink Change Data Capture
 Change Data Capture Mode
 ------------------------
 
-Change data capture (CDC) is an architecture that converts changes to
+Change data capture (CDC) is an architecture that converts changes in
 a database into event streams. The MongoDB Kafka sink connector can
 process event streams using `Debezium <https://debezium.io/>`_ as an event
 producer for the following source databases:
