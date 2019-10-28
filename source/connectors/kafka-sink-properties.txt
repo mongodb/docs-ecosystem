@@ -201,7 +201,6 @@ data to sink to MongoDB. For an example configuration file, see
        | **Default**:  ``""``
        | **Accepted Values**: Accepted values specific to the overridden property
 
-
 .. _topic-specific-configuration:
 
 Topic-Specific Configuration Settings
