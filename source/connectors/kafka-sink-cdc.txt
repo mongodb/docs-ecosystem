@@ -40,10 +40,10 @@ To create a CDC handler, specify the following configuration information:
 - Topics on which the connector should listen for data in the ``topics``
   property.
 - MongoDB collection to write data to in the ``collection`` property.
-- The `converters </connectors/kafka-sink-data-formats>` required to
+- The `converters </connectors/kafka-sink-data-formats>`_ required to
   handle data formats in the ``[key|value].converter`` properties. Both
   JSON + Schema and AVRO formats are supported.
-- Any `post processors </connectors/kafka-sink-postprocessors>` necessary
+- Any `post processors </connectors/kafka-sink-postprocessors>`_ necessary
   to modify the record before saving it to MongoDB.
 
 The following sample JSON payload instantiates a new connector with
