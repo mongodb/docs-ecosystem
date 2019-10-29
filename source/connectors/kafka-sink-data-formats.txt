@@ -1,4 +1,4 @@
-.kafka-sink-data-formats
+.. _kafka-sink-data-formats:
 
 =================================
 Kafka Sink Connector Data Formats

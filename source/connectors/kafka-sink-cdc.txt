@@ -1,4 +1,4 @@
-.kafka-sink-cdc
+.. _kafka-sink-cdc:
 
 ==============================
 Kafka Sink Change Data Capture
