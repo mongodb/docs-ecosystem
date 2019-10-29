@@ -8,7 +8,7 @@ This guide provides an end-to-end setup of MongoDB and Kafka Connect to
 demonstrate the functionality of the MongoDB Kafka Source and Sink
 Connectors.
 
-In this example, we use the following data flows:
+In this example, we create the following Kafka Connectors:
 
 .. list-table::
    :header-rows: 1
@@ -35,25 +35,41 @@ Requirements
 TODO: should include requirements for different platforms
 * Docker 18.09+
 * Docker compose 1.24+
-* *nix system
+* Linux/Unix-based system
 
 How to Run the Example
 ----------------------
 
-To run the example: ``./run.sh`` which will:
+Clone the repository from GitHub:
 
-* Run ``docker-compose up`` 
-* Wait for MongoDB, Kafka, Kafka Connect to be ready
-* Register the Confluent Datagen Connector
-* Register the MongoDB Kafka Sink Connector
-* Register the MongoDB Kafka Source Connector
-* Publish some events to Kafka via the Datagen connector
-* Write the events to MongoDB  
-* Write the change stream messages back into Kafka
+.. code-block:: shell
 
-**Note:** The script expects to be run from within the ``docs`` directory and requires the whole project to be checked out / downloaded. 
+   git clone git@github.com:mongodb/mongo-kafka.git
 
-Once running, examine the topics in the Kafka control center: http://localhost:9021/
+Change directory to the ``docs`` directory
+
+.. code-block:: shell
+ 
+   cd mongo-kafka/docs/
+   
+Run the example with the included shell script:
+
+.. code-block:: shell
+   
+   ./run.sh
+
+The shell script executes the following:
+
+#. Runs the ``docker-compose up`` command
+#. Waits for MongoDB, Kafka, Kafka Connect to be ready
+#. Registers the Confluent Datagen Connector
+#. Registers the MongoDB Kafka Sink Connector
+#. Registers the MongoDB Kafka Source Connector
+#. Publishes some events to Kafka via the Datagen connector
+#. Writes the events to MongoDB  
+#. Writes the change stream messages back into Kafka
+
+Once running, open the Kafka control center web UI on http://localhost:9021/
 
 * The ``pageviews`` topic should contain the 10 simple documents added. Each similar to:
 
@@ -74,14 +90,20 @@ Once running, examine the topics in the Kafka control center: http://localhost:9
 
 Examine the collections in MongoDB:
 
-* In your shell run: docker-compose exec mongo1 /usr/bin/mongo
+* In your local shell, log into mongo1 through docker:
+
+  .. code-block:: shell
+
+     docker-compose exec mongo1 /usr/bin/mongo
+     
 * Adding, updating data in ``test.sink`` - will show up as change stream events in the ``mongo.test.sunk`` topic
 TODO: ^ why mongo.test.sunk? ^
 
 docker-compose.yml
 ------------------
 
-The following systems will be created:
+The following applications will be installed and started in the docker
+container:
 
 * Zookeeper
 * Kafka
