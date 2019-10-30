@@ -169,7 +169,7 @@ content: |
               client,
               CodecOptions(uuid_representation=STANDARD)
            )
-           data_key = client_encryption.create_data_key("aws")
+           data_key_id = client_encryption.create_data_key("aws")
 
 ---
 title: Update the JSON Schema

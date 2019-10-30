@@ -40,7 +40,7 @@ content: |
         :tabid: python
 
         .. code-block:: python
-           :emphasize-lines: 4
+           :emphasize-lines: 3
 
            path = "./master-key.txt"
            with open(path, "rb") as f:
@@ -204,15 +204,15 @@ content: |
 
 
            def create_data_encryption_key():
-               data_key = client_encryption.create_data_key("local")
-               uuid_data_key_id = UUID(bytes=data_key)
-               base_64_data_key_id = base64.b64encode(data_key)
+               data_key_id = client_encryption.create_data_key("local")
+               uuid_data_key_id = UUID(bytes=data_key_id)
+               base_64_data_key_id = base64.b64encode(data_key_id)
                print("DataKeyId [UUID]: ", str(uuid_data_key_id))
                print("DataKeyId [base64]: ", base_64_data_key_id)
-               return data_key
+               return data_key_id
 
 
-           data_key = create_data_encryption_key()
+           data_key_id = create_data_encryption_key()
 
 
   The ``_id`` field of the data encryption key is represented as a **UUID**
@@ -352,6 +352,7 @@ content: |
         :tabid: python
 
         .. code-block:: python
+           :emphasize-lines: 9,10
 
            from pprint import pprint
            connection_string = "mongodb://localhost:27017"
@@ -361,8 +362,8 @@ content: |
            client = MongoClient(connection_string)
            key_vault = client[key_vault_db][key_vault_coll]
 
-           # Pass in the data_key created in previous section
-           key = key_vault.find_one({"_id": data_key})
+           # Pass in the data_key_id created in previous section
+           key = key_vault.find_one({"_id": data_key_id})
            pprint(key)
 
 
