@@ -47,5 +47,5 @@ TODO: Descriptions and links to each section here.
      Sink Post-Processors </connectors/kafka-sink-postprocessors>
      Sink CDC </connectors/kafka-sink-cdc>
    Create a Source Connector </connectors/kafka-source>
-   Create a Docker Example </connectors/kafka-docker-example>
+   Kafka Docker Example </connectors/kafka-docker-example>
    Additional Resources </connectors/kafka-additional-resources>
