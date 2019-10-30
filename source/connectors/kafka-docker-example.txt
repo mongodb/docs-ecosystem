@@ -14,13 +14,15 @@ In this example, we create the following Kafka Connectors:
    :header-rows: 1
 
    * - Connector
-     - Origin
+     - Data Source
      - Destination
 
-   * - Datagen Connector: **datagen**
-     - TODO
-     - TODO
-       
+   * - Confluent Connector:
+       `Datagen <https://github.com/confluentinc/kafka-connect-datagen>`_
+     - `Avro random generator
+       <https://github.com/confluentinc/avro-random-generator>`_
+     - Kafka topic: pageviews
+
    * - Sink Connector: **mongo-sink**
      - Kafka topic: ``pageviews``
      - MongoDB collection: ``test.pageviews``
@@ -29,88 +31,175 @@ In this example, we create the following Kafka Connectors:
      - MongoDB collection: ``test.pageviews``
      - Kafka topic: ``mongo.test.pageviews``
 
+* The **Datagen Connector** creates random data using the 
+  **Avro random generator** and publishes it to the Kafka topic "pageviews".
+
+* The **mongo-sink** connector reads data from the "pageviews" topic and
+  writes it to MongoDB in the "test.pageviews" collection.
+
+* The **mongo-source** connector produces change events for the
+  "test.pageviews" collection and publishes them to the
+  "mongo.test.pageviews" collection.
+
 Requirements
 ------------
 
-TODO: should include requirements for different platforms
-* Docker 18.09+
-* Docker compose 1.24+
-* Linux/Unix-based system
+Linux/Unix-based OS
+~~~~~~~~~~~~~~~~~~~
+* Docker 18.09 or later
+* Docker Compose 1.24 or later
+
+MacOS
+~~~~~
+
+* `Docker Desktop Community Edition (Mac)
+  <https://docs.docker.com/docker-for-mac/install/>`_ 2.1.0.1 or later
+
+Windows
+~~~~~~~
+
+* `Docker Desktop Community Edition (Windows)
+  <https://docs.docker.com/docker-for-windows/install/>`_ 2.1.0.1 or later
 
 How to Run the Example
 ----------------------
 
-Clone the repository from GitHub:
+Clone the `mongo-kafka <https://github.com/mongodb/mongo-kafka>`_ repository
+from GitHub:
 
 .. code-block:: shell
 
    git clone git@github.com:mongodb/mongo-kafka.git
 
-Change directory to the ``docs`` directory
+Change directory to the ``docker`` directory
 
 .. code-block:: shell
- 
-   cd mongo-kafka/docs/
-   
-Run the example with the included shell script:
+
+   cd mongo-kafka/docker/
+
+Start the shell script, **run.sh**:
 
 .. code-block:: shell
-   
+
    ./run.sh
 
-The shell script executes the following:
+The shell script executes the following sequence of commands:
 
-#. Runs the ``docker-compose up`` command
-#. Waits for MongoDB, Kafka, Kafka Connect to be ready
-#. Registers the Confluent Datagen Connector
-#. Registers the MongoDB Kafka Sink Connector
-#. Registers the MongoDB Kafka Source Connector
-#. Publishes some events to Kafka via the Datagen connector
-#. Writes the events to MongoDB  
-#. Writes the change stream messages back into Kafka
+#. Run the ``docker-compose up`` command
 
-Once running, open the Kafka control center web UI on http://localhost:9021/
+   The ``docker-compose`` command installs and starts the following
+   applications in a new docker container:
 
-* The ``pageviews`` topic should contain the 10 simple documents added. Each similar to:
+   * Zookeeper
+   * Kafka
+   * Confluent Schema Registry
+   * Confluent Kafka Connect
+   * Confluent Control Center
+   * Confluent KSQL Server
+   * Kafka Rest Proxy
+   * Kafka Topics UI
+   * MongoDB replica set (three nodes: **mongo1**, **mongo2**, and
+     **mongo3**)
+
+#. Wait for MongoDB, Kafka, Kafka Connect to become ready
+#. Register the Confluent Datagen Connector
+#. Register the MongoDB Kafka Sink Connector
+#. Register the MongoDB Kafka Source Connector
+
+.. note::
+
+   You may need to increase the RAM resource limits for Docker if the script
+   fails. Use the `docker-compose stop <docker-compose-stop>` command to
+   stop any running instances of docker if the script did not complete
+   successfully.
+
+Once the services have been started by the shell script, the Datagen Connector
+publishes new events to Kafka at short intervals which triggers the
+following cycle:
+
+#. The Datagen Connector publishes new events to Kafka
+#. The Sink Connector writes the events into MongoDB
+#. The Source Connector writes the change stream messages back into Kafka
+
+To view the Kafka topics, open the Kafka Control Center at
+http://localhost:9021/ and navigate to the cluster topics.
+
+* The ``pageviews`` topic should contain documents added by the Datagen
+  Connector that resemble the following:
 
   .. code-block:: json
 
-     {"viewtime": {"$numberLong": "81"}, "pageid": "Page_1", "userid": "User_8"}
+     {
+       "viewtime": {
+         "$numberLong": "81"
+       },
+       "pageid": "Page_1",
+       "userid": "User_8"
+     }
 
-* The ``mongo.test.pageviews`` should contain the 10 change events. Each similar to:
+* The ``mongo.test.pageviews`` topic should contain change events that
+  resemble the following:
 
   .. code-block:: json
 
-      {"_id": {"_data": "<resumeToken>"}, 
-       "operationType": "insert", 
-       "clusterTime": {"$timestamp": {"t": 1563461814, "i": 4}}, 
-       "fullDocument": {"_id": {"$oid": "5d3088b6bafa7829964150f3"}, "viewtime": {"$numberLong": "81"}, "pageid": "Page_1", "userid": "User_8"}, 
-       "ns": {"db": "test", "coll": "pageviews"}, 
-       "documentKey": {"_id": {"$oid": "5d3088b6bafa7829964150f3"}}}
+     {
+       "_id": {
+         "_data": "<resumeToken>"
+       },
+       "operationType": "insert",
+       "clusterTime": {
+         "$timestamp": {
+           "t": 1563461814,
+           "i": 4
+         }
+       },
+       "fullDocument": {
+         "_id": {
+           "$oid": "5d3088b6bafa7829964150f3"
+         },
+         "viewtime": {
+           "$numberLong": "81"
+         },
+         "pageid": "Page_1",
+         "userid": "User_8"
+       },
+       "ns": {
+         "db": "test",
+         "coll": "pageviews"
+       },
+       "documentKey": {
+         "_id": {
+           "$oid": "5d3088b6bafa7829964150f3"
+         }
+       }
+     }
 
-Examine the collections in MongoDB:
+Next, explore the collection data in the MongoDB replica set:
 
-* In your local shell, log into mongo1 through docker:
+* In your local shell, navigate to the ``docker`` directory from which you
+  ran the ``docker-compose`` commands and connect to the `mongo1` MongoDB
+  instance using the following command:
 
   .. code-block:: shell
 
      docker-compose exec mongo1 /usr/bin/mongo
-     
-* Adding, updating data in ``test.sink`` - will show up as change stream events in the ``mongo.test.sunk`` topic
-TODO: ^ why mongo.test.sunk? ^
 
-docker-compose.yml
-------------------
+* If you insert or update a document in the ``test.pageviews``, the Source
+  Connector publishes a change event document to the
+  ``mongo.test.pageviews`` Kafka topic.
 
-The following applications will be installed and started in the docker
-container:
+.. _docker-compose-stop:
 
-* Zookeeper
-* Kafka
-* Confluent Schema Registry
-* Confluent Kafka Connect
-* Confluent Control Center
-* Confluent KSQL Server
-* Kafka Rest Proxy
-* Kafka Topics UI
-* MongoDB - a 3 node replicaset
+To stop the docker containers and all the processes running on them, use
+Ctrl-C in the shell running the script, or the following command:
+
+.. code-block:: shell
+
+   docker-compose stop
+
+To remove the docker containers and images completely, use the following
+command:
+
+.. code-block:: shell
+
+   docker-compose down
