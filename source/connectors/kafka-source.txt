@@ -16,11 +16,11 @@ The MongoDB Kafka Source Connector moves data from a MongoDB replica set
 into a Kafka cluster. The connector configures and consumes :manual:`change
 stream event documents </changeStreams>` and publishes them to a topic.
 
-Change streams, a feature introduced in MongoDB 3.6, generate real-time events
-that contain changes to data stored in MongoDB with guarantees of
-durability, security, and idempotency. You can configure change streams to
-observe changes at the **collection**, **database**, or **client** level. See
-`An Introduction to Change Streams
+Change streams, a feature introduced in MongoDB 3.6, generate event
+documents that contain changes to data stored in MongoDB in real-time and
+provide guarantees of durability, security, and idempotency. You can configure
+change streams to observe changes at the **collection**, **database**, or
+**deployment** level. See `An Introduction to Change Streams
 <https://www.mongodb.com/blog/post/an-introduction-to-change-streams>`_
 for more information.
 
@@ -32,7 +32,7 @@ Change Stream Event Document Format
 -----------------------------------
 
 A change stream event document contains several fields that describe the
-change.
+change:
 
 * The top-level ``_id`` field is used as the :manual:`resume token
   </changeStreams/#change-stream-resume>` which is
@@ -42,8 +42,7 @@ change.
   the change stream document. Possible values include: "insert", "update",
   "replace", "delete", "invalidate", "drop", "dropDatabase", and "rename".
 
-* The ``fullDocument`` field contains the following, depending on the
-  operation:
+* The ``fullDocument`` field contents depend on the operation as follows:
 
   - For insert and replace operations, it contains the new document being
     inserted or replacing the existing document.
@@ -55,8 +54,8 @@ change.
   that was updated or all the components of a shard key for sharded
   collections.
 
-* The ``txnNumber`` and ``lsid`` provide data describing the transaction
-  if the change occurred within one.
+* The ``txnNumber`` and ``lsid`` identify the transaction if the change
+  occurred within one.
 
 .. code-block:: json
 
@@ -90,10 +89,9 @@ change.
 Source Connector Configuration Properties
 -----------------------------------------
 
-This section lists the available configuration settings used to compose a
-properties file for the MongoDB Kafka Source Connector. The connector uses
-these settings to create change streams and customize the output to save
-to the Kafka cluster. For an example source connector configuration file, see
+The MongoDB Kafka Source Connector uses the following settings to create
+change streams and customize the output to save to the Kafka cluster. For
+an example source connector configuration file, see
 `MongoSourceConnector.properties
 <https://github.com/mongodb/mongo-kafka/blob/master/config/MongoSourceConnector.properties>`_.
 
@@ -113,13 +111,13 @@ to the Kafka cluster. For an example source connector configuration file, see
 
    * - database
      - string
-     - | Name of the database to watch. If not set, all databases are watched.
+     - | Name of the database to watch for changes. If not set, all databases are watched.
        | **Default**: ""
        | **Accepted Values**: A single database name
 
    * - collection
      - string
-     - | Name of the collection in the database to watch.
+     - | Name of the collection in the database to watch for changes.
        | The collection in the database to watch. If not set then all collections will be watched.
        | **Default**: ""
        | **Accepted Values**: A single collection name
@@ -238,7 +236,7 @@ setting:
 
    publish.full.document.only=true
 
-However, certain types of updates may not include a ``fullDocument``
+However, certain types of updates do not include a ``fullDocument``
 field. Therefore, the ``change.stream.full.document=updateLookup`` setting
 which will only publish events that contain a ``fullDocument`` field which
 contains a resume token. ??? TODO
@@ -257,7 +255,7 @@ and will only publish events that contain a ``fullDocument`` field.
 Custom Pipeline Example
 -----------------------
 
-We can use the ``pipeline`` configuration setting to define an
+You can use the ``pipeline`` configuration setting to define a custom
 :manual:`aggregation pipeline <reference/operator/aggregation-pipeline/>`
 to filter or modify the change events output. In this example, we set the
 ``pipeline`` configuration to observe only insert change events:
@@ -268,10 +266,9 @@ to filter or modify the change events output. In this example, we set the
 
 .. note::
 
-   MongoDB requires all change stream documents to include the top-level
-   ``_id`` field which it uses as a :manual:`resume token
+   Make sure the results of the aggregation pipeline contain the top-level
+   ``_id`` field which MongoDB uses as the :manual:`resume token
    </changeStreams/#change-stream-resume-token/>`.
-
 
 .. _topic-naming-example:
 
@@ -282,15 +279,14 @@ The MongoDB Kafka Source connector publishes the changed data events to
 a Kafka topic that consists of the database and collection name from which
 the change originated. For example, if an insert was performed on the
 ``test`` database and ``data`` collection, the connector will publish the
-data to a topic named: ``test.data``.
+data to a topic named ``test.data``.
 
-If the ``topic.prefix`` configuration is set, the Kafka topic name will be
-prepended with the specified value. For example:
+If the ``topic.prefix`` configuration is set to **true**, the Kafka topic
+name will be prepended with the specified value. For example:
 
 .. code-block:: properties
 
    topic.prefix=mongo
 
-With the configuration setting above, any data changes to the ``data``
-collection in the ``test`` database are published to a topic named
-``mongo.test.data``.
+Once set, any data changes to the ``data`` collection in the ``test`` database
+are published to a topic named ``mongo.test.data``.
