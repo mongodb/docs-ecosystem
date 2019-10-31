@@ -31,7 +31,7 @@ In this example, we create the following Kafka Connectors:
      - MongoDB collection: ``test.pageviews``
      - Kafka topic: ``mongo.test.pageviews``
 
-* The **Datagen Connector** creates random data using the 
+* The **Datagen Connector** creates random data using the
   **Avro random generator** and publishes it to the Kafka topic "pageviews".
 
 * The **mongo-sink** connector reads data from the "pageviews" topic and
@@ -46,8 +46,8 @@ Requirements
 
 Linux/Unix-based OS
 ~~~~~~~~~~~~~~~~~~~
-* Docker 18.09 or later
-* Docker Compose 1.24 or later
+* `Docker <https://docs.docker.com/install/#supported-platforms>`_ 18.09 or later
+* `Docker Compose <https://docs.docker.com/compose/install/>`_ 1.24 or later
 
 MacOS
 ~~~~~
@@ -69,7 +69,7 @@ from GitHub:
 
 .. code-block:: shell
 
-   git clone git@github.com:mongodb/mongo-kafka.git
+   git clone https://github.com/mongodb/mongo-kafka.git
 
 Change directory to the ``docker`` directory
 
