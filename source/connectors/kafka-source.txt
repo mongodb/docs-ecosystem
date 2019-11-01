@@ -223,33 +223,6 @@ an example source connector configuration file, see
         - Per referenced topic, the maximum size of an uncompressed message that can be appended to a
           topic.
 
-.. _full-document-example:
-
-Publish Changed Documents Only
-------------------------------
-
-We can set the source connector to publish only the ``fullDocument`` field
-rather than the entire change stream event document with the following
-setting:
-
-.. code-block:: properties
-
-   publish.full.document.only=true
-
-However, certain types of updates do not include a ``fullDocument``
-field. Therefore, the ``change.stream.full.document=updateLookup`` setting
-which will only publish events that contain a ``fullDocument`` field which
-contains a resume token. ??? TODO
-
-actual documents after inserts, replaces or updates.
-
-.. code-block:: properties
-
-   publish.full.document.only=true
-
-This will automatically configure ``change.stream.full.document=updateLookup``
-and will only publish events that contain a ``fullDocument`` field.
-
 .. _custom-pipeline-example:
 
 Custom Pipeline Example
