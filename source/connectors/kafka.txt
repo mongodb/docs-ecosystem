@@ -36,8 +36,8 @@ This guide is divided into the following topics:
 
    Install MongoDB Kafka Connector </connectors/kafka-installation>
    Migrate from Kafka Connect </connectors/kafka-connect-migration>
-   Create a Sink Connector </connectors/kafka-sink>
-   Create a Source Connector </connectors/kafka-source>
+   Sink Connector Guide </connectors/kafka-sink>
+   Source Connector Guide </connectors/kafka-source>
    Kafka Docker Example </connectors/kafka-docker-example>
 
 For questions or issues , visit our :community-support:`Community Support
