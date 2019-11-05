@@ -54,16 +54,16 @@ rst_epilog = '\n'.join([
     '.. |copy| unicode:: U+000A9',
     '.. |year| replace:: {0}'.format(datetime.date.today().year),
     '.. |ent-build| replace:: MongoDB Enterprise',
-    '.. |hardlink| replace:: http://docs.mongodb.com/ecosystem/',
+    '.. |hardlink| replace:: https://docs.mongodb.com/ecosystem/',
     '.. |atlas-full| replace:: MongoDB Atlas',
     '.. |atlas| replace:: Atlas'
 ])
 
 extlinks = {
     'issue': ('https://jira.mongodb.org/browse/%s', '' ),
-    'api': ('http://api.mongodb.com/%s', ''),
-    'manual': ('http://docs.mongodb.org/manual%s', ''),
-    'gettingstarted': ('http://docs.mongodb.org/getting-started%s', ''),
+    'api': ('https://api.mongodb.com/%s', ''),
+    'manual': ('https://docs.mongodb.org/manual%s', ''),
+    'gettingstarted': ('https://docs.mongodb.org/getting-started%s', ''),
     'atlas': ('https://docs.atlas.mongodb.com%s',''),
     'mms-docs': ('https://docs.cloud.mongodb.com%s', ''),
     'mms-home': ('https://cloud.mongodb.com%s', ''),
