@@ -15,39 +15,8 @@ Kafka Sink Connector Guide
 Apache Kafka uses a sink connector to consume records from a topic and
 save the data to a datastore.
 
-This guide [ TODO: explain the coverage of this guide ]
-
-MongoDB Persistence
--------------------
-
-The MongoDB Kafka Sink Connector reads Kafka records from one or more
-topics, converts them to BSON, and inserts them into the target MongoDB
-collection.
-
-Inserts are handled by the WriteModel specified by the write model strategy
-and can be either
-`ReplaceOneModel
-<http://mongodb.github.io/mongo-java-driver/3.10/javadoc/com/mongodb/client/model/ReplaceOneModel.html>`_
-
-or
-
-`UpdateOneModel
-<http://mongodb.github.io/mongo-java-driver/3.10/javadoc/com/mongodb/client/model/UpdateOneModel.html>`_
-
-
-will be used whenever inserts or updates are handled. Either model will perform
-an upsert if the data does not exist in the collection.
-
-If the connector is configured to process convention-based deletes, then when
-``null`` values for Kakfa records are discovered a `DeleteOneModel
-<http://mongodb.github.io/mongo-java-driver/3.10/javadoc/com/mongodb/client/model/DeleteOneModel.html>`_
-will be used.
-
-Data is written using the configured write concern level of the connection as
-specified in the `connection string
-<http://mongodb.github.io/mongo-java-driver/3.10/javadoc/com/mongodb/ConnectionString.html>`_.
-If the bulk write fails (totally or partially) errors are logged and a simple
-retry logic is in place.
+This section of the guide covers the configuration settings necessary to
+set up a Kafka Sink connector.
 
 .. toctree::
    :titlesonly:
