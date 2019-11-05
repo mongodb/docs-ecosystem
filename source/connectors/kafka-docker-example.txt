@@ -4,6 +4,14 @@
 MongoDB Kafka Connector Docker Example
 ======================================
 
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecols
+
 This guide provides an end-to-end setup of MongoDB and Kafka Connect to
 demonstrate the functionality of the MongoDB Kafka Source and Sink
 Connectors.

@@ -72,6 +72,7 @@ extlinks = {
     'kafka-21-javadoc': ('https://kafka.apache.org/21/javadoc/org/apache/kafka%s', ''),
     'aws-docs': ('https://docs.aws.amazon.com/%s', ''),
     'wikipedia': ('https://en.wikipedia.org/wiki/%s', ''),
+    'community-support': ('https://www.mongodb.com/community-support-resources%s', ''),
 }
 
 intersphinx_mapping = {}

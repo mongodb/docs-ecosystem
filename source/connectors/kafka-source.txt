@@ -125,9 +125,6 @@ an example source connector configuration file, see
    * - publish.full.document.only
      - boolean
      - | Only publish the changed document instead of the full change stream document. Sets the ``change.stream.full.document=updateLookup`` automatically so updated documents will be included.
-
-       .. seealso:: :ref:`Publish full document example <full-document-example>`
-
        | **Default**: false
        | **Accepted Values**: ``true`` or ``false``
 

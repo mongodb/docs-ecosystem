@@ -8,17 +8,11 @@ MongoDB Kafka Connector
 
 .. default-domain:: mongodb
 
-.. contents:: On this page
-   :local:
-   :backlinks: none
-   :depth: 1
-   :class: singlecol
-
 Introduction
 ------------
 
-`Apache Kafka <https://kafka.apache.org>`_ is a *distributed streaming 
-platform* that implements a publish-subscribe pattern to offer streams of 
+`Apache Kafka <https://kafka.apache.org>`_ is a *distributed streaming
+platform* that implements a publish-subscribe pattern to offer streams of
 data with a durable and scalable framework.
 
 The `Apache Kafka Connect API <https://www.confluent.io/connectors/>`_ is
@@ -33,19 +27,19 @@ topics as a data source. This guide provides information on available
 configuration options and examples to help you complete your
 implementation.
 
-TODO: Descriptions and links to each section here.
+This guide is divided into the following topics:
 
 .. toctree::
    :titlesonly:
+   :maxdepth: 1
    :hidden:
 
    Install MongoDB Kafka Connector </connectors/kafka-installation>
    Migrate from Kafka Connect </connectors/kafka-connect-migration>
    Create a Sink Connector </connectors/kafka-sink>
-     Sink Properties </connectors/kafka-sink-properties>
-     Sink Data Formats </connectors/kafka-sink-data-formats>
-     Sink Post-Processors </connectors/kafka-sink-postprocessors>
-     Sink CDC </connectors/kafka-sink-cdc>
    Create a Source Connector </connectors/kafka-source>
    Kafka Docker Example </connectors/kafka-docker-example>
-   Additional Resources </connectors/kafka-additional-resources>
+
+For questions or issues , visit our :community-support:`Community Support
+Resources </>`.
+

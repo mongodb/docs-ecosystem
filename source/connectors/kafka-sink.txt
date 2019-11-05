@@ -51,6 +51,7 @@ retry logic is in place.
 
 .. toctree::
    :titlesonly:
+   :hidden:
 
    Sink Configuration Properties </connectors/kafka-sink-properties>
    Sink Data Formats </connectors/kafka-sink-data-formats>
