@@ -32,13 +32,12 @@ This guide is divided into the following topics:
 .. toctree::
    :titlesonly:
    :maxdepth: 1
-   :hidden:
 
    Install MongoDB Kafka Connector </connectors/kafka-installation>
-   Migrate from Kafka Connect </connectors/kafka-connect-migration>
    Sink Connector Guide </connectors/kafka-sink>
    Source Connector Guide </connectors/kafka-source>
    Kafka Docker Example </connectors/kafka-docker-example>
+   Migrate from Kafka Connect </connectors/kafka-connect-migration>
 
 For questions or issues , visit our :community-support:`Community Support
 Resources </>`.
