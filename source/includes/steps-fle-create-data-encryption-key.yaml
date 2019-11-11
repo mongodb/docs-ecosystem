@@ -28,14 +28,10 @@ content: |
         :tabid: nodejs
 
         .. code-block:: javascript
-           :emphasize-lines: 5
+           :emphasize-lines: 2
 
            const path = './master-key.txt';
-           let localMasterKey;
-           fs.readFile(path, (err, data) => {
-             if (err) throw err;
-             localMasterKey = data;
-           });
+           const localMasterKey = fs.readFileSync(path);
      .. tab::
         :tabid: python
 
@@ -319,7 +315,7 @@ content: |
                  _id: base64KeyId,
                };
                const dataKey = await keyColl.findOne(query);
-               constole.log(dataKey);
+               console.log(dataKey);
              } finally {
                await client.close();
              }

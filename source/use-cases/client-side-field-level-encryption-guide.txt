@@ -272,7 +272,8 @@ To begin development, MedcoMD engineers generate a locally-managed master key:
 
       .. code-block:: javascript
 
-        const fs = require("fs");
+        const fs = require('fs');
+        const crypto = require('crypto');
 
         try {
           fs.writeFileSync('master-key.txt', crypto.randomBytes(96));
@@ -615,16 +616,15 @@ MedcoMD engineers write a function to create a new patient record:
          async function insertPatient(collection, name, ssn, bloodType, medicalRecords, policyNumber, provider) {
            try {
              const writeResult = await collection.insertOne({
-               name: name,
-               ssn: ssn,
-               bloodType: bloodType,
-               medicalRecords: medicalRecords,
+               name,
+               ssn,
+               bloodType,
+               medicalRecords,
                insurance: {
-                 policyNumber: policyNumber,
-                 provider: provider
+                 policyNumber,
+                 provider
                }
              });
-             console.log('writeResult:', writeResult);
            } catch (writeError) {
              console.error('writeError occurred:', writeError);
            }
