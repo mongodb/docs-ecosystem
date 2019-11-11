@@ -10,6 +10,7 @@ import re
 from collections import defaultdict
 from shutil import copyfile
 
+sys.path.append("..")
 from conf import extlinks
 
 doc_root = sys.argv[1]
