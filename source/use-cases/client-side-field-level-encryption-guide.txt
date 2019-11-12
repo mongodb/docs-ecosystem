@@ -255,14 +255,14 @@ To begin development, MedcoMD engineers generate a locally-managed master key:
         import java.security.SecureRandom;
 
         public class CreateMasterKeyFile {
-          public static void main(final String[] args) {
+          public static void main(String[] args) {
 
-            final byte[] localMasterKey = new byte[96];
+            byte[] localMasterKey = new byte[96];
             new SecureRandom().nextBytes(localMasterKey);
 
             try (FileOutputStream stream = new FileOutputStream("master-key.txt")) {
               stream.write(localMasterKey);
-            } catch (IOException e)  {
+            } catch (IOException e) {
               e.printStackTrace();
             }
           }
@@ -598,24 +598,27 @@ MedcoMD engineers write a function to create a new patient record:
 
       .. code-block:: java
 
-         public static void insertPatient(
+	       public static void insertPatient(
              MongoCollection collection,
              String name,
              int ssn,
              String bloodType,
-             ArrayList<Document> medicalRecords,
+		         ArrayList<Document> medicalRecords,
              int policyNumber,
              String provider
          ) {
+
+		         Document insurance = new Document()
+				         .append("policyNumber", policyNumber)
+				         .append("provider", provider);
+
              Document patient = new Document()
                  .append("name", name)
                  .append("ssn", ssn)
                  .append("bloodType", bloodType)
-                 .append("medicalRecords", medicalRecords);
-             Document insurance = new Document()
-                 .append("policyNumber", policyNumber)
-                 .append("provider", provider)
+                 .append("medicalRecords", medicalRecords)
                  .append("insurance", insurance);
+
              collection.insertOne(patient);
          }
    .. tab::
@@ -623,7 +626,7 @@ MedcoMD engineers write a function to create a new patient record:
 
       .. code-block:: javascript
 
-         function insertPatient(collection, name, ssn, bloodType, medicalRecords,  policyNumber, provider) {
+         function insertPatient(collection, name, ssn, bloodType, medicalRecords, policyNumber, provider) {
              collection.insertOne({
                 name: name,
                 ssn: ssn,

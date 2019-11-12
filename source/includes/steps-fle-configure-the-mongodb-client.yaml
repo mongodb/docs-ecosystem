@@ -40,12 +40,14 @@ content: |
         :tabid: java-sync
 
         .. code-block:: java
-           :emphasize-lines: 2,3
+           :emphasize-lines: 6 
+
+           Map<String, Object> keyMap = new HashMap<String, Object>() {{
+               put("key", localMasterKey);
+           }};
 
            Map<String, Map<String, Object>> kmsProviders = new HashMap<String, Map<String, Object>>() {{
-             put("local", new HashMap<String, Object>() {{
-               put("key", localMasterKey);
-             }});
+               put("local", keyMap);
            }};
      .. tab::
         :tabid: nodejs
@@ -124,7 +126,7 @@ content: |
         .. code-block:: java
            :emphasize-lines: 2
 
-           final Map<String, Object> extraOptions = new HashMap<String, Object>() {{
+           Map<String, Object> extraOptions = new HashMap<String, Object>() {{
              put("mongocryptdSpawnPath", "/usr/local/bin/mongocryptd");
            }};
 
