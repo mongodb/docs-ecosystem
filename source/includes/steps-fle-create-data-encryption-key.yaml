@@ -115,12 +115,12 @@ content: |
            String keyVaultNamespace = "encryption.__keyVault";
 
            ClientEncryptionSettings clientEncryptionSettings = ClientEncryptionSettings.builder()
-             .keyVaultMongoClientSettings(MongoClientSettings.builder()
-               .applyConnectionString(new ConnectionString(connectionString))
-               .build())
-             .keyVaultNamespace(keyVaultNamespace)
-             .kmsProviders(kmsProviders)
-             .build();
+               .keyVaultMongoClientSettings(MongoClientSettings.builder()
+                   .applyConnectionString(new ConnectionString(connectionString))
+                   .build())
+               .keyVaultNamespace(keyVaultNamespace)
+               .kmsProviders(kmsProviders)
+               .build();
 
            ClientEncryption clientEncryption = ClientEncryptions.create(clientEncryptionSettings);
            BsonBinary dataKeyId = clientEncryption.createDataKey(kmsProvider, new DataKeyOptions());
