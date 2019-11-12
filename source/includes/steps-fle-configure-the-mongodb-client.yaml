@@ -40,7 +40,7 @@ content: |
         :tabid: java-sync
 
         .. code-block:: java
-           :emphasize-lines: 6 
+           :emphasize-lines: 2,5
 
            Map<String, Object> keyMap = new HashMap<String, Object>();
            keyMap.put("key", localMasterKey);
