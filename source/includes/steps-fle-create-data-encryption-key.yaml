@@ -64,15 +64,13 @@ content: |
         for the ClientEncryptionSettings Builder.
 
         .. code-block:: java
-           :emphasize-lines: 6
+           :emphasize-lines: 2,5
 
-           Map<String, Object> keyMap = new HashMap<String, Object>() {{
-               put("key", localMasterKey);
-           }};
+           Map<String, Object> keyMap = new HashMap<String, Object>();
+           keyMap.put("key", localMasterKey);
 
-           Map<String, Map<String, Object>> kmsProviders = new HashMap<String, Map<String, Object>>() {{
-               put("local", keyMap);
-           }};
+           Map<String, Map<String, Object>> kmsProviders = new HashMap<String, Map<String, Object>>();
+           kmsProviders.put("local", keyMap);
      .. tab::
         :tabid: nodejs
 
