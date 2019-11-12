@@ -598,19 +598,19 @@ MedcoMD engineers write a function to create a new patient record:
 
       .. code-block:: java
 
-	       public static void insertPatient(
+         public static void insertPatient(
              MongoCollection collection,
              String name,
              int ssn,
              String bloodType,
-		         ArrayList<Document> medicalRecords,
+             ArrayList<Document> medicalRecords,
              int policyNumber,
              String provider
          ) {
 
-		         Document insurance = new Document()
-				         .append("policyNumber", policyNumber)
-				         .append("provider", provider);
+             Document insurance = new Document()
+                 .append("policyNumber", policyNumber)
+                 .append("provider", provider);
 
              Document patient = new Document()
                  .append("name", name)
