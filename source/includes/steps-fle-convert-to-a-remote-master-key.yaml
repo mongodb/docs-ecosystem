@@ -52,11 +52,11 @@ content: |
            final BsonString awsAccessKeyId = new BsonString("<IAM User Access Key ID>");
            final BsonString awsSecretAccessKey = new BsonString("<IAM User Secret Access Key>");
            Map<String, Map<String, Object>> kmsProviders = new HashMap<String, Map<String, Object>>() {{
-             put("aws", new HashMap<String, Object>() {{
-               put("region", masterKeyRegion);
-               put("accessKeyId", awsAccessKeyId);
-               put("secretAccessKey", awsSecretAccessKey);
-             }});
+               put("aws", new HashMap<String, Object>() {{
+                   put("region", masterKeyRegion);
+                   put("accessKeyId", awsAccessKeyId);
+                   put("secretAccessKey", awsSecretAccessKey);
+               }});
            }};
      .. tab::
         :tabid: nodejs
@@ -113,8 +113,8 @@ content: |
            final BsonString masterKeyRegion = new BsonString("<Master Key AWS Region>"); // e.g. "us-east-2"
            final BsonString masterKeyArn = new BsonString("<Master Key ARN>"); // e.g. "arn:aws:kms:us-east-2:111122223333:alias/test-key"
            DataKeyOptions dataKeyOptions = new DataKeyOptions().masterKey(new BsonDocument() {{
-             put("region", masterKeyRegion);
-             put("key", masterKeyArn);
+               put("region", masterKeyRegion);
+               put("key", masterKeyArn);
            }})
 
            BsonBinary dataKeyId = clientEncryption.createDataKey("aws", dataKeyOptions);
