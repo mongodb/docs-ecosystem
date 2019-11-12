@@ -68,7 +68,7 @@ Community Supported Drivers Reference
     
 - Elixir
 
-  - `MongoDB driver for Elixir <https://github.com/zookzook/elixir-mongodb-driver>`_ - An alternative Mongodb driver for Elixir.
+  - `mongodb_driver <https://github.com/zookzook/elixir-mongodb-driver>`_ - An alternative Mongodb driver for Elixir.
     
   - `Elixir Driver <https://github.com/ericmj/mongodb>`_ - MongoDB
     driver in Elixir, a functional language built on top of the Erlang VM.
