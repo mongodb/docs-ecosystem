@@ -87,7 +87,7 @@ content: |
            :emphasize-lines: 2
 
            HashMap<String, BsonDocument> schemaMap = new HashMap<String, BsonDocument>() {{
-             put("medicalRecords.patients", BsonDocument.parse(jsonSchema));
+               put("medicalRecords.patients", BsonDocument.parse(jsonSchema));
            }}
      .. tab::
         :tabid: nodejs
@@ -125,7 +125,7 @@ content: |
            :emphasize-lines: 2
 
            Map<String, Object> extraOptions = new HashMap<String, Object>() {{
-             put("mongocryptdSpawnPath", "/usr/local/bin/mongocryptd");
+               put("mongocryptdSpawnPath", "/usr/local/bin/mongocryptd");
            }};
 
         .. admonition:: Encryption Binary Daemon

@@ -192,7 +192,7 @@ content: |
 
            client = MongoClient(connection_string)
            client_encryption = ClientEncryption(
-               kms_providers,  # pass in the kms_providers variable from  the previous step
+               kms_providers, # pass in the kms_providers variable from the previous step
                key_vault_namespace,
                client,
                CodecOptions(uuid_representation=STANDARD)
@@ -337,7 +337,7 @@ content: |
                _bsontype: 'Binary',
                sub_type: 0,
                position: 160,
-               buffer: <Buffer f1 4a 9f bd aa ac c9 89 e9 b3 da 48 72 8e a8 62 97 2a 4a a0 d2 d4 2d a8 f0 74 9c 16 4d  2c 95 34 19 22 05 05 84 0e 41 42 12 1e e3 b5 f0 b1 c5 a8 37 b8 ... 110 more bytes>
+               buffer: <Buffer f1 4a 9f bd aa ac c9 89 e9 b3 da 48 72 8e a8 62 97 2a 4a a0 d2 d4 2d a8 f0 74 9c 16 4d 2c 95 34 19 22 05 05 84 0e 41 42 12 1e e3 b5 f0 b1 c5 a8 37 b8 ... 110 more bytes>
              },
              creationDate: 2019-09-25T22:22:54.017Z,
              updateDate: 2019-09-25T22:22:54.017Z,
