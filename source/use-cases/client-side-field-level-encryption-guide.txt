@@ -181,8 +181,21 @@ Additional Dependencies
    .. tab::
       :tabid: java-sync
 
-      No additional dependencies are required for the Java driver.
+      .. list-table::
+         :header-rows: 1
 
+         * - Dependency Name
+           - Description
+
+         * - `JDK 8 or later
+             <https://www.oracle.com/technetwork/java/javase/downloads/index.html>`_
+           - While the current driver is compatible with older versions of
+             the JDK, the CSFLE feature is only compatible with JDK 8
+             and later.
+
+         * - :java-docs-latest:`libmongocrypt <driver/tutorials/client-side-encryption/>`
+           - The `libmongocrypt` library contains bindings to communicate
+             with the process that manages the encryption.
    .. tab::
       :tabid: nodejs
 
