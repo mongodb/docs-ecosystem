@@ -49,17 +49,6 @@ namespace WorkingWithMongoDB
             };
 
             var client = new MongoClient(settingObjectOnlySettings);
-            
-            // just doing a quick read + insert to verify the usability of this connection
-            var database = client.GetDatabase("test");
-            var collection = database.GetCollection<BsonDocument>("stuff");
-            
-            var allItemsInCollection = await collection.Find(new BsonDocument()).ToListAsync();
-            Console.WriteLine(allItemsInCollection.Count);
-
-            var entity = new BsonDocument {{ "count", allItemsInCollection.Count } };
-            collection.InsertOne(entity);
-            Console.WriteLine("wrote " + entity + " to DB");
         }
     }
 }

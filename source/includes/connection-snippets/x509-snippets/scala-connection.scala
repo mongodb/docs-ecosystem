@@ -28,19 +28,5 @@ object MongoDBx509 extends App {
       .build();
 
    val client : MongoClient = MongoClient(settings);
-
-   val db : MongoDatabase = client.getDatabase("test")
-   val collection : MongoCollection[org.mongodb.scala.bson.collection.mutable.Document] = db.getCollection("stuff")
-   val doc = org.mongodb.scala.bson.collection.mutable.Document("scalatest" -> BsonString("OK"))
-   val insertObservable = collection.insertOne(doc)
-
-   insertObservable.subscribe(new Observer[Completed] {
-      override def onNext(result: Completed): Unit = println(s"onNext: $result")
-      override def onError(e: Throwable): Unit = println(s"onError: $e")
-      override def onComplete(): Unit = println("onComplete")
-   })
-
-   // print post-insert _id field
-   println(doc)
 }
 // end x509 connection

@@ -20,20 +20,10 @@ int main(int, char**) {
 
   mongocxx::options::client client_opts{};
   client_opts.ssl_opts(ssl_opts);
-
-  mongocxx::uri uri("mongodb://CN%3DChris%2COU%3DTestClientCertificateOrgUnit%2CO%3DEducationClientCertificate%2CL%3DTestClientCertificateLocality%2CST%3DTestClientCertificateState%2CC%3DUS@localmongo1/?authMechanism=MONGODB-X509&ssl=true");
+  string subject = "mongodb://<your_subject>";
+  string uri = "@localmongo1/?authMechanism=MONGODB-X509&ssl=true";
+  mongocxx::uri uri(subject + uri);
 
   auto client = mongocxx::client{uri, client_opts};
-  bsoncxx::builder::stream::document document{};
-
-  auto collection = client["test"]["stuff"];
-  document << "hello-cxx" << "world";
-
-  collection.insert_one(document.view());
-  auto cursor = collection.find({});
-
-  for (auto&& doc : cursor) {
-    std::cout << bsoncxx::to_json(doc) << std::endl;
-  }
 }
 // end x509 connection

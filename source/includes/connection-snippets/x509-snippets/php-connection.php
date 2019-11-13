@@ -10,9 +10,6 @@ $manager = new MongoDB\Driver\Manager(
     "ca_file" => "/Users/<user>/dev/drivers/certs/v3/test-ca.pem",
   ]
 );
-$bulk = new MongoDB\Driver\BulkWrite;
-$bulk->insert(['phptest' => 'ok']);
-$manager->executeBulkWrite('test.stuff', $bulk);
 ?>
 
 <!-- End x509 connection -->

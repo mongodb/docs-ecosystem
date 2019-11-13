@@ -23,24 +23,14 @@ public class MyDemo {
         System.setProperty("javax.net.ssl.keyStorePassword", "<pass>");
 
         try {
-
-            MongoCredential credential = MongoCredential.createMongoX509Credential(
-                    "CN=ChrisChoClient,OU=TestClientCertificateOrgUnit,O=TestClientCertificateOrg,L=TestClientCertificateLocality,ST=TestClientCertificateState,C=US");
+            String subject = "<your_subject>"; // CN=ChrisChoClient,OU=TestClientCertificateOrgUnit,O=TestClientCertificateOrg,L=TestClientCertificateLocality,ST=TestClientCertificateState,C=US
+            MongoCredential credential = MongoCredential.createMongoX509Credential(subject);
 
             MongoClientSettings settings = MongoClientSettings.builder().credential(credential)
                     .applyToClusterSettings(builder -> builder.hosts(Arrays.asList(new ServerAddress("localmongo1"))))
                     .applyToSslSettings(builder -> builder.enabled(true)).build();
 
             MongoClient client = MongoClients.create(settings);
-
-            MongoIterable<String> listDatabaseNames = client.listDatabaseNames();
-
-            for (String s : listDatabaseNames) {
-                System.out.println(s);
-            }
-
-            client.getDatabase("test").getCollection("stuff").insertOne(new Document("javatest", "OK!"));
-
             client.close();
         } catch (Exception e) {
             System.out.println(e);

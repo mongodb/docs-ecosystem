@@ -15,27 +15,6 @@ const client = new MongoClient(`mongodb://localmongo1:27017?authMechanism=MONGOD
 });
 
 client.connect(function(err, db) {
-
-  var dbo = db.db("test");
-
-  dbo.collection('stuff').insertMany([
-    {
-      item: 'pizza',
-      qty: 25,
-      tags: ['pepperoni', 'tomato', 'dough'],
-    },
-    {
-      item: 'shortrib',
-      qty: 85,
-      tags: ['beef'],
-    }
-  ], function(err, res) {
-    if (err) throw err;
-    console.log("docs successfully inserted into node-data");
-    db.close();
-  });
-
-
   client.close();
 });
 // end x509 connection

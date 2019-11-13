@@ -10,12 +10,6 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-type Trainer struct {
-    Name string
-    Age  int
-    City string
-}
-
 func main() {
 	ctx := context.TODO()
 	caFilePath := "ca.pem"
@@ -29,14 +23,6 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	collection := client.Database("test").Collection("stuff")
-	rec := Trainer{"A", 10, "Town"}
-	insertResult, err := collection.InsertOne(context.TODO(), rec)
-	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Println("Inserted a single document: ", insertResult.InsertedID)
 	
 	defer client.Disconnect(ctx)
 

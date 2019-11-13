@@ -13,14 +13,6 @@ begin
                             )
 
   puts Thread.current.backtrace
-
-  db = client.database[:test]
-  collection = client[:stuff]
-
-  doc = { name: 'Ruby', hobbies: [ 'hiking', 'tennis', 'fly fishing' ] }
-
-  result = collection.insert_one(doc)
-  puts result.n
 rescue StandardError => e
   puts e.backtrace
 end

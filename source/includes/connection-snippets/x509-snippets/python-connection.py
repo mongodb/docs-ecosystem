@@ -9,7 +9,4 @@ client = MongoClient(uri,
                         ssl_cert_reqs=ssl.CERT_REQUIRED,
                         ssl_ca_certs='/Users/ccho/dev/drivers/certs/v3/test-ca.pem')
 
-db = client['test']
-x = db['stuff'].insert_one({ "pythontest": "success!" })
-print(x.inserted_id)
 # end x509 connection
