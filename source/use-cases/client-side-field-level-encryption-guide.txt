@@ -354,12 +354,14 @@ locally-managed master key.
 C. Define a JSON Schema
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-`JSON Schema <http://json-schema.org/>`_ is a vocabulary that allows you
-to annotate and validate JSON documents. MongoDB drivers use an extended
-version of the JSON Schema standard to configure automatic client-side
-encryption and decryption of specific fields of the documents in a
-collection. The extended MongoDB CSFLE standard requires the following
-information:
+In this section, MedcoMD engineers configure the fields that the client
+automatically encrypts and decrypts using JSON Schema.
+`JSON Schema <http://json-schema.org/>`_, a vocabulary
+that allows you to annotate and validate JSON documents.
+MongoDB drivers use an extended version of the JSON Schema standard to
+configure automatic client-side encryption and decryption of specific fields
+of the documents in a collection. The extended MongoDB CSFLE standard requires
+the following information:
 
 - The encryption algorithm to use when encrypting each field
   (:manual:`Deterministic Encryption
@@ -372,8 +374,8 @@ information:
 - The BSON Type of each field (only required for deterministically
   encrypted fields)
 
-.. admonition::Automatic Client-Side Field Level Encryption JSON Schema Does Not Support Document Validation
-   :important:
+.. admonition:: Automatic Client-Side Field Level Encryption JSON Schema Does Not Support Document Validation
+   :class: important:
 
    MongoDB drivers only use JSON Schema syntax to configure automatic
    client-side field level encryption and support *only* field-level
@@ -381,6 +383,14 @@ information:
    JSON Schema Syntax </reference/security-client-side-automatic-json-schema/>`.
    Any other document validation instances will cause the client to throw
    an error.
+
+.. note::
+
+   You can prevent clients that are not configured with the appropriate
+   client-side JSON Schema from writing unencrypted data to a field by
+   using server-side document validation. For server-side document validation
+   implementation details, see :manual:`Enforce Field Level Encryption Schema
+   </core/security-client-side-encryption/#enforce-field-level-encryption-schema>`.
 
 The MedcoMD engineers receive specific requirements for the fields of
 data and their encryption strategies. The following table illustrates
