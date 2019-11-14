@@ -16,41 +16,19 @@ using System.Security.Cryptography.X509Certificates;
 using System.Security.Cryptography;
 using System.Security.Permissions;
 
-namespace WorkingWithMongoDB
+var settingObjectOnlySettings = new MongoClientSettings 
 {
-    public class Entity
+    Credential =  MongoCredential.CreateMongoX509Credential(null),
+    SslSettings = new SslSettings
     {
-        public ObjectId Id { get; set; }
-        public string Name { get; set; }
-    }
-    class Program
-    {
-        static void Main(string[] args)
+        ClientCertificates = new List<X509Certificate>()
         {
-            MainAsync().Wait();
-            Console.WriteLine("done");
-        }
+            new X509Certificate2("client-certificate.pfx", "<your password>")
+        },
+    },
+    UseTls = true,
+    Server = new MongoServerAddress("localmongo1", 27017),
+    AllowInsecureTls = true // for testing using self-signed certs, use this option to skip validation. DO NOT USE THIS OPTION FOR PRODUCTION USES
 
-        static async Task MainAsync()
-        {
-            var settingObjectOnlySettings = new MongoClientSettings 
-            {
-                Credential =  MongoCredential.CreateMongoX509Credential(null),
-                SslSettings = new SslSettings
-                {
-                    ClientCertificates = new List<X509Certificate>()
-                    {
-                        new X509Certificate2("client-certificate.pfx", "password")
-                    },
-                },
-                UseTls = true,
-                Server = new MongoServerAddress("localmongo1", 27017),
-                AllowInsecureTls = true // for testing using self-signed certs, use this option to skip validation. DO NOT USE THIS OPTION FOR PRODUCTION USES
-            };
-
-            var client = new MongoClient(settingObjectOnlySettings);
-        }
-    }
-}
-
+var client = new MongoClient(settingObjectOnlySettings);
 // end x509 connection
