@@ -6,9 +6,9 @@ begin
                              ['localmongo1:27017'],
                              auth_mech: :mongodb_x509,
                              ssl: true,
-                             ssl_cert:    '/Users/<user>/dev/x509-driver-snippets/certs/test-client.pem',
-                             ssl_key:    '/Users/<user>/dev/x509-driver-snippets/certs/test-client.pem',
-                             ssl_ca_cert: '/Users/<user>/dev/x509-driver-snippets/certs/test-ca.pem',
+                             ssl_cert: '/etc/certs/mongodb/client.pem',
+                             ssl_key: '/etc/certs/mongodb/client.pem',
+                             ssl_ca_cert: '/etc/certs/mongodb/ca.pem',
 
                             )
 
@@ -16,5 +16,4 @@ begin
 rescue StandardError => e
   puts e.backtrace
 end
-
 # end x509 connection
