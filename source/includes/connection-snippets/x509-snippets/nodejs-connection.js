@@ -10,7 +10,7 @@ const client = new MongoClient(`mongodb://localhost:27017?authMechanism=MONGODB-
     useNewUrlParser: true,
     sslCA: ca,
     sslKey: key,
-    sslCert: cert,
+    sslCert: cert
 });
 
 client.connect(function(err, db) {
