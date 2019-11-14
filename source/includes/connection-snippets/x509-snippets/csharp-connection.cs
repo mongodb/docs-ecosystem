@@ -16,19 +16,15 @@ using System.Security.Cryptography.X509Certificates;
 using System.Security.Cryptography;
 using System.Security.Permissions;
 
-var settingObjectOnlySettings = new MongoClientSettings 
-{
-    Credential =  MongoCredential.CreateMongoX509Credential(null),
-    SslSettings = new SslSettings
-    {
-        ClientCertificates = new List<X509Certificate>()
-        {
-            new X509Certificate2("client-certificate.pfx", "<your password>")
-        },
+var settingObjectOnlySettings = new MongoClientSettings {
+  Credential = MongoCredential.CreateMongoX509Credential(null),
+   SslSettings = new SslSettings {
+    ClientCertificates = new List < X509Certificate > () {
+     new X509Certificate2("client-certificate.pfx", "<your password>")
     },
-    UseTls = true,
-    Server = new MongoServerAddress("localmongo1", 27017),
-    AllowInsecureTls = true // for testing using self-signed certs, use this option to skip validation. DO NOT USE THIS OPTION FOR PRODUCTION USES
+   },
+   UseTls = true,
+   Server = new MongoServerAddress("localhost", 27017)
 
-var client = new MongoClient(settingObjectOnlySettings);
-// end x509 connection
+  var client = new MongoClient(settingObjectOnlySettings);
+  // end x509 connection
