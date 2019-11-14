@@ -1,6 +1,4 @@
 # begin x509 connection
-use strict;
-
 use IO::Socket::SSL;
 use MongoDB;
  
