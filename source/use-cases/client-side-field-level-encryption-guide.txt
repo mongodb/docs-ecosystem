@@ -195,7 +195,7 @@ Additional Dependencies
 
          * - :java-docs-latest:`libmongocrypt <driver/tutorials/client-side-encryption/>`
            - The `libmongocrypt` library contains bindings to communicate
-             with the process that manages the encryption.
+             with the native library that manages the encryption.
    .. tab::
       :tabid: nodejs
 
