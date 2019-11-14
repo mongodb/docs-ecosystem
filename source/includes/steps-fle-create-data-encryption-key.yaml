@@ -19,8 +19,6 @@ content: |
 
            try (FileInputStream fis = new FileInputStream(path)) {
                fis.readNBytes(localMasterKey, 0, 96);
-           } catch (Exception e) {
-               e.printStackTrace();
            }
         .. note::
 
