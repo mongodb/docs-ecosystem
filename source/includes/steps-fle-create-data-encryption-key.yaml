@@ -22,6 +22,14 @@ content: |
            } catch (Exception e) {
                e.printStackTrace();
            }
+        .. note::
+
+           The `FileInputStream#readNBytes <https://docs.oracle.com/javase/9/docs/api/java/io/InputStream.html#readNBytes-byte:A-int-int->`_
+           method was introduced in Java 9. The helper method is used in
+           this guide to keep the implementation concise. If you are using
+           JDK 8, you may consider
+           `implementing a custom solution <https://stackoverflow.com/questions/858980/file-to-byte-in-java>`_
+           to read a file into a byte array.
      .. tab::
         :tabid: nodejs
 
