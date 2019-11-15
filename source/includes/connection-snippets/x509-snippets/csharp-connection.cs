@@ -16,7 +16,8 @@ using System.Security.Cryptography.X509Certificates;
 using System.Security.Cryptography;
 using System.Security.Permissions;
 
-var settingObjectOnlySettings = new MongoClientSettings {
+var settingObjectOnlySettings = new MongoClientSettings 
+{
   Credential = MongoCredential.CreateMongoX509Credential(null),
    SslSettings = new SslSettings {
     ClientCertificates = new List < X509Certificate > () {
@@ -25,6 +26,10 @@ var settingObjectOnlySettings = new MongoClientSettings {
    },
    UseTls = true,
    Server = new MongoServerAddress("localhost", 27017)
+}
+var client = new MongoClient(settingObjectOnlySettings);
 
-  var client = new MongoClient(settingObjectOnlySettings);
   // end x509 connection
+
+
+  
