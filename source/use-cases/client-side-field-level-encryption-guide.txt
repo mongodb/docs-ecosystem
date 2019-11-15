@@ -394,7 +394,6 @@ standard requires the following information:
    see :manual:`Enforce Field Level Encryption Schema
    </core/security-client-side-encryption/#enforce-field-level-encryption-schema>`.
 
-
 The MedcoMD engineers receive specific requirements for the fields of
 data and their encryption strategies. The following table illustrates
 the data model of the Medco Management System.
@@ -475,8 +474,6 @@ upon deterministic encryption based on the following properties:
         }
     }
 
-
-
 Blood Type
 ++++++++++
 
@@ -495,7 +492,6 @@ random encryption based on the following properties:
             "algorithm": "AEAD_AES_256_CBC_HMAC_SHA_512-Random"
         }
     }
-
 
 Medical Records
 +++++++++++++++
@@ -544,7 +540,6 @@ decide upon deterministic encryption based on the following properties:
         }
     }
 
-
 Recap
 +++++
 
@@ -552,7 +547,6 @@ MedcoMD engineers created a JSON Schema that satisfies their
 requirements of making sensitive data queryable and secure. View the
 full `JSON Schema for the Medco Medical Management System
 <https://raw.githubusercontent.com/mongodb/docs-assets/DOCSP-json-schema-helper-and-json/MedcoMDSchema.json>`_.
-
 
 .. tabs-drivers::
 
@@ -712,7 +706,6 @@ unencrypted:
             "policyNumber": 123142
         }
     }
-
 
 .. note::
 
