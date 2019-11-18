@@ -39,7 +39,7 @@ namespace WorkingWithMongoDB
                 {
                     ClientCertificates = new List<X509Certificate>()
                     {
-                        new X509Certificate2("/etc/certs/mongodb/client-certificate.pfx", "<your_password>")
+                        new X509Certificate2("/etc/certs/mongodb/client-certificate.pfx", "<pfx_passphrase>")
                     },
                 },
                 UseTls = true,
