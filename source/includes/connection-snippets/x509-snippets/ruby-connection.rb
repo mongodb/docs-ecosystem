@@ -9,7 +9,6 @@ client = Mongo::Client.new(
   ssl_cert: '/etc/certs/mongodb/client.pem',
   ssl_key: '/etc/certs/mongodb/client.pem',
   ssl_ca_cert: '/etc/certs/mongodb/ca.pem',
-
 )
 
 puts Thread.current.backtrace
