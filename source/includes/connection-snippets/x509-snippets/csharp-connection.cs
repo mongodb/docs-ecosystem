@@ -51,6 +51,3 @@ namespace WorkingWithMongoDB
     }
 }
 // end x509 connection
-
-
-  
