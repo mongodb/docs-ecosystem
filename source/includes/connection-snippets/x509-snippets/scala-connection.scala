@@ -14,7 +14,7 @@ object MongoDBx509 extends App {
    System.setProperty("javax.net.ssl.keyStore", "client.keystore");
    System.setProperty("javax.net.ssl.keyStorePassword", "<your_password>");
 
-   // null value will force mongoDB server to use DN from cert
+   // null value will force mongoDB server to use Subject from cert
    val credential = MongoCredential.createMongoX509Credential(null);
 
    val settings = MongoClientSettings.builder()
