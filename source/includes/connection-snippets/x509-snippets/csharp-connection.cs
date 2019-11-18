@@ -17,11 +17,6 @@ using System.Security.Permissions;
 
 namespace WorkingWithMongoDB
 {
-    public class Entity
-    {
-        public ObjectId Id { get; set; }
-        public string Name { get; set; }
-    }
     class Program
     {
         static void Main(string[] args)
