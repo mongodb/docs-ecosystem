@@ -7,20 +7,27 @@ import org.mongodb.scala.bson.collection.mutable.Document
 import org.mongodb.scala.bson.BsonString
 import com.mongodb.client.model.FindOneAndUpdateOptions
 
-System.setProperty("javax.net.ssl.trustStore", "client.truststore");
-System.setProperty("javax.net.ssl.trustStorePassword", "<your_password>");
-System.setProperty("javax.net.ssl.keyStore", "client.keystore");
-System.setProperty("javax.net.ssl.keyStorePassword", "<your_password>");
+object MongoDBx509 extends App {
+   System.setProperty("javax.net.ssl.trustStore","client.truststore");
+   System.setProperty("javax.net.ssl.trustStorePassword","<your_password>");
 
-val credential = MongoCredential.createMongoX509Credential(null);
-val settings = MongoClientSettings
-  .builder()
-  .credential(credential)
-  .applyToClusterSettings(
-    (builder: ClusterSettings.Builder) =>
-      builder.hosts(List(new ServerAddress("localhost", 27017)).asJava)
-  )
-  .applyToSslSettings((builder: SslSettings.Builder) => builder.enabled(true))
-  .build();
-val client: MongoClient = MongoClient(settings);
+   System.setProperty("javax.net.ssl.keyStore", "client.keystore");
+   System.setProperty("javax.net.ssl.keyStorePassword", "<your_password>");
+
+   // null value will force mongoDB server to use DN from cert
+   val credential = MongoCredential.createMongoX509Credential(null);
+
+   val settings = MongoClientSettings.builder()
+      .credential(credential)
+      .applyToClusterSettings(
+         (builder: ClusterSettings.Builder)
+         => builder.hosts(List(new ServerAddress("<cluster-url>")).asJava))
+      .applyToSslSettings(
+         (builder : SslSettings.Builder)
+         => builder.enabled(true))
+      .build();
+
+   val client : MongoClient = MongoClient(settings);
+   val db : MongoDatabase = client.getDatabase("test")
+}
 // end x509 connection

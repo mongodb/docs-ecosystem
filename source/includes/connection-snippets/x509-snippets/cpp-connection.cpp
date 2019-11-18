@@ -8,17 +8,18 @@
 #include <mongocxx/options/client.hpp>
 #include <mongocxx/options/ssl.hpp>
 
-mongocxx::instance inst {};
-mongocxx::options::ssl ssl_opts {};
-ssl_opts.ca_file("/etc/certs/mongodb/ca.pem");
-ssl_opts.pem_file("/etc/certs/mongodb/client.pem");
-mongocxx::options::client client_opts {};
-client_opts.ssl_opts(ssl_opts);
-string subject = "mongodb://<your_subject>"; // mongodb://CN%3DChris%2COU%3DTestClientCertificateOrgUnit%2CO%3DEducationClientCertificate%2CL%3DTestClientCertificateLocality%2CST%3DTestClientCertificateState%2CC%3DUS
-string uri = "@localhost/?authMechanism=MONGODB-X509&ssl=true";
-mongocxx::uri uri(subject + uri);
-auto client = mongocxx::client {
-  uri,
-  client_opts
-};
+int main(int, char**) {
+  mongocxx::instance inst{};
+
+  mongocxx::options::ssl ssl_opts{};
+  ssl_opts.ca_file("/etc/certs/mongodb/ca.pem");
+  ssl_opts.pem_file("/etc/certs/mongodb/client.pem");
+
+  mongocxx::options::client client_opts{};
+  client_opts.ssl_opts(ssl_opts);
+
+  mongocxx::uri uri("mongodb+srv://<your-x509-client-subject>@<cluster-url>/?authMechanism=MONGODB-X509&ssl=true");
+
+  auto client = mongocxx::client{uri, client_opts};
+}
 // end x509 connection

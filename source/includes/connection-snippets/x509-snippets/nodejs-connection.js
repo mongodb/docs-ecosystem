@@ -6,7 +6,7 @@ const cert = fs.readFileSync("/etc/certs/mongodb/client.pem");
 const key = fs.readFileSync("/etc/certs/mongodb/client.pem");
 const ca = fs.readFileSync("/etc/certs/mongodb/ca.pem");
 
-const client = new MongoClient(`mongodb://localhost:27017?authMechanism=MONGODB-X509&ssl=true`, {
+const client = new MongoClient(`mongodb+srv://<cluster-url>?authMechanism=MONGODB-X509&ssl=true`, {
     useNewUrlParser: true,
     sslCA: ca,
     sslKey: key,
