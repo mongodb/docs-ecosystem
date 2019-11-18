@@ -1,4 +1,3 @@
-
 // begin x509 connection
 import java.util.Arrays;
 import org.bson.Document;
