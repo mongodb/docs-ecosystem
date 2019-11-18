@@ -12,7 +12,7 @@ main (int argc, char *argv[])
    const mongoc_ssl_opt_t *ssl_default = mongoc_ssl_opt_get_default ();
    mongoc_ssl_opt_t ssl_opts = { 0 };
 
-   memcpy (&ssl_opts, ssl_default, sizeof ssl_opts);
+   memcpy(&ssl_opts, ssl_default, sizeof ssl_opts);
 
    ssl_opts.pem_file = "/etc/certs/mongodb/client.pem";
    ssl_opts.ca_file = "/etc/certs/mongodb/ca.pem";
