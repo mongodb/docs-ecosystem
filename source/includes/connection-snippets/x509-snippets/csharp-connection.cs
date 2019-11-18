@@ -32,7 +32,7 @@ namespace WorkingWithMongoDB
 
         static async Task MainAsync()
         {
-            var settingObjectOnlySettings = new MongoClientSettings 
+            var settings = new MongoClientSettings 
             {
                 Credential =  MongoCredential.CreateMongoX509Credential(null),
                 SslSettings = new SslSettings
@@ -46,7 +46,7 @@ namespace WorkingWithMongoDB
                 Server = new MongoServerAddress("<cluster-url>")
             };
 
-            var client = new MongoClient(settingObjectOnlySettings);
+            var client = new MongoClient(settings);
         }
     }
 }
