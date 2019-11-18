@@ -11,8 +11,5 @@ client = Mongo::Client.new(
   ssl_ca_cert: '/etc/certs/mongodb/ca.pem',
 )
 
-puts Thread.current.backtrace
-rescue StandardError => e
-puts e.backtrace
 end
 # end x509 connection
