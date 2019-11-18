@@ -28,6 +28,5 @@ object MongoDBx509 extends App {
       .build();
 
    val client : MongoClient = MongoClient(settings);
-   val db : MongoDatabase = client.getDatabase("test")
 }
 // end x509 connection

@@ -14,7 +14,6 @@ const client = new MongoClient(`mongodb+srv://<cluster-url>?authMechanism=MONGOD
 });
 
 client.connect(function(err, db) {
-    const collection = client.db("test").collection("devices");
     // perform actions on the collection object
     client.close();
 });

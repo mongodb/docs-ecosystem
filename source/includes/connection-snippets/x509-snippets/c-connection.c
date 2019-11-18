@@ -21,10 +21,8 @@ main (int argc, char *argv[])
 
    client = mongoc_client_new ("mongodb+srv://<your-x509-client-subject>@<cluster-url>/?authMechanism=MONGODB-X509");
    mongoc_client_set_ssl_opts (client, &ssl_opts);
-   database = mongoc_client_get_database (client, "test");
 
    mongoc_client_destroy (client);
-   mongoc_database_destroy (database);
    mongoc_cleanup ();
 
    return EXIT_SUCCESS;
