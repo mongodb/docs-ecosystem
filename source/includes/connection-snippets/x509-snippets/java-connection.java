@@ -19,7 +19,7 @@ public class X509Connection {
         System.setProperty("javax.net.ssl.keyStorePassword", "<your_password>");
 
         try {
-            String subject = "<your_subject>"; // CN=ChrisChoClient,OU=TestClientCertificateOrgUnit,O=TestClientCertificateOrg,L=TestClientCertificateLocality,ST=TestClientCertificateStateC=US
+            String subject = "<your_subject>"; // x509 client certificate subject
             MongoCredential credential = MongoCredential.createMongoX509Credential(subject);
 
             MongoClientSettings settings = MongoClientSettings.builder().credential(credential)
