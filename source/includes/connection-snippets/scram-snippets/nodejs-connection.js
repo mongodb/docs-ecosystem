@@ -1,10 +1,20 @@
 // begin scram connection
-const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://<username>:<password>@<your-cluster-url>/test?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-  client.close();
-});
+const { MongoClient } = require('mongodb');
+
+const client = new MongoClient(
+  'mongodb+srv://<username>:<password>@<your-cluster-url>/test?retryWrites=true&w=majority'
+);
+
+async function run() {
+  try {
+    await client.connect();
+    
+    // perform actions using client
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+
+run().catch(console.dir);
 // end scram connection

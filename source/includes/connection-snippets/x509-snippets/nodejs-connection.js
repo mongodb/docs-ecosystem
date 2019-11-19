@@ -11,7 +11,7 @@ const client = new MongoClient('mongodb+srv://<cluster-url>?authMechanism=MONGOD
 async function run() {
   try {
     await client.connect();
-    // perform actions on the collection object
+    // perform actions using client
   } finally {
     // Ensures that the client will close when you finish/error
     await client.close();
