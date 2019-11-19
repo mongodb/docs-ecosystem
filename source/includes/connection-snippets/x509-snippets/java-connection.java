@@ -12,9 +12,6 @@ public class X509Connection {
 
     public static void main(String args[]) {
 
-        System.setProperty("javax.net.ssl.trustStore", "/etc/certs/mongodb/v3/client.truststore");
-        System.setProperty("javax.net.ssl.trustStorePassword", "<your_password>");
-
         System.setProperty("javax.net.ssl.keyStore", "/etc/certs/mongodb/v3/client.keystore");
         System.setProperty("javax.net.ssl.keyStorePassword", "<your_password>");
 
