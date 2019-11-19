@@ -8,8 +8,6 @@ import org.mongodb.scala.bson.BsonString
 import com.mongodb.client.model.FindOneAndUpdateOptions
 
 object MongoDBx509 extends App {
-   System.setProperty("javax.net.ssl.trustStore","client.truststore");
-   System.setProperty("javax.net.ssl.trustStorePassword","<your_password>");
 
    System.setProperty("javax.net.ssl.keyStore", "client.keystore");
    System.setProperty("javax.net.ssl.keyStorePassword", "<your_password>");
