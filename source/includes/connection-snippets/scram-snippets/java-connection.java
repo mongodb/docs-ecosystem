@@ -1,4 +1,3 @@
-
 // begin scram connection
 import com.mongodb.ConnectionString;
 import com.mongodb.client.MongoClients;
@@ -8,7 +7,7 @@ import com.mongodb.MongoClientSettings;
 
 // ...
 ConnectionString connString = new ConnectionString(
-    "mongodb+srv://<username>:<password>@<cluster-address>/test?w=majority"
+    "mongodb+srv://<username>:<password>@<cluster-address>/test?retryWrites=true&w=majority"
 );
 MongoClientSettings settings = MongoClientSettings.builder()
     .applyConnectionString(connString)
