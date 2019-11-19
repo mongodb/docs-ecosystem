@@ -2,7 +2,7 @@
 const { MongoClient } = require('mongodb');
 
 const client = new MongoClient(
-  'mongodb+srv://<username>:<password>@<your-cluster-url>/test?retryWrites=true&w=majority'
+  'mongodb+srv://<username>:<password>@<cluster-url>/test?retryWrites=true&w=majority'
 );
 
 async function run() {

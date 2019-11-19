@@ -3,7 +3,7 @@ require 'mongo'
 
 begin
   client = Mongo::Client.new(
-    ['localmongo1:27017'],
+    ['<cluster-url>'],
     auth_mech. mongodb_x509,
     ssl: true,
     ssl_cert: '/etc/certs/mongodb/client.pem',
