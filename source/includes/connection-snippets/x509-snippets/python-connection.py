@@ -1,7 +1,6 @@
 #begin x509 connection
-import ssl
-from pymongo
-import MongoClient
+import ssl 
+from pymongo import MongoClient
 
 uri = "mongodb+srv://<cluster-url>/?authMechanism=MONGODB-X509"
 client = MongoClient(uri,
