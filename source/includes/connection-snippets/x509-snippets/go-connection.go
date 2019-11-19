@@ -21,9 +21,9 @@ func main() {
 	caFilePath := "/etc/certs/mongodb/ca.pem"
 	certificateKeyFilePath := "/etc/certs/mongodb/client.pem"
 
-	uri := "mongodb+srv://<your-x509-client-subject>@<cluster-url>/?tlsCAFile=%s&tlsCertificateKeyFile=%s&authMechanism=MONGODB-X509"
+	uri := "mongodb+srv://<cluster-url>/?tlsCAFile=%s&tlsCertificateKeyFile=%s&authMechanism=MONGODB-X509"
 	uri = fmt.Sprintf(uri, caFilePath, certificateKeyFilePath)
-	clientOpts := options.Client().ApplyURI(uri).SetServerSelectionTimeout(2 * time.Second)
+	clientOpts := options.Client().ApplyURI(uri)
 
 	client, err := mongo.Connect(ctx, clientOpts)
 	if err != nil { log.Fatal(err) }
