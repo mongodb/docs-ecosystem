@@ -1,4 +1,3 @@
-
 // begin x509 connection
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
