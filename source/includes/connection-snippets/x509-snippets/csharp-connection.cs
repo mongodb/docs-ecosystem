@@ -20,7 +20,7 @@ namespace WorkingWithMongoDB
 
         static async Task MainAsync()
         {
-            var connectionString = "mongodb+srv://<cluster-url>/test?retryWrites=true&w=majority&authMechanism=MONGODB-X509";
+            var connectionString = "mongodb+srv://<cluster-url>/test?authSource=$externalretryWrites=true&w=majority&authMechanism=MONGODB-X509";
             var settings = MongoClientSettings.FromConnectionString(connectionString);
 
             // You will need to convert your Atlas-provided PEM containing the cert/private keys into a PFX
