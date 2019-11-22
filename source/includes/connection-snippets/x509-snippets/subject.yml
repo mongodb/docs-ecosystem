@@ -1,0 +1,4 @@
+subject= C=US,ST=New York,L=New York City,O=MongoDB,OU=DevEd.Client,CN=localhost
+
+
+db.getSiblingDB("$external").runCommand({createUser: 'moe_hun_app', roles: [{ role: "readWrite", db: "test" }, { role: "userAdminAnyDatabase", db: "admin" }], writeConcern: { w: "majority" , wtimeout: 5000 }})
