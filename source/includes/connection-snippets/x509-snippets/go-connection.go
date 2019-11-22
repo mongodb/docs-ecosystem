@@ -9,24 +9,21 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-type Trainer struct {
-    Name string
-    Age  int
-    City string
-}
-
 func main() {
 	ctx := context.TODO()
-	caFilePath := "/etc/certs/mongodb/ca.pem"
 	certificateKeyFilePath := "/etc/certs/mongodb/client.pem"
-
-	uri := "mongodb+srv://<cluster-url>/?tlsCAFile=%s&tlsCertificateKeyFile=%s&authMechanism=MONGODB-X509"
-	uri = fmt.Sprintf(uri, caFilePath, certificateKeyFilePath)
+	uri := "mongodb+srv://<cluster-url>/test?authSource=$external&tlsCertificateKeyFile=%s&authMechanism=MONGODB-X509"
+	uri = fmt.Sprintf(uri, certificateKeyFilePath)
 	clientOpts := options.Client().ApplyURI(uri)
 
 	client, err := mongo.Connect(ctx, clientOpts)
 	if err != nil { log.Fatal(err) }
-	defer client.Disconnect(ctx)
 
+
+	collection := client.Database("testDB").Collection("testCol")
+	docCount, err := collection.CountDocuments(ctx, nil, nil )
+	fmt.Println(docCount)
+
+	defer client.Disconnect(ctx)
 }
 // end x509 connection
