@@ -1,19 +1,13 @@
 // begin x509 connection
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
-using System.Net.Security;
-
 using MongoDB.Bson;
 using MongoDB.Driver;
-using MongoDB.Driver.Core;
 using System;
+using System.IO;
 using System.Threading.Tasks;
-
+using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
-using System.Security.Cryptography;
-using System.Security.Permissions;
+
+// Tested using MongoDB.Driver 2.9.2 and netcoreapp 2.2
 
 namespace WorkingWithMongoDB
 {
@@ -22,26 +16,35 @@ namespace WorkingWithMongoDB
         static void Main(string[] args)
         {
             MainAsync().Wait();
-            Console.WriteLine("done");
         }
 
         static async Task MainAsync()
         {
-            var settings = new MongoClientSettings 
+            var connectionString = "mongodb+srv://<cluster-url>/test?retryWrites=true&w=majority&authMechanism=MONGODB-X509";
+            var settings = MongoClientSettings.FromConnectionString(connectionString);
+
+            // You will need to convert your Atlas-provided PEM containing the cert/private keys into a PFX
+            // use openssl and the following line to create a PFX from your PEM:
+            // openssl pkcs12 -export -in <x509>.pem -inkey <x509>.pem -out <x509>.pfx -certfile <x509>.pem
+            // and provide a password, which should match the second argument you pass to X509Certificate2
+            var cert = new X509Certificate2("/etc/certs/mongodb/client-certificate.pfx", "<pfx_passphrase>");
+
+            settings.SslSettings = new SslSettings
             {
-                Credential =  MongoCredential.CreateMongoX509Credential(null),
-                SslSettings = new SslSettings
+                ClientCertificates = new List<X509Certificate>()
                 {
-                    ClientCertificates = new List<X509Certificate>()
-                    {
-                        new X509Certificate2("/etc/certs/mongodb/client-certificate.pfx", "<pfx_passphrase>")
-                    },
-                },
-                UseTls = true,
-                Server = new MongoServerAddress("<cluster-url>")
+                    cert
+                }
             };
 
             var client = new MongoClient(settings);
+            
+            // just doing a quick read to verify the usability of this connection
+            var database = client.GetDatabase("testDB");
+            var collection = database.GetCollection<BsonDocument>("testCol");
+            
+            var docCount = collection.CountDocuments("{}");
+            Console.WriteLine(docCount);
         }
     }
 }
