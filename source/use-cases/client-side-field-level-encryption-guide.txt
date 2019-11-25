@@ -328,6 +328,7 @@ data encryption key:
 Follow the steps below to generate a single data encryption key from the
 locally-managed master key.
 
+
 .. tabs-drivers::
    :hidden: true
 
@@ -580,9 +581,172 @@ full `JSON Schema for the Medco Medical Management System
 D. Create the MongoDB Client
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The MedcoMD engineers now have the necessary encyption keys and JSON
-Schema configuration to create a CSFLE-enabled client. They use the
-following procedure to configure and instantiate the MongoDB client:
+The MedcoMD engineers now have the JSON Schema and encryption keys
+necessary to create a CSFLE-enabled MongoDB client.
+
+They build the client to communicate with a MongoDB cluster and perform
+actions such as securely reading and writing documents with encrypted fields.
+
+About the Mongocryptd Application
++++++++++++++++++++++++++++++++++
+
+The MongoDB client communicates with a separate encryption application called
+``mongocryptd`` which automates the client-side field level encryption.
+This application is installed with `MongoDB Enterprise Server (version 4.2
+and later) <https://www.mongodb.com/download-center/enterprise>`_.
+
+When we create a CSFLE-enabled MongoDB client, the ``mongocryptd``
+process is automatically started by default, and handles the following
+responsibilities:
+
+- Validates the encryption instructions defined in the JSON Schema
+  and flags the referenced fields for encryption in read and write
+  operations.
+- Prevents unsupported operations from being executed on encrypted fields.
+
+When the ``mongocryptd`` process is started with the client driver, you
+can provide configurable parameters including:
+
+.. tabs-drivers::
+   :hidden: true
+
+   .. tab::
+      :tabid: java-sync
+
+      .. list-table::
+         :header-rows: 1
+         :stub-columns: 1
+
+         * - Name
+           - Description
+
+         * - port
+           - | Listening port.
+             | Specify this value in the ``AutoEncryptionSettings`` as follows:
+
+             .. example::
+
+                .. code-block:: java
+                   :emphasize-lines: 2,5,9
+
+                   List<String> spawnArgs = new ArrayList<String>();
+                   spawnArgs.add("--port=30000");
+
+                   Map<String, Object> extraOpts = new HashMap<String, Object>();
+                   extraOpts.put("mongocryptdSpawnArgs", spawnArgs);
+
+                   AutoEncryptionSettings autoEncryptionSettings = AutoEncryptionSettings.builder()
+                       ...
+                       .extraOptions(extraOpts);
+
+             | **Default**: ``27020``
+
+         * - idleShutdownTimeoutSecs
+           - | Number of idle seconds in which the ``mongocryptd`` process should wait before exiting.
+             | Specify this value in the ``AutoEncryptionSettings`` as follows:
+
+             .. example::
+
+                .. code-block:: java
+                   :emphasize-lines: 2,5,9
+
+                   List<String> spawnArgs = new ArrayList<String>();
+                   spawnArgs.add("--idleShutdownTimeoutSecs=60");
+
+                   Map<String, Object> extraOpts = new HashMap<String, Object>();
+                   extraOpts.put("mongocryptdSpawnArgs", spawnArgs);
+
+                   AutoEncryptionSettings autoEncryptionSettings = AutoEncryptionSettings.builder()
+                       ...
+                       .extraOptions(extraOpts);
+
+             | TODO: THIS DOES NOT WORK, BUT SHOULD!
+             | **Default**: ``60``
+   .. tab::
+      :tabid: nodejs
+
+      .. list-table::
+         :header-rows: 1
+         :stub-columns: 1
+
+         * - Name
+           - Description
+
+         * - port
+           - | Listening port.
+             | Specify this value as follows:
+
+             .. example::
+
+                .. code-block:: javascript
+                   :emphasize-lines: 4
+
+                   autoEncryption: {
+                     ...
+                     extraOptions: {
+                       mongocryptdSpawnArgs: ["--port=30000"]
+                     }
+
+             | **Default**: ``27020``
+
+         * - idleShutdownTimeoutSecs
+           - | Number of idle seconds in which the ``mongocryptd`` process should wait before exiting.
+             | Specify this value as follows:
+
+             .. example::
+
+                .. code-block:: javascript
+                   :emphasize-lines: 4
+
+                   autoEncryption: {
+                     ...
+                     extraOptions: {
+                       mongocryptdSpawnArgs: ["--idleShutdownTimeoutSecs=75"]
+                     }
+
+             | **Default**: ``60``
+   .. tab::
+      :tabid: python
+
+      .. list-table::
+         :header-rows: 1
+         :stub-columns: 1
+
+         * - Name
+           - Description
+
+         * - port
+           - | Listening port.
+             | Specify this value as follows:
+
+             .. example::
+
+                .. code-block:: python
+                   :emphasize-lines: 1
+
+                   auto_encryption_opts = AutoEncryptionOpts(mongocryptd_spawn_args=['--port=30000'])
+
+             | **Default**: ``27020``
+
+         * - idleShutdownTimeoutSecs
+           - | Number of idle seconds in which the ``mongocryptd`` process should wait before exiting.
+             | Specify this value as follows:
+
+             .. example::
+
+                .. code-block:: python
+                   :emphasize-lines: 1
+
+                   auto_encryption_opts = AutoEncryptionOpts(mongocryptd_spawn_args=['--idleShutdownTimeoutSecs=75'])
+
+             | **Default**: ``60``
+
+For additional information on ``mongocryptd``, refer to the
+:manual:`mongocryptd manual page
+</reference/security-client-side-encryption-appendix/#mongocryptd>`.
+
+The MedcoMD engineers use the following procedure to configure and
+instantiate the MongoDB client:
 
 .. include:: /includes/steps/fle-configure-the-mongodb-client.rst
 
