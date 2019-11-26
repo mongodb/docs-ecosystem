@@ -741,6 +741,14 @@ can provide configurable parameters including:
 
              | **Default**: ``60``
 
+.. note::
+
+   If a ``mongocryptd`` process is already running on the port specified
+   by the driver, the driver may log a warning and continue to operate
+   without spawning a new process. Any settings specified by the driver
+   do not apply until after the existing process exits and a new encrypted
+   client attempts to connect.
+
 For additional information on ``mongocryptd``, refer to the
 :manual:`mongocryptd manual page
 </reference/security-client-side-encryption-appendix/#mongocryptd>`.
