@@ -15,7 +15,6 @@ int main(int, char**) {
   mongocxx::instance inst{};
 
   mongocxx::options::ssl ssl_opts{};
-  ssl_opts.ca_file("/etc/certs/mongodb/ca.pem");
   ssl_opts.pem_file("/etc/certs/mongodb/client.pem");
 
   mongocxx::options::client client_opts{};
