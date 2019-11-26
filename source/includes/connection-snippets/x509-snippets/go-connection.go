@@ -18,12 +18,11 @@ func main() {
 
 	client, err := mongo.Connect(ctx, clientOpts)
 	if err != nil { log.Fatal(err) }
-
+	defer client.Disconnect(ctx)
 
 	collection := client.Database("testDB").Collection("testCol")
 	docCount, err := collection.CountDocuments(ctx, nil, nil )
+	if err != nil { log.Fatal(err) }
 	fmt.Println(docCount)
-
-	defer client.Disconnect(ctx)
 }
 // end x509 connection 
