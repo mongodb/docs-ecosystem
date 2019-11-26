@@ -1,5 +1,4 @@
 # begin x509 connection
-import ssl
 from pymongo import MongoClient
 
 uri = "mongodb+srv://<cluster-url>/?authMechanism=MONGODB-X509"
@@ -10,6 +9,6 @@ client = MongoClient(uri,
 
 db = client['test-database']
 collection = db['test-collection']
-docCount = collection.count_documents({'x': 1})
+docCount = collection.count_documents({})
 print(docCount)
 # end x509 connection
