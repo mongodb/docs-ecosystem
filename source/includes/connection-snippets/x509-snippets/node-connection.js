@@ -12,8 +12,8 @@ async function run() {
   try {
     await client.connect();
     const database = client.db("testDB");
-    var collection = database.collection("testCol");
-    const docCount = collection.countDocuments({});
+    const collection = database.collection("testCol");
+    const docCount = await collection.countDocuments({});
     console.log(docCount);
     // perform actions using client
   } finally {
