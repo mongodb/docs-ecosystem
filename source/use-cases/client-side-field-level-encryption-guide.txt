@@ -608,7 +608,6 @@ When the ``mongocryptd`` process is started with the client driver, you
 can provide configurable parameters including:
 
 .. tabs-drivers::
-   :hidden: true
 
    .. tab::
       :tabid: java-sync
@@ -648,10 +647,11 @@ can provide configurable parameters including:
              .. example::
 
                 .. code-block:: java
-                   :emphasize-lines: 2,5,9
+                   :emphasize-lines: 2-3,6,10
 
                    List<String> spawnArgs = new ArrayList<String>();
-                   spawnArgs.add("--idleShutdownTimeoutSecs=60");
+                   spawnArgs.add("--idleShutdownTimeoutSecs")
+                       .add("60");
 
                    Map<String, Object> extraOpts = new HashMap<String, Object>();
                    extraOpts.put("mongocryptdSpawnArgs", spawnArgs);
@@ -660,7 +660,6 @@ can provide configurable parameters including:
                        ...
                        .extraOptions(extraOpts);
 
-             | TODO: THIS DOES NOT WORK, BUT SHOULD!
              | **Default**: ``60``
    .. tab::
       :tabid: nodejs
@@ -746,8 +745,8 @@ can provide configurable parameters including:
    If a ``mongocryptd`` process is already running on the port specified
    by the driver, the driver may log a warning and continue to operate
    without spawning a new process. Any settings specified by the driver
-   do not apply until after the existing process exits and a new encrypted
-   client attempts to connect.
+   only apply once the existing process exits and a new encrypted client 
+   attempts to connect.
 
 For additional information on ``mongocryptd``, refer to the
 :manual:`mongocryptd manual page
