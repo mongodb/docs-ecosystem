@@ -4,9 +4,9 @@ from pymongo import MongoClient
 
 uri = "mongodb+srv://<cluster-url>/?authMechanism=MONGODB-X509"
 client = MongoClient(uri,
-                     ssl=True,
-                     ssl_certfile='/etc/certs/mongodb/client.pem',
-                     ssl_cert_reqs=ssl.CERT_REQUIRED)
+                     tls=True,
+                     tlsCertificateKeyFile='/etc/certs/mongodb/client.pem',
+                     tlsAllowInvalidCertificates=False)
 
 db = client['test-database']
 collection = db['test-collection']
