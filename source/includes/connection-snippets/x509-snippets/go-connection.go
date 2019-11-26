@@ -7,6 +7,7 @@ import (
 	"log"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
+	"go.mongodb.org/mongo-driver/bson"
 )
 
 func main() {
@@ -21,7 +22,7 @@ func main() {
 	defer client.Disconnect(ctx)
 
 	collection := client.Database("testDB").Collection("testCol")
-	docCount, err := collection.CountDocuments(ctx, nil, nil )
+	docCount, err := collection.CountDocuments(ctx, bson.D{})
 	if err != nil { log.Fatal(err) }
 	fmt.Println(docCount)
 }
