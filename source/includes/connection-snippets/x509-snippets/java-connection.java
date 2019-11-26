@@ -14,7 +14,7 @@ public class X509Connection {
         System.setProperty("javax.net.ssl.keyStore", "/etc/certs/mongodb/v3/client.keystore");
         System.setProperty("javax.net.ssl.keyStorePassword", "<your_password>");
 
-        String uri = "mongodb+srv://<cluster-url>/test?authSource=$external&retryWrites=true&w=majority&authMechanism=MONGODB-X509";
+        String uri = "mongodb+srv://<cluster-url>/test?authMechanism=MONGODB-X509&authSource=$external&retryWrites=true&w=majority";
         MongoClient client = MongoClients.create(uri);
         MongoDatabase database = mongoClient.getDatabase("testDB");
         MongoCollection<Document> collection = database.getCollection("testCol");
