@@ -11,6 +11,10 @@ const client = new MongoClient('mongodb+srv://<cluster-url>?authMechanism=MONGOD
 async function run() {
   try {
     await client.connect();
+    const database = client.db("testDB");
+    var collection = database.collection("testCol");
+    const docCount = collection.countDocuments({});
+    console.log(docCount);
     // perform actions using client
   } finally {
     // Ensures that the client will close when you finish/error
