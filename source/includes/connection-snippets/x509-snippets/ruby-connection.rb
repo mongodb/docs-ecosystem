@@ -4,7 +4,7 @@
 require 'mongo'
 
 client = Mongo::Client.new(
-  ['<cluster-url>'],
+  ['mongodb+srv://<cluster-url>/test'],
   auth_mech: :mongodb_x509,
   ssl: true,
   ssl_cert: '/etc/certs/mongodb/client.pem',
