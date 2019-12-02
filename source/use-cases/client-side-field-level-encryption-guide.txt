@@ -89,8 +89,8 @@ of the following methods:
 What can MedcoMD do to balance the functionality and access restrictions
 of their Medical Care Management System?
 
-Comparison of the Security Options
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Comparison of Security Features
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The MedcoMD engineers review the Medical Care Management System
 specification and research the proper solution for limiting access to
