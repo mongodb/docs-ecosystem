@@ -13,16 +13,18 @@ Client-Side Field Level Encryption Guide
 Who Is This Guide For?
 ----------------------
 
-This use case guide provides an introduction to implementing Client-Side
-Field Level Encryption for **full-stack developers**. We present the following 
+This use case guide provides an introduction to implementing automatic
+Client-Side Field Level Encryption using supported MongoDB drivers and is
+intended for **full-stack developers**. The guide presents the following
 information in the context of a real-world scenario:
 
-- How Client-Side Field Level Encryption works.
-- Reasons to use this feature.
-- How to implement Client-Side Field Level Encryption for each supported
-  MongoDB driver.
+- **How Client-Side Field Level Encryption works** (`Introduction`_)
+- **Reasons to choose this security feature** (`Comparison of Security
+  Features`_)
+- **How to implement Client-Side Field Level Encryption with the MongoDB
+  driver** (`Implementation`_)
 
-For a complete runnable example project, see the `Additional Information`_ 
+For a complete runnable example project, see the `Additional Information`_
 section.
 
 Introduction
@@ -346,14 +348,14 @@ C. Specify Encrypted Fields Using JSON Schema
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 MongoDB drivers use an extended version of the `JSON Schema
-<http://json-schema.org/>`_ standard to configure automatic client-side 
+<http://json-schema.org/>`_ standard to configure automatic client-side
 encryption and decryption of specific fields of the documents in a collection.
 
 .. note::
 
    Automatic CSFLE requires MongoDB Enterprise or MongoDB Atlas.
 
-The MongoDB CSFLE extended JSON Schema standard requires the following 
+The MongoDB CSFLE extended JSON Schema standard requires the following
 information:
 
 - The encryption algorithm to use when encrypting each field
@@ -975,7 +977,7 @@ To view and download a runnable example, select your driver below:
       <https://github.com/mongodb-university/csfle-guides/tree/master/java/>`_
    .. tab::
       :tabid: nodejs
-      
+
       **GitHub:** `NodeJS CSFLE runnable example
       <https://github.com/mongodb-university/csfle-guides/tree/master/nodejs/>`_
    .. tab::
