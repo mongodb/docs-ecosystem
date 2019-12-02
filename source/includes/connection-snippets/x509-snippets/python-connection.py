@@ -8,6 +8,6 @@ client = MongoClient(uri,
 
 db = client['testDB']
 collection = db['testCol']
-docCount = collection.count_documents({})
-print(docCount)
+doc_count = collection.count_documents({})
+print(doc_count)
 # end x509 connection
