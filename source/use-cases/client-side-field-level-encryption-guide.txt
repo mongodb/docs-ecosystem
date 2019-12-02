@@ -14,16 +14,6 @@ Client-Side Field Level Encryption Guide
 Introduction
 ------------
 
-.. admonition:: Intended Audience
-   :class: important
-
-   This guide is meant for users new to Client-Side Field Level Encryption (CSFLE).
-   It covers the why and how at a high level, and is not meant to produce working
-   code in a single file.
-
-   To view and run minimal end-to-end examples based on this guide, refer to our
-   `CSFLE guides <https://github.com/mongodb-university/csfle-guides>`_ repository.
-
 Many applications make use of sensitive data such as confidential
 personal details, payment information, or proprietary data. In some
 jurisdictions, this type of data is subject to governance, privacy, and
@@ -55,8 +45,8 @@ practical example.
    Automatic Client-Side Field Level Encryption is available starting in
    MongoDB 4.2 Enterprise only.
 
-Problem
-~~~~~~~
+Scenario
+~~~~~~~~
 
 In this scenario, we secure sensitive data on a Medical Care Management
 System which stores patients' personal information, insurance
@@ -99,8 +89,8 @@ of the following methods:
 What can MedcoMD do to balance the functionality and access restrictions
 of their Medical Care Management System?
 
-Solution
-~~~~~~~~
+Evaluating the Security Options
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The MedcoMD engineers review the Medical Care Management System
 specification and research the proper solution for limiting access to
@@ -149,8 +139,15 @@ privacy of their own office.
 Equipped with CSFLE, MedcoMD can keep their sensitive data secure and
 compliant to data privacy regulations with MongoDB.
 
-Procedure
----------
+Implementation
+--------------
+
+This guide is meant for users new to Client-Side Field Level Encryption (CSFLE).
+It covers the why and how at a high level, and is not meant to produce working
+code in a single file.
+
+To view and run minimal end-to-end examples based on this guide, refer to our
+`CSFLE guides <https://github.com/mongodb-university/csfle-guides>`_ repository.
 
 Requirements
 ~~~~~~~~~~~~
@@ -327,37 +324,6 @@ data encryption key:
 Follow the steps below to generate a single data encryption key from the
 locally-managed master key.
 
-
-.. tabs-drivers::
-   :hidden: true
-
-   .. tab::
-      :tabid: java-sync
-
-      You can also download the `complete runnable Java data key generation
-      code example on GitHub
-      <https://raw.githubusercontent.com/mongodb/docs-assets/DOCSP-csfle-data-encryption-key/DataEncryptionKeyGenerator.java>`_.
-   .. tab::
-      :tabid: nodejs
-
-      You can also download the `complete runnable Node.js data key generation
-      code example on GitHub
-      <https://raw.githubusercontent.com/mongodb/docs-assets/DOCSP-csfle-data-encryption-key/DataEncryptionKeyGenerator.js>`_.
-
-      .. note::
-
-         The code linked above includes a dependency on the
-         ``mongo-client-encryption`` npm package. See the `npmjs
-         documentation on the mongodb-client-encryption package
-         <https://www.npmjs.com/package/mongodb-client-encryption>`_ for
-         installation instructions.
-   .. tab::
-      :tabid: python
-
-      You can also download the `complete runnable Python data key generation
-      code example on GitHub
-      <https://raw.githubusercontent.com/mongodb/docs-assets/DOCSP-csfle-data-encryption-key/data_encryption_key_generator.py>`_.
-
 .. include:: /includes/steps/fle-create-data-encryption-key.rst
 
 .. _fle-define-a-json-schema:
@@ -365,14 +331,18 @@ locally-managed master key.
 C. Define a JSON Schema
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-In this section, MedcoMD engineers configure the fields that the client
-automatically encrypts and decrypts using JSON Schema.
-`JSON Schema <http://json-schema.org/>`_ is a vocabulary
-that allows you to annotate and validate JSON documents.
 MongoDB drivers use an extended version of the JSON Schema standard to
 configure automatic client-side encryption and decryption of specific fields
-of the documents in a collection. The MongoDB CSFLE extended JSON Schema
-standard requires the following information:
+of the documents in a collection.
+
+.. note::
+
+   Automatic CSFLE requires MongoDB Enterprise or MongoDB Atlas.
+
+`JSON Schema <http://json-schema.org/>`_ is a vocabulary
+that allows you to annotate and validate JSON documents.
+
+The MongoDB CSFLE extended JSON Schema standard requires the following information:
 
 - The encryption algorithm to use when encrypting each field
   (:manual:`Deterministic Encryption
