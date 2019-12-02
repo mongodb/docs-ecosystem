@@ -10,6 +10,21 @@ Client-Side Field Level Encryption Guide
    :depth: 2
    :class: singlecol
 
+Who Is This Guide For?
+----------------------
+
+This use case guide provides an introduction to implementing Client-Side
+Field Level Encryption for **full-stack developers**. We present the following 
+information in the context of a real-world scenario:
+
+- How Client-Side Field Level Encryption works.
+- Reasons to use this feature.
+- How to implement Client-Side Field Level Encryption for each supported
+  MongoDB driver.
+
+For a complete runnable example project, see the `Additional Information`_ 
+section.
+
 Introduction
 ------------
 
@@ -790,6 +805,28 @@ MedcoMD engineers tested their CSFLE implementation by inserting and
 querying documents with encrypted fields. They then validated that
 clients without CSFLE enabled could not read the encrypted data.
 
+Additional Information
+----------------------
+
+To view and download a runnable example, select your driver below:
+
+.. tabs-drivers::
+
+   .. tab::
+      :tabid: java-sync
+
+      **GitHub:** `Java CSFLE runnable example
+      <https://github.com/mongodb-university/csfle-guides/tree/master/java/>`_
+   .. tab::
+      :tabid: nodejs
+      
+      **GitHub:** `NodeJS CSFLE runnable example
+      <https://github.com/mongodb-university/csfle-guides/tree/master/nodejs/>`_
+   .. tab::
+      :tabid: python
+
+      **GitHub:** `PyMongo CSFLE runnable example
+      <https://github.com/mongodb-university/csfle-guides/python/tree/master/>`_
 
 For more information on client-side field level encryption in MongoDB,
 check out the reference docs in the server manual:
@@ -802,8 +839,8 @@ The last step would be to take the application to production. As part of this
 step, the application needs to be modified to use a key management service such as Amazon KMS
 instead of storing the key in the codebase or local file system.
 For a step-by-step guide on using a KMS (recommended) instead of managing your
-master key locally, see our guide on `converting to a KMS. </use-cases/client-side-field-level-encryption-local-key-to-kms>`_
-
+master key locally, see our guide on `converting to a KMS
+</use-cases/client-side-field-level-encryption-local-key-to-kms>`_.
 
 .. tabs-drivers::
    :hidden: true
