@@ -678,13 +678,20 @@ can provide configurable parameters including:
              .. example::
 
                 .. code-block:: javascript
-                   :emphasize-lines: 4
+                   :emphasize-lines: 4-5
 
                    autoEncryption: {
                      ...
                      extraOptions: {
-                       mongocryptdSpawnArgs: ["--port=30000"]
+                       mongocryptdSpawnArgs: ["--port", "30000"],
+                       mongocryptdURI: 'mongodb://localhost:30000',
                      }
+
+             .. note::
+
+                In the current version (3.3.4) of the NodeJS driver, you
+                must specify the ``mongocryptdURI`` to match the listening
+                port.
 
              | **Default**: ``27020``
 
@@ -700,7 +707,7 @@ can provide configurable parameters including:
                    autoEncryption: {
                      ...
                      extraOptions: {
-                       mongocryptdSpawnArgs: ["--idleShutdownTimeoutSecs=75"]
+                       mongocryptdSpawnArgs: ["--idleShutdownTimeoutSecs", "75"]
                      }
 
              | **Default**: ``60``
@@ -745,7 +752,7 @@ can provide configurable parameters including:
    If a ``mongocryptd`` process is already running on the port specified
    by the driver, the driver may log a warning and continue to operate
    without spawning a new process. Any settings specified by the driver
-   only apply once the existing process exits and a new encrypted client 
+   only apply once the existing process exits and a new encrypted client
    attempts to connect.
 
 For additional information on ``mongocryptd``, refer to the
