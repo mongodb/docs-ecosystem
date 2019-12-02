@@ -20,7 +20,7 @@ int main(int, char**) {
   mongocxx::options::client client_opts{};
   client_opts.ssl_opts(ssl_opts);
 
-  mongocxx::uri uri("mongodb+srv://<cluster-url>/test?authSource=$external&retryWrites=true&w=majority&authMechanism=MONGODB-X509");
+  mongocxx::uri uri("mongodb+srv://<cluster-url>/test?authSource=$external&retryWrites=true&w=majority&authMechanism=MONGODB-X509&tls=true");
 
   auto client = mongocxx::client{uri, client_opts};
   mongocxx::database db = client["testDB"];

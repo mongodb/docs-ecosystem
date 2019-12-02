@@ -13,7 +13,7 @@ import (
 func main() {
 	ctx := context.TODO()
 	certificateKeyFilePath := "/etc/certs/mongodb/client.pem"
-	uri := "mongodb+srv://<cluster-url>/test?authSource=$external&tlsCertificateKeyFile=%s&retryWrites=true&w=majority&authMechanism=MONGODB-X509&tls=true"
+	uri := "mongodb+srv://<cluster-url>/test?authSource=$external&tlsCertificateKeyFile=%s&retryWrites=true&w=majority&authMechanism=MONGODB-X509"
 	uri = fmt.Sprintf(uri, certificateKeyFilePath)
 	clientOpts := options.Client().ApplyURI(uri)
 
