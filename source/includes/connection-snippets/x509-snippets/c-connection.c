@@ -24,6 +24,7 @@ main (int argc, char *argv[])
    count = mongoc_collection_count_documents(collection, bson_new (), NULL, NULL, NULL, NULL);
    printf ("%" PRId64 " documents counted.\n", count);
 
+   mongoc_collection_destroy (collection);
    mongoc_client_destroy (client);
    mongoc_cleanup ();
 
