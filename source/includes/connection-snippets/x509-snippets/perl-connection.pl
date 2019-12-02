@@ -7,5 +7,5 @@ my $client = MongoDB->connect(
 );
 my $collection = $client->ns('testDB.testCol');
 $count = $collection->count_documents( {} );
-print "Inserted: $count\n";
+print "document count: $count\n";
 # end x509 connection
