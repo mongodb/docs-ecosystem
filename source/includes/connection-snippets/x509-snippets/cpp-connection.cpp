@@ -1,15 +1,9 @@
 // begin x509 connection
 #include <iostream>
-#include <bsoncxx/builder/stream/document.hpp>
-#include <bsoncxx/json.hpp>
 #include <mongocxx/client.hpp>
 #include <mongocxx/uri.hpp>
 #include <mongocxx/instance.hpp>
 #include <mongocxx/options/client.hpp>
-#include <mongocxx/options/ssl.hpp>
-#include <bsoncxx/builder/basic/kvp.hpp>
-
-using bsoncxx::builder::basic::kvp;
 
 int main(int, char**) {
   mongocxx::instance inst{};
