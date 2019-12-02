@@ -7,8 +7,8 @@ client = MongoClient(uri,
                      tlsCertificateKeyFile='/etc/certs/mongodb/client.pem',
                      tlsAllowInvalidCertificates=False)
 
-db = client['test-database']
-collection = db['test-collection']
+db = client['testDB']
+collection = db['testCol']
 docCount = collection.count_documents({})
 print(docCount)
 # end x509 connection
