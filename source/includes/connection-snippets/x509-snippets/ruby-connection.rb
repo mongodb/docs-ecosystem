@@ -1,17 +1,11 @@
-# frozen_string_literal: true
-
 # begin x509 connection
 require 'mongo'
+certificate_key_file_path = '/etc/certs/mongodb/client.pem'
+uri = 'mongodb+srv://<cluster-url>/test?authSource=$external&tlsCertificateKeyFile=' + certificate_key_file_path + '&retryWrites=true&w=majority&authMechanism=MONGODB-X509'
 
-client = Mongo::Client.new(
-  ['mongodb+srv://<cluster-url>/test'],
-  auth_mech: :mongodb_x509,
-  ssl: true,
-  ssl_cert: '/etc/certs/mongodb/client.pem',
-  ssl_key: '/etc/certs/mongodb/client.pem'
-)
-db = client.database[:testDB]
+client = Mongo::Client.new([ uri ], :database => 'testDB')
+
 collection = client[:testCol]
-docCount = collection.count_documents({})
-print docCount
+doc_count = collection.count_documents({})
+print doc_count
 # end x509 connection
