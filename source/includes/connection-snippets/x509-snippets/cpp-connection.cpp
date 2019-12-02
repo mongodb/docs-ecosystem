@@ -25,10 +25,7 @@ int main(int, char**) {
   auto client = mongocxx::client{uri, client_opts};
   mongocxx::database db = client["testDB"];
   mongocxx::collection collection = db["testCol"];
-
-  bsoncxx::builder::basic::document basic_builder{};
-  basic_builder.append(kvp("", ""));
-  bsoncxx::document::value filter = basic_builder.extract();
-  collection.count_documents(client, filter);
+  
+  std::cout << collection.count_documents({});
 }
 // end x509 connection
