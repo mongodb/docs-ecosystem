@@ -1,11 +1,10 @@
 # begin x509 connection
 from pymongo import MongoClient
 
-uri = "mongodb+srv://<cluster-url>/?authMechanism=MONGODB-X509"
+uri = "mongodb+srv://<cluster-url>/test?authSource=$external&retryWrites=true&w=majority&authMechanism=MONGODB-X509"
 client = MongoClient(uri,
                      tls=True,
-                     tlsCertificateKeyFile='/etc/certs/mongodb/client.pem',
-                     tlsAllowInvalidCertificates=False)
+                     tlsCertificateKeyFile='/etc/certs/mongodb/client.pem')
 
 db = client['testDB']
 collection = db['testCol']
