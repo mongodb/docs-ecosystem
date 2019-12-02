@@ -328,21 +328,19 @@ locally-managed master key.
 
 .. _fle-define-a-json-schema:
 
-C. Define a JSON Schema
-~~~~~~~~~~~~~~~~~~~~~~~
+C. Specify Encrypted Fields Using JSON Schema
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-MongoDB drivers use an extended version of the JSON Schema standard to
-configure automatic client-side encryption and decryption of specific fields
-of the documents in a collection.
+MongoDB drivers use an extended version of the `JSON Schema
+<http://json-schema.org/>`_ standard to configure automatic client-side 
+encryption and decryption of specific fields of the documents in a collection.
 
 .. note::
 
    Automatic CSFLE requires MongoDB Enterprise or MongoDB Atlas.
 
-`JSON Schema <http://json-schema.org/>`_ is a vocabulary
-that allows you to annotate and validate JSON documents.
-
-The MongoDB CSFLE extended JSON Schema standard requires the following information:
+The MongoDB CSFLE extended JSON Schema standard requires the following 
+information:
 
 - The encryption algorithm to use when encrypting each field
   (:manual:`Deterministic Encryption
