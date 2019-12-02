@@ -10,8 +10,19 @@ Client-Side Field Level Encryption Guide
    :depth: 2
    :class: singlecol
 
+
 Introduction
 ------------
+
+.. admonition:: Intended Audience
+   :class: important
+
+   This guide is meant for users new to Client-Side Field Level Encryption (CSFLE).
+   It covers the why and how at a high level, and is not meant to produce working
+   code in a single file.
+
+   To view and run minimal end-to-end examples based on this guide, refer to our
+   `CSFLE guides <https://github.com/mongodb-university/csfle-guides>`_ repository.
 
 Many applications make use of sensitive data such as confidential
 personal details, payment information, or proprietary data. In some
