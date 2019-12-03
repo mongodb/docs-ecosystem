@@ -5,6 +5,6 @@ $client = new MongoDB\Client(
     'mongodb+srv://<cluster-url>/test?authSource=$external&tlsCertificateKeyFile=' . $certificateKeyFilePath . '&retryWrites=true&w=majority&authMechanism=MONGODB-X509'
 );
 $collection = $client->testDB->testCol;
-$docCount = $collection->count([]);
-print($docCount);
+$docCount = $collection->countDocuments();
+echo $docCount, "\n";
 /* End x509 connection */
