@@ -6,8 +6,8 @@ import org.mongodb.scala.connection.{ClusterSettings, SslSettings}
 
 object MongoDBx509 extends App {
 
-  System.setProperty("javax.net.ssl.keyStore", "client.keystore");
-  System.setProperty("javax.net.ssl.keyStorePassword", "<your_password>");
+  System.setProperty("javax.net.ssl.keyStore", "client.keystore")
+  System.setProperty("javax.net.ssl.keyStorePassword", "<your_password>")
 
   val credential = MongoCredential.createMongoX509Credential()
 
