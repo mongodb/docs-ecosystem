@@ -13,7 +13,7 @@ public class X509Connection {
         String uri = "mongodb+srv://<username>:<password>@<cluster-url>/test?retryWrites=true&w=majority";
         MongoClient client = MongoClients.create(uri);
 
-        MongoDatabase database = mongoClient.getDatabase("testDB");
+        MongoDatabase database = client.getDatabase("testDB");
         MongoCollection<Document> collection = database.getCollection("testCol");
         BsonDocument filter = new BsonDocument();
         collection.countDocuments(filter);
