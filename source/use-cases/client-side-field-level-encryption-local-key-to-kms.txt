@@ -48,6 +48,13 @@ Convert to a Remote Master Key
    Failure to decrypt all data at this stage may cause permanent and
    unrecoverable data loss.
 
+The following diagram shows how the **customer master key** and **data
+encryption keys** are created and stored when using a KMS provider for
+MongoDB CSFLE:
+
+.. image:: /figures/CSFLE_Create_Keys_KMS.png
+   :alt: Diagram that describes creating master and data encryption keys when using a KMS provider
+
 .. include:: /includes/steps/fle-convert-to-a-remote-master-key.rst
 
 

@@ -13,7 +13,7 @@ Client-Side Field Level Encryption Guide
 Who Is This Guide For?
 ----------------------
 
-This use case guide provides an introduction to implementing automatic
+This use case guide is an introduction to implementing automatic
 Client-Side Field Level Encryption using supported MongoDB drivers and is
 intended for **full-stack developers**. The guide presents the following
 information in the context of a real-world scenario:
@@ -24,13 +24,15 @@ information in the context of a real-world scenario:
 - **How to implement Client-Side Field Level Encryption with the MongoDB
   driver** (`Implementation`_)
 
-For a complete runnable example project, see the `Additional Information`_
-section.
+.. note::
+
+   For a runnable example of all the functionality demonstrated in this guide,
+   see the `Download Example Project`_ section.
 
 Introduction
 ------------
 
-Many applications make use of sensitive data such as confidential
+Applications frequently use and store sensitive data such as confidential
 personal details, payment information, or proprietary data. In some
 jurisdictions, this type of data is subject to governance, privacy, and
 security compliance mandates. Unauthorized access of sensitive data or a
@@ -158,12 +160,18 @@ compliant to data privacy regulations with MongoDB.
 Implementation
 --------------
 
-This guide is meant for users new to Client-Side Field Level Encryption (CSFLE).
-It covers the why and how at a high level, and is not meant to produce working
-code in a single file.
+This section explains the following configuration and implementation
+details of CSFLE:
 
-To view and run minimal end-to-end examples based on this guide, refer to our
-`CSFLE guides <https://github.com/mongodb-university/csfle-guides>`_ repository.
+- Software required to run your client and server in your local development
+  environment.
+
+- Creation, setup, and validation of the encryption keys.
+
+- Configuration of the client for automatic field-level encryption.
+
+- Demonstration of the client writing, querying, and reading encrypted
+  fields.
 
 Requirements
 ~~~~~~~~~~~~
@@ -179,8 +187,8 @@ MongoDB Driver Compatible with CSFLE
 File System Permissions
   - The client application or a privileged user needs permissions to
     start the :manual:`mongocryptd
-    </core/security-client-side-encryption/#field-level-encryption-mongocryptd>`
-    process on the host.
+    </reference/security-client-side-encryption-appendix/#mongocryptd>`
+    process of the host.
 
 Additional Dependencies
   - Additional dependencies for specific language drivers are required to
@@ -250,15 +258,36 @@ information on the features of envelope encryption and key management
 concepts, see :aws-docs:`AWS Key Management Service Concepts
 <kms/latest/developerguide/concepts.html#enveloping>`.
 
-The master key, used by the MongoDB driver to create and encrypt data
-keys, should be stored remotely in a :wikipedia:`Key Management System
-<Key_management#Key_management_system>`. The data encryption keys,
-generated and used by the MongoDB driver to encrypt and decrypt document
-fields, are stored in a key vault collection in the same database as the
-encrypted data.
+The following diagram shows how the **master key** and **data encryption
+keys** are created and stored in the MongoDB implementation of CSFLE:
 
-To begin development, MedcoMD engineers generate a locally-managed master key
-with the **fully runnable code below**:
+.. image:: /figures/CSFLE_Create_Keys_Local.png
+   :alt: Diagram that describes creating master and data encryption keys when using a local provider
+
+In this step, we create and store the master key, used by the MongoDB driver
+to encrypt data encryption keys, in the **Local Key Provider** which is the
+filesystem in our local development environment.
+
+The data encryption keys, generated and used by the MongoDB driver to encrypt
+and decrypt document fields, are stored in a key vault collection in the same
+MongoDB replica set as the encrypted data.
+
+.. admonition:: Local Key Provider is not suitable for production
+   :class: important
+
+   The Local Key Provider is an insecure method of storage and is therefore
+   **not recommended** if you plan to use CSFLE in production. Instead,
+   the master key should be managed in a :wikipedia:`Key Management
+   System <Key_management#Key_management_system>` (KMS) which manages key
+   storage and decryption of the data encryption keys remotely.
+
+   To learn more on using AWS KMS in your CSFLE implementation, read the
+   `Client-Side Field Level Encryption: Use a KMS to Store the Master Key
+   </use-cases/client-side-field-level-encryption-local-key-to-kms>`_
+   guide.
+
+To begin development, MedcoMD engineers generate a master key and save it
+to a file with the **fully runnable code below**:
 
 .. tabs-drivers::
 
@@ -319,8 +348,6 @@ with the **fully runnable code below**:
         with open(path, "wb") as f:
           f.write(file_bytes)
 
-.. _fle-create-a-data-encryption-key:
-
 B. Create a Data Encryption Key
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -331,7 +358,7 @@ access the key for automatic encryption and decryption.
 The client requires the following configuration values to generate a new
 data encryption key:
 
-- The locally-managed master key or AWS KMS master key access settings.
+- The locally-managed master key.
 
 - A MongoDB connection string that authenticates on a running server.
 
@@ -370,7 +397,7 @@ information:
   encrypted fields)
 
 .. admonition:: CSFLE JSON Schema Does Not Support Document Validation
-   :class: important:
+   :class: important
 
    MongoDB drivers use JSON Schema syntax to specify encrypted fields
    and *only* support field-level encryption-specific keywords documented
@@ -758,6 +785,9 @@ only be allowed to read and write to non-sensitive fields.
 Insert a Document with Encrypted Fields
 +++++++++++++++++++++++++++++++++++++++
 
+.. image:: /figures/CSFLE_Write_Encrypted.png
+   :alt: Diagram that shows the data flow for write field-level encrypted data
+
 MedcoMD engineers write a function to create a new patient record with the
 following **code snippet**:
 
@@ -858,10 +888,12 @@ JSON Schema. This operation creates a document similar to the following:
 Query for Documents on a Deterministically Encrypted Field
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Queries on encrypted fields can be done using traditional MongoDB driver
-methods as well. When a query is made using a client configured to use
-CSFLE, such as when a doctor in the MedcoMD management system searches
-for a patient with their SSN, the patient's data is returned
+.. image:: /figures/CSFLE_Read_Encrypted.png
+   :alt: Diagram that shows the data flow for reading field-level encrypted data
+
+Queries on encrypted fields can be run using conventional MongoDB driver
+methods. When a doctor performs a query in the MedcoMD management system
+to search for a patient by their SSN, the patient's data is returned
 unencrypted:
 
 .. code-block:: json
@@ -966,6 +998,11 @@ clients without CSFLE enabled could not read the encrypted data.
 Additional Information
 ----------------------
 
+Download Example Project
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+The project code contains helpers specific to this use case to
+abstract
 To view and download a runnable example, select your driver below:
 
 .. tabs-drivers::
@@ -986,6 +1023,21 @@ To view and download a runnable example, select your driver below:
       **GitHub:** `PyMongo CSFLE runnable example
       <https://github.com/mongodb-university/csfle-guides/python/tree/master/>`_
 
+Move to Production
+~~~~~~~~~~~~~~~~~~
+
+In this guide, we stored the master key in your local filesystem. Since
+your data encryption keys would be readable by anyone that gains direct
+access to your master key, we **strongly recommend** that you use a more
+secure storage location such as a Key Management System (KMS).
+
+For more information on securing your master key, see our `step-by-step
+guide to integrating with Amazon KMS
+</use-cases/client-side-field-level-encryption-local-key-to-kms>`_.
+
+Further Reading
+~~~~~~~~~~~~~~~
+
 For more information on client-side field level encryption in MongoDB,
 check out the reference docs in the server manual:
 
@@ -993,21 +1045,18 @@ check out the reference docs in the server manual:
 - :manual:`Automatic Encryption JSON Schema Syntax </reference/security-client-side-automatic-json-schema>`
 - :manual:`Manage Client-Side Encryption Data Keys </tutorial/manage-client-side-encryption-data-keys>`
 
-The last step would be to take the application to production. As part of this
-step, the application needs to be modified to use a key management service such as Amazon KMS
-instead of storing the key in the codebase or local file system.
-For a step-by-step guide on using a KMS (recommended) instead of managing your
-master key locally, see our guide on `converting to a KMS
-</use-cases/client-side-field-level-encryption-local-key-to-kms>`_.
-
 .. tabs-drivers::
    :hidden: true
 
    .. tab::
       :tabid: java-sync
 
-      For additional information on CSFLE, see the :java-docs-latest:`official Java driver documentation <driver/tutorials/client-side-encryption/>`
+      For additional information on MongoDB CSFLE API, see the
+      :java-docs-latest:`official Java driver documentation
+      <driver/tutorials/client-side-encryption/>`
    .. tab::
       :tabid: nodejs
 
-      For additional information on CSFLE, see the `official Node.js driver documentation <https://www.npmjs.com/package/mongodb-client-encryption>`_
+      For additional information on MongoDB CSFLE API, see the `official
+      Node.js driver documentation
+      <https://www.npmjs.com/package/mongodb-client-encryption>`_
