@@ -896,10 +896,10 @@ Query for Documents on a Deterministically Encrypted Field
 .. image:: /figures/CSFLE_Read_Encrypted.png
    :alt: Diagram that shows the data flow for reading field-level encrypted data
 
-Queries on encrypted fields can be run using conventional MongoDB driver
-methods. When a doctor performs a query in the MedcoMD management system
-to search for a patient by their SSN, the patient's data is returned
-unencrypted:
+Queries on documents with encrypted fields can be run using conventional
+MongoDB driver methods. When a doctor performs a query in the MedcoMD
+management system to search for a patient by their SSN, the patient's data
+is returned unencrypted:
 
 .. code-block:: json
 
