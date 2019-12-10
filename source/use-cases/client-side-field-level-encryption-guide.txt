@@ -1006,9 +1006,7 @@ Additional Information
 Download Example Project
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-The project code contains helpers specific to this use case to
-abstract
-To view and download a runnable example, select your driver below:
+To view and download a runnable example of CSFLE, select your driver below:
 
 .. tabs-drivers::
 
