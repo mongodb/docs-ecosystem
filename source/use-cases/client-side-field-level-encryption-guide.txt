@@ -270,7 +270,8 @@ keys** are created and stored in the MongoDB implementation of CSFLE:
 
 In this step, we create and store the master key, used by the MongoDB driver
 to encrypt data encryption keys, in the **Local Key Provider** which is the
-filesystem in our local development environment.
+filesystem in our local development environment. We refer to this key as
+the "locally-managed master key" in this guide.
 
 The data encryption keys, generated and used by the MongoDB driver to encrypt
 and decrypt document fields, are stored in a key vault collection in the same
