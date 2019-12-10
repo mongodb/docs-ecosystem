@@ -192,7 +192,7 @@ File System Permissions
   - The client application or a privileged user needs permissions to
     start the :manual:`mongocryptd
     </reference/security-client-side-encryption-appendix/#mongocryptd>`
-    process of the host.
+    process on the host.
 
 Additional Dependencies
   - Additional dependencies for specific language drivers are required to
