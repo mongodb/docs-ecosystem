@@ -173,6 +173,10 @@ details of CSFLE:
 - Demonstration of the client writing, querying, and reading encrypted
   fields.
 
+For complete runnable examples of CSFLE based on this scenario, see the
+`CSFLE guides <https://github.com/mongodb-university/csfle-guides>`_ 
+repository.  
+
 Requirements
 ~~~~~~~~~~~~
 
