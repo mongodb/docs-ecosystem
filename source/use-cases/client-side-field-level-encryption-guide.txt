@@ -70,10 +70,10 @@ In this scenario, we secure sensitive data on a Medical Care Management
 System which stores patients' personal information, insurance
 information, and medical records for a fictional company, *MedcoMD*.
 None of the patient data is public, and certain data such as their
-social security number (SSN), insurance policy number, and vital sign
-measurements are particularly sensitive and subject to privacy
-compliance. It is important for the company and the patient that the
-data is kept private and secure.
+social security number (SSN, a US government-issued id number), insurance
+policy number, and vital sign measurements are particularly sensitive and
+subject to privacy compliance. It is important for the company and the patient
+that the data is kept private and secure.
 
 MedcoMD needs this system to satisfy the following use cases:
 
@@ -174,8 +174,8 @@ details of CSFLE:
   fields.
 
 For complete runnable examples of CSFLE based on this scenario, see the
-`CSFLE guides <https://github.com/mongodb-university/csfle-guides>`_ 
-repository.  
+`CSFLE guides <https://github.com/mongodb-university/csfle-guides>`_
+repository.
 
 Requirements
 ~~~~~~~~~~~~
