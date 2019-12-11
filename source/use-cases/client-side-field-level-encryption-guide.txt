@@ -24,7 +24,7 @@ information in the context of a real-world scenario:
 - **How to implement Client-Side Field Level Encryption with the MongoDB
   driver** (`Implementation`_)
 
-.. note::
+.. admonition:: Download the Code
 
    For a runnable example of all the functionality demonstrated in this guide,
    see the `Download Example Project`_ section.
@@ -166,16 +166,11 @@ details of CSFLE:
 - Software required to run your client and server in your local development
   environment.
 
-- Creation, setup, and validation of the encryption keys.
+- Creation and validation of the encryption keys.
 
 - Configuration of the client for automatic field-level encryption.
 
-- Demonstration of the client writing, querying, and reading encrypted
-  fields.
-
-For complete runnable examples of CSFLE based on this scenario, see the
-`CSFLE guides <https://github.com/mongodb-university/csfle-guides>`_
-repository.
+- Queries, reads, and writes of encrypted fields.
 
 Requirements
 ~~~~~~~~~~~~
@@ -282,11 +277,11 @@ MongoDB replica set as the encrypted data.
 
    The Local Key Provider is an insecure method of storage and is therefore
    **not recommended** if you plan to use CSFLE in production. Instead,
-   the master key should be managed in a :wikipedia:`Key Management
-   System <Key_management#Key_management_system>` (KMS) which manages key
-   storage and decryption of the data encryption keys remotely.
+   you should configure a master key in a :wikipedia:`Key Management System 
+   <Key_management#Key_management_system>` (KMS) which stores and decrypts
+   your data encryption keys remotely.
 
-   To learn more on using AWS KMS in your CSFLE implementation, read the
+   To learn how to use a KMS in your CSFLE implementation, read the
    `Client-Side Field Level Encryption: Use a KMS to Store the Master Key
    </use-cases/client-side-field-level-encryption-local-key-to-kms>`_
    guide.
@@ -898,8 +893,8 @@ Query for Documents on a Deterministically Encrypted Field
 
 Queries on documents with encrypted fields can be run using conventional
 MongoDB driver methods. When a doctor performs a query in the MedcoMD
-management system to search for a patient by their SSN, the patient's data
-is returned unencrypted:
+management system to search for a patient by their SSN, the driver
+decrypts the patient's data before returning it:
 
 .. code-block:: json
 
