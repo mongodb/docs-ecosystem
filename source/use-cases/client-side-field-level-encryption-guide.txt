@@ -266,23 +266,18 @@ The following diagram shows how the **master key** is created and stored:
 
 .. image:: /figures/CSFLE_Master_Key_Local.png
    :alt: Diagram that describes creating the master key when using a local provider
-   
+
 The **data encryption keys**, generated and used by the MongoDB driver to
-encrypt and decrypt document fields, are stored in a key vault collection in 
-the same MongoDB replica set as the encrypted data. 
+encrypt and decrypt document fields, are stored in a key vault collection in
+the same MongoDB replica set as the encrypted data.
 
-The following diagram shows how the **data encryption keys** are created and
-stored:
-
-.. image:: /figures/CSFLE_Data_Key_Local.png
-   :alt: Diagram that describes creating the data encryption key when using a locally-managed master key
 
 .. admonition:: Local Key Provider is not suitable for production
    :class: important
 
    The Local Key Provider is an insecure method of storage and is therefore
    **not recommended** if you plan to use CSFLE in production. Instead,
-   you should configure a master key in a :wikipedia:`Key Management System 
+   you should configure a master key in a :wikipedia:`Key Management System
    <Key_management#Key_management_system>` (KMS) which stores and decrypts
    your data encryption keys remotely.
 
@@ -359,6 +354,12 @@ B. Create a Data Encryption Key
 In this section, we generate a data encryption key. The MongoDB driver
 stores the key in a key vault collection where CSFLE-enabled clients can
 access the key for automatic encryption and decryption.
+
+The following diagram shows how the **data encryption keys** are created and
+stored:
+
+.. image:: /figures/CSFLE_Data_Key_Local.png
+   :alt: Diagram that describes creating the data encryption key when using a locally-managed master key
 
 The client requires the following configuration values to generate a new
 data encryption key:
