@@ -793,7 +793,7 @@ Insert a Document with Encrypted Fields
 The following diagram shows the steps taken by the client application and
 driver to perform a write of field-level encrypted data:
 
-.. image:: /figures/CSFLE_Write_Encrypted_data.png
+.. image:: /figures/CSFLE_Write_Encrypted_Data.png
    :alt: Diagram that shows the data flow for a write of field-level encrypted data
 
 MedcoMD engineers write a function to create a new patient record with the
