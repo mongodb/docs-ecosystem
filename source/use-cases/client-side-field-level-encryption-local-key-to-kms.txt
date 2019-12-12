@@ -35,7 +35,6 @@ machine.
 Additionally, MongoDB trasmits the data encryption keys to the KMS for
 encrypting and decrypting, ensuring the CMK never leaves the KMS.
 
-
 Convert to a Remote Master Key
 ------------------------------
 
@@ -48,15 +47,17 @@ Convert to a Remote Master Key
    Failure to decrypt all data at this stage may cause permanent and
    unrecoverable data loss.
 
-The following diagram shows how the **customer master key** and **data
+The following diagrams shows how the **customer master key** and **data
 encryption keys** are created and stored when using a KMS provider for
 MongoDB CSFLE:
 
-.. image:: /figures/CSFLE_Create_Keys_KMS.png
-   :alt: Diagram that describes creating master and data encryption keys when using a KMS provider
+.. image:: /figures/CSFLE_Master_Key_KMS.png
+   :alt: Diagram that describes creating a master key when using a KMS provider
+
+.. image:: /figures/CSFLE_Data_Key_KMS.png
+   :alt: Diagram that describes creating a data encryption key when using a KMS provider
 
 .. include:: /includes/steps/fle-convert-to-a-remote-master-key.rst
-
 
 For more information on client-side field level encryption in MongoDB,
 check out the reference docs in the server manual:
