@@ -1,3 +1,3 @@
 # YOUR OPTIONS ARE BELOW     
 #"build-and-stage"            
-"build-and-stagasase-sssssnext-gen"
+"build-and-stagasase-sssss next-gen"
