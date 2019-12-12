@@ -267,10 +267,12 @@ The following diagram shows how the **master key** is created and stored:
 .. image:: /figures/CSFLE_Master_Key_Local.png
    :alt: Diagram that describes creating the master key when using a local provider
    
-The data encryption keys, generated and used by the MongoDB driver to encrypt
-and decrypt document fields, are stored in a key vault collection in the same
-MongoDB replica set as the encrypted data. The following diagram shows how
-the **data encryption keys** are created and stored:
+The **data encryption keys**, generated and used by the MongoDB driver to
+encrypt and decrypt document fields, are stored in a key vault collection in 
+the same MongoDB replica set as the encrypted data. 
+
+The following diagram shows how the **data encryption keys** are created and
+stored:
 
 .. image:: /figures/CSFLE_Data_Key_Local.png
    :alt: Diagram that describes creating the data encryption key when using a locally-managed master key
@@ -788,8 +790,11 @@ only be allowed to read and write to non-sensitive fields.
 Insert a Document with Encrypted Fields
 +++++++++++++++++++++++++++++++++++++++
 
+The following diagram shows the steps taken by the client application and
+driver to perform a write of field-level encrypted data:
+
 .. image:: /figures/CSFLE_Write_Encrypted_data.png
-   :alt: Diagram that shows the data flow for write field-level encrypted data
+   :alt: Diagram that shows the data flow for a write of field-level encrypted data
 
 MedcoMD engineers write a function to create a new patient record with the
 following **code snippet**:
@@ -891,8 +896,11 @@ JSON Schema. This operation creates a document similar to the following:
 Query for Documents on a Deterministically Encrypted Field
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+The following diagram shows the steps taken by the client application and
+driver to query and decrypt field-level encrypted data:
+
 .. image:: /figures/CSFLE_Read_Encrypted_Data.png
-   :alt: Diagram that shows the data flow for reading field-level encrypted data
+   :alt: Diagram that shows the data flow for querying and reading field-level encrypted data
 
 You can run queries on documents with encrypted fields using standard
 MongoDB driver methods. When a doctor performs a query in the MedcoMD
