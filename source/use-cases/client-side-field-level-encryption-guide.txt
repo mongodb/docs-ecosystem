@@ -423,7 +423,7 @@ information:
 
 The MedcoMD engineers receive specific requirements for the fields of
 data and their encryption strategies. The following table illustrates
-the data model of the Medco Management System.
+the data model of the Medical Care Management System.
 
 .. list-table::
    :header-rows: 1
@@ -472,7 +472,7 @@ encryption key unless specifically overwritten.
    {
        "bsonType" : "object",
        "encryptMetadata" : {
-           "keyId" : // copy and paste your keyID generated here
+           "keyId" : // copy and paste your keyId generated here
        },
        "properties": {
            // copy and paste your field schemas here
@@ -572,7 +572,7 @@ Recap
 
 MedcoMD engineers created a JSON Schema that satisfies their
 requirements of making sensitive data queryable and secure. View the
-full `JSON Schema for the Medco Medical Management System
+full `JSON Schema for the Medical Care Management System
 <https://raw.githubusercontent.com/mongodb/docs-assets/DOCSP-json-schema-helper-and-json/MedcoMDSchema.json>`_.
 
 .. tabs-drivers::
@@ -903,8 +903,8 @@ driver to query and decrypt field-level encrypted data:
    :alt: Diagram that shows the data flow for querying and reading field-level encrypted data
 
 You can run queries on documents with encrypted fields using standard
-MongoDB driver methods. When a doctor performs a query in the MedcoMD
-management system to search for a patient by their SSN, the driver
+MongoDB driver methods. When a doctor performs a query in the Medical
+Care Management System to search for a patient by their SSN, the driver
 decrypts the patient's data before returning it:
 
 .. code-block:: json
@@ -929,7 +929,7 @@ decrypts the patient's data before returning it:
 .. note::
 
    For queries using a client that is not configured to use CSFLE, such
-   as when receptionists in the MedcoMD management system search for a
+   as when receptionists in the Medical Care Management System search for a
    patient with their ``ssn``, a null value is returned. A client without CSFLE
    configured cannot query on a sensitive field.
 
@@ -945,7 +945,7 @@ Query for Documents on a Randomly Encrypted Field
 MedcoMD engineers determined that the fields they randomly encrypted
 would not be used to find patients records. Had this been required, for example,
 if the patient's ``ssn`` was randomly encrypted, MedcoMD engineers
-could have included another plaintext field called ``last4ssn`` that
+could have included another plain-text field called ``last4ssn`` that
 contains the last 4 digits of the ``ssn`` field. They could then query
 on this field as a proxy for the ``ssn``.
 
