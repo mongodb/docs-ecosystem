@@ -15,6 +15,13 @@ content: |
 title: Create the Master Key
 ref: create-the-master-key
 content: |
+
+  The following diagram shows how the **master key** is created and stored
+  when using a KMS provider:
+
+  .. image:: /figures/CSFLE_Master_Key_KMS.png
+     :alt: Diagram that describes creating a master key when using a KMS provider
+
   In AWS KMS, generate a new master key. The key's name and description
   don't affect the functionality of CSFLE but should describe that it's
   for the CSFLE-enabled client.
@@ -85,15 +92,21 @@ content: |
 title: Create a New Data Key
 ref: create-a-new-data-key
 content: |
-  The development data key was generated from a local master key, so you
-  need to generate a new data key from the remote master key. To
-  generate the key from an AWS KMS master key, you will need to know the
-  key's AWS region and `Amazon Resource Number
+  The following diagram shows how the **customer master key** is created and
+  stored when using a KMS provider:
+
+  .. image:: /figures/CSFLE_Data_Key_KMS.png
+     :alt: Diagram that describes creating a data encryption key when using a KMS provider
+
+  The development data encryption key was encrypted by the locally-managed
+  master key, so you need to generate a new data key from the remote master
+  key. To generate the key from an AWS KMS master key, you will need to know
+  the key's AWS region and `Amazon Resource Number
   <https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html#find-cmk-id-arn>`_
   (ARN).
 
   Once you have the required information, run the following code to
-  generate the new data key:
+  generate the new data encryption key:
 
   .. tabs-drivers::
 
