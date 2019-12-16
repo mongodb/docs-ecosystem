@@ -1,5 +1,6 @@
 // begin x509 connection
 #include <mongoc/mongoc.h>
+#include <stdio.h>
 
 int
 main (int argc, char *argv[])
@@ -10,24 +11,22 @@ main (int argc, char *argv[])
 
    mongoc_init ();
 
-   const mongoc_ssl_opt_t *ssl_default = mongoc_ssl_opt_get_default ();
-   mongoc_ssl_opt_t ssl_opts = { 0 };
-
-   memcpy(&ssl_opts, ssl_default, sizeof ssl_opts);
-
-   ssl_opts.pem_file = "/etc/certs/mongodb/client.pem";
-
-   client = mongoc_client_new ("mongodb+srv://<cluster-url>/test?authSource=$external&retryWrites=true&w=majority&authMechanism=MONGODB-X509");
-   mongoc_client_set_ssl_opts (client, &ssl_opts);
+   client = mongoc_client_new ("mongodb+srv://<cluster-url>/test?authSource=$external&tlsCertificateKeyFile=/etc/certs/mongodb/client.pem&retryWrites=true&w=majority&authMechanism=MONGODB-X509");
 
    collection = mongoc_client_get_collection (client, "testDB", "testCol");
-   count = mongoc_collection_count_documents(collection, bson_new (), NULL, NULL, NULL, NULL);
-   printf ("%" PRId64 " documents counted.\n", count);
+   bson_t filter = BSON_INITIALIZER;
+   count = mongoc_collection_count_documents (collection, &filter, NULL, NULL, NULL, NULL);
+   if(count == -1){
+      printf("error occurred with count_documents");
+   }else{
+      printf ("%" PRId64 " documents counted.\n", count);
 
+   }
+   bson_destroy (&filter);
    mongoc_collection_destroy (collection);
    mongoc_client_destroy (client);
    mongoc_cleanup ();
 
-   return EXIT_SUCCESS;
+   return 0;
 }
 // end x509 connection
