@@ -6,6 +6,8 @@ int main(int argc, char *argv[]) {
   mongoc_collection_t *collection;
   mongoc_client_t *client;
   int64_t count;
+  bson_t filter;
+  bson_error_t error;
 
   mongoc_init();
 
@@ -15,11 +17,12 @@ int main(int argc, char *argv[]) {
       "client.pem&retryWrites=true&w=majority&authMechanism=MONGODB-X509");
 
   collection = mongoc_client_get_collection(client, "testDB", "testCol");
-  bson_t filter = BSON_INITIALIZER;
+  filter = BSON_INITIALIZER;
   count = mongoc_collection_count_documents(collection, &filter, NULL, NULL,
-                                            NULL, NULL);
-  if (count == -1) {
-    printf("error occurred with count_documents");
+                                            NULL, &error);
+
+  if (count < 0) {
+    fprintf(stderr, "Count failed: %s\n", error.message);
   } else {
     printf("%" PRId64 " documents counted.\n", count);
   }
