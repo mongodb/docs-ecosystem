@@ -23,16 +23,6 @@ Mongoid is the officially supported ODM (Object-Document-Mapper)
 framework for MongoDB in Ruby. For documentation, see `Mongoid
 Documentation <https://docs.mongodb.com/mongoid/current/>`_.
 
-
-Tools and Integration Frameworks
---------------------------------
-
-.. toctree::
-   :maxdepth: 1
-
-   MongoDB Connector for Business Intelligence <https://docs.mongodb.com/bi-connector/current/>
-   tools/http-interfaces
-
 Platforms and Services
 ----------------------
 
@@ -45,16 +35,18 @@ Platforms and Services
 
 Use Cases
 ---------
-..
-   .. toctree::
-      :maxdepth: 1
 
-      /use-cases/storing-log-data
-      /use-cases/hierarchical-aggregation
-      /use-cases/product-catalog
-      /use-cases/inventory-management
-      /use-cases/category-hierarchy
-      /use-cases/metadata-and-asset-management
-      /use-cases/storing-comments
-      /use-cases/client-side-field-level-encryption-guide
-      /use-cases/client-side-field-level-encryption-local-key-to-kms
+.. toctree::
+   :maxdepth: 1
+
+   /use-cases/client-side-field-level-encryption-guide
+   /use-cases/client-side-field-level-encryption-local-key-to-kms
+
+..
+   /use-cases/storing-log-data
+   /use-cases/hierarchical-aggregation
+   /use-cases/product-catalog
+   /use-cases/inventory-management
+   /use-cases/category-hierarchy
+   /use-cases/metadata-and-asset-management
+   /use-cases/storing-comments
