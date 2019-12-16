@@ -146,8 +146,8 @@ form on both the server and the network. While all clients have access
 to the non-sensitive data fields, only appropriately-configured CSFLE
 clients are able to read and write the sensitive data fields.
 
-The following diagram is a breakdown of the MongoDB security features
-offered and the potential vulnerabilities that they address:
+The following diagram is a list of MongoDB security features offered 
+and the potential security vulnerabilities that they address:
 
 .. image:: /figures/CSFLE_Security_Feature_Chart.png
    :alt: Diagram that describes MongoDB security features and the potential vulnerabilities that they address
