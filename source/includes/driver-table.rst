@@ -74,7 +74,8 @@
    * - :ref:`Motor (Python async)<python-async-driver>`
      - `Releases <https://pypi.python.org/pypi/motor/>`__
      - `Source <https://github.com/mongodb/motor>`__
-     - `API <http://motor.readthedocs.org/en/stable/api/index.html>`__
+     - `Tornado API <https://motor.readthedocs.io/en/stable/api-tornado/index.html>`__
+     - `asyncio API <https://motor.readthedocs.io/en/stable/api-asyncio/index.html>`__
      - :issue:`JIRA <MOTOR>`
      -
 
