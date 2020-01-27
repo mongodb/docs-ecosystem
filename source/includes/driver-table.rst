@@ -75,7 +75,8 @@
      - `Releases <https://pypi.python.org/pypi/motor/>`__
      - `Source <https://github.com/mongodb/motor>`__
      - `Tornado API <https://motor.readthedocs.io/en/stable/api-tornado/index.html>`__
-     - `asyncio API <https://motor.readthedocs.io/en/stable/api-asyncio/index.html>`__
+
+       `asyncio API <https://motor.readthedocs.io/en/stable/api-asyncio/index.html>`__
      - :issue:`JIRA <MOTOR>`
      -
 
