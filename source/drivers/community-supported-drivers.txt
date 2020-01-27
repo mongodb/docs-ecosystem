@@ -16,8 +16,6 @@ Community Supported Drivers Reference
 
   - `cfmongodb <https://github.com/marcesher/cfmongodb/>`_
 
-  - `<http://github.com/virtix/cfmongodb/tree/0.9>`_
-
 - D
 
   - `Vibe.D native MongoDB driver <http://vibed.org/docs#mongo>`_
