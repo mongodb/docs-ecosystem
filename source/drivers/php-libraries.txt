@@ -147,12 +147,6 @@ Framework Integrations
     for use with Kohana 3 but should integrate easily with any PHP
     application.
 
-- Phalcon
-
-  - `Object Document Mapper <https://docs.phalconphp.com/en/latest/reference/odm.html>`_
-    offers a CRUD functionality, events, validations, and other services for
-    MongoDB.
-
 - Yii 1.x
 
   - `MongoYii <http://github.com/Sammaye/MongoYii/>`_ is ActiveRecord ORM for

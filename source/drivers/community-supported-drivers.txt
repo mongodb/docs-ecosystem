@@ -156,7 +156,7 @@ Community Supported Drivers Reference
 - Perl
 
   - `Mango <https://metacpan.org/pod/Mango>`_ - A non-blocking
-    pure-Perl driver based on `Mojolicious <http://mojolicio.us>`_
+    pure-Perl driver based on `Mojolicious <https://https://mojolicious.org/>`_
 
 - :ref:`PHP Libraries, Frameworks, and Tools <php-libraries-frameworks-and-tools>`
 

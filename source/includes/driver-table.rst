@@ -51,7 +51,7 @@
      - `Course <https://university.mongodb.com/courses/M220JS/about>`__
 
    * - :doc:`Perl </drivers/perl>`
-     - `Releases <https://metacpan.org/release/MongoDB>`__
+     - `Releases <https://metacpan.org/pod/MongoDB>`__
      - `Source <https://github.com/mongodb/mongo-perl-driver>`__
      - `API <https://metacpan.org/pod/MongoDB>`__
      - :issue:`JIRA <PERL>`
