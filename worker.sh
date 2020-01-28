@@ -1,2 +1,1 @@
-#!/bin/sh
-make html
+"build-and-stagasase-sssss next-gen"
