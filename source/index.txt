@@ -33,7 +33,7 @@ Platforms and Services
    platforms/windows-azure
    platforms/windows
 
-Use Cases
+Use Casessss
 ---------
 
 .. toctree::
