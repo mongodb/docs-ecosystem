@@ -1,0 +1,74 @@
+.. include:: /includes/unicode-checkmark.rst
+
+=====================
+Java Reactive Streams
+=====================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 2
+   :class: twocols
+
+Introduction
+------------
+
+**Java Reactive Streams** is an official Java driver for MongoDB and is the
+recommended driver for working with reactive streams in the JVM ecosystem.
+
+- Tutorial
+
+- API Reference
+
+- Changelog
+
+- Source Code
+
+
+Installation
+------------
+
+The recommended way to get started using the driver in your project is with
+a dependency management system.
+See `Installation Guide
+<http://mongodb.github.io/mongo-java-driver-reactivestreams/1.13/getting-started/installation-guide/>`
+
+
+Connect to MongoDB Atlas
+------------------------
+
+To connect to a :atlas:`MongoDB Atlas </>` cluster, use the :atlas:`Atlas
+connection string </driver-connection>` for your cluster:
+
+.. code-block:: java
+
+   //TODO
+
+Compatibility
+-------------
+
+MongoDB Compatibility
+~~~~~~~~~~~~~~~~~~~~~
+
+.. include:: /includes/mongodb-compatibility-table-java-rs.rst
+
+.. include:: /includes/older-server-versions-unsupported.rst
+
+Language Compatibility
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. include:: /includes/extracts/java-rs-driver-compatibility-matrix-language.rst
+
+.. include:: /includes/language-compatibility-table-python.rst
+
+
+How to get help
+---------------
+
+- Join our `Google Group <http://groups.google.com/group/mongodb-user>`_.
+- Ask on `Stack Overflow
+  <https://stackoverflow.com/questions/tagged/mongodb%20java>`_.
+- Visit our `Support Channels <http://www.mongodb.org/about/support>`_.
+- See :java-docs-latest:`Issues & Help <issures-help/>`.
