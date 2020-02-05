@@ -9,7 +9,7 @@ Java Reactive Streams
 .. contents:: On this page
    :local:
    :backlinks: none
-   :depth: 2
+   :depth: 1
    :class: twocols
 
 Introduction
@@ -18,14 +18,18 @@ Introduction
 **Java Reactive Streams** is an official Java driver for MongoDB and is the
 recommended driver for working with reactive streams in the JVM ecosystem.
 
-- Tutorial
+- :java-docs-latest:`Tutorials <driver-reactive/tutorials>`
 
-- API Reference
+- :java-docs-latest:`Usage Guide <driver-reactive/>`
 
-- Changelog
+- `API Reference
+  <https://mongodb.github.io/mongo-java-driver-reactivestreams/1.13/javadoc/>`_
 
-- Source Code
+- `Changelog
+  https://mongodb.github.io/mongo-java-driver-reactivestreams/1.13/changelog/`_
 
+- `Source Code
+  <https://github.com/mongodb/mongo-java-driver-reactivestreams/>`_
 
 Installation
 ------------
@@ -35,7 +39,6 @@ a dependency management system.
 See `Installation Guide
 <http://mongodb.github.io/mongo-java-driver-reactivestreams/1.13/getting-started/installation-guide/>`
 
-
 Connect to MongoDB Atlas
 ------------------------
 
@@ -44,7 +47,25 @@ connection string </driver-connection>` for your cluster:
 
 .. code-block:: java
 
-   //TODO
+   import com.mongodb.ConnectionString;
+   import com.mongodb.client.MongoClients;
+   import com.mongodb.client.MongoClient;
+   import com.mongodb.client.MongoDatabase;
+   import com.mongodb.MongoClientSettings;
+
+   // ...
+   ConnectionString connString = new ConnectionString(
+       "mongodb+srv://<username>:<password>@<cluster-address>/test?w=majority"
+   );
+   MongoClientSettings settings = MongoClientSettings.builder()
+       .applyConnectionString(connString)
+       .retryWrites(true)
+       .build();
+   MongoClient mongoClient = MongoClients.create(settings);
+   MongoDatabase database = mongoClient.getDatabase("test");
+
+See :java-docs-latest:`Connect to MongoDB <driver-reactive/tutorials/connect-to-mongodb/>`
+for more ways to connect.
 
 Compatibility
 -------------
@@ -61,14 +82,13 @@ Language Compatibility
 
 .. include:: /includes/extracts/java-rs-driver-compatibility-matrix-language.rst
 
-.. include:: /includes/language-compatibility-table-python.rst
-
+.. include:: /includes/language-compatibility-table-java.rst
 
 How to get help
 ---------------
 
 - Join our `Google Group <http://groups.google.com/group/mongodb-user>`_.
 - Ask on `Stack Overflow
-  <https://stackoverflow.com/questions/tagged/mongodb%20java>`_.
+  <https://stackoverflow.com/questions/tagged/mongodb%20java%20reactive>`_.
 - Visit our `Support Channels <http://www.mongodb.org/about/support>`_.
-- See :java-docs-latest:`Issues & Help <issures-help/>`.
+- See :java-docs-latest:`Issues & Help <issues-help/>`.
