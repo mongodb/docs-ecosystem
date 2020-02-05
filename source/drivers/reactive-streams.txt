@@ -1,8 +1,8 @@
 .. include:: /includes/unicode-checkmark.rst
 
-=====================
-Java Reactive Streams
-=====================
+=============================
+MongoDB Java Reactive Streams
+=============================
 
 .. default-domain:: mongodb
 
@@ -18,9 +18,11 @@ Introduction
 **Java Reactive Streams** is an official Java driver for MongoDB and is the
 recommended driver for working with reactive streams in the JVM ecosystem.
 
-- :java-docs-latest:`Tutorials <driver-reactive/tutorials>`
+- `Tutorials
+  <http://mongodb.github.io/mongo-java-driver/4.0/driver-reactive/tutorials/>`_
 
-- :java-docs-latest:`Usage Guide <driver-reactive/>`
+- `Usage Guide
+  <http://mongodb.github.io/mongo-java-driver/4.0/driver-reactive/>`_
 
 - `API Reference
   <https://mongodb.github.io/mongo-java-driver-reactivestreams/1.13/javadoc/>`_
@@ -36,8 +38,9 @@ Installation
 
 The recommended way to get started using the driver in your project is with
 a dependency management system.
-See `Installation Guide
-<http://mongodb.github.io/mongo-java-driver-reactivestreams/1.13/getting-started/installation-guide/>`
+See the `Installation Guide
+<http://mongodb.github.io/mongo-java-driver-reactivestreams/1.13/getting-started/installation-guide/>`_
+for more information.
 
 Connect to MongoDB Atlas
 ------------------------
