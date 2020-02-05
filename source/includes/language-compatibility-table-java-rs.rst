@@ -9,73 +9,73 @@
      - Java 8
      - Java 11 [*]_
 
-   * - 1.13.0
+   * - 1.13
      - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
 
-   * - 1.12.0
+   * - 1.12
      - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
 
-   * - 1.11.0
+   * - 1.11
      - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
 
-   * - 1.10.0
+   * - 1.10
      - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
 
-   * - 1.9.0
+   * - 1.9
      - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
 
-   * - 1.7.0
+   * - 1.7
      - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
 
-   * - 1.6.0
+   * - 1.6
      - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
 
-   * - 1.5.0
+   * - 1.5
      - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
 
-   * - 1.3.0
+   * - 1.3
      - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
 
-   * - 1.2.0
+   * - 1.2
      - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
 
-   * - 1.1.0
+   * - 1.1
      - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
 
-   * - 1.0.0
+   * - 1.0
      - |checkmark|
      - |checkmark|
      - |checkmark|
