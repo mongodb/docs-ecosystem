@@ -67,7 +67,8 @@ connection string </driver-connection>` for your cluster:
    MongoClient mongoClient = MongoClients.create(settings);
    MongoDatabase database = mongoClient.getDatabase("test");
 
-See :java-docs-latest:`Connect to MongoDB <driver-reactive/tutorials/connect-to-mongodb/>`
+See `Connect to MongoDB
+<http://mongodb.github.io/mongo-java-driver/4.0/driver-reactive/tutorials/>`_
 for more ways to connect.
 
 Compatibility
