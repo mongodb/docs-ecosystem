@@ -16,9 +16,9 @@ Introduction
 
 :doc:`Java Driver </drivers/java>` is the recommended MongoDB Java Driver.
 
-:doc:`Reactive Streams Driver </drivers/reactive-streams>` is the
-recommended MongoDB Java Driver for asynchronous stream processing and
-reactive streams interoperability.
+For asynchronous stream processing and reactive streams interoperability,
+the :doc:`Reactive Streams Driver </drivers/reactive-streams>` is the
+recommended MongoDB Java Driver.
 
 Take the free online course taught by MongoDB
 ---------------------------------------------
