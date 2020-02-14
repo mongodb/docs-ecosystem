@@ -3,122 +3,82 @@
    :stub-columns: 1
    :class: compatibility-large
 
-   * - Node.js Driver
-     - Node.js v0.8.X
-     - Node.js v0.10.X
-     - Node.js v0.12.X
-     - Node.js v4.X.X
-     - Node.js v6.X.X
-     - Node.js v8.X.X
-     - Node.js v10.x.x
-     - Node.js v12.x.x
+   * - Java Reactive Streams Driver Version
+     - Java 6
+     - Java 7
+     - Java 8
+     - Java 11 [*]_
 
-   * - 3.5.X
-     -
-     -
-     -
-     - |checkmark|
+   * - 1.13
      - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
 
-   * - 3.4.X
-     -
-     -
-     -
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-
-   * - 3.3.X
-     -
-     -
-     -
-     - |checkmark|
+   * - 1.12
      - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
 
-   * - 3.2.X
-     -
-     -
-     -
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-
-   * - 3.1.X
-     -
-     -
-     -
-     - |checkmark|
+   * - 1.11
      - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
 
-   * - 3.0.X
-     -
-     -
-     -
-     - |checkmark|
+   * - 1.10
      - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
 
-   * - 2.2.X
+   * - 1.9
      - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     -
-     -
 
-   * - 2.1.X
+   * - 1.7
      - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     -
-     -
 
-   * - 2.0.X
+   * - 1.6
      - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     -
-     -
 
-   * - >=1.4.18
+   * - 1.5
      - |checkmark|
      - |checkmark|
      - |checkmark|
-     -
-     -
-     -
-     -
-     -
+     - |checkmark|
 
-   * - 1.4.X
+   * - 1.3
      - |checkmark|
      - |checkmark|
-     -
-     -
-     -
-     -
-     -
-     -
+     - |checkmark|
+     - |checkmark|
+
+   * - 1.2
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+
+   * - 1.1
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+
+   * - 1.0
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+
+.. [*] Java versions 8 and above are all supported thanks to the JVM backwards compatibility promise. Only LTS versions will be explicitly listed in future.

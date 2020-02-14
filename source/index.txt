@@ -29,16 +29,6 @@ Platforms and Services
 .. toctree::
    :maxdepth: 1
 
-   platforms/amazon-ec2
-   platforms/windows-azure
-   platforms/windows
-
-Use Casessss
----------
-
-.. toctree::
-   :maxdepth: 1
-
    /use-cases/client-side-field-level-encryption-guide
    /use-cases/client-side-field-level-encryption-local-key-to-kms
 

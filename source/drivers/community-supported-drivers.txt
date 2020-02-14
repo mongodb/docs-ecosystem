@@ -8,8 +8,6 @@ Community Supported Drivers Reference
 
   - `<http://code.google.com/p/jmcnet-full-mongo-flex-driver/>`_
 
-  - `<http://www.mongoas3.com>`_
-
 - C
 
   - `libmongo-client <http://github.com/algernon/libmongo-client>`_
@@ -17,17 +15,6 @@ Community Supported Drivers Reference
 - ColdFusion
 
   - `cfmongodb <https://github.com/marcesher/cfmongodb/>`_
-
-  - Blog post: `Part 1
-    <http://blog.mxunit.org/2009/10/look-ma-no-sql-mongodb-and-coldfusion.html>`_
-    | `Part 2
-    <http://blog.mxunit.org/2009/10/look-ma-no-sql-mongodb-and-coldfusion_20.html>`_
-    | `Part 3
-    <http://blog.mxunit.org/2009/10/look-ma-no-sql-mongodb-and-coldfusion_25.html>`_
-
-  - `<http://github.com/virtix/cfmongodb/tree/0.9>`_
-
-  - `<http://mongocfc.riaforge.org/>`_
 
 - D
 
@@ -169,7 +156,7 @@ Community Supported Drivers Reference
 - Perl
 
   - `Mango <https://metacpan.org/pod/Mango>`_ - A non-blocking
-    pure-Perl driver based on `Mojolicious <http://mojolicio.us>`_
+    pure-Perl driver based on `Mojolicious <https://mojolicious.org/>`_
 
 - :ref:`PHP Libraries, Frameworks, and Tools <php-libraries-frameworks-and-tools>`
 
@@ -212,7 +199,7 @@ Community Supported Drivers Reference
 
 - Racket (PLT Scheme)
 
-  - `mongodb.plt <http://planet.plt-scheme.org/display.ss?package=mongodb.plt&owner=jaymccarthy>`_
+  - `mongodb.plt <http://planet.racket-lang.org/display.ss?package=mongodb.plt&owner=jaymccarthy&changerep=2>`_
 
 - Smalltalk
 
