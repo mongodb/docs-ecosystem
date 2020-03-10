@@ -20,20 +20,20 @@ Introduction
 The official MongoDB C#/.NET Driver provides asynchronous interaction
 with MongoDB.
 
-- :csharp-docs-latest:`Usage Guide </getting_started/>`
+- :csharp-docs-latest:`Getting Started </getting_started/>`
 
 - :csharp-docs-latest:`API Reference </apidocs/html/R_Project_CSharpDriverDocs.htm>`
 
 - :csharp-docs-latest:`Changelog </what_is_new/>`
 
-- `Source Code <https://github.com/mongodb/mongo-csharp-driver>`__
+- `Source Code <https://github.com/mongodb/mongo-csharp-driver>`_
 
 
 Installation
 ------------
 
 ``NuGet`` is the simplest way to get the driver. Use
-`MongoDB.Driver <http://www.nuget.org/packages/mongodb.driver>`__ for
+`MongoDB.Driver <http://www.nuget.org/packages/mongodb.driver>`_ for
 all new projects.
 
 For more information, see :csharp-docs-latest:`Installation
