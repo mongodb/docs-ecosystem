@@ -1,6 +1,7 @@
-name = "ecosystem"
+name = "drivers"
 
 [constants]
 version = 4.0
 package-name-org = "docs-ecosystem"
 pgp-version = "{+version+}"
+title = "MongoDB Drivers"
