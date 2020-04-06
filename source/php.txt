@@ -21,7 +21,7 @@ The PHP driver consists of two components, the MongoDB `extension <https://githu
 and `library <https://docs.mongodb.com/php-library/current>`_.
 
 The extension provides a low-level API and mainly serves to integrate
-`libmongoc and libbson <https://docs.mongodb.com/ecosystem/drivers/c/>`_ with PHP.
+`libmongoc and libbson <https://docs.mongodb.com/drivers/c/>`_ with PHP.
 
 While it is possible to use the extension alone, users are strongly encouraged
 to use the extension and library together. The library provides a high-level API
@@ -127,18 +127,7 @@ Language Compatibility
 
 .. include:: /includes/language-compatibility-table-php.rst
 
-How to get help
----------------
-
-- Join our `Google Group <https://groups.google.com/forum/#!forum/mongodb-user>`__.
-- Ask on `Stack Overflow <https://stackoverflow.com/questions/tagged/mongodb+php>`__.
-- Visit our `Support Channels <https://docs.mongodb.com/manual/support/>`__.
-- See our JIRA to raise issues or request features.
-
-  - `Extension <https://jira.mongodb.org/projects/PHPC/summary>`__
-
-  - `Library <https://jira.mongodb.org/projects/PHPLIB/summary>`__
-
+.. include:: /includes/help-links-php.rst
 
 See Also
 --------
@@ -150,7 +139,4 @@ See Also
    .. toctree::
       :titlesonly:
 
-      /drivers/php-libraries
-
-
-
+      /php-libraries
