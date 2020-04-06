@@ -54,8 +54,8 @@ Installation
 ------------
 
 First, make sure you have a recent version of PHP installed on your
-system. See the 
-`official PHP manual <https://www.php.net/manual/en/install.php>`_ 
+system. See the
+`official PHP manual <https://www.php.net/manual/en/install.php>`_
 for download and installation instructions.
 
 Install the PHP MongoDB Extension before installing the PHP Library for
