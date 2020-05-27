@@ -19,8 +19,6 @@ Introduction
 
 This is the official MongoDB Go Driver.
 
-- `Get Started <https://www.mongodb.com/blog/post/mongodb-go-driver-tutorial>`__
-
 - `Quick Start Tutorials <https://www.mongodb.com/blog/search/golang%20quickstart>`__
 
 - `Migration from Community Drivers <https://www.mongodb.com/blog/post/go-migration-guide>`__
