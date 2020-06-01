@@ -39,29 +39,51 @@ Connect to MongoDB Atlas
 
 .. include:: /includes/atlas-connect-blurb.rst
 
-.. tabs-apis::
+.. tabs::
 
-   .. tab::
+   .. tab:: Synchronous API
       :tabid: swift-sync
 
       .. code-block:: swift
 
-         import MongoSwift
+         import MongoSwiftSync
+
+         defer {
+             // free driver resources
+             cleanupMongoSwift()
+         }
 
          let client = try MongoClient("mongodb+srv://<username>:<password>@<cluster-url>/test?retryWrites=true&w=majority")
-         let db = client.db("test")
+         let db = client.db("myDB")
 
          // your application logic
-         // free all resources
-         cleanupMongoSwift()
 
-   .. tab::
+   .. tab:: Asynchronous API
       :tabid: swift-async
-
 
       .. code-block:: swift
 
-         // TODO
+         import MongoSwift
+         import NIO
+
+         let elg = MultiThreadedEventLoopGroup(numberOfThreads: 4)
+         let client = try MongoClient(
+             "mongodb+srv://<username>:<password>@<cluster-url>/test?retryWrites=true&w=majority",
+             using: elg
+         )
+
+         defer {
+             // clean up driver resources
+             try? client.syncClose()
+             cleanupMongoSwift()
+
+             // shut down EventLoopGroup
+             try? elg.syncShutdownGracefully()
+         }
+
+         let db = client.db("myDB")
+
+         // your application logic
 
 Compatibility
 -------------
