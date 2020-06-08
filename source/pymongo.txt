@@ -10,7 +10,7 @@ PyMongo
    :local:
    :backlinks: none
    :depth: 2
-   :class: twocols
+   :class: singlecol
 
 Introduction
 ------------
