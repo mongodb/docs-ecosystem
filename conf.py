@@ -74,7 +74,6 @@ extlinks = {
     'csharp-docs': ('http://mongodb.github.io/mongo-csharp-driver/2.10%s', ''),
     'node-docs': ('http://mongodb.github.io/node-mongodb-native/3.5%s', ''),
     'scala-docs': ('http://mongodb.github.io/mongo-scala-driver/2.9%s', ''),
-    'pymongo-docs': ('https://pymongo.readthedocs.io/en/stable/%s', ''),
     'aws-docs': ('https://docs.aws.amazon.com/%s', ''),
     'wikipedia': ('https://en.wikipedia.org/wiki/%s', ''),
     'community-support': ('https://www.mongodb.com/community-support-resources%s', ''),
