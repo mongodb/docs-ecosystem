@@ -17,11 +17,11 @@ Introduction
 
 **PyMongo** is the recommended way to work with MongoDB from Python.
 
-- :api:`Tutorial <python/current/tutorial.html>`
+- :pymongo-docs:`Tutorial <tutorial.html>`
 
-- :api:`API Reference <python/current/api/index.html>`
+- :pymongo-docs:`API Reference <api/index.html>`
 
-- :api:`Changelog <python/current/changelog.html>`
+- :pymongo-docs:`Changelog <changelog.html>`
 
 - `Source Code <https://github.com/mongodb/mongo-python-driver>`__
 
@@ -62,8 +62,7 @@ To upgrade using pip:
    $ python -m pip install --upgrade pymongo
 
 
-See :api:`Installation <python/current/installation.html>` for more
-ways to install.
+See :pymongo-docs:`Installation <installation.html>` for more ways to install.
 
 
 Connect to MongoDB Atlas
