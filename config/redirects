@@ -30,6 +30,7 @@ raw: ecosystem/tutorial/automate-deployment-with-cloudformation -> ${base}/platf
 raw: ecosystem/tutorial/deploy-mongodb-from-aws-marketplace -> ${base}/platforms/amazon-ec2
 raw: ecosystem/tutorial/install-mongodb-on-windows-azure -> ${base}/platforms/windows-azure
 raw: ecosystem/tutorials -> ${base}/tutorial
+raw: ecosystem/drivers -> ${base}
 raw: ecosystem/drivers/javascript -> ${base}/drivers/node-js
 raw: ecosystem/tutorial/download-and-compile-cpp-driver -> https://github.com/mongodb/mongo-cxx-driver/wiki/Download%20and%20Compile
 raw: ecosystem/tutorial/getting-started-with-cpp-driver -> https://github.com/mongodb/mongo-cxx-driver/wiki/blob/legacy/README.md
