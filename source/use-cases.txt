@@ -2,9 +2,10 @@
 Use Cases
 =========
 
+.. default-domain:: mongodb
+
 .. toctree::
    :titlesonly:
-   :hidden:
-
+   
    /use-cases/client-side-field-level-encryption-guide
    /use-cases/client-side-field-level-encryption-local-key-to-kms
