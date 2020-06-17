@@ -20,7 +20,6 @@ theme:
     - /drivers/python
     - /drivers/ruby
     - /drivers/scala
-    - /use-cases
 sidebars:
   '**':
     - 'pagenav.html'
