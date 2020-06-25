@@ -11,6 +11,24 @@ the main MongoDB documentation, see the :manual:`MongoDB Manual </>`.
 MongoDB Drivers
 ---------------
 
+.. toctree::
+  :titlesonly:
+
+   C Driver </c>
+   C++ Driver </cxx>
+   C# and .NET Driver </csharp>
+   Go Driver </go>
+   Java Drivers </java-drivers>
+   Node.js Driver </node>
+   Perl Driver </perl>
+   PHP Driver </php>
+   Python Drivers </python>
+   Ruby Driver  <https://docs.mongodb.com/ruby-driver/current/>
+   Mongoid ODM  <https://docs.mongodb.com/mongoid/current/>
+   Scala Driver </scala>
+   Swift Driver </swift>
+   Rust Driver </rust>
+
 .. include:: /includes/driver-table.rst
 
 For information on MongoDB licensing, see `MongoDB Licensing
