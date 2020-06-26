@@ -12,7 +12,6 @@ MongoDB Drivers
 ---------------
 
 .. toctree::
-  :titlesonly:
 
    C Driver </c>
    C++ Driver </cxx>
@@ -28,33 +27,4 @@ MongoDB Drivers
    Scala Driver </scala>
    Swift Driver </swift>
    Rust Driver </rust>
-
-.. include:: /includes/driver-table.rst
-
-For information on MongoDB licensing, see `MongoDB Licensing
-<https://www.mongodb.com/community/licensing>`_.
-
-MongoDB ODM (Object-Document-Mapper)
-------------------------------------
-
-Mongoid is the officially supported ODM (Object-Document-Mapper)
-framework for MongoDB in Ruby. For documentation, see `Mongoid
-Documentation <https://docs.mongodb.com/mongoid/current/>`_.
-
-Use Cases
----------
-
-.. toctree::
-   :maxdepth: 1
-
-   /use-cases/client-side-field-level-encryption-guide
-   /use-cases/client-side-field-level-encryption-local-key-to-kms
-
-..
-   /use-cases/storing-log-data
-   /use-cases/hierarchical-aggregation
-   /use-cases/product-catalog
-   /use-cases/inventory-management
-   /use-cases/category-hierarchy
-   /use-cases/metadata-and-asset-management
-   /use-cases/storing-comments
+   /use-cases
