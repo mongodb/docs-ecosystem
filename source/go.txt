@@ -50,7 +50,8 @@ Connect to MongoDB Atlas
 
 .. include:: /includes/atlas-connect-blurb.rst
 
-.. include:: /includes/connection-snippets/go-connection.go
+.. literalinclude:: /includes/connection-snippets/go-connection.go
+   :language: go
 
 See `Usage <https://github.com/mongodb/mongo-go-driver#usage>`__
 for more detail.
