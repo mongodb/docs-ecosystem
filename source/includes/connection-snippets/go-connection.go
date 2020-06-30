@@ -3,10 +3,12 @@ package main
 import "go.mongodb.org/mongo-driver/mongo"
 
 func main() {
-	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
 
 	// Replace the uri string with your MongoDB deployment's connection string.
 	uri := "mongodb+srv://<username>:<password>@<cluster-address>/test?w=majority"
+
+	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
+
 	client, err := mongo.Connect(ctx, options.Client().ApplyURI(uri))
 	if err != nil {
 		log.Fatal(err)
