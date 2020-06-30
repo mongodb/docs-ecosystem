@@ -16,7 +16,7 @@ func main() {
 	uri := "mongodb+srv://<username>:<password>@<cluster-address>/test?w=majority"
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
-	_
+	
 	client, err := mongo.Connect(ctx, options.Client().ApplyURI(uri))
 	if err != nil {
 		log.Fatal(err)
