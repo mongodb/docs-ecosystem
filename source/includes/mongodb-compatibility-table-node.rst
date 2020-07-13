@@ -24,7 +24,7 @@
      - |checkmark|
 
    * - >= 3.6
-     - |checkmark|
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|
