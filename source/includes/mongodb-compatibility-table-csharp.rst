@@ -26,7 +26,7 @@
      - |checkmark|
 
    * - Version 2.10
-     - |checkmark|
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -36,7 +36,7 @@
      - |checkmark|
 
    * - Version 2.9
-     - |checkmark|
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|
