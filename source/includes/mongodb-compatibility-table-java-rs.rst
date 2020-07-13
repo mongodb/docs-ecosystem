@@ -26,7 +26,7 @@
      - |checkmark|
 
    * - 1.13
-     - |checkmark|
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -36,7 +36,7 @@
      - |checkmark|
 
    * - 1.12
-     - |checkmark|
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|
