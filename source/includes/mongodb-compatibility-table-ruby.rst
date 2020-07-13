@@ -14,8 +14,19 @@
      - MongoDB 2.6
      - MongoDB 2.4
 
-   * - 2.12
+   * - 2.13 [*]_
      - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     -
+
+   * - 2.12
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -26,7 +37,7 @@
      -
 
    * - 2.11
-     - |checkmark|
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -37,7 +48,7 @@
      -
 
    * - 2.10
-     - |checkmark|
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -200,4 +211,6 @@
      -
      -
      - |checkmark|
+
+.. [*] The OCSP feature in MongoDB 4.4 is not supported in version 3.13.
 

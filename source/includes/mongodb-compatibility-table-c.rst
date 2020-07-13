@@ -13,8 +13,18 @@
      - MongoDB 3.0
      - MongoDB 2.6
 
-   * - Version 1.16
+   * - Version 1.17
+     -
      - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     -
+
+   * - Version 1.16
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -24,7 +34,7 @@
      -
 
    * - Version 1.15
-     - |checkmark|
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|

@@ -14,10 +14,17 @@
      - MongoDB 2.6
 
    * - ext 1.8 + lib 1.7
-
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     -
 
    * - ext 1.7 + lib 1.6
-     - |checkmark|
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|

@@ -16,7 +16,7 @@
      - MongoDB 3.0
      - MongoDB 2.6
 
-   * - 3.11 (beta)
+   * - 3.11 (beta) [#]_
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -27,7 +27,7 @@
      - |checkmark|
 
    * - 3.10
-     - |checkmark|
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -37,7 +37,7 @@
      - |checkmark|
 
    * - 3.9
-     - |checkmark|
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -165,3 +165,5 @@
      -
      -
      - |checkmark|
+
+.. [#] Beta versions may not support all the features of the MongoDB server versions.
