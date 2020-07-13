@@ -4,6 +4,7 @@
    :class: compatibility-large
 
    * - C Driver Version
+     - MongoDB 4.4
      - MongoDB 4.2
      - MongoDB 4.0
      - MongoDB 3.6
@@ -19,9 +20,11 @@
      - |checkmark|
      - |checkmark|
      - |checkmark|
+     - |checkmark|
      -
 
    * - Version 1.15
+     - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -32,6 +35,7 @@
 
    * - Version 1.14
      -
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -40,6 +44,7 @@
      -
 
    * - Version 1.13
+     -
      -
      - |checkmark|
      - |checkmark|
@@ -50,6 +55,7 @@
 
    * - Version 1.12
      -
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -58,6 +64,7 @@
      -
 
    * - Version 1.11
+     -
      -
      - |checkmark|
      - |checkmark|
@@ -69,6 +76,7 @@
    * - Version 1.10
      -
      -
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -76,6 +84,7 @@
      -
 
    * - Version 1.9
+     -
      -
      -
      - |checkmark|
@@ -88,12 +97,14 @@
      -
      -
      -
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
 
    * - Version 1.7
+     -
      -
      -
      -
@@ -106,12 +117,14 @@
      -
      -
      -
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
 
    * - Version 1.5
+     -
      -
      -
      -
@@ -125,11 +138,13 @@
      -
      -
      -
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|
 
    * - Version 1.3
+     -
      -
      -
      -
@@ -144,6 +159,7 @@
      -
      -
      -
+     -
      - |checkmark|
      - |checkmark|
 
@@ -153,10 +169,12 @@
      -
      -
      -
+     -
      - |checkmark|
      - |checkmark|
 
    * - Version 1.0
+     -
      -
      -
      -

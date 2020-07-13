@@ -263,7 +263,7 @@ MongoDB Compatibility
 
 .. _reference-compatibility-language-ruby:
 
-Ruby Compatibility
+Language Compatibility
 ~~~~~~~~~~~~~~~~~~
 
 .. include:: /includes/extracts/ruby-driver-compatibility-matrix-language.rst

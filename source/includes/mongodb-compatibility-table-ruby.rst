@@ -4,6 +4,7 @@
    :class: compatibility-large no-padding
 
    * - Ruby Driver
+     - MongoDB 4.4
      - MongoDB 4.2
      - MongoDB 4.0
      - MongoDB 3.6
@@ -13,7 +14,30 @@
      - MongoDB 2.6
      - MongoDB 2.4
 
+   * - 2.12
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     -
+
+   * - 2.11
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     -
+
    * - 2.10
+     - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -25,6 +49,7 @@
 
    * - 2.9
      -
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -34,6 +59,7 @@
      -
 
    * - 2.8
+     -
      -
      - |checkmark|
      - |checkmark|
@@ -45,6 +71,7 @@
 
    * - 2.7
      -
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -54,6 +81,7 @@
      -
 
    * - 2.6
+     -
      -
      - |checkmark|
      - |checkmark|
@@ -66,6 +94,7 @@
    * - 2.5
      -
      -
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -74,6 +103,7 @@
      -
 
    * - 2.4
+     -
      -
      -
      -
@@ -88,12 +118,14 @@
      -
      -
      -
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
 
    * - 2.2
+     -
      -
      -
      -
@@ -109,11 +141,13 @@
      -
      -
      -
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|
 
    * - 1.12
+     -
      -
      -
      -
@@ -130,10 +164,12 @@
      -
      -
      -
+     -
      - |checkmark|
      - |checkmark|
 
    * - 1.10
+     -
      -
      -
      -
@@ -151,9 +187,11 @@
      -
      -
      -
+     -
      - |checkmark|
 
    * - 1.8
+     -
      -
      -
      -

@@ -6,6 +6,7 @@
    :class: compatibility-large
 
    * - C#/.NET Driver Version
+     - MongoDB 4.4
      - MongoDB 4.2
      - MongoDB 4.0
      - MongoDB 3.6
@@ -22,8 +23,10 @@
      - |checkmark|
      - |checkmark|
      - |checkmark|
+     - |checkmark|
 
    * - Version 2.9
+     - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -34,6 +37,7 @@
 
    * - Version 2.8
      -
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -42,6 +46,7 @@
      - |checkmark|
 
    * - Version 2.7
+     -
      -
      - |checkmark|
      - |checkmark|
@@ -53,6 +58,7 @@
    * - Version 2.6
      -
      -
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -62,6 +68,7 @@
    * - Version 2.5
      -
      -
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -69,6 +76,7 @@
      - |checkmark|
 
    * - Version 2.4
+     -
      -
      -
      -
@@ -82,11 +90,13 @@
      -
      -
      -
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|
 
    * - Version 2.2
+     -
      -
      -
      -
@@ -101,10 +111,12 @@
      -
      -
      -
+     -
      - |checkmark|
      - |checkmark|
 
    * - Version 1.11
+     -
      -
      -
      -
