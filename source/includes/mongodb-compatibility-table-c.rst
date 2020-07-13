@@ -14,7 +14,7 @@
      - MongoDB 2.6
 
    * - Version 1.17
-     -
+     - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
