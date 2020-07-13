@@ -14,7 +14,7 @@
      - MongoDB 2.6
 
    * - 0.9.x
-     - |checkmark|
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -22,3 +22,4 @@
      -
      -
      -
+
