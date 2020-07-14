@@ -12,11 +12,13 @@
      - Node.js v8.X.X
      - Node.js v10.x.x
      - Node.js v12.x.x
+     - Node.js v14.x.x
 
    * - 3.5.X
      -
      -
      -
+     - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -32,11 +34,13 @@
      - |checkmark|
      - |checkmark|
      - |checkmark|
+     - |checkmark|
 
    * - 3.3.X
      -
      -
      -
+     - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -52,11 +56,13 @@
      - |checkmark|
      - |checkmark|
      - |checkmark|
+     - |checkmark|
 
    * - 3.1.X
      -
      -
      -
+     - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -72,6 +78,7 @@
      - |checkmark|
      - |checkmark|
      - |checkmark|
+     - |checkmark|
 
    * - 2.2.X
      - |checkmark|
@@ -80,6 +87,7 @@
      - |checkmark|
      - |checkmark|
      - |checkmark|
+     -
      -
      -
 
@@ -92,6 +100,7 @@
      - |checkmark|
      -
      -
+     -
 
    * - 2.0.X
      - |checkmark|
@@ -102,11 +111,13 @@
      - |checkmark|
      -
      -
+     -
 
    * - >=1.4.18
      - |checkmark|
      - |checkmark|
      - |checkmark|
+     -
      -
      -
      -
@@ -122,3 +133,5 @@
      -
      -
      -
+     -
+
