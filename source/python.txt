@@ -14,6 +14,11 @@ MongoDB Python Drivers
    :depth: 1
    :class: singlecol
 
+.. toctree::
+
+   /pymongo.txt
+   /motor.txt
+
 Introduction
 ------------
 
@@ -34,9 +39,4 @@ Take the free online course taught by MongoDB
        Learn the essentials of Python application development with MongoDB.
 
 
-.. toctree::
-   :titlesonly:
-
-   /pymongo.txt
-   /motor.txt
 
