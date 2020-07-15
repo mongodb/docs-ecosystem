@@ -34,11 +34,9 @@ Take the free online course taught by MongoDB
        Learn the essentials of Python application development with MongoDB.
 
 
-.. class:: hidden
+.. toctree::
+   :titlesonly:
 
-   .. toctree::
-      :titlesonly:
-
-      /pymongo.txt
-      /motor.txt
+   /pymongo.txt
+   /motor.txt
 
