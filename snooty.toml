@@ -7,5 +7,3 @@ toc_landing_pages = ["/python", "/php", "/java-drivers", "/use-cases"]
 version = 4.0
 package-name-org = "docs-ecosystem"
 pgp-version = "{+version+}"
-
-
