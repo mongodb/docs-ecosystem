@@ -14,6 +14,17 @@
      - Node.js v12.x.x
      - Node.js v14.x.x
 
+   * - 3.6.X
+     -
+     -
+     -
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+
    * - 3.5.X
      -
      -

@@ -14,7 +14,7 @@
      - MongoDB 2.6
 
    * - >= 3.6
-     -
+     - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
