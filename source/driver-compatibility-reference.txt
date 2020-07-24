@@ -13,7 +13,7 @@ Driver Compatibility
    :class: twocols
 
 
-.. admonition::
+.. admonition:: Check the driver documentation pages for compatibility information
    :class: note
    
    Please check our :ref:`driver documentation pages </>` for the latest
