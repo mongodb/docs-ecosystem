@@ -16,5 +16,5 @@ Driver Compatibility
 .. admonition:: Check the driver documentation pages for compatibility information
    :class: note
    
-   Please check our :ref:`driver documentation pages </>` for the latest
+   Please check our :ref:`driver documentation pages </index.html>` for the latest
    information on driver compatibility with MongoDB and driver languages.
