@@ -1017,7 +1017,7 @@ clients without CSFLE enabled could not read the encrypted data.
 Additional Information
 ----------------------
 
-.. _download-example-project
+.. _download-example-project:
 
 Download Example Project
 ~~~~~~~~~~~~~~~~~~~~~~~~
