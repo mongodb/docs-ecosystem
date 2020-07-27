@@ -16,7 +16,7 @@
      - MongoDB 3.0
      - MongoDB 2.6
 
-   * - 3.11 (release candidate)
+   * - 3.11
      - |checkmark|
      - |checkmark|
      - |checkmark|
