@@ -28,7 +28,6 @@ with MongoDB.
 
 - `Source Code <https://github.com/mongodb/mongo-csharp-driver>`_
 
-
 Take the free online course taught by MongoDB
 ---------------------------------------------
 
@@ -39,7 +38,6 @@ Take the free online course taught by MongoDB
 
      - `M220N: MongoDB for .NET Developers <https://university.mongodb.com/courses/M220N/about>`__
         Learn the essentials of C# & ASP.NET application development with MongoDB.
-
 
 Installation
 ------------
