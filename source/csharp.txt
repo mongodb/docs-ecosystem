@@ -35,8 +35,6 @@ Take the free online course taught by MongoDB
 
    * - .. cssclass:: bordered-figure
        .. figure:: /figures/M220N.png
-          lightbox: false
-          width: 300px
 
      - `M220N: MongoDB for .NET Developers <https://university.mongodb.com/courses/M220N/about>`__
         Learn the essentials of C# & ASP.NET application development with MongoDB.
