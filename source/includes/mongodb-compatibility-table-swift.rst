@@ -14,7 +14,7 @@
      - MongoDB 2.6
 
    * - 1.0.0
-     - |checkmark| [*]_
+     - |checkmark| (*)
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -23,4 +23,6 @@
      -
      -
 
-.. [*] Not all features in MongoDB 4.4 are available in this version of the driver including OCSP and MONGODB-AWS. These features will be included in future versions of the driver.
+(*) Not all features in MongoDB 4.4 are available in this version of the
+driver including OCSP and MONGODB-AWS. These features will be included in
+future versions of the driver.
