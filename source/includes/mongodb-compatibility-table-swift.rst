@@ -14,7 +14,7 @@
      - MongoDB 2.6
 
    * - 1.0.0
-     - |checkmark| (*)
+     - | |checkmark| (*)
      - |checkmark|
      - |checkmark|
      - |checkmark|
