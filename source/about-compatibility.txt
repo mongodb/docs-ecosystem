@@ -39,7 +39,7 @@ to identify the following:
 .. note:: 
    
    Although the drivers do not advertise compatibility with the versions of
-   the server released after them, they are usually inter-operable.
+   the server released after them, they are usually interoperable.
 
 Avoid using older versions of the drivers that do not appear on the chart
 because they are not supported.
