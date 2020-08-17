@@ -15,7 +15,7 @@ We maintain the following tables for each driver:
 
 Read the sections below for detailed explanations of each table.
 
-.. _mongodb-compatibility-tables
+.. _mongodb-compatibility-tables:
 
 MongoDB Compatibility Tables
 ----------------------------
@@ -41,7 +41,7 @@ the drivers that do not appear on the chart because they are unsupported.
    Although the drivers do not advertise compatibility with the versions of
    the server released after them, they are usually interoperable.
 
-.. _language-compatibility-tables
+.. _language-compatibility-tables:
 
 Language Compatibility Tables
 -----------------------------
