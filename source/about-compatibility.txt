@@ -24,7 +24,7 @@ In the **MongoDB Compatibility** tables, the columns are labeled with
 versions of MongoDB server and the rows are labeled with major release
 versions of the driver.
 
-The checkmarks (✓) indicate that the driver can access **all the
+The check marks (✓) indicate that the driver can access **all the
 features** of that specific version of MongoDB server unless those features 
 have been deprecated or removed. 
 
@@ -39,7 +39,7 @@ to identify the following:
 .. note:: 
    
    Although the drivers do not advertise compatibility with the versions of
-   the server released after them, they are usually interoperable.
+   the server released after them, they are usually inter-operable.
 
 Avoid using older versions of the drivers that do not appear on the chart
 because they are not supported.
@@ -53,5 +53,5 @@ In the **Language Compatibility** tables, the columns are labeled with
 versions of the language (e.g. Node.js, Python, etc.) and the rows are
 labeled with major release versions of the driver.
 
-The checkmarks (✓) indicate that the code in the driver is fully
+The check marks (✓) indicate that the code in the driver is fully
 compatible with the version of the language. 
