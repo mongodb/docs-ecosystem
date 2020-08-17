@@ -89,13 +89,13 @@ MongoDB Compatibility
 
 .. include:: /includes/older-server-versions-unsupported.rst
 
-.. include:: /includes/about-driver-compatibility.rst
-
 Language Compatibility
 ~~~~~~~~~~~~~~~~~~~~~~
 
 .. include:: /includes/extracts/c-driver-compatibility-matrix-language.rst
 
 .. include:: /includes/language-compatibility-table-c.rst
+
+.. include:: /includes/about-driver-compatibility.rst
 
 .. include:: /includes/help-links-c.rst
