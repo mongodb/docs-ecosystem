@@ -25,24 +25,21 @@ versions of MongoDB server and the rows are labeled with major release
 versions of the driver.
 
 The check marks (✓) indicate that the driver can access **all the
-features** of that specific version of MongoDB server unless those features 
-have been deprecated or removed. 
+features** of that specific version of MongoDB server unless those features
+have been deprecated or removed.
 
 If you are upgrading your server or driver version, you can use this table
-to identify the following:
+to identify which version of the driver you need to access all the newest
+features included in that version of the server.
 
-- version of the driver you need to access all the newest features
-  included in that version of the server
+We recommend that you use the latest driver version that supports your
+server version. We also recommend that you avoid using older versions of
+the drivers that do not appear on the chart because they are unsupported.
 
-- versions of the drivers tested against versions of the server
+.. note::
 
-.. note:: 
-   
    Although the drivers do not advertise compatibility with the versions of
    the server released after them, they are usually interoperable.
-
-Avoid using older versions of the drivers that do not appear on the chart
-because they are not supported.
 
 .. _language-compatibility-tables
 
@@ -54,4 +51,4 @@ versions of the language (e.g. Node.js, Python, etc.) and the rows are
 labeled with major release versions of the driver.
 
 The check marks (✓) indicate that the code in the driver is fully
-compatible with the version of the language. 
+compatible with the version of the language.
