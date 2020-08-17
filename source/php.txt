@@ -129,6 +129,8 @@ Language Compatibility
 
 .. include:: /includes/help-links-php.rst
 
+.. include:: /includes/about-driver-compatibility.rst
+
 See Also
 --------
 

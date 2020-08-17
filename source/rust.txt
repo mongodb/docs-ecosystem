@@ -86,3 +86,5 @@ Language Compatibility
 .. include:: /includes/language-compatibility-table-rust.rst
 
 .. include:: /includes/help-links-rust.rst
+
+.. include:: /includes/about-driver-compatibility.rst
