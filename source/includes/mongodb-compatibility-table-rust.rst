@@ -1,3 +1,10 @@
+.. note::
+
+   The Rust driver is currently missing some features such as explicit
+   sessions which prevents you from creating transactions and ensuring
+   causal consistency. We plan to make this driver consistent with our other
+   drivers in the future.
+
 .. list-table::
    :header-rows: 1
    :stub-columns: 1
