@@ -19,9 +19,6 @@ Introduction
 
 This is the official MongoDB Rust Driver.
 
-.. admonition:: Alpha Release
-   :class: important
-
 - `Usage Guide <https://github.com/mongodb/mongo-rust-driver#example-usage>`__
 
 - `API Reference <https://docs.rs/mongodb/latest/mongodb/>`__
