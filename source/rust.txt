@@ -47,13 +47,20 @@ corresponding connection code samples.
    .. tab:: Sync
       :tabid: rust-sync
 
+
+      Make sure you set ``default-features=false`` and enabled the
+      ``sync`` feature in your ``Cargo.toml`` file.
+      
+      Make sure you enabled the sync API. See
+      `Enabling the sync API <https://github.com/mongodb/mongo-rust-driver#enabling-the-sync-api>`__
+      for more details.
+
       .. code-block:: rust
 
-         // Be sure to set default-features=false and enable the "sync" feature in your Cargo.toml
          use mongodb::{bson::doc, sync::Client};
 
          fn main() -> mongodb::error::Result<()> {
-             // Get a handle to the deployment.
+             // Get a handle to the cluster
              let client = Client::with_uri_str(
                  "mongodb+srv://<username>:<password>@<cluster-url>/test?w=majority",
              )?;
@@ -63,7 +70,7 @@ corresponding connection code samples.
                  .run_command(doc! {"ping": 1}, None)?;
              println!("Connected successfully.");
 
-             // List the names of the databases in that deployment.
+             // List the names of the databases in that cluster
              for db_name in client.list_database_names(None, None)? {
                  println!("{}", db_name);
              }
@@ -73,21 +80,25 @@ corresponding connection code samples.
    .. tab:: Async
       :tabid: rust-async
 
+      Make sure you specified your async runtime. See
+      `Configuring the async runtime <https://github.com/mongodb/mongo-rust-driver#configuring-the-async-runtime>`__
+      for more details.
+      
       .. code-block:: rust
 
          use mongodb::{bson::doc, options::ClientOptions, Client};
 
          #[tokio::main]
          async fn main() -> mongodb::error::Result<()> {
-             // Parse a connection string into an options struct.
+             // Parse your connection string into an options struct
              let mut client_options =
                  ClientOptions::parse("mongodb+srv://<username>:<password>@<cluster-url>/test?w=majority")
                      .await?;
 
-             // Manually set an option.
+             // Manually set an option
              client_options.app_name = Some("Rust Demo".to_string());
 
-             // Get a handle to the deployment.
+             // Get a handle to the cluster
              let client = Client::with_options(client_options)?;
 
              client
@@ -96,7 +107,7 @@ corresponding connection code samples.
                  .await?;
              println!("Connected successfully.");
 
-             // List the names of the databases in that deployment.
+             // List the names of the databases in that cluster
              for db_name in client.list_database_names(None, None).await? {
                  println!("{}", db_name);
              }
