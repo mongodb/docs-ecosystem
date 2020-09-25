@@ -103,34 +103,6 @@ corresponding connection code samples.
              Ok(())
          }
 
-
-
-   use bson::doc;
-   use mongodb::{options::ClientOptions, Client};
-
-   fn main() -> mongodb::error::Result<()> {
-       // Parse a connection string into an options struct.
-       let mut client_options =
-           ClientOptions::parse("mongodb+srv://<username>:<password>@<cluster-url>/test?w=majority")?;
-
-       // Manually set an option.
-       client_options.app_name = Some("Rust Demo".to_string());
-
-       // Get a handle to the deployment.
-       let client = Client::with_options(client_options)?;
-
-       client
-           .database("admin")
-           .run_command(doc! {"ping": 1}, None)?;
-       println!("Connected successfully.");
-
-       // List the names of the databases in that deployment.
-       for db_name in client.list_database_names(None)? {
-           println!("{}", db_name);
-       }
-       Ok(())
-   }
-
 Compatibility
 -------------
 
