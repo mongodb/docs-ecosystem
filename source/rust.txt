@@ -47,10 +47,6 @@ corresponding connection code samples.
    .. tab:: Sync
       :tabid: rust-sync
 
-
-      Make sure you set ``default-features=false`` and enabled the
-      ``sync`` feature in your ``Cargo.toml`` file.
-      
       Make sure you enabled the sync API. See
       `Enabling the sync API <https://github.com/mongodb/mongo-rust-driver#enabling-the-sync-api>`__
       for more details.
@@ -83,7 +79,7 @@ corresponding connection code samples.
       Make sure you specified your async runtime. See
       `Configuring the async runtime <https://github.com/mongodb/mongo-rust-driver#configuring-the-async-runtime>`__
       for more details.
-      
+
       .. code-block:: rust
 
          use mongodb::{bson::doc, options::ClientOptions, Client};
