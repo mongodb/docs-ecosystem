@@ -1,6 +1,6 @@
-=========
-Use Cases
-=========
+========
+Security
+========
 
 .. default-domain:: mongodb
 
