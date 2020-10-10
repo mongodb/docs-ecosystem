@@ -19,7 +19,7 @@ content: |
   The following diagram shows how the **master key** is created and stored
   when using a KMS provider:
 
-  .. image:: /includes/figures/CSFLE_Master_Key_KMS.png
+  .. image:: /figures/CSFLE_Master_Key_KMS.png
      :alt: Diagram that describes creating a master key when using a KMS provider
 
   In AWS management console, create a new symmetric master key in the KMS
@@ -97,7 +97,7 @@ content: |
   The following diagram shows how the **customer master key** is created and
   stored when using a KMS provider:
 
-  .. image:: /includes/figures/CSFLE_Data_Key_KMS.png
+  .. image:: /figures/CSFLE_Data_Key_KMS.png
      :alt: Diagram that describes creating a data encryption key when using a KMS provider
 
   You must generate a new **data encryption key** using the **master key**

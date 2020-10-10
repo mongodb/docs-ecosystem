@@ -149,7 +149,7 @@ clients are able to read and write the sensitive data fields.
 The following diagram is a list of MongoDB security features offered
 and the potential security vulnerabilities that they address:
 
-.. image:: /includes/figures/CSFLE_Security_Feature_Chart.png
+.. image:: /figures/CSFLE_Security_Feature_Chart.png
    :alt: Diagram that describes MongoDB security features and the potential vulnerabilities that they address
 
 MedcoMD will provide Receptionists with a client that is not configured
@@ -269,7 +269,7 @@ the "locally-managed master key" in this guide.
 
 The following diagram shows how the **master key** is created and stored:
 
-.. image:: /includes/figures/CSFLE_Master_Key_Local.png
+.. image:: /figures/CSFLE_Master_Key_Local.png
    :alt: Diagram that describes creating the master key when using a local provider
 
 The **data encryption keys**, generated and used by the MongoDB driver to
@@ -362,7 +362,7 @@ access the key for automatic encryption and decryption.
 The following diagram shows how the **data encryption keys** are created and
 stored:
 
-.. image:: /includes/figures/CSFLE_Data_Key_Local.png
+.. image:: /figures/CSFLE_Data_Key_Local.png
    :alt: Diagram that describes creating the data encryption key when using a locally-managed master key
 
 The client requires the following configuration values to generate a new
@@ -799,7 +799,7 @@ Insert a Document with Encrypted Fields
 The following diagram shows the steps taken by the client application and
 driver to perform a write of field-level encrypted data:
 
-.. image:: /includes/figures/CSFLE_Write_Encrypted_Data.png
+.. image:: /figures/CSFLE_Write_Encrypted_Data.png
    :alt: Diagram that shows the data flow for a write of field-level encrypted data
 
 MedcoMD engineers write a function to create a new patient record with the
@@ -905,7 +905,7 @@ Query for Documents on a Deterministically Encrypted Field
 The following diagram shows the steps taken by the client application and
 driver to query and decrypt field-level encrypted data:
 
-.. image:: /includes/figures/CSFLE_Read_Encrypted_Data.png
+.. image:: /figures/CSFLE_Read_Encrypted_Data.png
    :alt: Diagram that shows the data flow for querying and reading field-level encrypted data
 
 You can run queries on documents with encrypted fields using standard
