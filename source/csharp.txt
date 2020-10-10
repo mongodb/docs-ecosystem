@@ -34,7 +34,7 @@ Take the free online course taught by MongoDB
 .. list-table::
 
    * - .. cssclass:: bordered-figure
-       .. figure:: /figures/M220N_hero.png
+       .. figure:: /figures/M220N.png
           :alt: M220N Course Icon
 
      - `M220N: MongoDB for .NET Developers <https://university.mongodb.com/courses/M220N/about>`__
