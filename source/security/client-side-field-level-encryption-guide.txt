@@ -13,21 +13,24 @@ Client-Side Field Level Encryption Guide
 Who Is This Guide For?
 ----------------------
 
-This use case guide is an introduction to implementing automatic
-Client-Side Field Level Encryption using supported MongoDB drivers and is
-intended for **full-stack developers**. The guide presents the following
+This guide shows you how to implement automatic Client-Side Field Level
+Encryption (CSFLE) using supported MongoDB drivers and is intended for
+**full-stack developers**. The guide presents the following
 information in the context of a real-world scenario:
 
-- **How Client-Side Field Level Encryption works** (`Introduction`_)
-- **Reasons to choose this security feature** (`Comparison of Security
-  Features`_)
-- **How to implement Client-Side Field Level Encryption with the MongoDB
-  driver** (`Implementation`_)
+- :ref:`Introduction <csfle-guide-intro>`: How Client-Side Field Level
+  Encryption works
+- :ref:`Comparison of Security Features <csfle-feature-comparison>`: Reasons
+  to choose this security feature
+- :ref:`Impelementation <csfle-implementation>`: How to implement Client-Side
+  Field Level Encryption with the MongoDB driver
 
 .. note:: Download the Code
 
    For a runnable example of all the functionality demonstrated in this guide,
    see the :ref:`Download Example Project <download-example-project>` section.
+
+.. _csfle-guide-intro:
 
 Introduction
 ------------
@@ -106,6 +109,8 @@ of the following methods:
 What can MedcoMD do to balance the functionality and access restrictions
 of their Medical Care Management System?
 
+.. _csfle-feature-comparison:
+
 Comparison of Security Features
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -161,6 +166,8 @@ privacy of their own office.
 
 Equipped with CSFLE, MedcoMD can keep their sensitive data secure and
 compliant to data privacy regulations with MongoDB.
+
+.. _csfle-implementation:
 
 Implementation
 --------------
@@ -277,7 +284,7 @@ encrypt and decrypt document fields, are stored in a key vault collection in
 the same MongoDB replica set as the encrypted data.
 
 
-.. warning:: Local Key Provider is not suitable for production
+.. warning:: The Local Key Provider is not suitable for production
 
    The Local Key Provider is an insecure method of storage and is therefore
    **not recommended** if you plan to use CSFLE in production. Instead,

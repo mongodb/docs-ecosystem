@@ -15,28 +15,34 @@ Client-Side Field Level Encryption: Use a KMS to Store the Master Key
 Introduction
 ------------
 
-This guide is intended to help users migrate from using Client-Side Field
+This guide shows you how to migrate from using Client-Side Field
 Level Encryption (CSFLE) with a **locally-managed master key** to one that
-uses a remote **Key Management Service** such as
-`AWS KMS <https://aws.amazon.com/kms/>`_ to prepare their implementation
-for production. This guide assumes that you have already created
-a CSFLE-enabled client, appropriate access to the MongoDB replica set and
-AWS KMS.
+uses a remote **Key Management Service** (KMS) and is intended for
+**full-stack developers**.
 
-For a detailed walkthrough on developing and configuring a CSFLE client
-with an example use case, see our `CSFLE guide
-</security/client-side-field-level-encryption-guide>`_.
+Currently, MongoDB drivers support the following Key Management Providers:
 
-Reasons to Use a KMS
---------------------
+- `Amazon Web Services KMS <https://aws.amazon.com/kms/>`__
+- `Azure Key Vault <https://azure.microsoft.com/en-us/services/key-vault/>`__
+- `Google Cloud Platform Key Management <https://cloud.google.com/security-key-management>`__
+- Local KMS provider
+
+This guide assumes you already completed the following:
+
+- created a CSFLE-enabled client using our `CSFLE guide </security/client-side-field-level-encryption-guide>`_
+- configured appropriate permissions to the MongoDB replica set
+- set up access to one of the aforementioned KMS providers
+
+Reasons to Use a Remote KMS
+---------------------------
 
 A remote KMS for master key management offers the following advantages over
-storing it on the local filesystem:
+storing the master key on the local filesystem:
 
-- Secure storage with access auditing
+- Secure storage of the key with access auditing
 - Reduced risk of access permission issues
-- Availability and distribution to remote clients
-- Automated backup and recovery
+- Availability and distribution of the key to remote clients
+- Automated key backup and recovery
 - Centralized encryption key lifecycle management
 
 Additionally, MongoDB trasmits the data encryption keys to the KMS for
@@ -51,19 +57,35 @@ Convert to a Remote Master Key
    Before you switch from a locally-managed master key to a remote KMS,
    you must decrypt all documents containing field-encrypted data if you
    want to keep it. Your existing data encryption keys can only be decrypted
-   with the original locally-managed master key and not the CMK that AWS KMS
-   generates.
+   with the original locally-managed master key and not the CMK that the
+   KMS generates.
 
    Failure to decrypt all data at this stage may cause permanent and
    unrecoverable data loss.
 
 This following steps explain the setup and updates necessary to move from
-a local key provider to AWS KMS.
+a local key provider to a KMS. Select the tab that corresponds to your 
+provider:
 
-.. include:: /includes/steps/fle-convert-to-a-remote-master-key.rst
+.. tabs::
+
+
+   .. tab::
+      :tabid: AWS KMS
+
+      .. include:: /includes/steps/fle-convert-to-a-remote-master-key-aws.rst
+      
+      :tabid: Azure Key Vault
+
+      placeholder 
+      
+      :tabid: Google Cloud Key Management
+
+      placeholder
+      
 
 For more information on client-side field level encryption in MongoDB,
-check out the reference docs in the server manual:
+check out the reference documentation in the MongoDB server manual:
 
 - :manual:`Client-Side Field Level Encryption </core/security-client-side-encryption>`
 - :manual:`Automatic Encryption JSON Schema Syntax </reference/security-client-side-automatic-json-schema>`
