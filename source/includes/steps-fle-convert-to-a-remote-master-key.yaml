@@ -55,7 +55,6 @@ content: |
         :tabid: java-sync
 
         .. code-block:: java
-           :emphasize-lines: 7-9, 11
 
            BsonString awsAccessKeyId = new BsonString("<IAM User Access Key ID>");
            BsonString awsSecretAccessKey = new BsonString("<IAM User Secret Access Key>");
@@ -115,7 +114,6 @@ content: |
         :tabid: java-sync
 
         .. code-block:: Java
-           :emphasize-lines: 9-14, 16-17
 
            ClientEncryption clientEncryption = ClientEncryptions.create(ClientEncryptionSettings.builder()
                .keyVaultMongoClientSettings(MongoClientSettings.builder()
