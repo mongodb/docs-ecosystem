@@ -27,17 +27,21 @@ Currently, MongoDB drivers support the following Key Management Providers:
 - `Google Cloud Platform Key Management <https://cloud.google.com/security-key-management>`__
 - Local KMS provider
 
-This guide assumes you already completed the following:
+Prerequisites
+-------------
+
+This guide requires that you completed the following:
 
 - created a CSFLE-enabled client using our `CSFLE guide </security/client-side-field-level-encryption-guide>`_
 - configured appropriate permissions to the MongoDB replica set
-- set up access to one of the aforementioned KMS providers
+- set up a Customer Master Key (CMK) on one of the supported remote KMS
+  providers
 
 Reasons to Use a Remote KMS
 ---------------------------
 
-A remote KMS for master key management offers the following advantages over
-storing the master key on the local filesystem:
+Using a remote KMS for master key management has the following advantages over
+using a master key on the local filesystem:
 
 - Secure storage of the key with access auditing
 - Reduced risk of access permission issues
@@ -77,13 +81,12 @@ provider:
       
       :tabid: Azure Key Vault
 
-      placeholder 
+      .. include:: /includes/steps/fle-convert-to-a-remote-master-key-azure.rst
       
       :tabid: Google Cloud Key Management
 
-      placeholder
+      .. include:: /includes/steps/fle-convert-to-a-remote-master-key-gcp.rst
       
-
 For more information on client-side field level encryption in MongoDB,
 check out the reference documentation in the MongoDB server manual:
 

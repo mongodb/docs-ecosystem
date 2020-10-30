@@ -1,5 +1,5 @@
-title: Create an AWS IAM User
-ref: create-an-aws-iam-user
+title: Create an Azure User
+ref: create-an-azure-user
 content: |
   Create a new programmatic IAM user in the AWS management console.
   CSFLE-enabled clients authenticate with AWS KMS using the IAM user to
@@ -16,35 +16,62 @@ title: Create the Master Key
 ref: create-the-master-key
 content: |
 
-  The following diagram shows how the **master key** is created and stored
-  when using a KMS provider:
+  The following diagram shows the process of creating a **master key** on
+  a KMS provider:
 
   .. image:: /figures/CSFLE_Master_Key_KMS.png
-     :alt: Diagram that describes creating a master key when using a KMS provider
+     :alt: Diagram that describes creating a master key on a KMS provider
 
-  In AWS management console, create a new symmetric master key in the KMS
-  section. Choose a name and description that helps you identify it; these
-  fields do not affect the functionality or configuration.
+  You can create a master key with the Azure CLI by following Microsoft's
+  `Secrets Guide <https://docs.microsoft.com/en-us/azure/key-vault/secrets/about-secrets>`__.
+  Follow the instructions in one of the :guilabel:`Quickstarts` sections that
+  corresponds to your preferred method to create and configure your key.
+  For example, the `Portal Quickstart <https://docs.microsoft.com/en-us/azure/key-vault/secrets/quick-create-portal>`__
+  demonstrates how to create a new vault and key.
 
-  In the :guilabel:`Usage Permissions` step of the key generation
-  process, add the full KMS ``List`` and ``Read`` permissions to the IAM
-  user you created in the previous step. This authorizes the user to encrypt
-  and decrypt the new master key.
+  Make sure you provide the ``list`` and ``read`` permissions to the
+  principal used by your client application.
 
   .. important::
 
-     The new client IAM User *should not* have administrative permissions
-     for the master key.
+     The client user *should not* have administrative permissions for the
+     master key.
 ---
-title: Specify the AWS KMS Provider Credentials
-ref: specify-the-aws-kms-provider-credentials
+title: Specify the Azure Credentials
+ref: specify-the-azure-credentials
 content: |
-  Unlike the local key provider, the AWS KMS provider does not read
-  the master key directly from the client application. Instead,
-  it accepts the :guilabel:`Access Key ID` and :guilabel:`Secret Access
-  Key` configurations that point to the master key. The IAM user must have
-  the permissions set up in the previous step in order for the client to
-  use the KMS to encrypt and decrypt data encryption keys.
+  Unlike the local key provider, the Azure Key Vault does not read the
+  master key directly from the client application. Instead, it retrieves
+  the key using your Azure credentials and the key vault details.
+
+  Configure your client application with the following authorization
+  credentials:
+
+  .. list-table::
+   :header-rows: 1
+   :stub-columns: 1
+
+   * - Field
+     - Required
+     - Description
+
+   * - azure.tenantId
+     - Yes
+     - Identifies the organization of the account
+
+   * - azure.clientId
+     - Yes
+     - Identifies the clientId to authenticate your registered application
+
+   * - azure.clientSecret
+     - Yes
+     - Used to authenticate your registered application
+
+   * - azure.identityPlatformEndpoint
+     - No
+     - Specifies a hostname and port number for the  authentication server.
+       Defaults to login.microsoftonline.com and is only needed for
+       non-commercial Azure instances such as a government or China account.
 
   Update the KMS Provider configuration in your CSFLE-enabled client
   creation code:
@@ -54,60 +81,77 @@ content: |
      .. tab::
         :tabid: java-sync
 
-        .. code-block:: java
-           :emphasize-lines: 7-9, 11
 
-           BsonString masterKeyRegion = new BsonString("<Master Key AWS Region>"); // e.g. "us-east-2"
-           BsonString awsAccessKeyId = new BsonString("<IAM User Access Key ID>");
-           BsonString awsSecretAccessKey = new BsonString("<IAM User Secret Access Key>");
-           Map<String, Map<String, Object>> kmsProviders = new HashMap<String, Map<String, Object>>();
+        .. code-block:: java
+
+           // TODO: verify correctness
            Map<String, Object> providerDetails = new HashMap<String, Object>();
 
-           providerDetails.put("accessKeyId", awsAccessKeyId);
-           providerDetails.put("secretAccessKey", awsSecretAccessKey);
-           providerDetails.put("region", masterKeyRegion);
+           providerDetails.put("tenantId", new BsonString("<Azure account organization>"));
+           providerDetails.put("clientId", new BsonString("<Azure client ID>"));
+           providerDetails.put("clientSecret", new BsonString("<Azure client secret>"));
 
-           kmsProviders.put("aws", providerDetails);
+           Map<String, Map<String, Object>> kmsProviders = new HashMap<String, Map<String, Object>>();
+           kmsProviders.put("azure", providerDetails);
+
      .. tab::
         :tabid: nodejs
 
         .. code-block:: javascript
 
-           kmsProviders = {
-             aws: {
-               accessKeyId: '<IAM User Access Key ID>',
-               secretAccessKey: '<IAM User Secret Access Key>',
+           // TODO: verify correctness
+           kms_providers = {
+             azure: {
+               tenantId: "<Azure account organization>",
+               clientId: "<Azure client ID>",
+               clientSecret: "<Azure client secret>"
              }
            }
+
      .. tab::
         :tabid: python
+
+        In ``app.py``:
 
         .. code-block:: python
 
            kms_providers = {
-               "aws": {
-                   "accessKeyId": "<IAM User Access Key ID>",
-                   "secretAccessKey": "<IAM User Secret Access Key>"
-               }
+              "azure": {
+                  "tenantId": "<Azure account organization>",
+                  "clientId": "<Azure client ID>",
+                  "clientSecret": "<Azure client secret>"
+              }
            }
 ---
 title: Create a New Data Encryption Key
 ref: create-a-new-data-key
 content: |
-  The following diagram shows how the **customer master key** is created and
-  stored when using a KMS provider:
+
+  In this step, we generate a new **data encryption key** using the
+  **master key** in the remote KMS. The following diagram shows the
+  requests you make from the client application to create and store a
+  new data encryption key:
 
   .. image:: /figures/CSFLE_Data_Key_KMS.png
      :alt: Diagram that describes creating a data encryption key when using a KMS provider
 
-  You must generate a new **data encryption key** using the **master key**
-  in the remote KMS. The original data encryption key was encrypted by
-  your locally-managed master key.
+  Provide your client with the following information to access the master key:
 
-  Specify the AWS region and `Amazon Resource Number
-  <https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html#find-cmk-id-arn>`_
-  (ARN) of the new CMK in the CSFLE-enabled client settings. Use the client
-  to create a new data encryption key as follows:
+   * - Field
+     - Required
+     - Description
+
+   * - keyName
+     - Yes
+     - Name of the master key
+
+   * - keyVersion
+     - No
+     - Version of the master key
+
+   * - keyVaultEndpoint
+     - Yes
+     - URL of the key vault. E.g. myVaultName.vault.azure.net
 
   Once you have the required information, run the following code to
   generate the new data encryption key:
@@ -118,8 +162,8 @@ content: |
         :tabid: java-sync
 
         .. code-block:: Java
-           :emphasize-lines: 9-14, 16-17
 
+           // TODO: update for Azure
            ClientEncryption clientEncryption = ClientEncryptions.create(ClientEncryptionSettings.builder()
                .keyVaultMongoClientSettings(MongoClientSettings.builder()
                    .applyConnectionString(new ConnectionString("mongodb://localhost:27017"))
@@ -139,11 +183,13 @@ content: |
            String base64DataKeyId = Base64.getEncoder().encodeToString(dataKeyId.getData());
 
            System.out.println("DataKeyId [base64]: " + base64DataKeyId);
+
      .. tab::
         :tabid: nodejs
 
         .. code-block:: javascript
 
+           // TODO: update for Azure
            const encryption = new ClientEncryption(client, {
                keyVaultNamespace,
                kmsProviders
@@ -151,48 +197,28 @@ content: |
            const key = await encryption.createDataKey('aws', {
               masterKey: {
                 key: '<Master Key ARN>', // e.g. 'arn:aws:kms:us-east-2:111122223333:alias/test-key'
-                region: '<Master Key AWS Region>', // e.g. 'us-east-1'
               }
            });
 
            const base64DataKeyId = key.toString('base64');
            console.log('DataKeyId [base64]: ', base64DataKeyId);
+
      .. tab::
         :tabid: python
 
+        In ``app.py``:
+
         .. code-block:: python
 
-           import pymongo
-           from pymongo import MongoClient
-           from pymongo.encryption_options import AutoEncryptionOpts
-           from bson.binary import STANDARD
-           from bson.codec_options import CodecOptions
-
-           connection_string = "mongodb://localhost:27017"
-           key_vault_namespace = "encryption.__keyVault"
-
-           fle_opts = AutoEncryptionOpts(
-              kms_providers, # pass in the kms_providers from the previous step
-              key_vault_namespace
-           )
-
-           client_encryption = pymongo.encryption.ClientEncryption(
-              {
-                "aws": {
-                  "accessKeyId": "<IAM User Access Key ID>",
-                  "secretAccessKey": "<IAM User Secret Access Key>"
-                }
-              },
-              key_vault_namespace,
-              client,
-              CodecOptions(uuid_representation=STANDARD)
-           )
-           data_key_id = client_encryption.create_data_key("aws")
+           master_key = {
+             "keyName": "<Azure key name>",
+             # "keyVersion": "<Azure key vault endpoint>",
+             "keyVaultEndpoint": "<Azure key version>"
+           }
 
 ---
 title: Update the Automatic Encryption JSON Schema
 ref: update-the-json-schema
 content: |
-  If you embedded the key id of your data encryption key in your
-  automatic encryption rules, you will need to update the :ref:`JSON
-  Schema <fle-define-a-json-schema>` with the new data encryption key id.
+  Update your :ref:`JSON Schema <fle-define-a-json-schema>` to reference your
+  new data encryption key id.
