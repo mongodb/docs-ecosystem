@@ -27,21 +27,25 @@ Currently, MongoDB drivers support the following Key Management Providers:
 - `Google Cloud Platform Key Management <https://cloud.google.com/security-key-management>`__
 - Local KMS provider
 
+Once you complete the steps in this guide, you should have:
+
+- a master key hosted by one of the supported remote Key Management Services
+- a working client application that encrypts and decrypts the data
+  encryption key using the KMS master key
+
 Prerequisites
 -------------
 
 This guide requires that you completed the following:
 
 - created a CSFLE-enabled client using our `CSFLE guide </security/client-side-field-level-encryption-guide>`_
-- configured appropriate permissions to the MongoDB replica set
-- set up a Customer Master Key (CMK) on one of the supported remote KMS
-  providers
+- decrypted any data encrypted while using a local KMS master key
 
 Reasons to Use a Remote KMS
 ---------------------------
 
-Using a remote KMS for master key management has the following advantages over
-using a master key on the local filesystem:
+Choosing a remote KMS for master key management has the following advantages
+over using your local filesystem to host the master key:
 
 - Secure storage of the key with access auditing
 - Reduced risk of access permission issues
@@ -53,8 +57,8 @@ Additionally, MongoDB trasmits the data encryption keys to the KMS for
 encryption and decryption, ensuring the Customer Master Key (CMK) is never
 exposed to the client.
 
-Convert to a Remote Master Key
-------------------------------
+Set up a Remote Master Key
+--------------------------
 
 .. warning:: Decrypt all encrypted field data first
 
@@ -87,9 +91,13 @@ provider:
 
       .. include:: /includes/steps/fle-convert-to-a-remote-master-key-gcp.rst
       
+Further Reading
+---------------
+
 For more information on client-side field level encryption in MongoDB,
 check out the reference documentation in the MongoDB server manual:
 
 - :manual:`Client-Side Field Level Encryption </core/security-client-side-encryption>`
 - :manual:`Automatic Encryption JSON Schema Syntax </reference/security-client-side-automatic-json-schema>`
 - :manual:`Manage Client-Side Encryption Data Keys </tutorial/manage-client-side-encryption-data-keys>`
+

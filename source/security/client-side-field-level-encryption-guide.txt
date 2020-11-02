@@ -30,6 +30,13 @@ information in the context of a real-world scenario:
    For a runnable example of all the functionality demonstrated in this guide,
    see the :ref:`Download Example Project <download-example-project>` section.
 
+Once you complete the steps in this guide, you should have:
+
+- an understanding of how client-side field level encryption works and
+  in what situations it is practical
+- a working client application that demonstrates automatic CSFLE
+- resources on how to move the sample client application to production
+
 .. _csfle-guide-intro:
 
 Introduction
@@ -1052,16 +1059,6 @@ For more information on securing your master key, see our :doc:`step-by-step
 guide to integrating with Amazon KMS
 </security/client-side-field-level-encryption-local-key-to-kms/>`.
 
-Summary
--------
-
-Once you complete the steps in this guide, you should have:
-
-- an understanding of how client-side field level encryption works and in
-  what types of situations it is practical
-- a working client application that demonstrates automatic CSFLE
-- resources on how to move the sample client application to production
-
 Further Reading
 ~~~~~~~~~~~~~~~
 
@@ -1092,3 +1089,4 @@ check out the reference docs in the server manual:
 
       For additional information on MongoDB CSFLE API, see the
       `official PyMongo driver documentation <https://pymongo.readthedocs.io/en/stable/examples/encryption.html>`__.
+
