@@ -654,7 +654,6 @@ can provide configurable parameters including:
              .. example::
 
                 .. code-block:: java
-                   :emphasize-lines: 2,5,9
 
                    List<String> spawnArgs = new ArrayList<String>();
                    spawnArgs.add("--port=30000");
@@ -675,7 +674,6 @@ can provide configurable parameters including:
              .. example::
 
                 .. code-block:: java
-                   :emphasize-lines: 2-3,6,10
 
                    List<String> spawnArgs = new ArrayList<String>();
                    spawnArgs.add("--idleShutdownTimeoutSecs")
@@ -706,7 +704,6 @@ can provide configurable parameters including:
              .. example::
 
                 .. code-block:: javascript
-                   :emphasize-lines: 4-5
 
                    autoEncryption: {
                      ...
@@ -730,7 +727,6 @@ can provide configurable parameters including:
              .. example::
 
                 .. code-block:: javascript
-                   :emphasize-lines: 4
 
                    autoEncryption: {
                      ...
@@ -756,7 +752,6 @@ can provide configurable parameters including:
              .. example::
 
                 .. code-block:: python
-                   :emphasize-lines: 1
 
                    auto_encryption_opts = AutoEncryptionOpts(mongocryptd_spawn_args=['--port=30000'])
 
@@ -769,7 +764,6 @@ can provide configurable parameters including:
              .. example::
 
                 .. code-block:: python
-                   :emphasize-lines: 1
 
                    auto_encryption_opts = AutoEncryptionOpts(mongocryptd_spawn_args=['--idleShutdownTimeoutSecs=75'])
 
@@ -963,7 +957,6 @@ contains the last 4 digits of the ``ssn`` field. They could then query
 on this field as a proxy for the ``ssn``.
 
 .. code-block:: json
-   :emphasize-lines: 5
 
     {
         "_id": "5d6ecdce70401f03b27448fc",
@@ -1059,6 +1052,16 @@ For more information on securing your master key, see our :doc:`step-by-step
 guide to integrating with Amazon KMS
 </security/client-side-field-level-encryption-local-key-to-kms/>`.
 
+Summary
+-------
+
+Once you complete the steps in this guide, you should have:
+
+- an understanding of how client-side field level encryption works and in
+  what types of situations it is practical
+- a working client application that demonstrates automatic CSFLE
+- resources on how to move the sample client application to production
+
 Further Reading
 ~~~~~~~~~~~~~~~
 
@@ -1075,12 +1078,17 @@ check out the reference docs in the server manual:
    .. tab::
       :tabid: java-sync
 
-      For additional information on MongoDB CSFLE API, see the
-      :java-docs:`official Java driver documentation
-      <driver/tutorials/client-side-encryption/>`
+      For additional information on the MongoDB CSFLE API, see the
+      :java-docs:`official Java driver documentation <driver/tutorials/client-side-encryption/>`__.
+
    .. tab::
       :tabid: nodejs
 
-      For additional information on MongoDB CSFLE API, see the `official
-      Node.js driver documentation
-      <https://www.npmjs.com/package/mongodb-client-encryption>`_
+      For additional information on the MongoDB CSFLE API, see the
+      `official Node.js driver documentation <https://www.npmjs.com/package/mongodb-client-encryption>`__.
+
+   .. tab::
+      :tabid: python
+
+      For additional information on MongoDB CSFLE API, see the
+      `official PyMongo driver documentation <https://pymongo.readthedocs.io/en/stable/examples/encryption.html>`__.
