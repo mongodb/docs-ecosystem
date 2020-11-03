@@ -137,6 +137,10 @@ content: |
 
   Provide your client with the following information to access the master key:
 
+  .. list-table::
+   :header-rows: 1
+   :stub-columns: 1
+
    * - Field
      - Required
      - Description
