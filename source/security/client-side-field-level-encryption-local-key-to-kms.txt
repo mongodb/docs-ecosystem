@@ -71,8 +71,8 @@ Set up a Remote Master Key
    Failure to decrypt all data at this stage may cause permanent and
    unrecoverable data loss.
 
-This following steps explain the setup and updates necessary to move from
-a local key provider to a KMS. Select the tab that corresponds to your 
+The following steps explain the setup and updates necessary to move from
+a local key provider to a KMS. Select the tab that corresponds to your
 provider:
 
 .. tabs::
@@ -82,15 +82,15 @@ provider:
       :tabid: AWS KMS
 
       .. include:: /includes/steps/fle-convert-to-a-remote-master-key-aws.rst
-      
+
       :tabid: Azure Key Vault
 
       .. include:: /includes/steps/fle-convert-to-a-remote-master-key-azure.rst
-      
+
       :tabid: Google Cloud Key Management
 
       .. include:: /includes/steps/fle-convert-to-a-remote-master-key-gcp.rst
-      
+
 Further Reading
 ---------------
 
