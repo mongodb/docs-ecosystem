@@ -150,11 +150,6 @@ content: |
            const base64DataKeyId = key.toString('base64');
            console.log('DataKeyId [base64]: ', base64DataKeyId);
 
-
-           .. note::
-
-              To use the Azure Key Vault, you must use `pymongocrypt <https://pypi.org/project/pymongocrypt/>`__
-              version 1.1 or later in your application's environment.
      .. tab::
         :tabid: python
 
