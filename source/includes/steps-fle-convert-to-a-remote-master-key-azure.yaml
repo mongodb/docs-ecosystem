@@ -212,12 +212,6 @@ content: |
      .. tab::
         :tabid: python
 
-
-        .. note::
-
-           Make sure you are using `pymongocrypt <https://pypi.org/project/pymongocrypt/>`__
-           version 1.0.2 or later in your application's environment.
-
         In ``app.py``:
 
         .. code-block:: python
@@ -227,6 +221,11 @@ content: |
              # "keyVersion": "<Azure key vault endpoint>",
              "keyVaultEndpoint": "<Azure key version>"
            }
+
+        .. note::
+
+           Make sure you are using `pymongocrypt <https://pypi.org/project/pymongocrypt/>`__
+           version 1.0.2 or later in your application's environment.
 
 ---
 title: Update the Automatic Encryption JSON Schema
