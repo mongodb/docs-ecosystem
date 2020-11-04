@@ -77,17 +77,18 @@ provider:
 
 .. tabs::
 
-
-   .. tab::
-      :tabid: AWS KMS
+   .. tab:: AWS KMS
+      :tabid: aws-kms
 
       .. include:: /includes/steps/fle-convert-to-a-remote-master-key-aws.rst
 
-      :tabid: Azure Key Vault
+   .. tab:: Azure Key Vault
+      :tabid: azure-kms
 
       .. include:: /includes/steps/fle-convert-to-a-remote-master-key-azure.rst
 
-      :tabid: Google Cloud Key Management
+   .. tab:: Google Cloud Key Management
+      :tabid: google-kms
 
       .. include:: /includes/steps/fle-convert-to-a-remote-master-key-gcp.rst
 
