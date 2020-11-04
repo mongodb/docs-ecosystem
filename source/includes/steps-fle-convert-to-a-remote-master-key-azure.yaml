@@ -227,8 +227,8 @@ content: |
 
         .. note::
 
-          To use the Azure Key Vault, you must use `pymongocrypt <https://pypi.org/project/pymongocrypt/>`__
-          version 1.1 or later in your application's environment.
+           To use the Azure Key Vault, you must use `pymongocrypt <https://pypi.org/project/pymongocrypt/>`__
+           version 1.1 or later in your application's environment.
 
 ---
 title: Update the Automatic Encryption JSON Schema
