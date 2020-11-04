@@ -99,6 +99,11 @@ content: |
            Map<String, Map<String, Object>> kmsProviders = new HashMap<String, Map<String, Object>>();
            kmsProviders.put("azure", providerDetails);
 
+           ClientEncryptionSettings clientEncryptionSettings = ClientEncryptionSettings.builder()
+               // ...
+               .kmsProviders(kmsProviders)
+               .build();
+
      .. tab::
         :tabid: nodejs
 
