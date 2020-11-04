@@ -1,16 +1,18 @@
-title: Create an Azure User
+title: Register an Azure Application
 ref: create-an-azure-user
 content: |
-  Create a new programmatic IAM user in the AWS management console.
-  CSFLE-enabled clients authenticate with AWS KMS using the IAM user to
-  encrypt and decrypt the remote master key. The IAM user must be granted
-  full ``List`` and ``Read`` permissions for the KMS service.
+  Register a new application in Azure Active directory if you do not already
+  have one for this CSFLE-enabled client. See the Azure documentation on
+  `Applications and service principals <https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals>`__
+  for more information.
 
-  .. note:: Client IAM User Credentials
+  Once you register the application, take note of the following credentials
+  needed to authenticate for access to the Key Vault:
 
-     The CSFLE-enabled client uses the IAM User's :guilabel:`Access Key
-     ID` and :guilabel:`Secret Access Key` as configuration values. Take
-     note of these and reference them when we update the client.
+  - **tenant id**
+  - **client id**
+  - **client secret**
+
 ---
 title: Create the Master Key
 ref: create-the-master-key
@@ -69,7 +71,7 @@ content: |
 
    * - azure.identityPlatformEndpoint
      - No
-     - Specifies a hostname and port number for the  authentication server.
+     - Specifies a hostname and port number for the authentication server.
        Defaults to login.microsoftonline.com and is only needed for
        non-commercial Azure instances such as a government or China account.
 
