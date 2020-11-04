@@ -113,7 +113,9 @@ content: |
      .. tab::
         :tabid: python
 
-        In ``app.py``:
+        In ``app.py``, define the following dictionary to pass to your call to
+        construct a ``ClientEncryption`` instance:
+
 
         .. code-block:: python
 
@@ -212,20 +214,21 @@ content: |
      .. tab::
         :tabid: python
 
-        In ``app.py``:
+        In ``app.py``, define the following dictionary to pass to your call to
+        ``create_data_key()``:
 
         .. code-block:: python
 
            master_key = {
              "keyName": "<Azure key name>",
-             # "keyVersion": "<Azure key vault endpoint>",
-             "keyVaultEndpoint": "<Azure key version>"
+             "keyVersion": "<Azure key version>",
+             "keyVaultEndpoint": "<Azure key vault endpoint>"
            }
 
         .. note::
 
-           Make sure you are using `pymongocrypt <https://pypi.org/project/pymongocrypt/>`__
-           version 1.0.2 or later in your application's environment.
+          To use the Azure Key Vault, you must use `pymongocrypt <https://pypi.org/project/pymongocrypt/>`__
+          version 1.1 or later in your application's environment.
 
 ---
 title: Update the Automatic Encryption JSON Schema
