@@ -23,7 +23,7 @@ content: |
   .. image:: /figures/CSFLE_Master_Key_KMS.png
      :alt: Diagram that describes creating a master key when using a KMS provider
 
-  Create a **symmetric key** using the Google Cloud
+  Create a **symmetric key** using the official Google Cloud
   `Creating symmetric keys guide <https://cloud.google.com/kms/docs/creating-keys>`__.
   This **symmetric key** is your master key which you can access from your
   application.
@@ -82,8 +82,8 @@ content: |
 
   * - endpoint
     - No
-     - Specifies a hostname and port number for the authentication server.
-       Defaults to oauth2.googleapis.com.
+    - Specifies a hostname and port number for the authentication server.
+      Defaults to oauth2.googleapis.com.
 
   Update the KMS Provider configuration in your CSFLE-enabled client
   creation code:
