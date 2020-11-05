@@ -1,6 +1,7 @@
 title: Create a GCP Service Account
 ref: create-a-gcp-service-account
 content: |
+
   Create a service account for your client application by following the
   official Google documentation on
   `Creating and managing a service account <https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating>`__.
@@ -25,8 +26,7 @@ content: |
 
   Create a **symmetric key** using the official Google Cloud
   `Creating symmetric keys guide <https://cloud.google.com/kms/docs/creating-keys>`__.
-  This **symmetric key** is your master key which you can access from your
-  application.
+  This is your master key which you can access from your application.
 
   .. note::
 
@@ -51,7 +51,6 @@ content: |
      for the master key. We recommend that you follow the
      `principle of least privilege <https://en.wikipedia.org/wiki/Principle_of_least_privilege>`__
      to keep your data secure.
-
 
 ---
 title: Specify your Google Cloud KMS Credentials
@@ -104,6 +103,7 @@ content: |
            providerDetails.put("endpoint", new BsonString("<GCP authentication endpoint>"));
 
            kmsProviders.put("gcp", providerDetails);
+
      .. tab::
         :tabid: nodejs
 
@@ -117,6 +117,7 @@ content: |
                endpoint: '<GCP authentication endpoint>',
              }
            }
+
      .. tab::
         :tabid: python
 
