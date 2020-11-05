@@ -55,28 +55,25 @@ content: |
         :tabid: java-sync
 
         .. code-block:: java
-           :emphasize-lines: 7-9, 11
 
-           BsonString masterKeyRegion = new BsonString("<Master Key AWS Region>"); // e.g. "us-east-2"
-           BsonString awsAccessKeyId = new BsonString("<IAM User Access Key ID>");
-           BsonString awsSecretAccessKey = new BsonString("<IAM User Secret Access Key>");
+           // TODO: check correctness
            Map<String, Map<String, Object>> kmsProviders = new HashMap<String, Map<String, Object>>();
            Map<String, Object> providerDetails = new HashMap<String, Object>();
 
-           providerDetails.put("accessKeyId", awsAccessKeyId);
-           providerDetails.put("secretAccessKey", awsSecretAccessKey);
-           providerDetails.put("region", masterKeyRegion);
+           providerDetails.put("email", new BsonString("<>"));
+           providerDetails.put("privateKey", new BsonString("<>"));
 
-           kmsProviders.put("aws", providerDetails);
+           kmsProviders.put("gcp", providerDetails);
      .. tab::
         :tabid: nodejs
 
         .. code-block:: javascript
 
+           // TODO: check correctness
            kmsProviders = {
-             aws: {
-               accessKeyId: '<IAM User Access Key ID>',
-               secretAccessKey: '<IAM User Secret Access Key>',
+             gcp: {
+               email: '<>',
+               privateKey: '<>',
              }
            }
      .. tab::
@@ -84,10 +81,10 @@ content: |
 
         .. code-block:: python
 
-           kms_providers = {
-               "aws": {
-                   "accessKeyId": "<IAM User Access Key ID>",
-                   "secretAccessKey": "<IAM User Secret Access Key>"
+           kms_provider = {
+               "gcp": {
+                   "email": "<>",
+                   "privateKey": "<>"
                }
            }
 ---
@@ -118,40 +115,30 @@ content: |
         :tabid: java-sync
 
         .. code-block:: Java
-           :emphasize-lines: 9-14, 16-17
 
-           ClientEncryption clientEncryption = ClientEncryptions.create(ClientEncryptionSettings.builder()
-               .keyVaultMongoClientSettings(MongoClientSettings.builder()
-                   .applyConnectionString(new ConnectionString("mongodb://localhost:27017"))
-                   .build())
-               .keyVaultNamespace(keyVaultNamespace)
-               .kmsProviders(kmsProviders)
-               .build());
-
-           BsonString masterKeyRegion = new BsonString("<Master Key AWS Region>"); // e.g. "us-east-2"
-           BsonString masterKeyArn = new BsonString("<Master Key ARN>"); // e.g. "arn:aws:kms:us-east-2:111122223333:alias/test-key"
+           // TODO: check correctness
            DataKeyOptions dataKeyOptions = new DataKeyOptions().masterKey(
                new BsonDocument()
-                   .append("region", masterKeyRegion)
-                   .append("key", masterKeyArn));
+                   .append("provider", "gcp")
+                   .append("projectId", "<>")
+                   .append("location", "<>")
+                   .append("keyRing", "<>")
+                   .append("keyName", "<>"));
 
-           BsonBinary dataKeyId = clientEncryption.createDataKey("aws", dataKeyOptions);
-           String base64DataKeyId = Base64.getEncoder().encodeToString(dataKeyId.getData());
-
-           System.out.println("DataKeyId [base64]: " + base64DataKeyId);
+           BsonBinary dataKeyId = clientEncryption.createDataKey("gcp", dataKeyOptions);
      .. tab::
         :tabid: nodejs
 
         .. code-block:: javascript
 
-           const encryption = new ClientEncryption(client, {
-               keyVaultNamespace,
-               kmsProviders
-           });
-           const key = await encryption.createDataKey('aws', {
+           // TODO: check correctness
+           const key = await encryption.createDataKey('gcp', {
               masterKey: {
-                key: '<Master Key ARN>', // e.g. 'arn:aws:kms:us-east-2:111122223333:alias/test-key'
-                region: '<Master Key AWS Region>', // e.g. 'us-east-1'
+                provider: 'gcp',
+                projectId: '<>',
+                location: '<>',
+                keyRing: '<>',
+                keyName: '<>'
               }
            });
 
@@ -162,32 +149,13 @@ content: |
 
         .. code-block:: python
 
-           import pymongo
-           from pymongo import MongoClient
-           from pymongo.encryption_options import AutoEncryptionOpts
-           from bson.binary import STANDARD
-           from bson.codec_options import CodecOptions
-
-           connection_string = "mongodb://localhost:27017"
-           key_vault_namespace = "encryption.__keyVault"
-
-           fle_opts = AutoEncryptionOpts(
-              kms_providers, # pass in the kms_providers from the previous step
-              key_vault_namespace
-           )
-
-           client_encryption = pymongo.encryption.ClientEncryption(
-              {
-                "aws": {
-                  "accessKeyId": "<IAM User Access Key ID>",
-                  "secretAccessKey": "<IAM User Secret Access Key>"
-                }
-              },
-              key_vault_namespace,
-              client,
-              CodecOptions(uuid_representation=STANDARD)
-           )
-           data_key_id = client_encryption.create_data_key("aws")
+           master_key = {
+               "provider": "gcp",
+               "projectId": "<>",
+               "location": "<>",
+               "keyRing": "<>",
+               "keyName": "<>"
+           }
 
 ---
 title: Update the Automatic Encryption JSON Schema
