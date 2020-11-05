@@ -134,10 +134,6 @@ content: |
                    "endpoint": "<GCP authentication endpoint>",
                }
            }
----
-title: Create a New Data Encryption Key
-ref: create-a-new-data-key
-content: |
   In this step, we generate a new **data encryption key** using the
   **master key** in the remote KMS. The following diagram shows the
   requests you make from the client application to create and store a
