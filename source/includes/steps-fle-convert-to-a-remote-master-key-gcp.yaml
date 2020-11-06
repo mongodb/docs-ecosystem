@@ -30,14 +30,14 @@ content: |
 
   .. note::
 
-     If you rotate the key whether by specifying a date or manually, the
-     provider changes the content of the master key. In order to transition
-     to using the new key, you need to perform the following steps:
+     If you rotate the key, either by specifying a date or manually, the
+    provider changes the content of the master key. To transition
+    to the new key:
 
-     1. decrypt and save the data using the original data encryption key
-     #. generate a new data encryption key with the new master key
-     #. update the ``keyVersion`` parameter to the latest version of the master key
-     #. re-encrypt the data using the new data encryption key
+     1. Decrypt and save the data using the original data encryption key.
+     #. Generate a new data encryption key with the new master key.
+     #. Update the ``keyVersion`` parameter to the latest version of the master key.
+     #. Re-encrypt the data using the new data encryption key.
 
   Make sure your application has appropriate roles to encrypt and decrypt
   using the key. For example, the
@@ -157,7 +157,7 @@ content: |
 
      * - projectId
        - Yes
-       - The identifier for your project in which you created the key.
+       - Identifier for your project in which you created the key.
 
      * - location
        - Yes
