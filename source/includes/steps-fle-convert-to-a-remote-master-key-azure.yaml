@@ -178,9 +178,9 @@ content: |
      .. tab::
         :tabid: java-sync
 
-        In your call to ``createDataKey()`` on a ``ClientEncryption`` keyvault
-        instance in ``CSFLEHelpers.java``, add your KMS provider and master 
-        key details as follows:
+        In ``CSFLEHelpers.java``, add your KMS provider and master key
+        details to your call to createDataKey() on your ``ClientEncryption``
+        instance as follows:
 
         .. code-block:: Java
 
@@ -196,7 +196,7 @@ content: |
 
            To use the Azure Key Vault, you must use `mongodb-crypt <https://mvnrepository.com/artifact/org.mongodb/mongodb-crypt>`__
            version 1.1 or later in your application's environment.
-           
+
      .. tab::
         :tabid: nodejs
 
