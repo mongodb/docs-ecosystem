@@ -134,49 +134,14 @@ content: |
                    "endpoint": "<GCP authentication endpoint>",
                }
            }
+---
+title: Create a New Data Encryption Key
+ref: create-a-new-data-key
+content: |
   In this step, we generate a new **data encryption key** using the
   **master key** in the remote KMS. The following diagram shows the
   requests you make from the client application to create and store a
   new data encryption key:
-
-  .. image:: /figures/CSFLE_Data_Key_KMS.png
-     :alt: Diagram that describes creating a data encryption key when using a KMS provider
-
-  Provide your client with the following information to access the master key:
-
-  .. list-table::
-     :header-rows: 1
-     :stub-columns: 1
-
-  * - Field
-    - Required
-    - Description
-
-  * - projectId
-    - Yes
-    - The identifier for your project in which you created the key.
-
-  * - location
-    - Yes
-    - Region specified for your key.
-
-  * - keyRing
-    - Yes
-    - Identifier for the group of keys your key belongs to.
-
-  * - keyName
-    - Yes
-    - Identifier for the symmetric master key.
-
-  * - keyVersion
-    - No
-    - Specifies the version of the named key. If not specified, the default
-      version of the key is used.
-
-  * - endpoint
-    - No
-    - Specifies the host and optional port of the Cloud KMS. The default
-      is ``cloudkms.googleapis.com``.
 
   Once you have the required information, update and run the following code
   to generate a new data encryption key:
