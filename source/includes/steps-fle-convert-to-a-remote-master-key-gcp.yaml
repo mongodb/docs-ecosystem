@@ -97,7 +97,6 @@ content: |
 
         .. code-block:: java
 
-           // TODO: check correctness
            Map<String, Map<String, Object>> kmsProviders = new HashMap<String, Map<String, Object>>();
            Map<String, Object> providerDetails = new HashMap<String, Object>();
 
@@ -188,9 +187,11 @@ content: |
      .. tab::
         :tabid: java-sync
 
+        In ``CSFLEHelpers.java``, update your call to
+        ``DataKeyOptions.masterKey()`` to include your master key data:
+
         .. code-block:: Java
 
-           // TODO: check correctness
            DataKeyOptions dataKeyOptions = new DataKeyOptions().masterKey(
                new BsonDocument()
                    .append("provider", "gcp")
