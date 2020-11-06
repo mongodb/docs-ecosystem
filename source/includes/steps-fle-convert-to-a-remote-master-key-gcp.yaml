@@ -7,7 +7,7 @@ content: |
   `Creating and managing a service account <https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating>`__.
 
   After you create the service account, locate and record the following
-  authentication settings for use in a later step:
+  authentication settings for use in a later step: 
 
   - **email**
   - **privateKey** (this value is only returned when you create the account)
