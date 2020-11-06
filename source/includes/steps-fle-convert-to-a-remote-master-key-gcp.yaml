@@ -18,7 +18,7 @@ title: Create the Master Key
 ref: create-the-master-key-gcp
 content: |
 
-  The following diagram shows how the **master key** is created and stored
+  The following diagram shows the creation and storage of a  **master key**
   on a KMS provider:
 
   .. image:: /figures/CSFLE_Master_Key_KMS.png
@@ -137,10 +137,9 @@ content: |
 title: Create a New Data Encryption Key
 ref: create-a-new-data-key-gcp
 content: |
-  In this step, we generate a new **data encryption key** using the
-  **master key** in the remote KMS. The following diagram shows the
-  requests you make from the client application to create and store a
-  new data encryption key:
+  Generate a new **data encryption key** using the **master key** in the
+  remote KMS. The following diagram shows the requests you make from the
+  client application to create and store a new data encryption key:
 
   .. image:: /figures/CSFLE_Data_Key_KMS.png
      :alt: Diagram that describes creating a data encryption key when using a KMS provider
