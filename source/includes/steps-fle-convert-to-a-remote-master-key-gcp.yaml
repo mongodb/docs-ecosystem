@@ -34,11 +34,11 @@ content: |
      provider changes the content of the master key. In order to transition
      to using the new key, you need to perform the following steps:
 
-     - decrypt and save the data using the original data encryption key
-     - generate a new data encryption key with the new master key
-     - update the ``keyVersion`` parameter to the latest version of the master
+     1. decrypt and save the data using the original data encryption key
+     #. generate a new data encryption key with the new master key
+     #. update the ``keyVersion`` parameter to the latest version of the master
        key
-     - re-encrypt the data using the new data encryption key
+     #. re-encrypt the data using the new data encryption key
 
   Make sure your application has appropriate roles to encrypt and decrypt
   using the key. For example, the
