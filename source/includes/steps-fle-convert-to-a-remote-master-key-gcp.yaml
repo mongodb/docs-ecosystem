@@ -148,66 +148,43 @@ content: |
 
   Provide your client with the following information to access the master key:
 
-  .. tabs-drivers::
+  .. list-table::
+     :header-rows: 1
+     :stub-columns: 1
 
-     .. tab::
-        :tabid: java-sync
+  * - Field
+    - Required
+    - Description
 
-        .. code-block:: Java
+  * - projectId
+    - Yes
+    - The identifier for your project in which you created the key.
 
-           // TODO: check correctness
-           DataKeyOptions dataKeyOptions = new DataKeyOptions().masterKey(
-               new BsonDocument()
-                   .append("provider", "gcp")
-                   .append("projectId", "<GCP project identifier>")
-                   .append("location", "<GCP region>")
-                   .append("keyRing", "<GCP key ring name>")
-                   .append("keyVersion", "<GCP key version>")
-                   .append("endpoint", "<GCP KMS API endpoint>"));
+  * - location
+    - Yes
+    - Region specified for your key.
 
-           BsonBinary dataKeyId = clientEncryption.createDataKey("gcp", dataKeyOptions);
-     .. tab::
-        :tabid: nodejs
+  * - keyRing
+    - Yes
+    - Identifier for the group of keys your key belongs to.
 
-        .. code-block:: javascript
+  * - keyName
+    - Yes
+    - Identifier for the symmetric master key.
 
-           // TODO: check correctness
-           const key = await encryption.createDataKey('gcp', {
-              masterKey: {
-                provider: 'gcp',
-                projectId: '<GCP project identifier>',
-                location: '<GCP region>',
-                keyRing: '<GCP key ring name>',
-                keyName: '<GCP key name>',
-                keyVersion: '<GCP key version>',
-                endpoint: '<GCP KMS API endpoint>',
-              }
-           });
+  * - keyVersion
+    - No
+    - Specifies the version of the named key. If not specified, the default
+      version of the key is used.
 
-           const base64DataKeyId = key.toString('base64');
-           console.log('DataKeyId [base64]: ', base64DataKeyId);
-     .. tab::
-        :tabid: python
+  * - endpoint
+    - No
+    - Specifies the host and optional port of the Cloud KMS. The default
+      is ``cloudkms.googleapis.com``.
 
-        In ``app.py``, define the following dictionary to pass to your call to
-        ``create_data_key()``:
+  Once you have the required information, update and run the following code
+  to generate a new data encryption key:
 
-        .. code-block:: python
-
-           master_key = {
-                "provider": "gcp",
-                "projectId": "<GCP project identifier>",
-                "location": "<GCP region>",
-                "keyRing": "<GCP key ring name>",
-                "keyName": "<GCP key name>",
-                "keyVersion": "<GCP key version>",
-                "endpoint": "<GCP KMS API endpoint>",
-           }
-
-        .. note::
-
-           To use Google Cloud KMS, you must use `pymongocrypt <https://pypi.org/project/pymongocrypt/>`__
-           version 1.1 or later in your application's environment.
 
 ---
 title: Update the Automatic Encryption JSON Schema
