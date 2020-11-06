@@ -64,25 +64,29 @@ content: |
   Configure your client application with the following authentication
   credentials:
 
-  * - Field
-    - Required
-    - Description
+  .. list-table::
+     :header-rows: 1
+     :stub-columns: 1
 
-  * - email
-    - Yes
-    - Identifies your service account email address.
+     * - Field
+       - Required
+       - Description
 
-  * - privateKey
-    - Yes
-    - Identifies your service account private key in either
-      `base64 string <https://en.wikipedia.org/wiki/Base64>`__ or
-      :manual:`Binary subtype 0 <reference/mongodb-extended-json/#bson.Binary>`
-      format.
+     * - email
+       - Yes
+       - Identifies your service account email address.
 
-  * - endpoint
-    - No
-    - Specifies a hostname and port number for the authentication server.
-      Defaults to oauth2.googleapis.com.
+     * - privateKey
+       - Yes
+       - Identifies your service account private key in either
+         `base64 string <https://en.wikipedia.org/wiki/Base64>`__ or
+         :manual:`Binary subtype 0 <reference/mongodb-extended-json/#bson.Binary>`
+         format.
+
+     * - endpoint
+       - No
+       - Specifies a hostname and port number for the authentication server.
+         Defaults to oauth2.googleapis.com.
 
   Update the KMS Provider configuration in your CSFLE-enabled client
   creation code:
@@ -149,35 +153,35 @@ content: |
      :header-rows: 1
      :stub-columns: 1
 
-  * - Field
-    - Required
-    - Description
+     * - Field
+       - Required
+       - Description
 
-  * - projectId
-    - Yes
-    - The identifier for your project in which you created the key.
+     * - projectId
+       - Yes
+       - The identifier for your project in which you created the key.
 
-  * - location
-    - Yes
-    - Region specified for your key.
+     * - location
+       - Yes
+       - Region specified for your key.
 
-  * - keyRing
-    - Yes
-    - Identifier for the group of keys your key belongs to.
+     * - keyRing
+       - Yes
+       - Identifier for the group of keys your key belongs to.
 
-  * - keyName
-    - Yes
-    - Identifier for the symmetric master key.
+     * - keyName
+       - Yes
+       - Identifier for the symmetric master key.
 
-  * - keyVersion
-    - No
-    - Specifies the version of the named key. If not specified, the default
-      version of the key is used.
+     * - keyVersion
+       - No
+       - Specifies the version of the named key. If not specified, the default
+         version of the key is used.
 
-  * - endpoint
-    - No
-    - Specifies the host and optional port of the Cloud KMS. The default
-      is ``cloudkms.googleapis.com``.
+     * - endpoint
+       - No
+       - Specifies the host and optional port of the Cloud KMS. The default
+         is ``cloudkms.googleapis.com``.
 
   Once you have the required information, update and run the following code
   to generate a new data encryption key:
