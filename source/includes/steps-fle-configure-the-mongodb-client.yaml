@@ -82,7 +82,7 @@ content: |
 
         .. code-block:: csharp
 
-           var ksmProviders = new Dictionary<string, IReadOnlyDictionary<string, object>>();
+           var kmsProviders = new Dictionary<string, IReadOnlyDictionary<string, object>>();
            var localMasterKeyBase64 = File.ReadAllText(__localMasterKeyPath);
            var localMasterKeyBytes = Convert.FromBase64String(localMasterKeyBase64);
            var localOptions = new Dictionary<string, object>
