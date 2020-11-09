@@ -1,7 +1,6 @@
 title: Create a GCP Service Account
 ref: create-a-gcp-service-account
 content: |
-
   Create a service account for your client application by following the
   official Google documentation on
   `Creating and managing a service account <https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating>`__.
@@ -17,7 +16,6 @@ content: |
 title: Create the Master Key
 ref: create-the-master-key-gcp
 content: |
-
   The following diagram shows the creation and storage of a  **master key**
   on a KMS provider:
 
