@@ -225,7 +225,7 @@ content: |
 
            var extraOptions = new Dictionary<string, object>()
            {
-               { "mongocryptdSpawnPath ", $@"{MongoBinariesPath}\mongocryptd.exe" },
+               { "mongocryptdSpawnPath", $@"{MongoBinariesPath}\mongocryptd.exe" },
            };
 ---
 title: Create the MongoClient
