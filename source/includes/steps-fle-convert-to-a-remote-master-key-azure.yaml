@@ -136,8 +136,9 @@ content: |
 
         .. note::
 
-           To use the Azure Key Vault, you must use `pymongocrypt <https://pypi.org/project/pymongocrypt/>`__
-           version 1.1 or later in your application's environment.
+           To use the Azure Key Vault, you must use ``pymongocrypt`` version
+           1.1 or later in your application's environment. Follow our guide
+           to `build libmongocrypt from source <https://github.com/mongodb/libmongocrypt/tree/master/bindings/python#installing-from-source>`__.
 
      .. tab::
         :tabid: csharp
