@@ -433,7 +433,7 @@ content: |
            var client = new MongoClient("mongodb://localhost:27017");
            // dataKeyId is the UUID from the previous step that was printed
            // to the console
-           var dataKeyId = "aae4f3b4-91b6-4cef-8867-3113a6dfb27b"
+           var dataKeyId = "<paste your dataKeyId value here>"
            var collection = client
                .GetDatabase(_keyVaultNamespace.DatabaseNamespace.DatabaseName)
                .GetCollection<BsonDocument>(
