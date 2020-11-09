@@ -275,9 +275,9 @@ Additional Dependencies
            - x64 support is required for CSFLE
 
 
-         * - `libmongocrypt
+         * - `mongocrypt.dll
              <https://github.com/mongodb/libmongocrypt#installing-libmongocrypt-on-windows>`__
-           - A Windows build of the `libmongocrypt`
+           - A Windows build of `mongocrypt.dll`.
 
 
 .. _fle-create-a-master-key:
