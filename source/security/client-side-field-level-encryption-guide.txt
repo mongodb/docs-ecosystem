@@ -662,7 +662,7 @@ full `JSON Schema for the Medical Care Management System
       :tabid: csharp
 
       View the **complete runnable** `helper code in C#
-      <// TODO: Placeholder>`_.
+      <https://github.com/mongodb-university/csfle-guides/blob/master/dotnet/CSFLE/JsonSchemaCreator.cs>`_.
 
 D. Create the MongoDB Client
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1198,7 +1198,7 @@ To view and download a runnable example of CSFLE, select your driver below:
       :tabid: csharp
 
       **GitHub:** `C# CSFLE runnable example
-      <TODO: Placeholder>`_
+      <https://github.com/mongodb-university/csfle-guides/tree/master/dotnet>`_
 
 Move to Production
 ~~~~~~~~~~~~~~~~~~
