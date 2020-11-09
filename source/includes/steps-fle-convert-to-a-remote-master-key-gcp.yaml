@@ -15,38 +15,42 @@ content: |
 title: Create the Master Key
 ref: create-the-master-key-gcp
 content: |
-  The following diagram shows the creation and storage of a  **master key**
-  on a KMS provider:
+  The following diagram shows the steps required to create a new
+  **master key** on a KMS provider.
 
   .. image:: /figures/CSFLE_Master_Key_KMS.png
      :alt: Diagram that describes creating a master key when using a KMS provider
 
-  Create a **symmetric key** using the official Google Cloud
-  `Creating symmetric keys guide <https://cloud.google.com/kms/docs/creating-keys>`__.
-  This is your master key which you can access from your application.
+  1. To create a master key, log into your Google Cloud account and
+     follow the steps in Google Cloud's official
+     `Creating symmetric keys guide <https://cloud.google.com/kms/docs/creating-keys>`__
+     to create a **symmetric key**.
 
-  .. note::
+     The master key is used by your application to encrypt and decrypt your
+     **data encryption key**.
 
-     If you rotate the key, either by specifying a date or manually, the
-    provider changes the content of the master key. To transition
-    to the new key:
+     .. note::
 
-     1. Decrypt and save the data using the original data encryption key.
-     #. Generate a new data encryption key with the new master key.
-     #. Update the ``keyVersion`` parameter to the latest version of the master key.
-     #. Re-encrypt the data using the new data encryption key.
+        If you rotate the master key, either by specifying a date or manually,
+        the provider changes the content of the master key. To transition
+        to the new key:
 
-  Make sure your application has appropriate roles to encrypt and decrypt
-  using the key. For example, the
-  `roles/cloudkms.cryptoKeyEncrypterDecrypter <https://cloud.google.com/kms/docs/reference/permissions-and-roles>`__
-  role has permissions to both encrypt and decrypt keys.
+         1. Decrypt and save the data using the original data encryption key.
+         #. Generate a new data encryption key with the new master key.
+         #. Update the ``keyVersion`` parameter to the latest version of the master key.
+         #. Re-encrypt the data using the new data encryption key.
 
-  .. important::
+  2. Ensure that your client application has permissions to encrypt and
+     decrypt data using the key. For example, the
+     `roles/cloudkms.cryptoKeyEncrypterDecrypter <https://cloud.google.com/kms/docs/reference/permissions-and-roles>`__
+     role has permissions to both encrypt and decrypt keys.
 
-     The client application *should not* have administrative permissions
-     for the master key. We recommend that you follow the
-     `principle of least privilege <https://en.wikipedia.org/wiki/Principle_of_least_privilege>`__
-     to keep your data secure.
+     .. important::
+
+        The client application *should not* have administrative permissions
+        for the master key. We recommend that you follow the
+        `principle of least privilege <https://en.wikipedia.org/wiki/Principle_of_least_privilege>`__
+        to keep your data secure.
 ---
 title: Specify your Google Cloud KMS Credentials
 ref: specify-your-gcp-kms-provider-credentials
@@ -56,109 +60,108 @@ content: |
   it retrieves the key using your service client credentials and key
   details.
 
-  Configure your client application with the following authentication
-  credentials:
+  1. First, identify the following authentication credentials on Google KMS:
 
-  .. list-table::
-     :header-rows: 1
-     :stub-columns: 1
+     .. list-table::
+        :header-rows: 1
+        :stub-columns: 1
 
-     * - Field
-       - Required
-       - Description
+        * - Field
+          - Required
+          - Description
 
-     * - email
-       - Yes
-       - Identifies your service account email address.
+        * - email
+          - Yes
+          - Identifies your service account email address.
 
-     * - privateKey
-       - Yes
-       - Identifies your service account private key in either
-         `base64 string <https://en.wikipedia.org/wiki/Base64>`__ or
-         :manual:`Binary subtype 0 <reference/mongodb-extended-json/#bson.Binary>`
-         format.
+        * - privateKey
+          - Yes
+          - Identifies your service account private key in either
+            `base64 string <https://en.wikipedia.org/wiki/Base64>`__ or
+            :manual:`Binary subtype 0 <reference/mongodb-extended-json/#bson.Binary>`
+            format.
 
-     * - endpoint
-       - No
-       - Specifies a hostname and port number for the authentication server.
-         Defaults to oauth2.googleapis.com.
+        * - endpoint
+          - No
+          - Specifies a hostname and port number for the authentication server.
+            Defaults to oauth2.googleapis.com.
 
-  Update the KMS Provider configuration in your CSFLE-enabled client
-  creation code:
+  2. Next, add your authentication credentials to your CSFLE-enabled client
+     code:
 
-  .. tabs-drivers::
+     .. tabs-drivers::
 
-     .. tab::
-        :tabid: java-sync
+        .. tab::
+           :tabid: java-sync
 
-        .. code-block:: java
+           .. code-block:: java
 
-           Map<String, Map<String, Object>> kmsProviders = new HashMap<String, Map<String, Object>>();
-           Map<String, Object> providerDetails = new HashMap<String, Object>();
+              Map<String, Map<String, Object>> kmsProviders = new HashMap<String, Map<String, Object>>();
+              Map<String, Object> providerDetails = new HashMap<String, Object>();
 
-           providerDetails.put("email", new BsonString("<GCP service account email>"));
-           providerDetails.put("privateKey", new BsonString("<GCP service account private key>"));
-           providerDetails.put("endpoint", new BsonString("<GCP authentication endpoint>"));
+              providerDetails.put("email", new BsonString("<GCP service account email>"));
+              providerDetails.put("privateKey", new BsonString("<GCP service account private key>"));
+              providerDetails.put("endpoint", new BsonString("<GCP authentication endpoint>"));
 
-           kmsProviders.put("gcp", providerDetails);
+              kmsProviders.put("gcp", providerDetails);
 
-        .. note::
+           .. note::
 
-           To use the GCP KMS, you must use
-           `mongodb-crypt <https://mvnrepository.com/artifact/org.mongodb/mongodb-crypt>`__
-           version 1.1 or later in your application's environment.
+              To use the GCP KMS, you must use
+              `mongodb-crypt <https://mvnrepository.com/artifact/org.mongodb/mongodb-crypt>`__
+              version 1.1 or later in your application's environment.
 
-     .. tab::
-        :tabid: nodejs
+        .. tab::
+          :tabid: nodejs
 
-        .. note::
+          .. note::
 
-           The Node.js driver does not currently support GCP KMS.
+             The Node.js driver does not currently support GCP KMS.
 
-     .. tab::
-        :tabid: python
+       .. tab::
+          :tabid: python
 
-        .. code-block:: python
+          .. code-block:: python
 
-           kms_provider = {
-               "gcp": {
-                   "email": "<GCP service account email>",
-                   "privateKey": "<GCP service account private key>",
-                   "endpoint": "<GCP authentication endpoint>",
-               }
-           }
+             kms_provider = {
+                 "gcp": {
+                     "email": "<GCP service account email>",
+                     "privateKey": "<GCP service account private key>",
+                     "endpoint": "<GCP authentication endpoint>",
+                 }
+             }
 
-        .. note::
+          .. note::
 
-           To use the GCP KMS, you must use ``pymongocrypt`` version
-           1.1 or later in your application's environment. Follow our guide
-           to `build libmongocrypt from source <https://github.com/mongodb/libmongocrypt/tree/master/bindings/python#installing-from-source>`__.
+             To use the GCP KMS, you must use ``pymongocrypt`` version
+             1.1 or later in your application's environment. Follow our guide
+             to `build libmongocrypt from source <https://github.com/mongodb/libmongocrypt/tree/master/bindings/python#installing-from-source>`__.
 
-     .. tab::
-        :tabid: csharp
+       .. tab::
+          :tabid: csharp
 
-        .. code-block:: csharp
+          .. code-block:: csharp
 
-           var kmsProviders = new Dictionary<string, IReadOnlyDictionary<string, object>>();
+             var kmsProviders = new Dictionary<string, IReadOnlyDictionary<string, object>>();
 
-           var gcpPrivateKey = Environment.GetEnvironmentVariable("FLE_GCP_PRIVATE_KEY");
-           var gcpEmail = Environment.GetEnvironmentVariable("FLE_GCP_EMAIL");
-           var gcpEndpoint = Environment.GetEnvironmentVariable("FLE_GCP_IDENTITY_ENDPOINT"); // Optional, defaults to "oauth2.googleapis.com".
-           var gcpKmsOptions = new Dictionary<string, object>
-           {
-               { "privateKey", gcpPrivateKey },
-               { "email", gcpEmail },
-           };
-           if (gcpEndpoint != null)
-           {
-               gcpKmsOptions.Add("endpoint", gcpEndpoint);
-           }
-           kmsProviders.Add("gcp", gcpKmsOptions);
+             var gcpPrivateKey = Environment.GetEnvironmentVariable("FLE_GCP_PRIVATE_KEY");
+             var gcpEmail = Environment.GetEnvironmentVariable("FLE_GCP_EMAIL");
+             var gcpEndpoint = Environment.GetEnvironmentVariable("FLE_GCP_IDENTITY_ENDPOINT"); // Optional, defaults to "oauth2.googleapis.com".
+             var gcpKmsOptions = new Dictionary<string, object>
+             {
+                 { "privateKey", gcpPrivateKey },
+                 { "email", gcpEmail },
+             };
+             if (gcpEndpoint != null)
+             {
+                 gcpKmsOptions.Add("endpoint", gcpEndpoint);
+             }
+             kmsProviders.Add("gcp", gcpKmsOptions);
 
-        .. note::
+          .. note::
 
-           To use the GCP KMS, you must use
-           `libmongocrypt <https://github.com/mongodb/libmongocrypt#installing-libmongocrypt-on-windows>`__ version 1.1 or later in your application's environment.
+             To use the GCP KMS, you must use
+             `libmongocrypt <https://github.com/mongodb/libmongocrypt#installing-libmongocrypt-on-windows>`__ version 1.1 or later in your application's environment.
 ---
 title: Create a New Data Encryption Key
 ref: create-a-new-data-key-gcp
@@ -303,6 +306,6 @@ content: |
 title: Update the Automatic Encryption JSON Schema
 ref: update-the-json-schema-gcp
 content: |
-  If you embedded the key id of your data encryption key in your
-  automatic encryption rules, you will need to update the :ref:`JSON
-  Schema <fle-define-a-json-schema>` with the new data encryption key id.
+  If you previously embedded the key id of your data encryption key in your
+  automatic encryption rules, update the :ref:`JSON Schema <fle-define-a-json-schema>`
+  with your new data encryption key id.
