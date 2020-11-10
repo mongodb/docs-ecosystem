@@ -1,16 +1,16 @@
 title: Create a GCP Service Account
 ref: create-a-gcp-service-account
 content: |
-  Create a service account for your client application by following the
-  official Google documentation on
-  `Creating and managing a service account <https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating>`__.
+  1. Create a service account for your client application by following the
+     official Google documentation on
+     `Creating and managing a service account <https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating>`__.
 
-  After you create the service account, locate and record the following
-  authentication settings for use in a later step:
+  2. After you create the service account, locate and record the following
+     authentication settings for use in a later step:
 
-  - **email**
-  - **privateKey** (this value is only returned when you create the account)
-  - **endpoint**
+     - **email**
+     - **privateKey** (this value is only returned when you create the account)
+     - **endpoint**
 ---
 title: Create the Master Key
 ref: create-the-master-key-gcp
