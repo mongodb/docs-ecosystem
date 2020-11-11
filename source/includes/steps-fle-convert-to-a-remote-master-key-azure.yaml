@@ -22,8 +22,8 @@ content: |
   .. image:: /figures/CSFLE_Master_Key_KMS.png
      :alt: Diagram that describes creating a master key when using a KMS provider
 
-  1. To create a master key, follow Microsoft's official
-  `Secrets Guide <https://docs.microsoft.com/en-us/azure/key-vault/secrets/about-secrets>`__.
+  1. To create a master key, follow Microsoft's official 
+     `Secrets Guide <https://docs.microsoft.com/en-us/azure/key-vault/secrets/about-secrets>`__.
      Follow the instructions in one of the :guilabel:`Quickstarts` sections
      that corresponds to your preferred method to create and configure your
      key.  For example, the `Portal Quickstart <https://docs.microsoft.com/en-us/azure/key-vault/secrets/quick-create-portal>`__
