@@ -7,7 +7,7 @@ content: |
      for more information.
 
   2. Once you register the application, take note of the following credentials
-     needed to authenticate for access to the Key Vault:
+     needed to authenticate with the Key Vault:
 
      - **tenant id**
      - **client id**
