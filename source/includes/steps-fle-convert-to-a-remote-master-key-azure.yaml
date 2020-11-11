@@ -277,9 +277,9 @@ content: |
 title: Update the Automatic Encryption JSON Schema
 ref: update-the-json-schema
 content: |
-  If you previously embedded the key id of your data encryption key in your
+  If you previously embedded the key ID of your data encryption key in your
   automatic encryption rules, update the :ref:`JSON Schema <fle-define-a-json-schema>`
-  with your new data encryption key id.
+  with your new data encryption key ID.
 
   Your client application is now ready to automatically encrypt your data
   using the master key on your KMS provider.

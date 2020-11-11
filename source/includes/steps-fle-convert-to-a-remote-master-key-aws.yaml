@@ -7,12 +7,12 @@ content: |
      encrypt and decrypt the remote master key. Take note of the following
      credentials needed to authenticate with the KMS:
 
-     - **access key id**
+     - **access key ID**
      - **secret access key**
 
   2. Grant the IAM user full ``List`` and ``Read`` permissions for the KMS
      service. See Amazon's official documentation on
-     `Adding permissions to a user <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html`__
+     `Adding permissions to a user <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html>`__
      to set these permissions.
 
   .. note:: Client IAM User Credentials
@@ -303,9 +303,9 @@ content: |
 title: Update the Automatic Encryption JSON Schema
 ref: update-the-json-schema
 content: |
-  If you previously embedded the key id of your data encryption key in your
+  If you previously embedded the key ID of your data encryption key in your
   automatic encryption rules, update the :ref:`JSON Schema <fle-define-a-json-schema>`
-  with your new data encryption key id.
+  with your new data encryption key ID.
 
   Your client application is now ready to automatically encrypt your data
   using the master key on your KMS provider.
