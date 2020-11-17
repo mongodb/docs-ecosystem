@@ -15,9 +15,9 @@
      - |checkmark|
      - |checkmark|
      - |checkmark|
-     - |checkmark|
+     -
 
-The Swift driver is not compatible with MongoDB server versions older than 3.4.
+The Swift driver is not compatible with MongoDB server versions older than 3.6.
 
 (*) Not all features in MongoDB 4.4 are available in this version of the
 driver including OCSP and MONGODB-AWS. These features will be included in
