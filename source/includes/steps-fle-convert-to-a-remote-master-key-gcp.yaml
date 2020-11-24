@@ -165,32 +165,32 @@ content: |
              To use the GCP KMS, you must use
              `libmongocrypt <https://github.com/mongodb/libmongocrypt#installing-libmongocrypt-on-windows>`__ version 1.1 or later in your application's environment.
 
-        .. tab::
-           :tabid: go
+       .. tab::
+          :tabid: go
 
-           .. code-block:: go
+          .. code-block:: go
 
-              type gcpKMSCredentials struct {
-                  Email      string `structs:"email"`
-                  PrivateKey string `structs:"privateKey"`
-              }
+             type gcpKMSCredentials struct {
+                 Email      string `structs:"email"`
+                 PrivateKey string `structs:"privateKey"`
+             }
 
-              gcpEmail := Getenv("FLE_GCP_EMAIL")
-              gcpPrivateKey := Getenv("FLE_GCP_PRIVATE_KEY")
+             gcpEmail := Getenv("FLE_GCP_EMAIL")
+             gcpPrivateKey := Getenv("FLE_GCP_PRIVATE_KEY")
 
-              gcpKMS := gcpKMSCredentials{
-                  Email:      azureTenantID,
-                  PrivateKey: azureClientID,
-              }
+             gcpKMS := gcpKMSCredentials{
+                 Email:      azureTenantID,
+                 PrivateKey: azureClientID,
+             }
 
-              kmsProviders := map[string]map[string]interface{
-                "azure": structs.Map(gcpKMS)
-              }
+             kmsProviders := map[string]map[string]interface{
+               "azure": structs.Map(gcpKMS)
+             }
 
-           .. note::
+          .. note::
 
-              To use the GCP KMS, you must use
-              `libmongocrypt <https://github.com/mongodb/libmongocrypt>`__ version 1.1 or later in your application's environment.
+             To use the GCP KMS, you must use
+             `libmongocrypt <https://github.com/mongodb/libmongocrypt>`__ version 1.1 or later in your application's environment.
 ---
 title: Create a New Data Encryption Key
 ref: create-a-new-data-key-gcp
