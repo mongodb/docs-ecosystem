@@ -23,7 +23,7 @@ content: |
   .. image:: /figures/CSFLE_Master_Key_KMS.png
      :alt: Diagram that describes creating a master key when using a KMS provider
 
-  1. To create a master key, follow Microsoft's official 
+  1. To create a master key, follow Microsoft's official
      `Secrets Guide <https://docs.microsoft.com/en-us/azure/key-vault/secrets/about-secrets>`__.
      Follow the instructions in one of the :guilabel:`Quickstarts` sections
      that corresponds to your preferred method to create and configure your
@@ -171,6 +171,35 @@ content: |
               To use the Azure KMS, you must use
               `libmongocrypt <https://github.com/mongodb/libmongocrypt#installing-libmongocrypt-on-windows>`__ version 1.1 or later in your application's environment.
 
+     .. tab::
+        :tabid: go
+
+        .. code-block:: go
+
+           type azureKMSCredentials struct {
+               TenantID                 string `structs:"tenantId"`
+               ClientID                 string `structs:"clientId"`
+               ClientSecret             string `structs:"clientSecret"`
+           }
+
+           azureTenantID := Getenv("FLE_AZURE_TENANT_ID")
+           azureClientID := Getenv("FLE_AZURE_CLIENT_ID")
+           azureClientSecret := Getenv("FLE_AZURE_CLIENT_SECRET")
+
+           azureKMS := azureKMSCredentials{
+               TenantID:     azureTenantID,
+               ClientID:     azureClientID,
+               ClientSecret: azureClientSecret,
+           }
+
+           kmsProviders := map[string]map[string]interface{
+             "azure": structs.Map(azureKMS)
+           }
+           .. note::
+
+              To use the Azure KMS, you must use
+              `libmongocrypt <https://github.com/mongodb/libmongocrypt>`__ version 1.1 or later in your application's environment.
+
 ---
 title: Create a New Data Encryption Key
 ref: create-a-new-data-key
@@ -277,6 +306,39 @@ content: |
               var dataKeyIdBase64 = Convert.ToBase64String(GuidConverter.ToBytes(dataKeyId, GuidRepresentation.Standard));
               Console.WriteLine($"Azure DataKeyId [base64]: {dataKeyIdBase64}");
 
+     .. tab::
+        :tabid: go
+
+        .. code-block:: go
+
+           clientEncryptionOpts := options.ClientEncryption().SetKeyVaultNamespace(keyVaultNamespace).SetKmsProviders(kmsProviders)
+           keyVaultClient, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(uri))
+           if err != nil {
+               log.Panicf("Client encryption connect error %v", err)
+           }
+           clientEnc, err := mongo.NewClientEncryption(keyVaultClient, clientEncryptionOpts)
+           if err != nil {
+               log.Panicf("NewClientEncryption error %v", err)
+           }
+           defer func() {
+               _ = clientEnc.Close(context.TODO())
+           }()
+           type azureKMSDataKeyOpts struct {
+               KeyVaultEndpoint string `bson:"keyVaultEndpoint"`
+               KeyName          string `bson:"keyName"`
+               KeyVersion       string `bson:"keyVersion,omitempty"` // optional, defaults to the key's primary version
+           }
+           dataKeyInfo := azureKMSDataKeyOpts {
+               KeyVaultEndpoint: os.Getenv("FLE_AZURE_KEYVAULT_ENDPOINT"),
+               KeyName: os.Getenv("FLE_AZURE_KEY_NAME"),
+               KeyVersion: os.Getenv("FLE_AZURE_KEY_VERSION")
+           }
+           dataKeyOpts := options.DataKey().SetMasterKey(dataKeyInfo)
+           dataKeyID, err := clientEnc.CreateDataKey(context.TODO(), "azure", dataKeyOpts)
+           if err != nil {
+               log.Panicf("create data key error %v", err)
+           }
+           fmt.Println(base64.StdEncoding.EncodeToString(dataKeyID.Data))
 ---
 title: Update the Automatic Encryption JSON Schema
 ref: update-the-json-schema
