@@ -134,6 +134,22 @@ content: |
            To use the AWS Key Vault, you must use
            `libmongocrypt <https://github.com/mongodb/libmongocrypt#installing-libmongocrypt-on-windows>`__ version 1.0 or later in your application's environment.
 
+     .. tab::
+        :tabid: go
+
+        .. code-block:: go
+
+           kmsProviders := map[string]map[string]interface{}{
+               "aws": {
+                   "accessKeyId":     os.Getenv("FLE_AWS_ACCESS_KEY"),
+                   "secretAccessKey": os.Getenv("FLE_AWS_SECRET_ACCESS_KEY"),
+               },
+           }
+
+        .. note::
+
+           In the companion project these values are retreived via struct tags.
+
 ---
 title: Create a New Data Encryption Key
 ref: create-a-new-data-key
@@ -292,6 +308,38 @@ content: |
 
            To use the AWS Key Vault, you must use
            `libmongocrypt <https://github.com/mongodb/libmongocrypt#installing-libmongocrypt-on-windows>`__ version 1.0 or later in your application's environment.
+
+     .. tab::
+        :tabid: go
+
+        .. code-block:: go
+
+           clientEncryptionOpts := options.ClientEncryption().SetKeyVaultNamespace(keyVaultNamespace).SetKmsProviders(kmsProviders)
+           keyVaultClient, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(uri))
+           if err != nil {
+               log.Panicf("Client encryption connect error %v", err)
+           }
+           clientEnc, err := mongo.NewClientEncryption(keyVaultClient, clientEncryptionOpts)
+           if err != nil {
+               log.Panicf("NewClientEncryption error %v", err)
+           }
+           defer func() {
+               _ = clientEnc.Close(context.TODO())
+           }()
+           type awsKMSDataKeyOpts struct {
+               Region   string `bson:"region"`
+               KeyARN   string `bson:"key"`
+           }
+           dataKeyInfo := awsKMSDataKeyOpts {
+               Region: os.Getenv("FLE_AWS_REGION"),
+               KeyARN: os.Getenv("FLE_AWS_KEY_ARN"),
+           }
+           dataKeyOpts := options.DataKey().SetMasterKey(dataKeyInfo)
+           dataKeyID, err := clientEnc.CreateDataKey(context.TODO(), "aws", dataKeyOpts)
+           if err != nil {
+               log.Panicf("create data key error %v", err)
+           }
+           fmt.Println(base64.StdEncoding.EncodeToString(dataKeyID.Data))
 
 ---
 title: Update the Automatic Encryption JSON Schema
