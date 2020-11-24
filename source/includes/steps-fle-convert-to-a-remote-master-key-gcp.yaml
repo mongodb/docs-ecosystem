@@ -165,6 +165,31 @@ content: |
              To use the GCP KMS, you must use
              `libmongocrypt <https://github.com/mongodb/libmongocrypt#installing-libmongocrypt-on-windows>`__ version 1.1 or later in your application's environment.
 
+        .. tab::
+           :tabid: go
+
+           .. code-block:: go
+              type gcpKMSCredentials struct {
+                  Email      string `structs:"email"`
+                  PrivateKey string `structs:"privateKey"`
+              }
+
+              gcpEmail := Getenv("FLE_GCP_EMAIL")
+              gcpPrivateKey := Getenv("FLE_GCP_PRIVATE_KEY")
+
+              gcpKMS := gcpKMSCredentials{
+                  Email:      azureTenantID,
+                  PrivateKey: azureClientID,
+              }
+
+              kmsProviders := map[string]map[string]interface{
+                "azure": structs.Map(gcpKMS)
+              }
+
+           .. note::
+
+              To use the GCP KMS, you must use
+              `libmongocrypt <https://github.com/mongodb/libmongocrypt>`__ version 1.1 or later in your application's environment.
 ---
 title: Create a New Data Encryption Key
 ref: create-a-new-data-key-gcp
@@ -306,6 +331,43 @@ content: |
               var dataKeyIdBase64 = Convert.ToBase64String(GuidConverter.ToBytes(dataKeyId, GuidRepresentation.Standard));
               Console.WriteLine($"DataKeyId [base64]: {dataKeyIdBase64}");
 
+        .. tab::
+           :tabid: go
+
+           .. code-block:: go
+
+              clientEncryptionOpts := options.ClientEncryption().SetKeyVaultNamespace(keyVaultNamespace).SetKmsProviders(kmsProviders)
+              keyVaultClient, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(uri))
+              if err != nil {
+                  log.Panicf("Client encryption connect error %v", err)
+              }
+              clientEnc, err := mongo.NewClientEncryption(keyVaultClient, clientEncryptionOpts)
+              if err != nil {
+                  log.Panicf("NewClientEncryption error %v", err)
+              }
+              defer func() {
+                  _ = clientEnc.Close(context.TODO())
+              }()
+
+              type gcpKMSDataKeyOpts struct {
+                  ProjectID  string `bson:"projectId"`
+                  Location   string `bson:"location"`
+                  KeyRing    string `bson:"keyRing"`
+                  KeyName    string `bson:"keyName"`
+              }
+
+              dataKeyInfo = gcpKMSDataKeyOpts{
+                  ProjectID: os.Getenv("FLE_GCP_PROJ_ID"),
+                  Location:  os.Getenv("FLE_GCP_LOCATION"),
+                  KeyRing:   os.Getenv("FLE_GCP_KEY_RING"),
+                  KeyName:   os.Getenv("FLE_GCP_KEY_NAME")
+              }
+              dataKeyOpts := options.DataKey().SetMasterKey(dataKeyInfo)
+              dataKeyID, err := clientEnc.CreateDataKey(context.TODO(), "gcp", dataKeyOpts)
+              if err != nil {
+                  log.Panicf("create data key error %v", err)
+              }
+              fmt.Println(base64.StdEncoding.EncodeToString(dataKeyID.Data))
 ---
 title: Update the Automatic Encryption JSON Schema
 ref: update-the-json-schema-gcp
