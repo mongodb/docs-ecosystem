@@ -169,6 +169,7 @@ content: |
            :tabid: go
 
            .. code-block:: go
+
               type gcpKMSCredentials struct {
                   Email      string `structs:"email"`
                   PrivateKey string `structs:"privateKey"`
