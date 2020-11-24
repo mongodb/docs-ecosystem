@@ -1163,10 +1163,10 @@ following **code snippet**:
              return fmt.Errorf("InsertOne error: %v", err)
          }
 
-         .. note::
+      .. note::
 
-            Rather than creating a raw BSON document, you can pass a struct with ``bson`` tags directly
-            to the driver for encoding.
+         Rather than creating a raw BSON document, you can pass a struct with ``bson`` tags directly
+         to the driver for encoding.
 
 
 When a CSFLE-enabled client inserts a new patient record into the Medical Care
