@@ -357,7 +357,7 @@ content: |
                   KeyName    string `bson:"keyName"`
               }
 
-              dataKeyInfo = gcpKMSDataKeyOpts{
+              dataKeyInfo := gcpKMSDataKeyOpts{
                   ProjectID: os.Getenv("FLE_GCP_PROJ_ID"),
                   Location:  os.Getenv("FLE_GCP_LOCATION"),
                   KeyRing:   os.Getenv("FLE_GCP_KEY_RING"),
