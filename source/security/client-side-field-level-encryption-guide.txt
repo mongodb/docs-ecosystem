@@ -281,12 +281,12 @@ Additional Dependencies
          * - Dependency Name
            - Description
 
-         * - Go version 1.10+
-           - Version 1.10 or above is required
+         * - Go version 1.10 or later
+           - A Go version of 1.10 or later is required. Go 1.11 or later is recommended for support
+             `go module support <https://blog.golang.org/using-go-modules>__`.
 
-         * - ``libmongocrypt`` 1.1.0+
-           - `libmongocrypt <https://github.com/mongodb/libmongocrypt#libmongocrypt>`__ version 1.1.0 or greater is
-             required.
+         * - `libmongocrypt <https://github.com/mongodb/libmongocrypt#libmongocrypt>`__ version 1.1.0 or later
+           -
 
 
 .. _fle-create-a-master-key:

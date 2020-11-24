@@ -168,7 +168,7 @@ content: |
            // Go companion project to this guide
            schema := schema.CreateJSONSchema(dataKeyBase64)
            schemaMap := map[string]interface{}{
-               dbName + "." + collName: schema,
+               "medicalRecords.patients": schema,
            }
 ---
 title: Specify the Location of the Encryption Binary
@@ -276,6 +276,18 @@ content: |
            extraOptions := map[string]interface{}{
                "mongocryptdSpawnPath": "/usr/local/bin/mongocryptd",
            }
+
+        .. note:: Encryption Binary Daemon
+
+           If the ``mongocryptd`` daemon is already running, you can
+           configure the client to skip starting it by passing the
+           following option:
+
+           .. code-block:: go
+
+              extraOptions := map[string]interface{}{
+                  "mongocryptdBypassSpawn": true,
+              }
 
 ---
 title: Create the MongoClient
