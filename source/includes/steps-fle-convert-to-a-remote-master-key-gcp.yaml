@@ -168,24 +168,22 @@ content: |
        .. tab::
           :tabid: go
 
+          In ``kms/provider.go``, update the variable declarations or define the expected environmental variables
+          in ``GCPProvider()``.
+
           .. code-block:: go
 
-             type gcpKMSCredentials struct {
-                 Email      string `structs:"email"`
-                 PrivateKey string `structs:"privateKey"`
+             gcpEmail := GetCheckedEnv("FLE_GCP_EMAIL")
+             gcpPrivateKey := GetCheckedEnv("FLE_GCP_PRIVATE_KEY")
+
+          The expected KMS provider map is created with struct tags.
+
+          .. code-block:: go
+
+             func (g *GCP) Credentials() map[string]map[string]interface{} {
+                 return map[string]map[string]interface{}{"gcp": structs.Map(g.credentials)}
              }
 
-             gcpEmail := Getenv("FLE_GCP_EMAIL")
-             gcpPrivateKey := Getenv("FLE_GCP_PRIVATE_KEY")
-
-             gcpKMS := gcpKMSCredentials{
-                 Email:      azureTenantID,
-                 PrivateKey: azureClientID,
-             }
-
-             kmsProviders := map[string]map[string]interface{
-               "azure": structs.Map(gcpKMS)
-             }
 
           .. note::
 
@@ -328,47 +326,34 @@ content: |
                   });
 
               var dataKeyId = clientEncryption.CreateDataKey("gcp", dataKeyOptions, CancellationToken.None);
-              Console.WriteLine($"DataKeyId [UUID]: {dataKeyId}");
-              var dataKeyIdBase64 = Convert.ToBase64String(GuidConverter.ToBytes(dataKeyId, GuidRepresentation.Standard));
-              Console.WriteLine($"DataKeyId [base64]: {dataKeyIdBase64}");
 
         .. tab::
            :tabid: go
 
+           In ``kms/provider.go``, update the variable declarations or define the expected environmental variables
+           in ``GCPProvider()``.
+
            .. code-block:: go
 
-              clientEncryptionOpts := options.ClientEncryption().SetKeyVaultNamespace(keyVaultNamespace).SetKmsProviders(kmsProviders)
-              keyVaultClient, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(uri))
-              if err != nil {
-                  log.Panicf("Client encryption connect error %v", err)
-              }
-              clientEnc, err := mongo.NewClientEncryption(keyVaultClient, clientEncryptionOpts)
-              if err != nil {
-                  log.Panicf("NewClientEncryption error %v", err)
-              }
-              defer func() {
-                  _ = clientEnc.Close(context.TODO())
-              }()
+              gcpProjectID := GetCheckedEnv("FLE_GCP_PROJ_ID")
+              gcpLocation := GetCheckedEnv("FLE_GCP_LOCATION")
+              gcpKeyRing := GetCheckedEnv("FLE_GCP_KEY_RING")
+              gcpKeyName := GetCheckedEnv("FLE_GCP_KEY_NAME")
 
-              type gcpKMSDataKeyOpts struct {
-                  ProjectID  string `bson:"projectId"`
-                  Location   string `bson:"location"`
-                  KeyRing    string `bson:"keyRing"`
-                  KeyName    string `bson:"keyName"`
+           Struct tags are used to pass these values directly to the driver for use. In ``kms/provider.go``
+
+           .. code-block:: go
+
+              func (g *GCP) DataKeyOpts() interface{} {
+                  return g.dataKeyOpts
               }
 
-              dataKeyInfo := gcpKMSDataKeyOpts{
-                  ProjectID: os.Getenv("FLE_GCP_PROJ_ID"),
-                  Location:  os.Getenv("FLE_GCP_LOCATION"),
-                  KeyRing:   os.Getenv("FLE_GCP_KEY_RING"),
-                  KeyName:   os.Getenv("FLE_GCP_KEY_NAME")
-              }
-              dataKeyOpts := options.DataKey().SetMasterKey(dataKeyInfo)
-              dataKeyID, err := clientEnc.CreateDataKey(context.TODO(), "gcp", dataKeyOpts)
-              if err != nil {
-                  log.Panicf("create data key error %v", err)
-              }
-              fmt.Println(base64.StdEncoding.EncodeToString(dataKeyID.Data))
+           In ``csfle/data_key.go``
+
+           .. code-block:: go
+
+              dataKeyOpts := options.DataKey().SetMasterKey(provider.DataKeyOpts())
+              dataKeyID, err := clientEnc.CreateDataKey(context.TODO(), provider.Name(), dataKeyOpts)
 ---
 title: Update the Automatic Encryption JSON Schema
 ref: update-the-json-schema-gcp
