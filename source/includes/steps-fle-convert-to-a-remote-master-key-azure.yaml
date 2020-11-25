@@ -188,7 +188,7 @@ content: |
            .. code-block:: go
 
               func (a *Azure) Credentials() map[string]map[string]interface{} {
-                  return map[string]map[string]interface{}{"aws": structs.Map(a.credentials)}
+                  return map[string]map[string]interface{}{"azure": structs.Map(a.credentials)}
               }
 
            .. note::
