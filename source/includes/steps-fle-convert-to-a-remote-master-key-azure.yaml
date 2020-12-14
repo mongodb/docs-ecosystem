@@ -273,7 +273,7 @@ content: |
                   keyVaultNamespace,
                   kmsProviders
               });
-              const key = await encryption.createDataKey('aws', {
+              const key = await encryption.createDataKey('azure', {
                  masterKey: {
                    keyName: '<Azure key name>',
                    keyVaultEndpoint: '<Azure key vault endpoint>'
