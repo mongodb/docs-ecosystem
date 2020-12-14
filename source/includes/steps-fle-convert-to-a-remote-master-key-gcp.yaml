@@ -129,7 +129,7 @@ content: |
           .. note::
 
              To use the GCP KMS, you must use ``mongodb-client-encryption`` version
-             `1.1.1<https://www.npmjs.com/package/mongodb-client-encryption/v/1.1.1-beta.0>`__  or later.
+             `1.1.1 <https://www.npmjs.com/package/mongodb-client-encryption/v/1.1.1-beta.0>`__  or later.
 
        .. tab::
           :tabid: python
@@ -295,11 +295,6 @@ content: |
 
               const base64DataKeyId = key.toString('base64');
               console.log('DataKeyId [base64]: ', base64DataKeyId);
-
-           .. note::
-
-              To use the GCP KMS, you must use ``mongodb-client-encryption`` version
-              `1.1.1<https://www.npmjs.com/package/mongodb-client-encryption/v/1.1.1-beta.0>`__  or later.
 
         .. tab::
            :tabid: python
