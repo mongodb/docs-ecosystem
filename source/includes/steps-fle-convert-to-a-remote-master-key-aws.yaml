@@ -101,6 +101,7 @@ content: |
                secretAccessKey: '<IAM User Secret Access Key>',
              }
            }
+
      .. tab::
         :tabid: python
 
