@@ -120,7 +120,7 @@ content: |
 
              kmsProviders = {
                gcp: {
-                 emai": "<GCP service account email>",
+                 email: "<GCP service account email>",
                  privateKey: "<GCP service account private key>",
                  endpoint: "<GCP authentication endpoint>",
                },
