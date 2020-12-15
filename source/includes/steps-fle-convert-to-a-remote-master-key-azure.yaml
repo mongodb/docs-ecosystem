@@ -121,8 +121,8 @@ content: |
                 azure: {
                   tenantId: "<Azure account organization>",
                   clientId: "<Azure client ID>",
-                  clientSecret: "<Azure client secret>"
-                }
+                  clientSecret: "<Azure client secret>",
+                },
               }
 
            .. note::
@@ -271,17 +271,17 @@ content: |
 
               const encryption = new ClientEncryption(client, {
                   keyVaultNamespace,
-                  kmsProviders
+                  kmsProviders,
               });
-              const key = await encryption.createDataKey('azure', {
+              const key = await encryption.createDataKey("azure", {
                  masterKey: {
-                   keyName: '<Azure key name>',
-                   keyVaultEndpoint: '<Azure key vault endpoint>'
-                 }
+                   keyName: "<Azure key name>",
+                   keyVaultEndpoint: "<Azure key vault endpoint>",
+                 },
               });
 
-              const base64DataKeyId = key.toString('base64');
-              console.log('DataKeyId [base64]: ', base64DataKeyId);
+              const base64DataKeyId = key.toString("base64");
+              console.log("DataKeyId [base64]: ", base64DataKeyId);
 
 
         .. tab::

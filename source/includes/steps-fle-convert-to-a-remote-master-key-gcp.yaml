@@ -123,7 +123,7 @@ content: |
                  emai": "<GCP service account email>",
                  privateKey: "<GCP service account private key>",
                  endpoint: "<GCP authentication endpoint>",
-               }
+               },
              }
 
           .. note::
@@ -280,9 +280,9 @@ content: |
 
               const encryption = new ClientEncryption(client, {
                   keyVaultNamespace,
-                  kmsProviders
+                  kmsProviders,
               });
-              const key = await encryption.createDataKey('gcp', {
+              const key = await encryption.createDataKey("gcp", {
                  masterKey: {
                    projectId: "<GCP project identifier>",
                    location: "<GCP region>",
@@ -290,11 +290,11 @@ content: |
                    keyName: "<GCP key name>",
                    keyVersion: "<GCP key version>",
                    endpoint: "<GCP KMS API endpoint>",
-                 }
+                 },
               });
 
-              const base64DataKeyId = key.toString('base64');
-              console.log('DataKeyId [base64]: ', base64DataKeyId);
+              const base64DataKeyId = key.toString("base64");
+              console.log("DataKeyId [base64]: ", base64DataKeyId);
 
         .. tab::
            :tabid: python
