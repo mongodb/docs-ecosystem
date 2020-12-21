@@ -137,9 +137,6 @@ Python 3 Compatibility
      - |checkmark|
      - |checkmark|
      - |checkmark|
-     - |checkmark|
-     -
-     -
 
    * - 3.10
      -
@@ -150,7 +147,7 @@ Python 3 Compatibility
      - |checkmark|
      - |checkmark|
      - |checkmark|
-     -
+     - |checkmark|
      -
      -
 
