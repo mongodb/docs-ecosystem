@@ -121,8 +121,11 @@ Python 3 Compatibility
      - Python 3.5
      - Python 3.6
      - Python 3.7
+     - Python 3.8
+     - Python 3.9
+     - Python 3.10
 
-   * - 3.11 (beta)
+   * - 3.11
      -
      -
      - |checkmark|
@@ -131,6 +134,12 @@ Python 3 Compatibility
      - |checkmark|
      - |checkmark|
      - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     -
+     -
 
    * - 3.10
      -
@@ -141,6 +150,9 @@ Python 3 Compatibility
      - |checkmark|
      - |checkmark|
      - |checkmark|
+     -
+     -
+     -
 
    * - 3.9
      -
@@ -151,6 +163,9 @@ Python 3 Compatibility
      - |checkmark|
      - |checkmark|
      - |checkmark|
+     -
+     -
+     -
 
    * - 3.8
      -
@@ -161,6 +176,9 @@ Python 3 Compatibility
      - |checkmark|
      - |checkmark|
      - |checkmark|
+     -
+     -
+     -
 
 
    * - 3.7
@@ -172,6 +190,9 @@ Python 3 Compatibility
      - |checkmark|
      - |checkmark|
      - |checkmark|
+     -
+     -
+     -
 
    * - 3.6
      -
@@ -181,6 +202,9 @@ Python 3 Compatibility
      - |checkmark|
      - |checkmark|
      - |checkmark|
+     -
+     -
+     -
      -
 
    * - 3.5
@@ -192,6 +216,9 @@ Python 3 Compatibility
      - |checkmark|
      - |checkmark|
      -
+     -
+     -
+     -
 
    * - 3.4
      -
@@ -200,6 +227,9 @@ Python 3 Compatibility
      - |checkmark|
      - |checkmark|
      - |checkmark|
+     -
+     -
+     -
      -
      -
 
@@ -212,6 +242,9 @@ Python 3 Compatibility
      - |checkmark|
      -
      -
+     -
+     -
+     -
 
    * - 3.2
      -
@@ -220,6 +253,9 @@ Python 3 Compatibility
      - |checkmark|
      - |checkmark|
      - |checkmark|
+     -
+     -
+     -
      -
      -
 
@@ -232,6 +268,9 @@ Python 3 Compatibility
      - |checkmark|
      -
      -
+     -
+     -
+     -
 
    * - 3.0
      -
@@ -239,6 +278,9 @@ Python 3 Compatibility
      - |checkmark|
      - |checkmark|
      - |checkmark|
+     -
+     -
+     -
      -
      -
      -
@@ -262,6 +304,9 @@ Python 3 Compatibility
      -
      -
      -
+     -
+     -
+     -
 
    * - 2.7
      - |checkmark|
@@ -269,6 +314,9 @@ Python 3 Compatibility
      - |checkmark|
      - |checkmark|
      - |checkmark|
+     -
+     -
+     -
      -
      -
      -
