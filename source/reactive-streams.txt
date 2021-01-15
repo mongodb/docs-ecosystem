@@ -22,12 +22,11 @@ recommended driver for working with reactive streams in the JVM ecosystem.
 
 - :java-docs:`Tutorials <driver-reactive/tutorials/>`
 
-- :java-docs:`API Documentation <apidocs/mongodb-driver-reactivestreams/index.html>`
+- :java-docs:`API Documentation <apidocs/mongodb-driver-reactivestreams/>`
 
-- :java-docs:`What's New whats-new/>`
+- :java-docs:`What's New <whats-new/>`
 
-- `Source Code
-  <https://github.com/mongodb/mongo-java-driver-reactivestreams/>`_
+- `Source Code <https://github.com/mongodb/mongo-java-driver-reactivestreams/>`__
 
 Installation
 ------------

@@ -23,7 +23,7 @@ The official MongoDB Java Driver providing both synchronous and asynchronous int
 
 - :java-docs:`Tutorials <driver/tutorials/>`
 
-- :java-docs:`API Documentation <apidocs/>`__
+- :java-docs:`API Documentation <apidocs/>`
 
 - :java-docs:`What's New <whats-new/>`
 
