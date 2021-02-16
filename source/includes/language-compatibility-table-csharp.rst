@@ -5,18 +5,18 @@
    :class: compatibility-large no-padding
 
    * - Driver Version
-     - .NET 4.5
-     - .NET 4.6
-     - .NET 4.7
-     - .NET 4.8
      - .NET 5
-     - .NET Core 1.0
-     - .NET Core 1.1
-     - .NET Core 2.0
-     - .NET Core 2.1
-     - .NET Core 2.2
-     - .NET Core 3.0
+     - .NET 4.8
+     - .NET 4.7
+     - .NET 4.6
+     - .NET 4.5
      - .NET Core 3.1
+     - .NET Core 3.0
+     - .NET Core 2.2
+     - .NET Core 2.1
+     - .NET Core 2.0
+     - .NET Core 1.1
+     - .NET Core 1.0
 
    * - Version 2.11
      - |checkmark|
@@ -147,11 +147,11 @@
      - |checkmark|
 
    * - Version 2.2
+     - 
      - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
-     -
      -
      -
      -
@@ -161,11 +161,11 @@
      -
 
    * - Version 2.0
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
      - 
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
      -
      -
      -
