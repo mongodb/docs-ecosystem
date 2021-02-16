@@ -9,6 +9,7 @@
      - .NET 4.6
      - .NET 4.7
      - .NET 4.8
+     - .NET 5
      - .NET Core 1.0
      - .NET Core 1.1
      - .NET Core 2.0
@@ -29,8 +30,10 @@
      - |checkmark|
      - |checkmark|
      - |checkmark|
+     - |checkmark|
 
    * - Version 2.10
+     - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -56,8 +59,10 @@
      - |checkmark|
      - |checkmark|
      - |checkmark|
+     - |checkmark|
 
    * - Version 2.8
+     - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -82,6 +87,7 @@
      - |checkmark|
      - |checkmark|
      - |checkmark|
+     - |checkmark|
 
    * - Version 2.6
      - |checkmark|
@@ -95,8 +101,10 @@
      - |checkmark|
      - |checkmark|
      - |checkmark|
+     - |checkmark|
 
    * - Version 2.5
+     - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -122,8 +130,10 @@
      - |checkmark|
      - |checkmark|
      - |checkmark|
+     - |checkmark|
 
    * - Version 2.3
+     - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -148,12 +158,14 @@
      -
      -
      -
+     -
 
    * - Version 2.0
      - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
+     - 
      -
      -
      -
