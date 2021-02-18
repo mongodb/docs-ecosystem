@@ -207,7 +207,6 @@ Python 3 Compatibility
      - |checkmark|
      -
      -
-     
 
    * - 3.4
      -
