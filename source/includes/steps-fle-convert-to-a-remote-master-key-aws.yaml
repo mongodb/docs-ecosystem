@@ -6,13 +6,13 @@ content: |
      CSFLE-enabled clients authenticate with AWS KMS using the IAM user to
      encrypt and decrypt the remote master key. Take note of the following
      IAM credentials needed to authenticate with the KMS:
-     
+
      - **access key ID**
      - **secret access key**
 
   2. Grant the IAM user full ``List`` and ``Read`` permissions for the KMS
-     service. See Amazon's official documentation
-     on `Adding permissions to a user <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html>`__
+     service. See Amazon's official documentation on
+     `Adding permissions to a user <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html>`__
      to set these permissions.
 
 ---
