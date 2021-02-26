@@ -219,6 +219,4 @@
      Python 3.3 with the `asyncio package from PyPI
      <https://pypi.python.org/pypi/asyncio>`_.
 
-   - PyPy is not supported as it runs Motor code slowly.
-
-   - Motor does not support Jython or Windows.
+   - Motor 2.3+ supports Windows.
