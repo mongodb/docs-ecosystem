@@ -196,6 +196,10 @@
      - |checkmark|
      - |checkmark|
 
+- Motor 2.3 wraps PyMongo 3.11+
+- Motor 2.2 wraps PyMongo 3.11+
+- Motor 2.1 wraps PyMongo 3.10+
+- Motor 2.0 wraps PyMongo 3.7+
 - Motor 1.1 wraps PyMongo 3.4+
 - Motor 1.0 wraps PyMongo 3.3+
 - Motor 0.7 wraps PyMongo >=2.9.4 and <3.0
