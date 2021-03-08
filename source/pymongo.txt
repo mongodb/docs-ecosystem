@@ -54,7 +54,7 @@ To get a specific version of pymongo:
 
 .. code-block:: sh
 
-   $ python -m pip install pymongo[srv]==3.11
+   $ python -m pip install 'pymongo[srv]'==3.11
 
 To upgrade using pip:
 
