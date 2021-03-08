@@ -99,23 +99,23 @@ raw: drivers/use-cases/hadoop -> https://github.com/mongodb/mongo-hadoop
 raw: drivers/tutorial/getting-started-with-hadoop -> https://github.com/mongodb/mongo-hadoop/
 
 # Kafka -> Kafka Connector site
-raw: drivers/connectors/kafka -> ${kafka}
-raw: drivers/connectors/kafka-connect-migration -> ${kafka}/kafka-connect-migration
-raw: drivers/connectors/kafka-docker-example -> ${kafka}/kafka-docker-example
-raw: drivers/connectors/kafka-installation -> ${kafka}/kafka-installation
-raw: drivers/connectors/kafka-sink-cdc -> ${kafka}/kafka-sink-cdc
-raw: drivers/connectors/kafka-sink-data-formats -> ${kafka}/kafka-sink-data-formats
-raw: drivers/connectors/kafka-sink-postprocessors -> ${kafka}/kafka-sink-postprocessors
-raw: drivers/connectors/kafka-sink-properties -> ${kafka}/kafka-sink-properties
-raw: drivers/connectors/kafka-sink -> ${kafka}/kafka-sink
-raw: drivers/connectors/kafka-source -> ${kafka}/kafka-source
+raw: drivers/connectors/kafka -> ${kafka}/
+raw: drivers/connectors/kafka-connect-migration -> ${kafka}/kafka-connect-migration/
+raw: drivers/connectors/kafka-docker-example -> ${kafka}/kafka-docker-example/
+raw: drivers/connectors/kafka-installation -> ${kafka}/kafka-installation/
+raw: drivers/connectors/kafka-sink-cdc -> ${kafka}/kafka-sink-cdc/
+raw: drivers/connectors/kafka-sink-data-formats -> ${kafka}/kafka-sink-data-formats/
+raw: drivers/connectors/kafka-sink-postprocessors -> ${kafka}/kafka-sink-postprocessors/
+raw: drivers/connectors/kafka-sink-properties -> ${kafka}/kafka-sink-properties/
+raw: drivers/connectors/kafka-sink -> ${kafka}/kafka-sink/
+raw: drivers/connectors/kafka-source -> ${kafka}/kafka-source/
 
 # Platforms
-raw: drivers/platforms/digitalocean -> https://docs.atlas.mongodb.com
-raw: drivers/platforms/modulus -> https://docs.atlas.mongodb.com
-raw: drivers/platforms/rackspace-cloud -> https://docs.atlas.mongodb.com
+raw: drivers/platforms/digitalocean -> https://docs.atlas.mongodb.com/
+raw: drivers/platforms/modulus -> https://docs.atlas.mongodb.com/
+raw: drivers/platforms/rackspace-cloud -> https://docs.atlas.mongodb.com/
 raw: drivers/platforms/red-hat-openshift -> https://docs.mongodb.com/kubernetes-operator/stable/
-raw: drivers/platforms/dotcloud -> https://docs.atlas.mongodb.com
+raw: drivers/platforms/dotcloud -> https://docs.atlas.mongodb.com/
 raw: drivers/platforms/vmware-cloud-foundry -> https://pivotal.io/platform/services-marketplace/data-management/mongodb
 
 # RHEL -> Manual
