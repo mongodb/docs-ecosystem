@@ -44,7 +44,7 @@ Installation
 ------------
 
 ``NuGet`` is the simplest way to get the driver. Use
-`MongoDB.Driver <http://www.nuget.org/packages/mongodb.driver>`__ for
+`MongoDB.Driver <https://www.nuget.org/packages/mongodb.driver>`__ for
 all new projects.
 
 For more information, see `Installation <https://mongodb.github.io/mongo-csharp-driver/2.12/getting_started/installation/>`__.
@@ -66,7 +66,7 @@ Connect to MongoDB Atlas
    var database = client.GetDatabase("test");
 
 
-See `Connecting <https://mongodb.github.io/mongo-csharp-driver/2.11/reference/driver/connecting/>`__
+See `Connecting <https://mongodb.github.io/mongo-csharp-driver/2.12/reference/driver/connecting/>`__
 for more information.
 
 
