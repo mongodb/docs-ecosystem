@@ -101,7 +101,7 @@
      - |checkmark|
      - |checkmark|
      - |checkmark|
-     - |checkmark|
+     -
      - |checkmark|
      -
      - |checkmark|
