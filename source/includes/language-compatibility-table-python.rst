@@ -7,6 +7,7 @@ Python 2 Compatibility
    :stub-columns: 1
    :class: compatibility
 
+
    * - Pymongo Driver Version
      - Python 2.7, PyPy
      - Python 2.6
