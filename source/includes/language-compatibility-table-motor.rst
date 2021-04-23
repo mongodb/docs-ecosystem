@@ -29,7 +29,7 @@
      -
 
    * - 2.3
-     - |checkmark|
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -41,7 +41,7 @@
      -
 
    * - 2.2
-     - |checkmark|
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|
