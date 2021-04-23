@@ -7,9 +7,9 @@ Python 2 Compatibility
    :stub-columns: 1
    :class: compatibility
 
-   * - Python Driver
+   * - Pymongo Driver Version
      - Python 2.7, PyPy
-     - Python 2.6 
+     - Python 2.6
      - Python 2.5, Jython 2.5
      - Python 2.4
 
@@ -17,25 +17,25 @@ Python 2 Compatibility
      - |checkmark|
      -
      -
-     - 
+     -
 
    * - 3.10
      - |checkmark|
      -
      -
-     - 
+     -
 
    * - 3.9
      - |checkmark|
      -
      -
-     - 
+     -
 
    * - 3.8
      - |checkmark|
      -
      -
-     - 
+     -
 
    * - 3.7
      - |checkmark|
@@ -150,7 +150,7 @@ Python 3 Compatibility
 
    * - 3.9
      -
-     - 
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -243,7 +243,7 @@ Python 3 Compatibility
      - |checkmark|
      - |checkmark|
      -
-     
+
    * - 3.1
      -
      -
@@ -267,7 +267,7 @@ Python 3 Compatibility
      - |checkmark|
      - |checkmark|
      -
-    
+
    * - 2.9
      -
      -
