@@ -112,7 +112,7 @@ Python 3 Compatibility
    :stub-columns: 1
    :class: compatibility-large
 
-   * - Python Driver
+   * - Pymongo Driver Version
      - Python 3.9
      - Python 3.8
      - Python 3.7
