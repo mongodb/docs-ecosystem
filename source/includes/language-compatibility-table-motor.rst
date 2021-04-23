@@ -9,8 +9,8 @@
      - Python 3.8
      - Python 3.7
      - Python 3.6
-     - Python 3.5.0
      - Python 3.5.2
+     - Python 3.5.0
      - Python 3.4
      - Python 3.3
      - Python 2.7
@@ -23,7 +23,7 @@
      - |checkmark|
      - |checkmark|
      - |checkmark|
-     - |checkmark|
+     -
      -
      -
      -
@@ -36,7 +36,7 @@
      - |checkmark|
      - |checkmark|
      - |checkmark|
-     - |checkmark|
+     -
      -
      -
      -
@@ -49,7 +49,7 @@
      - |checkmark|
      - |checkmark|
      - |checkmark|
-     - |checkmark|
+     -
      -
      -
      -
@@ -62,7 +62,7 @@
      - |checkmark|
      - |checkmark|
      - |checkmark|
-     - |checkmark|
+     -
      - |checkmark|
      -
      - |checkmark|
@@ -75,7 +75,7 @@
      - |checkmark|
      - |checkmark|
      - |checkmark|
-     - |checkmark|
+     -
      - |checkmark|
      -
      - |checkmark|
@@ -88,7 +88,7 @@
      - |checkmark|
      - |checkmark|
      - |checkmark|
-     - |checkmark|
+     -
      - |checkmark|
      -
      - |checkmark|
