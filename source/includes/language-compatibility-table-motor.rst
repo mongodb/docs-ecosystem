@@ -98,7 +98,7 @@
    * - 1.2
      -
      -
-     -
+     - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
