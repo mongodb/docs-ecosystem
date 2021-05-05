@@ -294,12 +294,10 @@ Additional Dependencies
            - A Go version of 1.10 or later is required. Go 1.11 or later is recommended for support
              `go module support <https://blog.golang.org/using-go-modules>`__.
 
-         * - `libmongocrypt <https://github.com/mongodb/libmongocrypt#libmongocrypt>`__ version 1.1.0 or later
-
+           - `libmongocrypt <https://pkg.go.dev/go.mongodb.org/mongo-driver/mongo#hdr-Client_Side_Encryption>`__
+             version 1.1.0 or later
            - The ``libmongocrypt`` library contains bindings to communicate
-             with the native library that manages the encryption. See the
-             `mongo package Client Side Encryption guide <https://pkg.go.dev/go.mongodb.org/mongo-driver/mongo#hdr-Client_Side_Encryption>`__
-             for installation instructions.
+             with the native library that manages the encryption.
 
 .. _fle-create-a-master-key:
 
