@@ -218,7 +218,7 @@ Additional Dependencies
 
       .. list-table::
          :header-rows: 1
-         :widths: 40 60
+         :widths: 30 70
 
          * - Dependency Name
            - Description
@@ -237,7 +237,7 @@ Additional Dependencies
 
       .. list-table::
          :header-rows: 1
-         :widths: 40 60
+         :widths: 30 70
 
          * - Dependency Name
            - Description
@@ -256,7 +256,7 @@ Additional Dependencies
 
       .. list-table::
          :header-rows: 1
-         :widths: 40 60
+         :widths: 30 70
 
          * - Dependency Name
            - Description
@@ -272,7 +272,7 @@ Additional Dependencies
 
       .. list-table::
          :header-rows: 1
-         :widths: 40 60
+         :widths: 30 70
 
          * - Dependency Name
            - Description
@@ -295,10 +295,11 @@ Additional Dependencies
              `go module support <https://blog.golang.org/using-go-modules>`__.
 
          * - `libmongocrypt <https://github.com/mongodb/libmongocrypt#libmongocrypt>`__ version 1.1.0 or later
-              See the `mongo package Client Side Encryption guide <https://pkg.go.dev/go.mongodb.org/mongo-driver/mongo#hdr-Client_Side_Encryption>`__
-              for installation instructions.
+
            - The ``libmongocrypt`` library contains bindings to communicate
-             with the native library that manages the encryption.
+             with the native library that manages the encryption. See the
+             `mongo package Client Side Encryption guide <https://pkg.go.dev/go.mongodb.org/mongo-driver/mongo#hdr-Client_Side_Encryption>`__
+             for installation instructions.
 
 .. _fle-create-a-master-key:
 
@@ -812,7 +813,7 @@ can provide configurable parameters including:
       .. list-table::
          :header-rows: 1
          :stub-columns: 1
-         :widths: 40 60
+         :widths: 30 70
 
          * - Name
            - Description
@@ -861,7 +862,7 @@ can provide configurable parameters including:
       .. list-table::
          :header-rows: 1
          :stub-columns: 1
-         :widths: 40 60
+         :widths: 30 70
 
          * - Name
            - Description
@@ -896,7 +897,7 @@ can provide configurable parameters including:
       .. list-table::
          :header-rows: 1
          :stub-columns: 1
-         :widths: 40 60
+         :widths: 30 70
 
          * - Name
            - Description
@@ -941,7 +942,7 @@ can provide configurable parameters including:
       .. list-table::
          :header-rows: 1
          :stub-columns: 1
-         :widths: 40 60
+         :widths: 30 70
 
          * - Name
            - Description
