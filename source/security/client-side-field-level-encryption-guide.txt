@@ -13,7 +13,7 @@ Who Is This Guide For?
 
 This guide shows you how to implement automatic Client-Side Field Level
 Encryption (CSFLE) using supported MongoDB drivers and is intended for
-**full-stack developers**. You can read information on the following
+**full-stack developers**. You can read information about the following
 topics in the context of a real-world scenario:
 
 - :ref:`Introduction <csfle-guide-intro>`: How Client-Side Field Level
