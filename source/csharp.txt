@@ -73,13 +73,6 @@ for more information.
 Compatibility
 -------------
 
-Visual Studio Compatibility
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-If you use the Visual Studio IDE for a project that depends on version
-2.10 or later of the official MongoDB C# driver, you must use VS2017 or
-later.
-
 MongoDB Compatibility
 ~~~~~~~~~~~~~~~~~~~~~
 
@@ -93,6 +86,14 @@ Language Compatibility
 .. include:: /includes/language-compatibility-table-csharp.rst
 
 .. include:: /includes/about-driver-compatibility.rst
+
+Visual Studio Compatibility
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you use the Visual Studio IDE for a project that depends on the
+official Mongo C# driver version 2.10 or later, you must use
+`VS2017 <https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2017-relnotes>`__
+or later.
 
 .. include:: /includes/help-links-csharp.rst
 
