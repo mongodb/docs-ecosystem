@@ -90,9 +90,9 @@ Language Compatibility
 Visual Studio Compatibility
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you use the Visual Studio IDE for a project that depends on the
-official Mongo C# driver version 2.10 or later, you must use
-`VS2017 <https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2017-relnotes>`__
+If your Visual Studio IDE project depends on the official Mongo C# driver
+version 2.10 or later, you must use
+`Visual Studio 2017 <https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2017-relnotes>`__
 or later.
 
 .. include:: /includes/help-links-csharp.rst
