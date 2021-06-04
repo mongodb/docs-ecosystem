@@ -17,7 +17,7 @@ Motor (Async Driver)
 Introduction
 ------------
 
-**Motor (Python async)** is the recommended asynchronous Python driver for MongoDB.
+**Motor** is the recommended asynchronous Python driver for MongoDB.
 It is compatible with `Tornado <http://www.tornadoweb.org/>`_ and
 `asyncio <https://docs.python.org/3/library/asyncio.html>`_. We recommend
 that you use this driver if you need to run asynchronous operations. If
