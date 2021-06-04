@@ -112,7 +112,6 @@ following code to connect:
 
    tornado.ioloop.IOLoop.current().run_sync(get_server_info)
 
-
 If the connection succeeds before a five-second timeout, you should see a
 dictionary containing information about the server you connected to.
 
@@ -120,7 +119,7 @@ If the connection fails, you should see the message "Unable to connect to
 the server."
 
 For more information on the connection string, see the MongoDB Server
-Manual entry on :manual:`Connection String URI Format </reference/connection-string/>.
+Manual entry on :manual:`Connection String URI Format </reference/connection-string/>`.
 
 Compatibility
 -------------
