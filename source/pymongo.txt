@@ -75,10 +75,10 @@ Connect to MongoDB Atlas
 
    import pymongo
 
-   // replace this with your MongoDB connection string
+   # replace this with your MongoDB connection string
    conn_str = "<your MongoDB Atlas connection string>"
 
-   // set a 5-second connection timeout
+   # set a 5-second connection timeout
    client = pymongo.MongoClient(conn_str, serverSelectionTimeoutMS=5000)
 
    try:
