@@ -92,6 +92,7 @@ dictionary containing information about the server you connected to.
 If the connection fails, you should see the following message:
 
 .. code-block:: console
+   :copyable: false
 
    Unable to connect to the server.
 
