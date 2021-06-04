@@ -77,10 +77,10 @@ following code to connect:
 
    async def get_server_info():
 
-       // replace this with your MongoDB connection string
+       # replace this with your MongoDB connection string
        conn_str = "<your MongoDB Atlas connection string>"
 
-       // set a 5-second connection timeout
+       # set a 5-second connection timeout
        client = motor.motor_asyncio.AsyncIOMotorClient(conn_str, serverSelectionTimeoutMS=5000)
 
        try:
