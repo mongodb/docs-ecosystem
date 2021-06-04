@@ -18,8 +18,8 @@ Introduction
 ------------
 
 **Motor** is the recommended asynchronous Python driver for MongoDB.
-It is compatible with `Tornado <http://www.tornadoweb.org/>`_ and
-`asyncio <https://docs.python.org/3/library/asyncio.html>`_. We recommend
+It is compatible with `Tornado <http://www.tornadoweb.org/>`__ and
+`asyncio <https://docs.python.org/3/library/asyncio.html>`__. We recommend
 that you use this driver if you need to run asynchronous operations. If
 you do not need to access MongoDB in a non-blocking manner or from
 co-routines, we recommend that you use the :doc:`PyMongo </pymongo>`
@@ -56,7 +56,7 @@ the module using the command line:
 
 .. code-block:: sh
 
-   $ pip install motor
+   $ python -m pip install motor
 
 For more information on requirements and other methods of installation,
 see the `Motor Installation <https://motor.readthedocs.io/en/stable/installation.html>`__
@@ -80,6 +80,7 @@ following code to connect:
        // replace this with your MongoDB connection string
        conn_str = "<your MongoDB Atlas connection string>"
 
+       // set a 5-second connection timeout
        client = motor.motor_asyncio.AsyncIOMotorClient(conn_str, serverSelectionTimeoutMS=5000)
 
        try:
@@ -112,11 +113,14 @@ following code to connect:
 
    tornado.ioloop.IOLoop.current().run_sync(get_server_info)
 
-If the connection succeeds before a five-second timeout, you should see a
+If the connection succeeds before a five-second timeout, you will see a
 dictionary containing information about the server you connected to.
 
-If the connection fails, you should see the message "Unable to connect to
-the server."
+If the connection fails, you should see the following message:
+
+.. code-block:: console
+   
+   Unable to connect to the server.
 
 For more information on the connection string, see the MongoDB Server
 Manual entry on :manual:`Connection String URI Format </reference/connection-string/>`.

@@ -78,6 +78,7 @@ Connect to MongoDB Atlas
    // replace this with your MongoDB connection string
    conn_str = "<your MongoDB Atlas connection string>"
 
+   // set a 5-second connection timeout
    client = pymongo.MongoClient(conn_str, serverSelectionTimeoutMS=5000)
 
    try:
@@ -85,11 +86,14 @@ Connect to MongoDB Atlas
    except Exception:
        print("Unable to connect to the server.")
 
-If the connection succeeds before a five-second timeout, you should see a
+If the connection succeeds before a five-second timeout, you will see a
 dictionary containing information about the server you connected to.
 
-If the connection fails, you should see the message "Unable to connect to
-the server."
+If the connection fails, you should see the following message:
+
+.. code-block:: console
+
+   Unable to connect to the server.
 
 For more information on the connection string, see the MongoDB Server
 Manual entry on :manual:`Connection String URI Format </reference/connection-string/>`.
