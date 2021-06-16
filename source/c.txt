@@ -72,10 +72,10 @@ Connect to MongoDB Atlas
       return 0;
    }
 
+.. include:: /includes/localhost-connection.rst
 
 See `Advanced Connections <http://mongoc.org/libmongoc/current/advanced-connections.html>`__
 for more ways to connect.
-
 
 Compatibility
 -------------

@@ -112,6 +112,8 @@ corresponding connection code samples.
              Ok(())
          }
 
+.. include:: /includes/localhost-connection.rst
+
 Compatibility
 -------------
 

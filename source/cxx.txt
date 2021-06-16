@@ -36,7 +36,6 @@ Installation
 
 See `Installing the mongocxx driver <http://mongocxx.org/mongocxx-v3/installation/>`__.
 
-
 Connect to MongoDB Atlas
 ------------------------
 
@@ -57,7 +56,7 @@ Connect to MongoDB Atlas
    };
    mongocxx::database db = conn["test"];
 
-
+.. include:: /includes/localhost-connection.rst
 
 Compatibility
 -------------
