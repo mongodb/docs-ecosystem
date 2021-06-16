@@ -60,10 +60,10 @@ Connect to MongoDB Atlas
    MongoClient mongoClient = MongoClients.create(settings);
    MongoDatabase database = mongoClient.getDatabase("test");
 
-.. include:: /includes/localhost-connection.rst
-
 See :java-docs:`Connect to MongoDB <driver-reactive/tutorials/connect-to-mongodb/>`
 for more ways to connect.
+
+.. include:: /includes/localhost-connection.rst
 
 Compatibility
 -------------

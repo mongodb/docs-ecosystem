@@ -53,10 +53,10 @@ Connect to MongoDB Atlas
 .. literalinclude:: /includes/connection-snippets/go-connection.go
    :language: go
 
-.. include:: /includes/localhost-connection.rst
-
 See `Usage <https://github.com/mongodb/mongo-go-driver#usage>`__
 for more detail.
+
+.. include:: /includes/localhost-connection.rst
 
 Compatibility
 -------------
