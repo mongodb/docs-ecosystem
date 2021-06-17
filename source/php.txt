@@ -111,6 +111,9 @@ Connect to MongoDB Atlas
 
    $db = $client->test;
 
+Connect to ``localhost``
+------------------------
+
 .. include:: /includes/localhost-connection.rst
 
 Compatibility

@@ -68,6 +68,9 @@ Connect to MongoDB Atlas
 See `Connecting <https://mongodb.github.io/mongo-csharp-driver/2.12/reference/driver/connecting/>`__
 for more information.
 
+Connect to ``localhost``
+------------------------
+
 .. include:: /includes/localhost-connection.rst
 
 Compatibility

@@ -75,6 +75,9 @@ Connect to MongoDB Atlas
 See `Advanced Connections <http://mongoc.org/libmongoc/current/advanced-connections.html>`__
 for more ways to connect.
 
+Connect to ``localhost``
+------------------------
+
 .. include:: /includes/localhost-connection.rst
 
 Compatibility

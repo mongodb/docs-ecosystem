@@ -61,6 +61,9 @@ Connect to MongoDB Atlas
 See our guide on :java-docs:`Connecting <driver-scala/tutorials/connect-to-mongodb/>`
 for more ways to connect.
 
+Connect to ``localhost``
+------------------------
+
 .. include:: /includes/localhost-connection.rst
 
 Compatibility

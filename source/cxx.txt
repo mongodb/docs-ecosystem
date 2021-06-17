@@ -56,6 +56,9 @@ Connect to MongoDB Atlas
    };
    mongocxx::database db = conn["test"];
 
+Connect to ``localhost``
+------------------------
+
 .. include:: /includes/localhost-connection.rst
 
 Compatibility
