@@ -68,6 +68,13 @@ Connect to ``localhost``
 
 .. include:: /includes/localhost-connection.rst
 
+Versioned API
+-------------
+TODO: blurb on versioned API
+
+.. literalinclude:: /includes/versioned-api-snippets/java-rs-client.java
+   :language: java
+
 Compatibility
 -------------
 
