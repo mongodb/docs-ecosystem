@@ -23,7 +23,7 @@ It's a modern idiomatic Scala driver with asynchronous and non-blocking IO.
 
 
 - :java-docs:`Reference Documentation <driver-scala/>`
-  
+
 - :java-docs:`Tutorials <driver-scala/tutorials/>`
 
 - :java-docs:`API Documentation <apidocs/>`
@@ -65,6 +65,13 @@ Connect to ``localhost``
 ------------------------
 
 .. include:: /includes/localhost-connection.rst
+
+Versioned API
+-------------
+TODO: blurb on versioned API
+
+.. literalinclude:: /includes/versioned-api-snippets/scala-client.scala
+   :language: scala
 
 Compatibility
 -------------
