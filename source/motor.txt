@@ -116,6 +116,8 @@ following code to connect:
 
    tornado.ioloop.IOLoop.current().run_sync(get_server_info)
 
+.. include:: /includes/serverless-compatibility.rst
+
 If the connection succeeds before a five-second timeout, you will see a
 dictionary containing information about the server you connected to.
 
@@ -136,8 +138,6 @@ Connect to ``localhost``
 
 Compatibility
 -------------
-
-.. include:: /includes/serverless-compatibility.rst
 
 MongoDB Compatibility
 ~~~~~~~~~~~~~~~~~~~~~
