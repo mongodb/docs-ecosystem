@@ -56,6 +56,30 @@ Connect to MongoDB Atlas
 See `Usage <https://github.com/mongodb/mongo-go-driver#usage>`__
 for more detail.
 
+Versioned API
+-------------
+
+.. include:: /includes/versioned-api-blurb.rst
+
+Before creating a new module, fetch the necessary dependency:
+
+.. code-block:: go
+
+   go get
+   go.mongodb.org/mongo-driver@f6484d1795e97a5269911ee02eab192efb1afbfa
+   
+Connect to a :atlas:`MongoDB Atlas <>` cluster and configure the API version:
+
+.. code-block:: go
+
+   serverAPIOptions := options.ServerAPI(options.ServerAPIVersion1)
+
+	// Replace the uri string with your MongoDB deployment's connection string.
+	clientOptions := options.Client().ApplyURI("mongodb+srv://<username>:<password>@<cluster-address>/test?w=majority").SetServerAPIOptions(serverAPIOptions)
+
+	ctx := context.TODO()
+	client, err := mongo.Connect(ctx, clientOptions)
+
 Connect to ``localhost``
 ------------------------
 
