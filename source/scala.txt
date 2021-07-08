@@ -69,6 +69,8 @@ Connect to ``localhost``
 Compatibility
 -------------
 
+.. include:: /includes/serverless-compatibility.rst
+
 MongoDB Compatibility
 ~~~~~~~~~~~~~~~~~~~~~
 
