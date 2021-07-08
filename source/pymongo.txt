@@ -103,7 +103,7 @@ Versioned API
 -------------
 TODO: blurb on versioned API
 
-.. literalinclude:: /includes/versioned-api-snippets/pymongo-client.rst
+.. literalinclude:: /includes/versioned-api-snippets/pymongo-client.py
    :language: python
 
 Connect to ``localhost``
