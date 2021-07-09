@@ -80,14 +80,12 @@ Versioned API
 -------------
 
 You can use the `Versioned API
-<http://docs.mongodb.com/v5.0/reference/versioned-api/>`__ feature
-starting with MongoDB server version 5.0 and C Driver version 1.18. When
-you use the Versioned API feature with an official MongoDB driver, you
-can update your driver or server without worrying about backward
-compatibility issues for any commands covered by the Versioned API. To
-use the Versioned API, use the :atlas:`Atlas connection string
-</driver-connection>` for your cluster or a ``localhost`` connection
-string. You also need to specify the version of the Versioned API:
+<https://docs.mongodb.com/v5.0/reference/versioned-api/>`__ feature
+starting with MongoDB Server version 5.0 and C Driver version 1.18. When
+you use the Versioned API feature, you can update your driver or server
+without worrying about backward compatibility issues for any commands
+covered by the Versioned API. To use this feature, specify the version
+of the Versioned API:
 
 .. code-block:: c
 
