@@ -92,7 +92,7 @@ string. You also need to specify the version of the Versioned API:
 .. code-block:: c
 
    // Replace the uri string with your MongoDB deployment's connection string.
-   const char *uri_string = ""<connection string>"";
+   const char *uri_string = "<connection string>";
    mongoc_uri_t *uri;
    mongoc_client_t *client;
    mongoc_server_api_t *api;
