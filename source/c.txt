@@ -79,18 +79,20 @@ for more ways to connect.
 Versioned API
 -------------
 
-Starting with MongoDB 5.0 and C Driver Version 1.18, you can configure your MongoDB client
-instance to use the Versioned API. The Versioned API maintains backwards
-compatibility, which means that you can deploy your app and upgrade your MongoDB
-server without changing any code or updating your driver. To use the
-Versioned API, use the
-:atlas:`Atlas connection string </driver-connection>` for your cluster
-and specify the API Version:
+You can use the `Versioned API
+<http://docs.mongodb.com/v5.0/reference/versioned-api/>`__ feature
+starting with MongoDB server version 5.0 and C Driver version 1.18. When
+you use the Versioned API feature with an official MongoDB driver, you
+can update your driver or server without worrying about backward
+compatibility issues for any commands covered by the Versioned API. To
+use the Versioned API, use the :atlas:`Atlas connection string
+</driver-connection>` for your cluster or a ``localhost`` connection
+string. You also need to specify the version of the Versioned API:
 
 .. code-block:: c
 
    // Replace the uri string with your MongoDB deployment's connection string.
-   const char *uri_string = "mongodb+srv://<username>:<password>@<cluster-url>/test?w=majority";
+   const char *uri_string = ""<connection string>"";
    mongoc_uri_t *uri;
    mongoc_client_t *client;
    mongoc_server_api_t *api;
@@ -101,7 +103,7 @@ and specify the API Version:
    uri = mongoc_uri_new_with_error (uri_string, &error);
    client = mongoc_client_new_from_uri (uri);
 
-   // Set the versioned API version on the client.
+   // Set the version of the Versioned API on the client.
    api = mongoc_server_api_new (MONGOC_SERVER_API_V1);
    mongoc_client_set_server_api (client, api, &error);
 
