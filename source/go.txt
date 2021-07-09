@@ -69,12 +69,14 @@ and specify the API Version:
 
 .. code-block:: go
 
-   serverAPIOptions := options.ServerAPI(options.ServerAPIVersion1)
-   
    // Replace the uri string with your MongoDB deployment's connection string.
-   clientOptions := options.Client().ApplyURI("mongodb+srv://<username>:<password>@<cluster-address>/test?w=majority").SetServerAPIOptions(serverAPIOptions)
+   uri := "mongodb+srv://<username>:<password>@<cluster-address>/test?w=majority"
    
+   // Set the versioned API version on the client.
+   serverAPIOptions := options.ServerAPI(options.ServerAPIVersion1)
+   clientOptions := options.Client().ApplyURI(uri).SetServerAPIOptions(serverAPIOptions)
    ctx := context.TODO()
+   
    client, err := mongo.Connect(ctx, clientOptions)
 
 Connect to ``localhost``

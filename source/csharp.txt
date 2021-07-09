@@ -59,6 +59,7 @@ Connect to MongoDB Atlas
 
    using MongoDB.Bson;
    using MongoDB.Driver;
+   
    // Replace the uri string with your MongoDB deployment's connection string.
    var client = new MongoClient(
        "mongodb+srv://<username>:<password>@<cluster-address>/test?w=majority"
@@ -83,6 +84,8 @@ and specify the API Version:
 
    // Replace the uri string with your MongoDB deployment's connection string.
    var settings = MongoClientSettings.FromConnectionString("mongodb+srv://<username>:<password>@<cluster-address>/test?w=majority");
+   
+   // Set the versioned API version on the client.
    settings.ServerApi = new ServerApi(ServerApiVersion.V1);
    var client = new MongoClient(settings);
 
