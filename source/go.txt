@@ -59,15 +59,13 @@ for more detail.
 Versioned API
 -------------
 
-.. include:: /includes/versioned-api-blurb.rst
-
-Before creating a new module, fetch the necessary dependency:
-
-.. code-block:: go
-
-   go get go.mongodb.org/mongo-driver@f6484d1795e97a5269911ee02eab192efb1afbfa
-   
-Connect to a :atlas:`MongoDB Atlas <>` cluster and configure the API version:
+Starting with MongoDB 5.0 and Go Driver Version 1.6, you can configure your MongoDB client
+instance to use the Versioned API. The Versioned API maintains backwards
+compatibility, which means that you can deploy your app and upgrade your MongoDB
+server without changing any code or updating your driver. To use the
+Versioned API, use the
+:atlas:`Atlas connection string </driver-connection>` for your cluster
+and specify the API Version:
 
 .. code-block:: go
 
