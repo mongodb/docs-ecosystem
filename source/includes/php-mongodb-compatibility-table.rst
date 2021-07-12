@@ -15,7 +15,7 @@
      - MongoDB 2.6
 
    * - ext 1.10 + lib 1.9
-     - |checkmark|
+     - |checkmark| [#PHPC1.10-PHPLIB1.9-driver-support]_
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -135,3 +135,5 @@
      - |checkmark|
      - |checkmark|
 
+.. [#PHPC1.10-PHPLIB1.9-driver-support] The extension 1.10 + library 1.9
+   driver will be missing support for read concern ``"snapshot"``.
