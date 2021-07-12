@@ -136,4 +136,4 @@
      - |checkmark|
 
 .. [#PHPC1.10-PHPLIB1.9-driver-support] The extension 1.10 + library 1.9
-   driver will be missing support for read concern ``"snapshot"``.
+   driver will be missing support ``"snapshot"`` read commands on secondaries.
