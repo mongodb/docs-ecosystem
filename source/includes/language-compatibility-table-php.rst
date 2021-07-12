@@ -25,6 +25,16 @@
      -
      -
 
+   * - ext 1.9 + lib 1.8
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+     -
+     -
+
    * - ext 1.8 + lib 1.7
      -
      - |checkmark|
