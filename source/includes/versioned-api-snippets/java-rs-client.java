@@ -7,16 +7,15 @@ import com.mongodb.reactivestreams.client.MongoClients;
 
 // ...
 
+// Replace <connection string> with your MongoDB deployment's connection string.
+ConnectionString connString = new ConnectionString("<connection string>");
+
 ServerApi serverApi = ServerApi.builder()
         .version(ServerApiVersion.V1)
-        .build();
+         .build();
 
 MongoClientSettings settings = MongoClientSettings.builder()
-        .applyConnectionString(new ConnectionString(uri))
-        .serverApi(serverApi)
-        .build();
-
+         .applyConnectionString(connString)
+         .serverApi(serverApi)
+         .build();
 MongoClient mongoClient = MongoClients.create(settings);
-
-// ...
-
