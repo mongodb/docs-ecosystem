@@ -15,7 +15,7 @@
      - MongoDB 2.6
 
    * - 1.18
-     - |checkmark|
+     - |checkmark| [#c-1.18-driver-support]_
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -222,3 +222,6 @@
      -
      - |checkmark|
      - |checkmark|
+
+.. [#c-1.18-driver-support] The 1.18 driver does not support snapshot reads on secondaries. For more
+   information, see the `MongoDB Server version 5.0 release notes <https://docs.mongodb.com/v5.0/release-notes/5.0/#snapshots>`__. 

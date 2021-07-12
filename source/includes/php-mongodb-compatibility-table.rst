@@ -136,4 +136,5 @@
      - |checkmark|
 
 .. [#PHPC1.10-PHPLIB1.9-driver-support] The extension 1.10 + library 1.9
-   driver does not support ``"snapshot"`` read commands on secondaries.
+   driver does not support snapshot reads on secondaries. For more
+   information, see the `MongoDB Server version 5.0 release notes <https://docs.mongodb.com/v5.0/release-notes/5.0/#snapshots>`__. 
