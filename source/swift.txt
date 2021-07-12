@@ -99,23 +99,6 @@ Connect to ``localhost``
 
 .. include:: /includes/localhost-connection.rst
 
-Versioned API
--------------
-TODO: blurb on versioned API
-
-.. tabs::
-
-   .. tab:: Synchronous API
-      :tabid: swift-sync
-
-      .. literalinclude:: /includes/versioned-api-snippets/swift-sync-client.swift
-         :language: swift
-
-   .. tab:: Asynchronous API
-
-      .. literalinclude:: /includes/versioned-api-snippets/swift-async-client.swift
-         :language: swift
-
 Compatibility
 -------------
 
