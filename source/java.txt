@@ -6,12 +6,6 @@ Java MongoDB Drivers
 
 .. default-domain:: mongodb
 
-.. toctree::
-   :titlesonly:
-
-   /java.txt
-   /reactive-streams.txt
-
 .. contents:: On this page
    :local:
    :backlinks: none
