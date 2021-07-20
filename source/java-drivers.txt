@@ -9,7 +9,7 @@ Java MongoDB Drivers
 .. toctree::
    :titlesonly:
 
-   Java Driver <https://docs.mongodb.com/drivers/java/sync/current/>
+   :driver:`Java Driver </java/sync/current>`
    /reactive-streams.txt
 
 .. contents:: On this page
