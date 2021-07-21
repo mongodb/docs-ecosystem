@@ -60,7 +60,7 @@ Connect to MongoDB Atlas
 
    using MongoDB.Bson;
    using MongoDB.Driver;
-   
+
    // Replace the uri string with your MongoDB deployment's connection string.
    var client = new MongoClient(
        "mongodb+srv://<username>:<password>@<cluster-address>/test?w=majority"
@@ -87,7 +87,7 @@ client instance, specifying a version of the Versioned API:
 
    // Replace <connection string> with your MongoDB deployment's connection string.
    var settings = MongoClientSettings.FromConnectionString("<connection string>");
-   
+
    // Set the version of the Versioned API on the client.
    settings.ServerApi = new ServerApi(ServerApiVersion.V1);
    var client = new MongoClient(settings);
@@ -97,9 +97,9 @@ Connect to a MongoDB Server on Your Local Machine
 
 .. include:: /includes/localhost-connection.rst
 
-To test whether you can connect to your server, use the
-:ref:`Connect to MongoDB Atlas <connect-atlas-csharp-driver>` code example 
-after you replace the connection string.
+To test whether you can connect to your server, replace the connection
+string in the :ref:`Connect to MongoDB Atlas <connect-atlas-csharp-driver>`
+code example and run it.
 
 Compatibility
 -------------
