@@ -77,8 +77,8 @@ instance, specifying a version of the Versioned API:
 .. literalinclude:: /includes/versioned-api-snippets/scala-client.scala
    :language: scala
 
-Connect to ``localhost``
-------------------------
+Connect to a MongoDB Server on Your Local Machine
+-------------------------------------------------
 
 .. include:: /includes/localhost-connection.rst
 

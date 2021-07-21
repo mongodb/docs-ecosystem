@@ -107,8 +107,8 @@ client instance, specifying a version of the Versioned API:
    api = mongoc_server_api_new (MONGOC_SERVER_API_V1);
    mongoc_client_set_server_api (client, api, &error);
 
-Connect to ``localhost``
-------------------------
+Connect to a MongoDB Server on Your Local Machine
+-------------------------------------------------
 
 .. include:: /includes/localhost-connection.rst
 

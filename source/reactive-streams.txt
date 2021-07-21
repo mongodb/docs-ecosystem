@@ -80,8 +80,8 @@ MongoDB client instance, specifying a version of the Versioned API:
 .. literalinclude:: /includes/versioned-api-snippets/java-rs-client.java
    :language: java
 
-Connect to ``localhost``
-------------------------
+Connect to a MongoDB Server on Your Local Machine
+-------------------------------------------------
 
 .. include:: /includes/localhost-connection.rst
 

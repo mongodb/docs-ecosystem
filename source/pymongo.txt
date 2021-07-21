@@ -114,8 +114,8 @@ MongoDB client instance, specifying a version of the Versioned API:
 .. literalinclude:: /includes/versioned-api-snippets/pymongo-client.py
    :language: python
 
-Connect to ``localhost``
-------------------------
+Connect to a MongoDB Server on Your Local Machine
+-------------------------------------------------
 
 .. include:: /includes/localhost-connection.rst
 

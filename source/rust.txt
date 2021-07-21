@@ -114,8 +114,8 @@ corresponding connection code samples.
 
 .. include:: /includes/serverless-compatibility.rst
 
-Connect to ``localhost``
-------------------------
+Connect to a MongoDB Server on Your Local Machine
+-------------------------------------------------
 
 .. include:: /includes/localhost-connection.rst
 

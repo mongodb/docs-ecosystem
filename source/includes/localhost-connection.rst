@@ -1,5 +1,5 @@
-If you need to run MongoDB server on your local machine for development
-purposes instead of creating an Atlas cluster, you need to do the following:
+If you need to run a MongoDB server on your local machine for development
+purposes instead of using an Atlas cluster, you need to complete the following:
 
 1. Download the `Community <https://www.mongodb.com/try/download/community>`__
    or `Enterprise <https://www.mongodb.com/try/download/enterprise>`__ version
@@ -22,7 +22,8 @@ string in your driver connection code.
 If your MongoDB Server is running locally on its default port ``27017``, you
 can use the connection string ``"mongodb://localhost"``. If you configured
 your server to run on another port, use the connection string format
-``"mongodb://localhost:<port>"``.
+``"mongodb://localhost:<port>"``. If you need to specify a different hostname
+or IP address, see our Server Manual entry on :manual:`Connection Strings </reference/connection-string/>`.
 
 To test whether you can connect to your server, use the Connect to MongoDB
 Atlas code example after you replace the connection string.
