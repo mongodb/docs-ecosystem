@@ -1,10 +1,28 @@
-To connect to a database running locally on its default port, change the
-connection string to ``"mongodb://localhost"``. 
+If you need to run MongoDB server on your local machine for development
+purposes instead of creating an Atlas cluster, you need to do the following:
 
-To connect to a database running locally, change the connection string
-to ``"mongodb://localhost:<port>"``.
+1. Download the `Community <https://www.mongodb.com/try/download/community>`__
+   or `Enterprise <https://www.mongodb.com/try/download/enterprise>`__ version
+   of MongoDB Server.
 
-Your ``mongod`` instance must be running to successfully connect to your
-database. For information on how to start your ``mongod`` instance,
-see the :manual:`Manage mongod Processes
-</tutorial/manage-mongodb-processes/#start-mongod-processes>` Server Manual Entry.
+#. `Install and configure <https://docs.mongodb.com/manual/installation/>`__
+   MongoDB Server.
+
+#. Start the server.
+
+.. warning::
+
+   Never run a MongoDB server unless you have appropriate security measures
+   set up. See our :manual:`Security Checklist </administration/security-checklist/>`
+   for a list of security recommendations.
+
+After you successfully start your MongoDB server, specify your connection
+string in your driver connection code.
+
+If your MongoDB Server is running locally on its default port ``27017``, you
+can use the connection string ``"mongodb://localhost"``. If you configured
+your server to run on another port, use the connection string format
+``"mongodb://localhost:<port>"``.
+
+To test whether you can connect to your server, use the Connect to MongoDB
+Atlas code example after you replace the connection string.
