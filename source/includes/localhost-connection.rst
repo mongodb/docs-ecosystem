@@ -24,6 +24,3 @@ can use the connection string ``"mongodb://localhost"``. If you configured
 your server to run on another port, use the connection string format
 ``"mongodb://localhost:<port>"``. If you need to specify a different hostname
 or IP address, see our Server Manual entry on :manual:`Connection Strings </reference/connection-string/>`.
-
-To test whether you can connect to your server, use the Connect to MongoDB
-Atlas code example after you replace the connection string.
