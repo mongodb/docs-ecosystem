@@ -65,6 +65,7 @@ version, use the following ``pip`` command:
 See `Installation <https://pymongo.readthedocs.io/en/stable/installation.html>`__
 for more ways to install PyMongo.
 
+.. _connect-atlas-pymongo-driver:
 
 Connect to MongoDB Atlas
 ------------------------
@@ -118,6 +119,10 @@ Connect to a MongoDB Server on Your Local Machine
 -------------------------------------------------
 
 .. include:: /includes/localhost-connection.rst
+
+To test whether you can connect to your server, use the
+:ref:`Connect to MongoDB Atlas <connect-atlas-pymongo-driver>` code example
+after you replace the connection string.
 
 Compatibility
 -------------

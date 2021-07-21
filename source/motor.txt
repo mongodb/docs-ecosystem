@@ -64,6 +64,8 @@ For more information on requirements and other methods of installation,
 see the `Motor Installation <https://motor.readthedocs.io/en/stable/installation.html>`__
 documentation.
 
+.. _connect-atlas-motor-driver:
+
 Connect to MongoDB Atlas
 ------------------------
 
@@ -135,6 +137,10 @@ Connect to a MongoDB Server on Your Local Machine
 -------------------------------------------------
 
 .. include:: /includes/localhost-connection.rst
+
+To test whether you can connect to your server, use the
+:ref:`Connect to MongoDB Atlas <connect-atlas-motor-driver>` code example
+after you replace the connection string.
 
 Compatibility
 -------------

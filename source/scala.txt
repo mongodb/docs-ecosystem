@@ -41,6 +41,7 @@ with a dependency management system like ``sbt`` or ``maven``. See the
 :java-docs:`Installation Guide <driver-scala/getting-started/installation/>`
 for more information.
 
+.. _connect-atlas-scala-driver:
 
 Connect to MongoDB Atlas
 ------------------------
@@ -81,6 +82,10 @@ Connect to a MongoDB Server on Your Local Machine
 -------------------------------------------------
 
 .. include:: /includes/localhost-connection.rst
+
+To test whether you can connect to your server, use the
+:ref:`Connect to MongoDB Atlas <connect-atlas-scala-driver>` code example
+after you replace the connection string.
 
 Compatibility
 -------------

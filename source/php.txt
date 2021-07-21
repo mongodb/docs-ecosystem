@@ -95,6 +95,7 @@ The preferred method of installing the PHP library is with
 Additional installation instructions may be found in the
 `library documentation <https://docs.mongodb.com/php-library/current/tutorial/install-php-library/>`_.
 
+.. _connect-atlas-php-driver:
 
 Connect to MongoDB Atlas
 ------------------------
@@ -117,6 +118,10 @@ Connect to a MongoDB Server on Your Local Machine
 -------------------------------------------------
 
 .. include:: /includes/localhost-connection.rst
+
+To test whether you can connect to your server, use the
+:ref:`Connect to MongoDB Atlas <connect-atlas-php-driver>` code example
+after you replace the connection string.
 
 Compatibility
 -------------

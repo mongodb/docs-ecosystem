@@ -49,6 +49,7 @@ all new projects.
 
 For more information, see `Installation <https://mongodb.github.io/mongo-csharp-driver/2.12/getting_started/installation/>`__.
 
+.. _connect-atlas-csharp-driver:
 
 Connect to MongoDB Atlas
 ------------------------
@@ -95,6 +96,10 @@ Connect to a MongoDB Server on Your Local Machine
 -------------------------------------------------
 
 .. include:: /includes/localhost-connection.rst
+
+To test whether you can connect to your server, use the
+:ref:`Connect to MongoDB Atlas <connect-atlas-csharp-driver>` code example 
+after you replace the connection string.
 
 Compatibility
 -------------

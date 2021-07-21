@@ -36,6 +36,8 @@ a dependency management system.
 See the :java-docs:`Installation Guide <driver-reactive/getting-started/installation/>`
 for more information.
 
+.. _connect-atlas-reactive-streams-driver:
+
 Connect to MongoDB Atlas
 ------------------------
 
@@ -84,6 +86,10 @@ Connect to a MongoDB Server on Your Local Machine
 -------------------------------------------------
 
 .. include:: /includes/localhost-connection.rst
+
+To test whether you can connect to your server, use the
+:ref:`Connect to MongoDB Atlas <connect-atlas-reactive-streams-driver>` code 
+example after you replace the connection string.
 
 Compatibility
 -------------
