@@ -10,11 +10,11 @@ purposes instead of using an Atlas cluster, you need to complete the following:
 
 #. Start the server.
 
-.. warning::
+.. important::
 
-   Never run a MongoDB server unless you have appropriate security measures
-   set up. See our :manual:`Security Checklist </administration/security-checklist/>`
-   for a list of security recommendations.
+   Always secure your MongoDB server from malicious attacks. See our
+   :manual:`Security Checklist </administration/security-checklist/>` for a
+   list of security recommendations.
 
 After you successfully start your MongoDB server, specify your connection
 string in your driver connection code.
