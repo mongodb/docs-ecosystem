@@ -19,8 +19,8 @@ purposes instead of using an Atlas cluster, you need to complete the following:
 After you successfully start your MongoDB server, specify your connection
 string in your driver connection code.
 
-If your MongoDB Server is running locally on its default port ``27017``, you
-can use the connection string ``"mongodb://localhost"``. If you configured
-your server to run on another port, use the connection string format
-``"mongodb://localhost:<port>"``. If you need to specify a different hostname
-or IP address, see our Server Manual entry on :manual:`Connection Strings </reference/connection-string/>`.
+If your MongoDB Server is running locally, you can use the connection string
+``"mongodb://localhost:<port>"`` where ``<port>`` is the port number on which
+you configured your server to listen for incoming connections. If you need to
+specify a different hostname or IP address, see our Server Manual entry on
+:manual:`Connection Strings </reference/connection-string/>`.
