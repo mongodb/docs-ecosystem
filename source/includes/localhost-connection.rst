@@ -20,8 +20,8 @@ After you successfully start your MongoDB server, specify your connection
 string in your driver connection code.
 
 If your MongoDB Server is running locally, you can use the connection string
-``"mongodb://localhost:<port>"`` where ``<port>`` is the port number on which
-you configured your server to listen for incoming connections.
+``"mongodb://localhost:<port>"`` where ``<port>`` is the port number you
+configured your server to listen for incoming connections.
 
 If you need to specify a different hostname or IP address, see our Server
 Manual entry on :manual:`Connection Strings </reference/connection-string/>`.
