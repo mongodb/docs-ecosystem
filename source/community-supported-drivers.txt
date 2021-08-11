@@ -66,5 +66,3 @@ Community Libraries
 
    * - Smalltalk
      - `Squeaksource MongoTalk <http://www.squeaksource.com/MongoTalk.html>`__
-
-.. include:: /includes/important-community-drivers.rst
