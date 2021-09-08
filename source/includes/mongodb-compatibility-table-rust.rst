@@ -18,23 +18,23 @@
    * - 2.0
      - |checkmark| (*)
      - |checkmark| (*)
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
+     - |checkmark| (*)
+     - |checkmark| (*)
+     - |checkmark| (*)
 
    * - 1.1
      -
      - |checkmark| (*)
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
+     - |checkmark| (*)
+     - |checkmark| (*)
+     - |checkmark| (*)
 
    * - 1.0
      -
      - |checkmark| (*)
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
+     - |checkmark| (*)
+     - |checkmark| (*)
+     - |checkmark| (*)
 
 The Rust driver is not compatible with MongoDB server versions older than 3.6.
 
