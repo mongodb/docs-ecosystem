@@ -4,6 +4,9 @@ define: manual https://docs.mongodb.com/manual
 define: atlas https://docs.atlas.mongodb.com
 define: devhub https://developer.mongodb.com
 
+# Go
+raw: drivers/go -> ${base}/go/current/
+
 # Java
 raw: drivers/java -> ${base}/java-drivers/
 
