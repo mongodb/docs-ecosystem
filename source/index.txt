@@ -1,4 +1,6 @@
 :template: drivers-index
+:hidefeedback: header
+:noprevnext:
 
 .. default-domain:: mongodb
 
