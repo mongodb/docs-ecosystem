@@ -14,7 +14,7 @@ The following libraries are officially supported by MongoDB. They are actively m
 
 .. drivers-index-tiles::
 
-Don’t see your desired language? Browse a list of `community supported libraries <https://docs.mongodb.com/ecosystem/drivers/community-supported-drivers/>`_.
+Don’t see your desired language? Browse a list of :doc:`community supported libraries </community-supported-drivers>`.
 
 .. toctree::
 
