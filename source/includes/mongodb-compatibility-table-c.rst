@@ -28,7 +28,7 @@
      -
 
    * - 1.18
-     - |checkmark| [#c-1.18-driver-support]_
+     -
      - |checkmark| [#c-1.18-driver-support]_
      - |checkmark|
      - |checkmark|
