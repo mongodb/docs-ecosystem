@@ -4,6 +4,7 @@
    :class: compatibility-large
 
    * - PHP Driver Versions
+     - MongoDB 5.1
      - MongoDB 5.0
      - MongoDB 4.4
      - MongoDB 4.2
@@ -15,6 +16,7 @@
      - MongoDB 2.6
 
    * - ext 1.10 + lib 1.9
+     -
      - |checkmark| [#PHPC1.10-PHPLIB1.9-driver-support]_
      - |checkmark|
      - |checkmark|
@@ -27,6 +29,7 @@
 
    * - ext 1.9 + lib 1.8
      -
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -37,6 +40,7 @@
      -
 
    * - ext 1.8 + lib 1.7
+     -
      -
      - |checkmark|
      - |checkmark|
@@ -50,6 +54,7 @@
    * - ext 1.7 + lib 1.6
      -
      -
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -59,6 +64,7 @@
      -
 
    * - ext 1.6 + lib 1.5
+     -
      -
      -
      - |checkmark|
@@ -73,6 +79,7 @@
      -
      -
      -
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -81,6 +88,7 @@
      -
 
    * - ext 1.4 + lib 1.3
+     -
      -
      -
      -
@@ -97,12 +105,14 @@
      -
      -
      -
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|
      - |checkmark|
 
    * - ext 1.2 + lib 1.1
+     -
      -
      -
      -
@@ -120,11 +130,13 @@
      -
      -
      -
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|
 
    * - ext 1.0
+     -
      -
      -
      -
