@@ -220,7 +220,7 @@
 Versions 1.10 and 1.11 of the driver are compatible with .NET 3.5
 through 4.8 only.
 
-.. [#atlas-connection] When using .NET 5, you can't connect to Atlas clusters running MongoDB 4.0 due to a certificate issue.
+.. [#atlas-connection] When using .NET 5/6, you can't connect to Atlas clusters running MongoDB 4.0 due to a certificate issue. This does not impact clusters running MongoDB 4.2+.
 
 .. [#4.5.2] .NET/C# driver versions 2.8 to 2.13 requires .NET Framework 4.5.2 or higher.
 
