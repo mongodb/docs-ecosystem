@@ -14,11 +14,11 @@
      - .NET Core 1.1
      - .NET Core 1.0
      - .NET 4.8
-     - .NET 4.7
+     - .NET 4.7 [#2.14-note]_
      - .NET 4.6
      - .NET 4.5 [#4.5.2]_
 
-   * - 2.14 [#2.14-note]_
+   * - 2.14
      - |checkmark|
      - |checkmark|
      - |checkmark|
