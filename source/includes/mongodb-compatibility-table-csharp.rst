@@ -30,19 +30,6 @@
      -
 
    * - 2.13
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-
-
-   * - 2.13
      -
      - |checkmark|
      - |checkmark|

@@ -5,7 +5,7 @@
    :class: compatibility-large no-padding
 
    * - C#/.NET Driver Version
-     - .NET 5 [#atlas-connection]_
+     - .NET 5/6 [#atlas-connection]_
      - .NET Core 3.1
      - .NET Core 3.0
      - .NET Core 2.2
