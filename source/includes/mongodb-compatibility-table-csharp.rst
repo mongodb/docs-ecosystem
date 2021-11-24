@@ -24,10 +24,10 @@
      - |checkmark|
      - |checkmark|
      - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
-     - |checkmark|
+     -
+     -
+     -
+     -
 
 
    * - 2.13
