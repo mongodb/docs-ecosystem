@@ -1,4 +1,4 @@
-title: Configure Your KMIP Compliant KMS
+title: Configure Your KMIP KMS
 ref: configure-kmip-kms
 content: |
 
@@ -8,7 +8,7 @@ content: |
   - Accepts your client's TLS certificate
   - Contains a Master Key
 
-   Consult Your KMIP compliant KMS's Documentation for information on how to perform
+   Consult Your KMIP KMS's Documentation for information on how to perform
    these tasks in your system.
 
 ---

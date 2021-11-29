@@ -93,12 +93,12 @@ provider:
 
       .. include:: /includes/steps/fle-convert-to-a-remote-master-key-gcp.rst
 
-   .. tab:: KMIP Compliant KMS
+   .. tab:: KMIP KMS
       :tabid: kmip-kms
 
       .. important:: Java Only
 
-         Only the MongoDB Java Driver supports the use of a KMIP compliant KMS for
+         At present, only the MongoDB Java Driver supports the use of a KMIP KMS for
          CSFLE.
 
       .. include:: /includes/steps/fle-convert-to-a-remote-master-key-kmip.rst
