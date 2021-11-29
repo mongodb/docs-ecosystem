@@ -8,16 +8,16 @@ content: |
   - Accepts your client's TLS certificate
   - Contains a Master Key
 
-   Consult Your KMIP KMS's Documentation for information on how to perform
-   these tasks in your system.
+   Consult the documentation for your KMIP KMS for information on how
+   to perform these tasks for your specific KMS server.
 
 ---
 title: Specify your Certificates
 ref: specify-certificates
 content: |
 
-  Your KMIP client must connect to your KMIP KMS using a TLS connection containing
-  a client certificate accepted by your KMIP KMS server.
+  Your client must connect to your KMIP KMS using a TLS connection containing
+  a client certificate accepted by your KMS server.
 
   .. tabs-drivers::
 
@@ -36,6 +36,12 @@ content: |
            -Djavax.net.ssl.trustStoreType=jks
            -Djavax.net.ssl.trustStore=<path to TrustStore containing KMIP KMS CA file>
            -Djavax.net.ssl.trustStorePassword=<TrustStore password>
+      
+        .. note:: Configure Client With SSLContext
+
+           If you would rather configure your KMIP client using an SSL context, use the 
+           :java-docs:`kmsProviderSslContextMap <api-docs/mongodb-driver-core/com/mongodb/ClientEncryptionSettings.Builder.html#kmsProviderSslContextMap(java.util.Map)>`
+           method.
 
 ---
 title: Create a New Data Encryption Key
