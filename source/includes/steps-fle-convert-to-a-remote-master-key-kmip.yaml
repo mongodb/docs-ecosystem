@@ -2,45 +2,40 @@ title: Configure Your KMIP Compliant KMS
 ref: create-an-aws-iam-user
 content: |
 
-  .. important:: Java Only
+  To connect a MongoDB driver client to your KMIP KMS, you must configure your KMS
+  such that it has the following behaviors:
 
-     At present only the MongoDB Java Driver supports 
+  - Accepts your client's TLS certificate
+  - Contains a Master Key
 
-  1. Configure your KMIP Compliant KMS to Accept your client's TLS `.pem` certificate.
-
-  2. Add your KMIP
+   Consult Your KMIP compliant KMS's Documentation for information on how to perform
+   these tasks in your system.
 
 ---
 title: Specify your Certificates
 ref: specify-the-aws-kms-provider-credentials
 content: |
-  Unlike the local key provider, the KMIP provider does not read
-  the master key directly from the client application. Instead,
-  it accepts the :guilabel:`keyId` configuration option that points to the
-  master key on your KMIP compliant KMS.  Follow the steps
-  below to specify your credentials:
 
-  1. Add your authentication credentials to your CSFLE-enabled client
-     code:
-     
-  .. include:: /includes/substitute-placeholders.rst
+  Your KMIP client must connect to your KMIP KMS using a TLS connection containing
+  a client certificate accepted by your KMIP KMS server.
 
   .. tabs-drivers::
 
      .. tab::
         :tabid: java-sync
 
-        .. code-block:: java
+        Specify the following Java system properties to configure your client's
+        TLS connection: 
 
-           BsonString awsAccessKeyId = new BsonString("<IAM User Access Key ID>");
-           BsonString awsSecretAccessKey = new BsonString("<IAM User Secret Access Key>");
-           Map<String, Map<String, Object>> kmsProviders = new HashMap<String, Map<String, Object>>();
-           Map<String, Object> providerDetails = new HashMap<String, Object>();
-
-           providerDetails.put("accessKeyId", awsAccessKeyId);
-           providerDetails.put("secretAccessKey", awsSecretAccessKey);
-
-           kmsProviders.put("aws", providerDetails);
+        .. code-block:: Shell
+        
+           -Djavax.net.ssl.enabled=true
+           -Djavax.net.ssl.keyStoreType=pkcs12
+           -Djavax.net.ssl.keyStore=<path to pkcs12 keystore containing your client certifacte>
+           -Djavax.net.ssl.keyStorePassword=<keystore password>
+           -Djavax.net.ssl.trustStoreType=jks
+           -Djavax.net.ssl.trustStore=<path to truststore containing KMIP KMS CA file>
+           -Djavax.net.ssl.trustStorePassword=<truststore password>
 
 ---
 title: Create a New Data Encryption Key
@@ -65,18 +60,13 @@ content: |
           - Required
           - Description
 
-        * - key
+        * - keyId
           - Yes
-          - `Amazon Resource Number (ARN) <https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html#find-cmk-id-arn>`__
-            of the master key.
-
-        * - region
-          - No
-          - AWS region of your master key, e.g. "us-west-2"; required only if not specified in your ARN.
+          - The `keyId` field of your KMIP object.
 
         * - endpoint
-          - No
-          - Custom hostname for the AWS endpoint if configured for your account.
+          - Yes
+          - The URI of your KMIP server.
 
   2. Once you have the required information, update and run the following code
      to generate the new data encryption key:
@@ -90,6 +80,12 @@ content: |
 
         .. code-block:: Java
 
+           Map<String, Map<String, Object>> kmsProviderProperties = new HashMap<>();
+           Map<String, Object> providerDetails = new HashMap<>();
+           providerDetails.put("endpoint", "<KMIP KMS URI>");
+           kmsProviderProperties.put(kmsProvider,  providerDetails);
+           String keyVaultCollection = "<MongoDB namespace where you store your keys>"
+
            ClientEncryption clientEncryption = ClientEncryptions.create(ClientEncryptionSettings.builder()
                .keyVaultMongoClientSettings(MongoClientSettings.builder()
                    .applyConnectionString(new ConnectionString("mongodb://localhost:27017"))
@@ -98,22 +94,19 @@ content: |
                .kmsProviders(kmsProviders)
                .build());
 
-           BsonString masterKeyArn = new BsonString("<Master Key ARN>"); // e.g. "arn:aws:kms:us-east-2:111122223333:alias/test-key"
-           BsonString masterKeyRegion = new BsonString("<Master Key Region>")
            DataKeyOptions dataKeyOptions = new DataKeyOptions().masterKey(
                new BsonDocument()
-                   .append("key", masterKeyArn));
-                   .append("region", masterKeyRegion)
+                   .append("keyId", <your KeyId>));
 
-           BsonBinary dataKeyId = clientEncryption.createDataKey("aws", dataKeyOptions);
+           BsonBinary dataKeyId = clientEncryption.createDataKey("kmip", dataKeyOptions);
            String base64DataKeyId = Base64.getEncoder().encodeToString(dataKeyId.getData());
 
            System.out.println("DataKeyId [base64]: " + base64DataKeyId);
 
         .. note::
 
-           To use AWS KMS, you must use `mongodb-crypt <https://mvnrepository.com/artifact/org.mongodb/mongodb-crypt>`__
-           version 1.0 or later in your application's environment.
+           To use a KMIP KMS, you must use `mongodb-crypt <https://mvnrepository.com/artifact/org.mongodb/mongodb-crypt>`__
+           version 1.3 or later in your application's environment.
 
 ---
 title: Update the Automatic Encryption JSON Schema
