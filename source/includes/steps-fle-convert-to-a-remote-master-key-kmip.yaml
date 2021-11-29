@@ -1,5 +1,5 @@
 title: Configure Your KMIP Compliant KMS
-ref: create-an-aws-iam-user
+ref: configure-kmip-kms
 content: |
 
   To connect a MongoDB driver client to your KMIP KMS, you must configure your KMS
@@ -13,7 +13,7 @@ content: |
 
 ---
 title: Specify your Certificates
-ref: specify-the-aws-kms-provider-credentials
+ref: specify-certificates
 content: |
 
   Your KMIP client must connect to your KMIP KMS using a TLS connection containing
@@ -31,11 +31,11 @@ content: |
         
            -Djavax.net.ssl.enabled=true
            -Djavax.net.ssl.keyStoreType=pkcs12
-           -Djavax.net.ssl.keyStore=<path to pkcs12 keystore containing your client certifacte>
-           -Djavax.net.ssl.keyStorePassword=<keystore password>
+           -Djavax.net.ssl.keyStore=<path to pkcs12 KeyStore containing your client certificate>
+           -Djavax.net.ssl.keyStorePassword=<KeyStore password>
            -Djavax.net.ssl.trustStoreType=jks
-           -Djavax.net.ssl.trustStore=<path to truststore containing KMIP KMS CA file>
-           -Djavax.net.ssl.trustStorePassword=<truststore password>
+           -Djavax.net.ssl.trustStore=<path to TrustStore containing KMIP KMS CA file>
+           -Djavax.net.ssl.trustStorePassword=<TrustStore password>
 
 ---
 title: Create a New Data Encryption Key
@@ -96,7 +96,7 @@ content: |
 
            DataKeyOptions dataKeyOptions = new DataKeyOptions().masterKey(
                new BsonDocument()
-                   .append("keyId", <your KeyId>));
+                   .append("keyId", "<your KeyId>"));
 
            BsonBinary dataKeyId = clientEncryption.createDataKey("kmip", dataKeyOptions);
            String base64DataKeyId = Base64.getEncoder().encodeToString(dataKeyId.getData());
