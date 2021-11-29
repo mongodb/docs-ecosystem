@@ -10,3 +10,8 @@ version = 4.0
 package-name-org = "docs-ecosystem"
 pgp-version = "{+version+}"
 csharp-docs-versioned = "https://mongodb.github.io/mongo-csharp-driver/2.14"
+
+java-version = 4.4
+java-full-version = "{+java-version+}.0"
+java-package-name-org = "mongodb-org"
+java-api = "https://mongodb.github.io/mongo-java-driver/{+java-version+}"

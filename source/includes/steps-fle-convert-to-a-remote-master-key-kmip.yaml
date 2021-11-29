@@ -40,7 +40,7 @@ content: |
         .. note:: Configure Client With SSLContext
 
            If you would rather configure your KMIP client using an SSL context, use the 
-           :java-docs:`kmsProviderSslContextMap <api-docs/mongodb-driver-core/com/mongodb/ClientEncryptionSettings.Builder.html#kmsProviderSslContextMap(java.util.Map)>`
+           `kmsProviderSslContextMap <{+java-api+}/apidocs/mongodb-driver-core/com/mongodb/ClientEncryptionSettings.Builder.html#kmsProviderSslContextMap(java.util.Map)>`
            method.
 
 ---

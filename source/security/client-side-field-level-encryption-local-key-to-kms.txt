@@ -98,8 +98,8 @@ provider:
 
       .. important:: Java Only
 
-         At present, only the MongoDB Java Driver supports the use of a KMIP KMS for
-         CSFLE.
+         At present, only the MongoDB Java Driver supports the use of a KMIP KMS to
+         store master keys in CSFLE.
 
       .. include:: /includes/steps/fle-convert-to-a-remote-master-key-kmip.rst
 
