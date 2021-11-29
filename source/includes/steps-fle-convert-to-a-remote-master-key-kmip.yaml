@@ -6,7 +6,7 @@ content: |
   such that it has the following behaviors:
 
   - Accepts your client's TLS certificate
-  - Contains a Master Key
+  - Contains a symmetric master key
 
    Consult the documentation for your KMIP KMS for information on how
    to perform these tasks for your specific KMS server.
@@ -16,7 +16,7 @@ title: Specify your Certificates
 ref: specify-certificates
 content: |
 
-  Your client must connect to your KMIP KMS using a TLS connection containing
+  Your client must connect to your KMIP KMS through TLS and present
   a client certificate accepted by your KMS server.
 
   .. tabs-drivers::
