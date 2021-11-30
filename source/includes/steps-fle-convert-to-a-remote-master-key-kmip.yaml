@@ -8,8 +8,8 @@ content: |
   - Accepts your client's TLS certificate
   - Contains a symmetric master key
 
-   Consult the documentation for your KMIP KMS for information on how
-   to perform these tasks for your specific KMS server.
+  Consult the documentation for your KMIP KMS for information on how
+  to perform these tasks for your specific KMS server.
 
 ---
 title: Specify your Certificates
@@ -40,7 +40,7 @@ content: |
         .. note:: Configure Client With SSLContext
 
            If you would rather configure your KMIP client using an SSL context, use the 
-           `kmsProviderSslContextMap <{+java-api+}/apidocs/mongodb-driver-core/com/mongodb/ClientEncryptionSettings.Builder.html#kmsProviderSslContextMap(java.util.Map)>`
+           `kmsProviderSslContextMap <{+java-api+}/apidocs/mongodb-driver-core/com/mongodb/ClientEncryptionSettings.Builder.html#kmsProviderSslContextMap(java.util.Map)>`__
            method.
 
 ---
@@ -68,7 +68,7 @@ content: |
 
         * - keyId
           - Yes
-          - The `keyId` field of your KMIP object.
+          - The ``keyId`` field of your KMIP object.
 
         * - endpoint
           - Yes
