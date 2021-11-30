@@ -6,7 +6,7 @@
    :stub-columns: 1
    :class: compatibility-large
 
-   * - Pymongo Driver Version
+   * - PyMongo Driver Version
      - MongoDB 5.1
      - MongoDB 5.0
      - MongoDB 4.4

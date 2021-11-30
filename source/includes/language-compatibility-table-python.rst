@@ -6,7 +6,7 @@ Python 3 Compatibility
    :stub-columns: 1
    :class: compatibility-large
 
-   * - Pymongo Driver Version
+   * - PyMongo Driver Version
      - Python 3.9
      - Python 3.8
      - Python 3.7
@@ -231,7 +231,7 @@ Python 2 Compatibility
    :class: compatibility
 
 
-   * - Pymongo Driver Version
+   * - PyMongo Driver Version
      - Python 2.7, PyPy
      - Python 2.6
      - Python 2.5, Jython 2.5
@@ -340,7 +340,7 @@ Python 2 Compatibility
      - |checkmark|
      - |checkmark|
 
-.. [#python-2-compat] Pymongo 4.0+ is not compatible with Python 2
+.. [#python-2-compat] PyMongo 4.0 and later is not compatible with Python 2
 
 
 .. note::
