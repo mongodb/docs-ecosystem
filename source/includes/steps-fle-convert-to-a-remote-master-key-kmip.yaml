@@ -3,13 +3,10 @@ ref: configure-kmip-kms
 content: |
 
   To connect a MongoDB driver client to your KMIP KMS, you must configure your KMS
-  such that it has the following behaviors:
-
-  - Accepts your client's TLS certificate
-  - Contains a symmetric master key
+  such that it accepts your client's TLS certificate.
 
   Consult the documentation for your KMIP KMS for information on how
-  to perform these tasks for your specific KMS server.
+  to accept your client certificate with your specific KMS.
 
 ---
 title: Specify your Certificates
@@ -27,7 +24,7 @@ content: |
         Specify the following Java system properties to configure your client's
         TLS connection: 
 
-        .. code-block:: Shell
+        .. code-block:: shell
         
            -Djavax.net.ssl.enabled=true
            -Djavax.net.ssl.keyStoreType=pkcs12
@@ -67,8 +64,17 @@ content: |
           - Description
 
         * - keyId
-          - Yes
-          - The ``keyId`` field of your KMIP object.
+          - No
+          - The ``keyId`` field of a 96 byte
+            `Secret Data managed object <http://docs.oasis-open.org/kmip/spec/v1.4/os/kmip-spec-v1.4-os.html#_Toc490660780>`__
+            stored in your KMIP KMS.
+
+            .. note:: Create a New Master Key
+
+               If you do not specify the ``keyId`` field in the ``masterKey`` document
+               you send to your KMIP KMS, the driver creates a new
+               96 Byte Secret Data managed object in your KMS to act as your
+               master key. 
 
         * - endpoint
           - Yes
@@ -84,7 +90,7 @@ content: |
      .. tab::
         :tabid: java-sync
 
-        .. code-block:: Java
+        .. code-block:: java
 
            Map<String, Map<String, Object>> kmsProviderProperties = new HashMap<>();
            Map<String, Object> providerDetails = new HashMap<>();
