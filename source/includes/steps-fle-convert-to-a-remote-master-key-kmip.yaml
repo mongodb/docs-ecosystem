@@ -78,7 +78,7 @@ content: |
 
         * - endpoint
           - Yes
-          - The URI of your KMIP server.
+          - The URI of your KMIP KMS.
 
   2. Once you have the required information, update and run the following code
      to generate the new data encryption key:
