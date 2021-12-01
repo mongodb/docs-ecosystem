@@ -38,7 +38,6 @@
      - |checkmark|
      - |checkmark|
      -
-     -
 
    * - ext 1.10 + lib 1.9
      -
