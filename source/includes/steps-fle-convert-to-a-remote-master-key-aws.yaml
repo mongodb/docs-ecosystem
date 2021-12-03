@@ -75,7 +75,7 @@ content: |
   2. Next, add your authentication credentials to your CSFLE-enabled client
      code:
      
-  .. include:: /includes/substitute-placeholders.rst
+  .. include:: /includes/substitute-placeholders-aws.rst
 
   .. tabs-drivers::
 

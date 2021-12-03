@@ -81,7 +81,7 @@ content: |
   2. Next, update the KMS Provider configuration in your CSFLE-enabled client
      creation code:
 
-     .. include:: /includes/substitute-placeholders.rst
+     .. include:: /includes/substitute-placeholders-azure.rst
 
      .. tabs-drivers::
 
