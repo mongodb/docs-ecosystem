@@ -11,9 +11,15 @@
 
         privateKey: "<GCP service account private key>"
 
-    If your GCP service account private key is
-    ``"-----BEGIN PRIVATE KEY-----\nyour-private-key\n-----END PRIVATE KEY-----\"``,
-    you should substitute the text as follows:
+    Suppose your GCP service account private key is the following:
+
+    .. codeblock:: none
+
+       -----BEGIN PRIVATE KEY-----
+       your-private-key
+       -----END PRIVATE KEY-----
+
+    Substitute the placeholder text as follows:
 
     .. code-block:: javascript
        :copyable: false
