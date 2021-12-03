@@ -97,7 +97,6 @@ content: |
 
                  your-private-key
 
-            |
             | If you have a ``user-key.json`` credential file, you can extract
               the string by executing the following command in a bash or
               similar shell:
