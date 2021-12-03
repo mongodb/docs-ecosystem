@@ -67,7 +67,7 @@ content: |
      .. list-table::
         :header-rows: 1
         :stub-columns: 1
-        :widths: 30 15 45
+        :widths: 25 12 63
 
         * - Field
           - Required
@@ -80,13 +80,14 @@ content: |
         * - privateKey
           - Yes
           - | Identifies your service account private key in either
-            | `base64 string <https://en.wikipedia.org/wiki/Base64>`__ or
-            | :manual:`Binary subtype 0 <reference/mongodb-extended-json/#bson.Binary>`
-            | format without the prefix and suffix markers.
+              `base64 string <https://en.wikipedia.org/wiki/Base64>`__ or
+              :manual:`Binary subtype 0 <reference/mongodb-extended-json/#bson.Binary>`
+              format without the prefix and suffix markers.
             |
-            | Suppose your service account private key value is as follows:
+            |  Suppose your service account private key value is as follows:
 
               .. code-block:: none
+                 :copyable: false
 
                  "-----BEGIN PRIVATE KEY-----\nyour-private-key\n-----END PRIVATE KEY-----\n"
 
@@ -98,8 +99,8 @@ content: |
 
             |
             | If you have a ``user-key.json`` credential file, you can extract
-            | the string by executing the following command in a bash or
-            | similar shell:
+              the string by executing the following command in a bash or
+              similar shell:
 
               .. code-block:: shell
 
