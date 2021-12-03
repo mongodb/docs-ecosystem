@@ -249,8 +249,8 @@ content: |
   2. Once you have the required information, update and run the following code
      to generate a new data encryption key:
 
-     .. include:: /includes/substitute-placeholders.rst
-     
+     .. include:: /includes/substitute-placeholders-azure-key.rst
+
      .. tabs-drivers::
 
         .. tab::

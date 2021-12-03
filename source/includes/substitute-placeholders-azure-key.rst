@@ -3,24 +3,24 @@
     You must substitute all text in quotes and angle brackets with
     your KMS configuration values.
 
-    For example, the Node.js code prompts you to include a client id value as
-    follows:
+    For example, the Node.js code prompts you to include a key name value
+    as follows:
 
     .. code-block:: javascript
        :copyable: false
 
        azure: {
-         clientId: "<Azure client ID>"
+         keyName: "<Azure key name>"
          ...
        }
 
-    If your Azure client ID is "12345678", you should substitute the text as
-    follows:
+    If your Azure master key name is "my-key-name", you should substitute the
+    text as follows:
 
     .. code-block:: javascript
        :copyable: false
 
        azure: {
-         clientId: "12345678"
+         keyName: "my-key-name"
          ...
        }

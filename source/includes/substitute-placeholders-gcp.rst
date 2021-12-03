@@ -3,7 +3,7 @@
     You must substitute all text in quotes and angle brackets with
     your KMS configuration values.
 
-    For example, the Node.js code prompts you to include a privateKey value as
+    For example, the Node.js code prompts you to include a private key value as
     follows:
 
     .. code-block:: javascript
