@@ -84,7 +84,7 @@ content: |
               :manual:`Binary subtype 0 <reference/mongodb-extended-json/#bson.Binary>`
               format without the prefix and suffix markers.
             |
-            |  Suppose your service account private key value is as follows:
+            | Suppose your service account private key value is as follows:
 
               .. code-block:: none
                  :copyable: false

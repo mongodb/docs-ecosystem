@@ -14,6 +14,7 @@
     Suppose your GCP service account private key is the following:
 
     .. codeblock:: none
+       :copyable: false
 
        -----BEGIN PRIVATE KEY-----
        your-private-key
@@ -24,4 +25,4 @@
     .. code-block:: javascript
        :copyable: false
 
-        privateKey: "your-private-key"
+       privateKey: "your-private-key"
