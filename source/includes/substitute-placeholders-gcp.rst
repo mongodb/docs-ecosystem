@@ -11,7 +11,8 @@
 
         privateKey: "<GCP service account private key>"
 
-    If your GCP service account private key is "s-----BEGIN PRIVATE KEY-----\nyour-private-key\n-----END PRIVATE KEY-----\",
+    If your GCP service account private key is
+    ``"-----BEGIN PRIVATE KEY-----\nyour-private-key\n-----END PRIVATE KEY-----\"``,
     you should substitute the text as follows:
 
     .. code-block:: javascript
