@@ -86,24 +86,24 @@ content: |
             |
             | Suppose your service account private key value is as follows:
 
-              .. code-block:: none
-                 :copyable: false
+            .. code-block:: none
+               :copyable: false
 
-                 "-----BEGIN PRIVATE KEY-----\nyour-private-key\n-----END PRIVATE KEY-----\n"
+               -----BEGIN PRIVATE KEY-----\nyour-private-key\n-----END PRIVATE KEY-----\n
 
             | The value you should specify for this field is:
 
-              .. code-block:: none
+            .. code-block:: none
 
-                 your-private-key
+               your-private-key
 
             | If you have a ``user-key.json`` credential file, you can extract
               the string by executing the following command in a bash or
               similar shell:
 
-              .. code-block:: shell
+            .. code-block:: shell
 
-                 cat user-key.json | jq -r .private_key | openssl pkcs8 -topk8 -nocrypt -inform PEM -outform DER | base64 -w 0
+               cat user-key.json | jq -r .private_key | openssl pkcs8 -topk8 -nocrypt -inform PEM -outform DER | base64 -w 0
 
         * - endpoint
           - No
