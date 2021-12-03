@@ -9,7 +9,7 @@
     .. code-block:: javascript
        :copyable: false
 
-        privateKey: "<GCP service account private key>"
+       privateKey: "<GCP service account private key>"
 
     Suppose your GCP service account private key is the following:
 
