@@ -3,7 +3,7 @@
     You must substitute all text in quotes and angle brackets with
     your KMS configuration values.
 
-    For example, the Node.js code prompts you to include a client id value as
+    For example, the Node.js code prompts you to include a client ID value as
     follows:
 
     .. code-block:: javascript

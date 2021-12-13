@@ -81,7 +81,7 @@ content: |
           - Yes
           - | Identifies your service account private key in either
               `base64 string <https://en.wikipedia.org/wiki/Base64>`__ or
-              :manual:`Binary subtype 0 <reference/mongodb-extended-json/#bson.Binary>`
+              :manual:`Binary subtype 0 </reference/mongodb-extended-json/#bson.Binary>`
               format without the prefix and suffix markers.
             |
             | Suppose your service account private key value is as follows:
@@ -91,9 +91,10 @@ content: |
 
                -----BEGIN PRIVATE KEY-----\nyour-private-key\n-----END PRIVATE KEY-----\n
 
-            | The value you should specify for this field is:
+            | The value you would specify for this field is:
 
             .. code-block:: none
+               :copyable: false
 
                your-private-key
 
