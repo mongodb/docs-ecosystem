@@ -12,7 +12,7 @@
      - MongoDB 4.0
      - MongoDB 3.6
 
-   * - 2.1 [#2.1-limitation]
+   * - 2.1 [#2.1-limitation]_
      -
      - |checkmark|
      - |checkmark|
@@ -21,7 +21,7 @@
      - |checkmark|
 
 
-   * - 2.0 [#limitations]
+   * - 2.0 [#limitations]_
      -
      - |checkmark|
      - |checkmark|
@@ -29,7 +29,7 @@
      - |checkmark|
      - |checkmark|
 
-   * - 1.1 [#limitations]
+   * - 1.1 [#limitations]_
      -
      -
      - |checkmark|
@@ -37,7 +37,7 @@
      - |checkmark|
      - |checkmark|
 
-   * - 1.0 [#limitations]
+   * - 1.0 [#limitations]_
      -
      -
      - |checkmark|
@@ -47,7 +47,7 @@
 
 The Rust driver is not compatible with MongoDB server versions older than 3.6.
 
-.. [#2.1-limitaiton] The Rust driver does not support :ref:`change streams <changeStreams>`.
+.. [#2.1-limitation] The Rust driver does not support :ref:`change streams <changeStreams>`.
 
 .. [#limitations] Not all features in MongoDB are available in these driver versions. Unsupported
    features include :ref:`Change Streams <changeStreams>`,
