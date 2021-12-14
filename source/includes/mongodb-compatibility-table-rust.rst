@@ -16,6 +16,15 @@
      - MongoDB 4.0
      - MongoDB 3.6
 
+   * - 2.1
+     -
+     - |checkmark| (*)
+     - |checkmark| (*)
+     - |checkmark| (*)
+     - |checkmark| (*)
+     - |checkmark| (*)
+
+
    * - 2.0
      -
      - |checkmark| (*)
@@ -42,7 +51,6 @@
 
 The Rust driver is not compatible with MongoDB server versions older than 3.6.
 
-(*) Not all features in MongoDB are available in this version of the
-driver. Unsupported features include :ref:`Change Streams <changeStreams>`,
-:manual:`Causal Consistency </core/causal-consistency-read-write-concerns>`, and
-:atlas:`Serverless Instance </reference/serverless-instance-limitations>` support.
+.. info::
+
+   The Rust driver does not currently support :ref:`Change Streams <changeStreams>`.
