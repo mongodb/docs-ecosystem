@@ -26,14 +26,10 @@ content: |
 
         .. code-block:: shell
         
-           -Djavax.net.ssl.enabled=true
            -Djavax.net.ssl.keyStoreType=pkcs12
            -Djavax.net.ssl.keyStore=<path to pkcs12 KeyStore containing your client certificate>
            -Djavax.net.ssl.keyStorePassword=<KeyStore password>
-           -Djavax.net.ssl.trustStoreType=jks
-           -Djavax.net.ssl.trustStore=<path to TrustStore containing KMIP KMS CA file>
-           -Djavax.net.ssl.trustStorePassword=<TrustStore password>
-      
+
         .. note:: Configure Client With SSLContext
 
            If you would rather configure your KMIP client using an SSL context, use the 
@@ -100,7 +96,7 @@ content: |
 
            ClientEncryption clientEncryption = ClientEncryptions.create(ClientEncryptionSettings.builder()
                .keyVaultMongoClientSettings(MongoClientSettings.builder()
-                   .applyConnectionString(new ConnectionString("mongodb://localhost:27017"))
+                   .applyConnectionString(new ConnectionString("<MongoDB connection string>"))
                    .build())
                .keyVaultNamespace(keyVaultNamespace)
                .kmsProviders(kmsProviders)
