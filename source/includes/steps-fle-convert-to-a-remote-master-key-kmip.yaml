@@ -107,9 +107,8 @@ content: |
                    .append("keyId", "<your KeyId>"));
 
            BsonBinary dataKeyId = clientEncryption.createDataKey("kmip", dataKeyOptions);
-           String base64DataKeyId = Base64.getEncoder().encodeToString(dataKeyId.getData());
 
-           System.out.println("DataKeyId [base64]: " + base64DataKeyId);
+           System.out.println("DataKeyId [UUID]: " + dataKeyId.asUuid().toString());
 
         .. note::
 
