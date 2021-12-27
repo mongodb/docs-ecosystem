@@ -128,6 +128,7 @@ Compatibility
 -------------
 
 Here is a :ref:`that doesn't exist<nope-nope-nope!!!>`
+Another broken :doc:`thing <definitely-nope>`
 
 MongoDB Compatibility
 ~~~~~~~~~~~~~~~~~~~~~
