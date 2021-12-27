@@ -127,6 +127,8 @@ example and run it.
 Compatibility
 -------------
 
+Here is a :ref:`that doesn't exist<nope-nope-nope!!!>`
+
 MongoDB Compatibility
 ~~~~~~~~~~~~~~~~~~~~~
 
