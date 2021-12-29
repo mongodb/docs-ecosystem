@@ -132,7 +132,7 @@ Another broken :doc:`thing <definitely-nope>`
 
 https://www.flibbertyquz.com
 
-Another broken `link <https://www.flibbertyquz.com>`__
+Another broken `link <https://www.flibbertyquiz.com>`__
 
 
 MongoDB Compatibility
