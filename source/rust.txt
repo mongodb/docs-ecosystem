@@ -127,8 +127,6 @@ example and run it.
 Compatibility
 -------------
 
-https://www.flibbertyquz.com
-
 MongoDB Compatibility
 ~~~~~~~~~~~~~~~~~~~~~
 
