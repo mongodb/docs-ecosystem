@@ -1,4 +1,5 @@
 .. _rust-language-center:
+.. _mongodb-rust-driver-docs:
 
 .. include:: /includes/unicode-checkmark.rst
 
