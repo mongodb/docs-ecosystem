@@ -127,14 +127,6 @@ example and run it.
 Compatibility
 -------------
 
-Here is a :ref:`that doesn't exist<nope-nope-nope!!!>`
-
-Another broken :doc:`thing <definitely-nope>`
-
-https://www.flibbertyquz.com
-
-Another broken `link <https://www.flibbertyquiz.com>`__
-
 MongoDB Compatibility
 ~~~~~~~~~~~~~~~~~~~~~
 
