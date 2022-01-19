@@ -17,7 +17,11 @@ MongoDB C Driver
 Introduction
 ------------
 
-Welcome to the documentation site for the official MongoDB C Driver. You can add the driver to your application to work with MongoDB in C. Download the required libraries, ``libmongoc`` and ``libbson``,  from `mongoc.org <http://mongoc.org/libmongoc/current/installing.html>`__ or set up a runnable project by following our tutorial.
+Welcome to the documentation site for the official MongoDB C Driver. 
+You can add the driver to your application to work with MongoDB in C. 
+Download the required libraries, ``libmongoc`` and ``libbson``,  from 
+`mongoc.org <http://mongoc.org/libmongoc/current/installing.html>`__ or 
+set up a runnable project by following our tutorial.
 
 - `Tutorial <http://mongoc.org/libmongoc/current/tutorial.html>`__
 
