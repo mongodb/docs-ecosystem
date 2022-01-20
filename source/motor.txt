@@ -17,9 +17,9 @@ Motor (Async Driver)
 Introduction
 ------------
 
-You can use Motor, the official MongoDB driver for asynchronous Python 
-applications, to interact with MongoDB. Download it using 
-`pip <http://pypi.python.org/pypi/pip>`__
+Welcome to the documentation site for Motor, the official MongoDB 
+driver for asynchronous Python applications. Download it using 
+`pip <https://pypi.python.org/pypi/pip>`__
 or set up a runnable project by following our tutorials.
 
 .. tip::

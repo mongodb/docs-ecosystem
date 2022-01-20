@@ -19,7 +19,7 @@ Introduction
 
 Welcome to the documentation site for the official MongoDB C driver. 
 You can add the driver to your application to work with MongoDB using 
-the C++11 (or later) standard. Download the library, ``mongocxx``,  
+the C++11 or later standard. Download the library, ``mongocxx``,  
 from `mongocxx.org <http://mongocxx.org/mongocxx-v3/installation/>`__ 
 or set up a runnable project by following our tutorial.
 

@@ -11,8 +11,6 @@ Java MongoDB Drivers
    :backlinks: none
    :depth: 1
 
-.. This page may be an unused duplicate of java-drivers.
-
 Introduction
 ------------
 

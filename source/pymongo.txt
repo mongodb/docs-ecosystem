@@ -15,9 +15,9 @@ PyMongo
 Introduction
 ------------
 
-You can use PyMongo, the official MongoDB driver for synchronous Python 
-applications, to interact with MongoDB. Download it using 
-`pip <http://pypi.python.org/pypi/pip>`__
+Welcome to the documentation site for PyMongo, the official MongoDB 
+driver for synchronous Python applications. Download it using 
+`pip <https://pypi.python.org/pypi/pip>`__
 or set up a runnable project by following our tutorial.
 
 .. tip::
