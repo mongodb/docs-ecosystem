@@ -40,12 +40,12 @@ or set up a runnable project by following our tutorial.
 Installation
 ------------
 
-You must install the PyMongo driver module to make it available to your Python
-application. We recommend using `pip <http://pypi.python.org/pypi/pip>`__
-to install PyMongo.
+You must install the PyMongo driver module to make it available to your 
+Python application. We recommend using 
+`pip <http://pypi.python.org/pypi/pip>`__ to install PyMongo.
 
-The following command demonstrates how you can install the latest version of
-the module using the command line:
+The following command demonstrates how you can install the latest 
+version of the module using the command line:
 
 .. code-block:: sh
 
