@@ -29,7 +29,7 @@
      - :issue:`JIRA <CSHARP>`
      -
 
-   * - :doc:`Go </go>`
+   * - `Go <https://docs.mongodb.com/go/current/>`__
      - `Releases <https://github.com/mongodb/mongo-go-driver/releases>`__
      - `Source <https://github.com/mongodb/mongo-go-driver>`__
      - `API <https://godoc.org/github.com/mongodb/mongo-go-driver/mongo>`__
@@ -43,7 +43,7 @@
      - :issue:`JIRA <JAVA>`
      - `Course <https://university.mongodb.com/courses/M220J/about>`__
 
-   * - `Node.js <https://docs.mongodb.com/drivers/node>`__
+   * - `Node.js <https://docs.mongodb.com/drivers/node/current/>`__
      - `Releases <https://github.com/mongodb/node-mongodb-native/releases>`__
      - `Source <https://github.com/mongodb/node-mongodb-native>`__
      - `API <https://mongodb.github.io/node-mongodb-native/>`__
