@@ -87,7 +87,7 @@ You can use the {+stable-api+} feature starting with MongoDB Server version
 you can update your driver or server without worrying about backward
 compatibility issues with any commands covered by the {+stable-api+}.
 
-.. literalinclude:: /includes/stable-api-notice.rst
+.. include:: /includes/stable-api-notice.rst
 
 To use this feature, construct a MongoDB client instance, specifying a version
 of the {+stable-api+}:
