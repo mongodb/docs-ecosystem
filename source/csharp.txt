@@ -114,12 +114,20 @@ Compatibility
 MongoDB Compatibility
 ~~~~~~~~~~~~~~~~~~~~~
 
+The following compatibility table specifies the recommended version(s) of the
+MongoDB C#/.NET driver for use with a specific version of MongoDB.
+
+The first column lists the driver version(s).
+
 .. include:: /includes/mongodb-compatibility-table-csharp.rst
 
 Language Compatibility
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. include:: /includes/extracts/csharp-driver-compatibility-matrix-language.rst
+The following compatibility table specifies the recommended version(s) of the
+MongoDB C#/.NET driver for use with a specific version of .NET.
+
+The first column lists the driver version(s).
 
 .. include:: /includes/language-compatibility-table-csharp.rst
 
