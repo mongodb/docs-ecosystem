@@ -73,9 +73,12 @@ for more ways to connect.
 You can use the {+stable-api+} feature starting with MongoDB Server version
 5.0 and Scala Driver version 4.3. When you use the {+stable-api+} feature,
 you can update your driver or server without worrying about backward
-compatibility issues with any commands covered by the {+stable-api+}. To use
-this feature, construct a MongoDB client instance, specifying a version of
-the {+stable-api+}:
+compatibility issues with any commands covered by the {+stable-api+}.
+
+.. literalinclude:: /includes/stable-api-notice.rst
+
+To use this feature, construct a MongoDB client instance, specifying a version
+of the {+stable-api+}:
 
 .. literalinclude:: /includes/stable-api-snippets/scala-client.scala
    :language: scala
