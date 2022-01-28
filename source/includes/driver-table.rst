@@ -29,7 +29,7 @@
      - :issue:`JIRA <CSHARP>`
      -
 
-   * - `Go <https://docs.mongodb.com/go/current/>`__
+   * - `Go <https://docs.mongodb.com/drivers/go/current/>`__
      - `Releases <https://github.com/mongodb/mongo-go-driver/releases>`__
      - `Source <https://github.com/mongodb/mongo-go-driver>`__
      - `API <https://godoc.org/github.com/mongodb/mongo-go-driver/mongo>`__
