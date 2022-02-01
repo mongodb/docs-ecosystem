@@ -206,4 +206,6 @@
      - 
      - 
      - ✓
-     - ✓.. include:: /includes/older-server-versions-unsupported.rst
+     - ✓
+
+.. include:: /includes/older-server-versions-unsupported.rst
