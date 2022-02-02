@@ -6,7 +6,7 @@ content: |
   your KMIP provider such that it accepts your client's TLS certificate.
 
   Consult the documentation for your KMIP provider for information on how
-  to accept your client certificate with your specific KMIP provider.
+  to accept your client certificate.
 
 ---
 title: Specify your Certificates

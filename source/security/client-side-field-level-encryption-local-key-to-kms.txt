@@ -94,7 +94,7 @@ provider:
       .. include:: /includes/steps/fle-convert-to-a-remote-master-key-gcp.rst
 
    .. tab:: KMIP Provider
-      :tabid: kmip-privoder
+      :tabid: kmip-provider
 
       .. include:: /includes/steps/fle-convert-to-a-remote-master-key-kmip.rst
 
