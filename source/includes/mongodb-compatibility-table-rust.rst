@@ -37,6 +37,8 @@
      - ✓
      - ✓
 
+The Rust driver is not compatible with MongoDB server versions older than 3.6.
+
 .. [#2.1-limitation] The Rust driver does not support :ref:`change streams <changeStreams>`.
 
 .. [#limitations] Not all features in MongoDB are available in these driver versions. Unsupported
