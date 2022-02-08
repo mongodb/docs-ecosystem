@@ -1,0 +1,38 @@
+.. _java-language-center:
+
+.. Do not delete: placeholder page referenced by the driver table
+
+====================
+MongoDB Java Drivers
+====================
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+
+Introduction
+------------
+
+`Java Driver <https://docs.mongodb.com/drivers/java/sync/current>`__ is the recommended MongoDB Java Driver.
+
+For asynchronous stream processing and reactive streams interoperability,
+the :doc:`Reactive Streams Driver </reactive-streams>` is the
+recommended MongoDB Java Driver.
+
+Take the free online course taught by MongoDB
+---------------------------------------------
+
+.. list-table::
+
+   * - .. cssclass:: bordered-figure
+       .. figure:: /figures/M220J_hero.jpg
+          :alt: Banner for the M220J MongoDB University Course
+
+     - `M220J: MongoDB for Java Developers <https://university.mongodb.com/courses/M220J/about>`__
+
+       Learn the essentials of Java application development with MongoDB.
+
+
