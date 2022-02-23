@@ -46,7 +46,7 @@ Python 3 Compatibility
      -
 
    * - 3.11
-     - |checkmark|
+     -
      - |checkmark|
      - |checkmark|
      - |checkmark|
