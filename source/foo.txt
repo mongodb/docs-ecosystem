@@ -1,0 +1,50 @@
+.. _rust-language-center:
+
+.. include:: /includes/unicode-checkmark.rst
+
+=====
+A Foo
+=====
+
+.. default-domain:: mongodb
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: twocols
+
+
+Some Heading
+------------
+
+.. tabs-selector::
+
+.. tabs::
+
+   .. tab::
+      :tabid: Bar
+
+      Hello Bar
+
+   .. tab::
+      :tabid: Baz
+
+      Hello Baz
+
+Some Other Heading
+------------------
+
+.. tabs-selector::
+
+.. tabs::
+
+   .. tab::
+      :tabid: Bar
+
+      Hello Other Bar
+
+   .. tab::
+      :tabid: Baz
+
+      Hello Other Baz
