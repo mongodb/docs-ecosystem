@@ -17,34 +17,31 @@ A Foo
 
 Some Heading
 ------------
-
-.. tabs-selector::
+.. tabs-pillstrip::
 
 .. tabs::
 
    .. tab::
-      :tabid: Bar
+      :tabid: Realm Database
 
-      Hello Bar
+      Hello Realm Database
 
    .. tab::
-      :tabid: Baz
+      :tabid: Sync
 
-      Hello Baz
+      Hello Sync
 
 Some Other Heading
 ------------------
 
-.. tabs-selector::
-
 .. tabs::
 
    .. tab::
-      :tabid: Bar
+      :tabid: Realm Database
 
-      Hello Other Bar
+      Hello Other Realm Database
 
    .. tab::
-      :tabid: Baz
+      :tabid: Sync
 
-      Hello Other Baz
+      Hello Other Sync
