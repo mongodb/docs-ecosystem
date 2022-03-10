@@ -76,6 +76,8 @@ The following steps explain the setup and updates necessary to move from
 a local key provider to a KMS. Select the tab that corresponds to your
 provider:
 
+.. _create-an-aws-iam-user:
+
 .. tabs::
 
    .. tab:: AWS KMS
