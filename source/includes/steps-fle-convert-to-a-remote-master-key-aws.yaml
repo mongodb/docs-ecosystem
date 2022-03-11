@@ -18,9 +18,9 @@ content: |
   .. important:: Use IAM roles
 
      When deploying your CSFLE-enabled application to a production environment,
-     authorize your application through an IAM role instead of an IAM user.
+     authenticate your application through an IAM role instead of an IAM user.
 
-     To authenticate with an IAM role, specify a your temporary IAM role credentials
+     To authenticate with an IAM role, specify your temporary IAM role credentials
      in your KMS provider object as follows:
 
      .. code-block:: json
@@ -47,7 +47,7 @@ content: |
      - `NodeJS <https://docs.aws.amazon.com/code-samples/latest/catalog/javascriptv3-sts-src-sts_assumerole.js.html>`__
      - `Python <https://docs.aws.amazon.com/code-samples/latest/catalog/python-sts-sts_temporary_credentials-assume_role_mfa.py.html>`__
        (example uses multi-factor authentication)
-     - `C# <https://docs.aws.amazon.com/code-samples/latest/catalog/dotnetv3-STS-AssumeRole-AssumeRole.sln.html>`__
+     - `C# <https://docs.aws.amazon.com/code-samples/latest/catalog/dotnetv3-STS-AssumeRole-AssumeRoleExample-AssumeRole.cs.html>`__
      - `Go <https://docs.aws.amazon.com/code-samples/latest/catalog/go-sts-TakeRole-TakeRole.go.html>`__
 
 ---
@@ -198,7 +198,6 @@ content: |
            func (a *AWS) Credentials() map[string]map[string]interface{} {
                return map[string]map[string]interface{}{"aws": structs.Map(a.credentials)}
            }
-
 
 ---
 title: Create a New Data Encryption Key
