@@ -10,7 +10,7 @@ content: |
      - **access key ID**
      - **secret access key**
 
-  2. Grant the IAM user full ``List`` and ``Read`` permissions for the KMS
+  2. Grant the IAM user narrowly scoped ``List`` and ``Read`` permissions only for the KMS
      service. See Amazon's official documentation on
      `Adding permissions to a user <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html>`__
      to set these permissions.
@@ -28,12 +28,12 @@ content: |
         {
           "accessKeyId":"<temporary access key ID>",
           "secretAccessKey":"<temporary secret access key>",
-          "sessionToken":"<session token>"
+          "sessionToken":"<temporary session token>"
         }
      
      You can get your temporary IAM role credentials through the following mechanisms:
 
-     - Call ``AssumeRole``
+     - `Call AssumeRole <https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html>`__
      - `Retrieve Credentials from EC2 Instance Metadata <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html#instance-metadata-security-credentials>`__
 
      Your application must include logic to get new temporary credentials
