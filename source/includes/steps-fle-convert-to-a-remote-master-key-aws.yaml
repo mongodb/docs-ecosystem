@@ -17,8 +17,8 @@ content: |
 
   .. important:: Use IAM roles
 
-     When deploying your CSFLE application in a production environment,
-     authenticate your application through an IAM role instead of an IAM user.
+     When deploying your CSFLE-enabled application to a production environment,
+     authorize your application through an IAM role instead of an IAM user.
 
      To authenticate with an IAM role, specify a your temporary IAM role credentials
      in your KMS provider object as follows:
@@ -34,10 +34,10 @@ content: |
      You can get your temporary IAM role credentials through the following mechanisms:
 
      - Call ``AssumeRole``
-     - `Retrieve Credentials from EC2 Instance Metadata <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html#instance-metadata-security-credentials>`
+     - `Retrieve Credentials from EC2 Instance Metadata <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html#instance-metadata-security-credentials>`__
 
      To learn more about IAM roles, see
-     `IAM roles <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html>`
+     `IAM roles <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html>`__
      in the AWS documentation.
 
      To learn how to assume a role in each of the languages supported in this guide,
