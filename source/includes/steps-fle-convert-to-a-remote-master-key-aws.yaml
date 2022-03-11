@@ -36,9 +36,10 @@ content: |
      - Call ``AssumeRole``
      - `Retrieve Credentials from EC2 Instance Metadata <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html#instance-metadata-security-credentials>`__
 
-     To learn more about IAM roles, see
-     `IAM roles <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html>`__
-     in the AWS documentation.
+     To learn more about IAM roles, see the following resources from AWS:
+
+     - `IAM roles <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html>`__
+     - `When to create an IAM role (instead of a user) <https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html#id_which-to-choose_role>`__
 
      To learn how to assume a role in each of the languages supported in this guide,
      see the following ``AssumeRole`` runnable examples from AWS:
