@@ -99,7 +99,7 @@ content: |
      .. list-table::
         :header-rows: 1
         :stub-columns: 1
-        :widths: 25 10 10 45
+        :widths: 25 15 15 45
 
         * - Field
           - Required for IAM User
