@@ -1,27 +1,19 @@
-title: Create an AWS IAM Role
-ref: create-an-aws-iam-role
+title: Create an AWS IAM User
+ref: create-an-aws-iam-user
 content: |
-  1. Create a new programmatic IAM role in the AWS management console by
-     following the official AWS documentation on
-     `Creating a Role <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html>`__.
-     CSFLE-enabled clients authenticate with AWS KMS using the IAM role to
+  1. Create a new programmatic IAM user in the AWS management console by
+     following the official AWS documentation on `Adding a User <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html>`__.
+     CSFLE-enabled clients authenticate with AWS KMS using the IAM user to
      encrypt and decrypt the remote master key. Take note of the following
      IAM credentials needed to authenticate with the KMS:
 
      - **access key ID**
      - **secret access key**
 
-  2. Grant the IAM role full ``List`` and ``Read`` permissions for the KMS
+  2. Grant the IAM user full ``List`` and ``Read`` permissions for the KMS
      service. See Amazon's official documentation on
      `Adding permissions to a user <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html>`__
      to set these permissions.
-
-  .. note: IAM User
-
-     MongoDB also supports authenticating using an AWS IAM user. To learn more about
-     IAM users, see
-     `Adding a User <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html>`__.
-     page in the official AWS documentation.
 
 ---
 title: Create the Master Key
@@ -40,12 +32,12 @@ content: |
 
   2. In the :guilabel:`Usage Permissions` step of the key generation
      process, add the full KMS ``List`` and ``Read`` permissions to the IAM
-     role you created in the previous step. This authorizes the role to
+     user you created in the previous step. This authorizes the user to
      encrypt and decrypt the new master key.
 
   .. important::
 
-     The new client IAM role *should not* have administrative permissions
+     The new client IAM User *should not* have administrative permissions
      for the master key. We recommend that you follow the
      `principle of least privilege <https://en.wikipedia.org/wiki/Principle_of_least_privilege>`__
      to keep your data secure.
@@ -56,7 +48,7 @@ content: |
   Unlike the local key provider, the AWS KMS provider does not read
   the master key directly from the client application. Instead,
   it accepts the :guilabel:`Access Key ID` and :guilabel:`Secret Access
-  Key` configurations that point to the master key. The IAM role must have
+  Key` configurations that point to the master key. The IAM user must have
   the permissions set up in the previous step in order for the client to
   use the KMS to encrypt and decrypt data encryption keys.  Follow the steps
   below to specify your credentials:
@@ -165,6 +157,7 @@ content: |
            func (a *AWS) Credentials() map[string]map[string]interface{} {
                return map[string]map[string]interface{}{"aws": structs.Map(a.credentials)}
            }
+
 
 ---
 title: Create a New Data Encryption Key
