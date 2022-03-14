@@ -52,10 +52,10 @@ content: |
         - `Go <https://docs.aws.amazon.com/code-samples/latest/catalog/go-sts-TakeRole-TakeRole.go.html>`__
 
 
-  2. Grant your IAM user the following permissions:
+  2. Grant your IAM user the following permissions for all KMS resources:
 
      - ``kms:Encrypt``
-     - ``kms:Decrypt``  
+     - ``kms:Decrypt``
 
      To learn how to set these permissions, see
      `Changing permissions for an IAM user <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html>`__
@@ -64,8 +64,9 @@ content: |
      .. important:: Least Privileges Possible
 
         In a production environment, make sure you grant your users the least
-        access necessary for them to complete their tasks. The following policy
-        allows an IAM user to perform CSFLE with the least privileges possible:
+        access necessary for them to complete their tasks. The following inline 
+        policy allows an IAM user to perform CSFLE with the least privileges
+        possible:
 
         .. literalinclude:: /includes/iam-user-policy-minimum.json
            :language: json
