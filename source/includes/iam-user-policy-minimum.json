@@ -4,7 +4,7 @@
     {
       "Effect": "Allow",
       "Action": ["kms:Decrypt", "kms:Encrypt"],
-      "Resource": "<the ARN of your symmetric key>"
+      "Resource": "<the Amazon resource name (ARN) of your symmetric key>"
     }
   ]
 }
