@@ -10,8 +10,24 @@ content: |
      - **access key ID**
      - **secret access key**
 
-  2. Grant the IAM user narrowly scoped ``List`` and ``Read`` permissions only for the KMS
-     service. See Amazon's official documentation on
+  2. Apply the following inline policy to your IAM user:
+
+     .. literalinclude:: /includes/iam-user-policy.json
+        :language: json  
+
+     .. important:: Least Privileges Possible
+
+        In a production environment, make sure you apply the principle of least priviledge
+        and only give access to the resources your users need.
+
+        The following policy allows a reader to perform CSFLE with the least
+        privileges possible:
+
+        .. literalinclude:: /includes/iam-user-policy-minimum.json
+           :language: json
+           :emphasize-lines: 7      
+
+      See Amazon's official documentation on
      `Adding permissions to a user <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html>`__
      to set these permissions.
 
