@@ -15,15 +15,15 @@ content: |
      - ``kms:Encrypt``
      - ``kms:Decrypt``  
 
-     See Amazon's official documentation on
-     `Adding permissions to a user <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html>`__
-     to set these permissions.
+     To learn how to set these permissions, see
+     `Changing permissions for an IAM user <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html>`__
+     from AWS.
 
      .. important:: Least Privileges Possible
 
-        In a production environment, make sure you only grant access to the
-        resources your users need. The following policy allows a reader to
-        perform CSFLE with the least privileges possible:
+        In a production environment, make sure you grant your users the least
+        access necessary for them to complete their tasks. The following policy
+        allows an IAM user to perform CSFLE with the least privileges possible:
 
         .. literalinclude:: /includes/iam-user-policy-minimum.json
            :language: json
