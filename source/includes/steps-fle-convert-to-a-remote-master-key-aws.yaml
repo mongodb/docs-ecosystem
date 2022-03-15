@@ -52,12 +52,8 @@ content: |
         - `Go <https://docs.aws.amazon.com/code-samples/latest/catalog/go-sts-TakeRole-TakeRole.go.html>`__
 
 
-  2. Grant your IAM user the following permissions for all KMS resources:
-
-     - ``kms:Encrypt``
-     - ``kms:Decrypt``
-
-     To learn how to set these permissions, see
+  2. Grant your IAM user ``Write`` permissions for all KMS resources.
+     To learn how to set this permission, see
      `Changing permissions for an IAM user <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html>`__
      from AWS.
 
