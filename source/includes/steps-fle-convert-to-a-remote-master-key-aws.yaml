@@ -57,7 +57,7 @@ content: |
      `Changing permissions for an IAM user <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html>`__
      from AWS.
 
-     .. important:: Least Privileges Possible
+     .. important:: Grant the Least Privileges Possible in Production
 
         In a production environment, make sure you grant your users the least
         access necessary for them to complete their tasks. The following inline 
