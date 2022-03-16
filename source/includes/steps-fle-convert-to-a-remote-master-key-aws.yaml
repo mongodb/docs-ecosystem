@@ -21,7 +21,7 @@ content: |
      .. note:: Remote Master Key Amazon Resource Name (ARN)
 
         The preceding policy requires the ARN of the key you generate in the
-        :ref:`Create the Master Key <create-the-master-key>` step of this guide.
+        :ref:`Create the Master Key <aws-create-master-key>` step of this guide.
 
      To learn how to set this permission, see
      `Changing permissions for an IAM user <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html>`__
@@ -77,6 +77,8 @@ content: |
 
   .. image:: /figures/CSFLE_Master_Key_KMS.png
      :alt: Diagram that describes creating a master key when using a KMS provider
+
+  .. _aws-create-master-key:
 
   1. To create a master key, log into your AWS management console and create
      a new symmetric master key in the KMS section. Choose a name and
