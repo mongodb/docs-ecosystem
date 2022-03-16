@@ -18,7 +18,7 @@ content: |
      .. literalinclude:: /includes/iam-user-policy-minimum.json
         :language: json
 
-     .. note:: Key Amazon Resource Name (ARN)
+     .. note:: Remote Master Key Amazon Resource Name (ARN)
 
         The preceding policy requires the ARN of the key you generate in the
         :ref:`Create the Master Key <create-the-master-key>` step of this guide.
