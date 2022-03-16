@@ -99,7 +99,7 @@ content: |
         and your Key policy.
 
         To learn more about key policies, see 
-        `Key Policies in AWS KMS <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html>`
+        `Key Policies in AWS KMS <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html>`__
         from AWS.
 
   .. important::
