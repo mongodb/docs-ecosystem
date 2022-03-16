@@ -12,8 +12,8 @@ content: |
 
   2. Grant your IAM user ``kms:Encrypt`` and ``kms:Decrypt`` permissions for
      your remote master key. The following inline 
-     policy allows an IAM user to perform CSFLE with the least privileges
-     possible:
+     policy allows an IAM user to encrypt and decrypt with the remote master key
+     with the least privileges possible:
 
      .. literalinclude:: /includes/iam-user-policy-minimum.json
         :language: json
@@ -86,9 +86,21 @@ content: |
      functionality or configuration.
 
   2. In the :guilabel:`Usage Permissions` step of the key generation
-     process, add the full KMS ``List`` and ``Read`` permissions to the IAM
-     user you created in the previous step. This authorizes the user to
-     encrypt and decrypt the new master key.
+     process, use the following default key policy to enable IAM policies
+     to allow access to your KMS key:
+
+     .. literalinclude:: /includes/iam-user-policy-minimum.json
+        :language: json
+
+     .. note:: Key Policies and IAM policies
+
+        If you do not want IAM policies to grant key access permissions, you must
+        individually grant access to each of your IAM users in both your IAM policies
+        and your Key policy.
+
+        To learn more about key policies, see 
+        `Key Policies in AWS KMS <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html>`
+        from AWS.
 
   .. important::
 
