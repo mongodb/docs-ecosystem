@@ -87,7 +87,7 @@ content: |
 
   2. In the :guilabel:`Usage Permissions` step of the key generation
      process, use the following default key policy to enable IAM policies
-     to allow access to your KMS key:
+     to allow access to your remote master key:
 
      .. literalinclude:: /includes/key-policy-default.json
         :language: json
