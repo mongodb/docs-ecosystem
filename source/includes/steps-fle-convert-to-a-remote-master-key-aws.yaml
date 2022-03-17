@@ -92,9 +92,9 @@ content: |
      .. literalinclude:: /includes/key-policy-default.json
         :language: json
 
-      To learn more about key policies, see
-      `Key Policies in AWS KMS <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html>`__
-      in the official AWS documentation.
+     To learn more about key policies, see
+     `Key Policies in AWS KMS <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html>`__
+     in the official AWS documentation.
 
   .. important::
 
