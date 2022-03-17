@@ -92,15 +92,9 @@ content: |
      .. literalinclude:: /includes/key-policy-default.json
         :language: json
 
-     .. note:: Key Policies and IAM policies
-
-        If you do not wish for your IAM policies to grant key access permissions,
-        you must individually grant access to each of your IAM users in both your
-        IAM policies and your key policy.
-
-        To learn more about key policies, see 
-        `Key Policies in AWS KMS <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html>`__
-        from AWS.
+      To learn more about key policies, see
+      `Key Policies in AWS KMS <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html>`__
+      in the official AWS documentation.
 
   .. important::
 
