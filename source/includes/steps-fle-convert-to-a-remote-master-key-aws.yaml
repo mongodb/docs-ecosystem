@@ -13,9 +13,17 @@ content: |
      - **secret access key**
 
   2. Grant your IAM user ``kms:Encrypt`` and ``kms:Decrypt`` permissions for
-     your remote master key. The following inline 
-     policy allows an IAM user to encrypt and decrypt with the remote master key
-     with the least privileges possible:
+     your remote master key.
+     
+     .. important::
+
+        The new client IAM User *should not* have administrative permissions
+        for the master key. We recommend that you follow the
+        `principle of least privilege <https://en.wikipedia.org/wiki/Principle_of_least_privilege>`__
+        to keep your data secure.
+     
+     The following inline policy allows an IAM user to encrypt and decrypt
+     with the remote master key with the least privileges possible:
 
      .. literalinclude:: /includes/iam-user-policy-minimum.json
         :language: json
@@ -99,12 +107,6 @@ content: |
      `Key Policies in AWS KMS <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html>`__
      in the official AWS documentation.
 
-  .. important::
-
-     The new client IAM User *should not* have administrative permissions
-     for the master key. We recommend that you follow the
-     `principle of least privilege <https://en.wikipedia.org/wiki/Principle_of_least_privilege>`__
-     to keep your data secure.
 ---
 title: Specify the AWS KMS Provider Credentials
 ref: specify-the-aws-kms-provider-credentials
