@@ -5,7 +5,6 @@ content: |
      following the official AWS documentation on
      `Adding a User <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html>`__.
      You will use this IAM user as a service account for your CSFLE-enable application.
-     
      Your application authenticates with AWS KMS using the IAM user to
      encrypt and decrypt the remote master key. Take note of the following
      IAM credentials needed to authenticate with the KMS:
