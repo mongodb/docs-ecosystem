@@ -60,8 +60,8 @@ raw: drivers/javascript -> ${base}/node/current/
 raw: drivers/tutorial/getting-started-with-ruby-on-rails-3 -> https://www.mongodb.com/docs/ruby-driver/current/tutorials/bson-v4/
 raw: drivers/tutorial/getting-started-with-ruby-on-rails ->https://www.mongodb.com/docs/ruby-driver/current/tutorials/bson-v4/
 raw: drivers/tutorial/model-data-for-ruby-on-rails -> ${base}/ruby/
-raw: drivers/ruby -> https://docs.mongodb.com/ruby-driver/current/
-raw: drivers/ruby-resources -> https://docs.mongodb.com/ruby-driver/current/reference/additional-resources/
+raw: drivers/ruby -> https://www.mongodb.com/docs/ruby-driver/current/
+raw: drivers/ruby-resources -> https://www.mongodb.com/docs/ruby-driver/current/reference/additional-resources/
 raw: drivers/tutorial/ruby-driver-tutorial -> https://www.mongodb.com/docs/ruby-driver/v2.2/
 raw: drivers/tutorial/ruby-driver-tutorial-2-0 -> https://www.mongodb.com/docs/ruby-driver/v2.0/
 raw: drivers/tutorial/ruby-bson-tutorial -> https://www.mongodb.com/docs/ruby-driver/current/tutorials/bson-v4/
