@@ -156,7 +156,7 @@ raw: docs/ecosystem/tutorial/authenticate-with-java-driver -> ${devhub}/
 raw: docs/ecosystem/use-cases/client-side-field-level-encryption-guide -> ${base}/security/client-side-field-level-encryption-guide/
 raw: docs/ecosystem/tools/http-interfaces -> ${devhub}/
 raw: docs/ecosystem/security/client-side-field-level-encryption-guide -> ${base}/security/client-side-field-level-encryption-guide/
-raw: docs/ecosystem/drivers?jump=docs -> ${base}/?jump=docs
+raw: docs/ecosystem/drivers -> ${base}/
 raw: docs/ecosystem/security/client-side-field-level-encryption-guide -> ${base}/security/client-side-field-level-encryption-guide/
 raw: docs/ecosystem/drivers/scala -> ${base}/scala/
 raw: docs/ecosystem/drivers/ruby -> ${base}/ruby/
