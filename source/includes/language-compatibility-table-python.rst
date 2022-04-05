@@ -268,6 +268,12 @@ Python 2 Compatibility
      - Python 2.5, Jython 2.5
      - Python 2.4
 
+   * - 4.1 [#python-2-compat]_
+     -
+     -
+     -
+     -
+
    * - 4.0 [#python-2-compat]_
      -
      -
