@@ -16,6 +16,19 @@
      - MongoDB 3.2
      - MongoDB 3.0
      - MongoDB 2.6
+   * - ext 1.13 + lib 1.12
+     -
+     - ✓
+     - ✓
+     - ✓
+     - ✓
+     - ✓
+     - ✓
+     - ✓
+     -
+     -
+     -
+     -
    * - ext 1.12 + lib 1.11
      - 
      - 
@@ -25,10 +38,10 @@
      - ✓
      - ✓
      - ✓
-     - 
-     - 
-     - 
-     - 
+     - ✓
+     - ✓
+     - ✓
+     -
    * - ext 1.11 + lib 1.10
      - 
      - 
@@ -41,7 +54,7 @@
      - ✓
      - ✓
      - ✓
-     - 
+     -
    * - ext 1.10 + lib 1.9
      - 
      - 
@@ -54,7 +67,7 @@
      - ✓
      - ✓
      - ✓
-     - 
+     -
    * - ext 1.9 + lib 1.8
      - 
      - 
@@ -67,7 +80,7 @@
      - ✓
      - ✓
      - ✓
-     - 
+     -
    * - ext 1.8 + lib 1.7
      - 
      - 
@@ -80,7 +93,7 @@
      - ✓
      - ✓
      - ✓
-     - 
+     -
    * - ext 1.7 + lib 1.6
      - 
      - 
@@ -93,7 +106,7 @@
      - ✓
      - ✓
      - ✓
-     - 
+     -
    * - ext 1.6 + lib 1.5
      - 
      - 
@@ -106,20 +119,20 @@
      - ✓
      - ✓
      - ✓
-     - 
+     -
    * - ext 1.5 + lib 1.4
      - 
      - 
      - 
      - 
      - 
-     - 
+     -
      - ✓
      - ✓
      - ✓
      - ✓
      - ✓
-     - 
+     -
    * - ext 1.4 + lib 1.3
      - 
      - 
@@ -189,4 +202,4 @@
 .. [#PHPC1.10-PHPLIB1.9-driver-support] The extension 1.10 + library 1.9
    driver does not support snapshot reads on secondaries. For more
    information, see the
-   `MongoDB Server version 5.0 release notes <https://docs.mongodb.com/v5.0/release-notes/5.0/#snapshots>`__.
+   `MongoDB Server version 5.0 release notes <https://www.mongodb.com/docs/v5.0/release-notes/5.0/#snapshots>`__.
