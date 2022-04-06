@@ -3,13 +3,13 @@ title = "MongoDB Drivers"
 
 toc_landing_pages = ["/python", "/php", "/java-drivers", "/use-cases"]
 
-intersphinx = [ "https://docs.mongodb.com/master/objects.inv"]
+intersphinx = ["https://www.mongodb.com/docs/manual/objects.inv"]
 
 [constants]
 version = "4.0"
 package-name-org = "docs-ecosystem"
 pgp-version = "{+version+}"
-csharp-docs-versioned = "https://mongodb.github.io/mongo-csharp-driver/2.14"
+csharp-docs-versioned = "https://mongodb.github.io/mongo-csharp-driver/2.15"
 
 java-version = "4.4"
 java-api = "https://mongodb.github.io/mongo-java-driver/{+java-version+}"
