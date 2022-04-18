@@ -2,8 +2,7 @@
 MongoDB Ecosystem Documentation
 ===============================
 
-This repository contains documentation for the MongoDB Ecosystem site,
-which contains landing pages for various MongoDB drivers.
+This repository contains documentation for the MongoDB drivers ecosystem site.
 
 
 File JIRA Tickets
