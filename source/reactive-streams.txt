@@ -23,7 +23,7 @@ or set up a runnable project by following our tutorials.
 
 - `Reference Documentation <{+java-api+}>`__
 
-- `Tutorials <{+java-api+}/tutorials/>`__
+- `Tutorials <{+java-api+}/driver-reactive/tutorials/>`__
 
 - `API Documentation <{+java-api+}/apidocs/mongodb-driver-reactivestreams/>`__
 
