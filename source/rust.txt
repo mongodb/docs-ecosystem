@@ -30,6 +30,8 @@ or set up a runnable project with examples from our Usage Guide.
 
 - `Source Code <https://github.com/mongodb/mongo-rust-driver/>`__
 
+- `Example <http://example.com>`__
+
 
 
 Installation
