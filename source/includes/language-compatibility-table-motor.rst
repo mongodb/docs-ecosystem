@@ -30,7 +30,7 @@
      -
      -
      -
-
+     -
    * - 2.5
      - |checkmark|
      - |checkmark|
