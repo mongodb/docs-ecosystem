@@ -172,12 +172,14 @@
      - |checkmark|
      -
 
-- Motor 3.0 wraps Pymongo 4.1+
+- Motor 3.0 wraps PyMongo 4.1+
 - Motor 2.4 wraps PyMongo 3.11+
 - Motor 2.3 wraps PyMongo 3.11+
 - Motor 2.2 wraps PyMongo 3.11+
 - Motor 2.1 wraps PyMongo 3.10+
 - Motor 2.0 wraps PyMongo 3.7+
+- Motor 1.3 wraps PyMongo 3.6+ and adds support for CPython 3.7
+- Motor 1.2 wraps PyMongo 3.6+
 - Motor 1.1 wraps PyMongo 3.4+
 - Motor 1.0 wraps PyMongo 3.3+
 
