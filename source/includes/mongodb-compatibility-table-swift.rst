@@ -13,7 +13,7 @@
      - MongoDB 4.0
      - MongoDB 3.6
 
-   * - 1.3.0 [#1.3-limitations]_
+   * - 1.3.0 [#1.2-1.3-limitations]_
      - |checkmark|
      - |checkmark|
      - |checkmark|
