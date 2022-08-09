@@ -1,3 +1,4 @@
+.. include:: /includes/compatibility-table-legend.rst
 
 .. list-table::
    :header-rows: 1
