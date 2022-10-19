@@ -35,7 +35,7 @@ Python 3 Compatibility
      -
 
    * - 4.2
-     - ✓     
+     - 
      - ✓
      - ✓
      - ✓
@@ -49,7 +49,7 @@ Python 3 Compatibility
      -
 
    * - 4.1
-     - ✓     
+     -
      - ✓
      - ✓
      - ✓
@@ -63,7 +63,7 @@ Python 3 Compatibility
      -
 
    * - 4.0
-     - ✓     
+     -
      - ✓
      - ✓
      - ✓
