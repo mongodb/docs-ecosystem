@@ -40,13 +40,6 @@
      - ✓
      - ✓
      - ✓
-   * - 1.1 [#limitations]_
-     - ⊛
-     - ⊛
-     - ✓
-     - ✓
-     - ✓
-     - ✓
 
 The Rust driver is not compatible with MongoDB server versions older than 3.6.
 
