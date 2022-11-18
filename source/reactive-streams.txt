@@ -29,6 +29,11 @@ or set up a runnable project by following our tutorials.
 
 - `Source Code <https://github.com/mongodb/mongo-java-driver/tree/master/driver-reactive-streams/>`__
 
+This documentation is for the asynchronous version of the driver. There is also
+a synchronous version of the driver available. The :driver:`MongoDB Java
+Drivers </java-drivers/>` page lists the available versions of the driver for
+Java.
+
 Installation
 ------------
 
