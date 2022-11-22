@@ -44,7 +44,8 @@ Python application. We recommend using
 
 PyMongo requires `dnspython <https://pypi.org/project/dnspython>`__  to support 
 ``mongodb+srv://`` connection strings and `MongoDB Atlas 
-<https://www.mongodb.com/cloud>`__.
+<https://www.mongodb.com/cloud>`__. dnspython is automatically installed when 
+installing or upgrading to the latest PyMongo version. 
 
 The following command demonstrates how you can install the latest
 version of the module using the command line:
@@ -53,7 +54,7 @@ version of the module using the command line:
 
    $ python -m pip install pymongo
 
-If you need to install a specific version of ``pymongo``, specify the
+If you need to install a specific version of PyMongo, specify the
 version in your command. The following command shows how you can use
 ``pip`` to install PyMongo version ``3.11``:
 
