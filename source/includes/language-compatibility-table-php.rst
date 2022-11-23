@@ -14,7 +14,7 @@
      - PHP 5.6
      - PHP 5.5
 
-   * - ext 1.15 + lib 1.15 [#PHPC1.15-PHPLIB1.15-version-parity]_
+   * - ext 1.15 + lib 1.15 [#PHPC1.15-PHPLIB1.15-lang-version-parity]_
      - ✓
      - ✓
      - ✓
@@ -155,6 +155,6 @@
      - ✓
      - ✓
 
-.. [#PHPC1.15-PHPLIB1.15-version-parity] Version 1.14 of the MongoDB PHP library 
+.. [#PHPC1.15-PHPLIB1.15-lang-version-parity] Version 1.14 of the MongoDB PHP library 
    has been intentionally skipped to restore version parity between the library 
    and extension.
