@@ -155,6 +155,3 @@
      - ✓
      - ✓
 
-.. [#PHPC1.15-PHPLIB1.15-version-parity] Version 1.14 of the MongoDB PHP library 
-   has been intentionally skipped to restore version parity between the library 
-   and extension.
