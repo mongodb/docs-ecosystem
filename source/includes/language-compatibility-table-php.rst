@@ -14,6 +14,7 @@
      - PHP 7.0
      - PHP 5.6
      - PHP 5.5
+
    * - ext + lib 1.15 [#PHP1.15-version-parity]_
      - ✓
      - ✓
