@@ -13,7 +13,7 @@ MongoDB Java Reactive Streams
 Introduction
 ------------
 
-Welcome to the documentation site for the Reactive Sctreams Driver, the
+Welcome to the documentation site for the Reactive Streams Driver, the
 official MongoDB driver for asynchronous Java applications. Download
 it by following the
 `Installation Guide <{+java-api+}/driver-reactive/getting-started/installation/>`__
