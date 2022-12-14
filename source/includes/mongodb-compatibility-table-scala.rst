@@ -6,7 +6,7 @@
    :class: compatibility-large
 
    * - Scala Driver Version
-     - MongoDB 6.0
+     - MongoDB 6.1
      - MongoDB 6.0
      - MongoDB 5.0
      - MongoDB 4.4
