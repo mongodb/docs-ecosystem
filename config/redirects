@@ -43,6 +43,7 @@ raw: docs/drivers/tutorial/getting-started-with-csharp-driver -> http://mongodb.
 raw: docs/drivers/tutorial/serialize-documents-with-the-csharp-driver -> http://mongodb.github.io/mongo-csharp-driver/2.2/getting_started
 raw: docs/drivers/tutorial/use-csharp-driver -> http://mongodb.github.io/mongo-csharp-driver/2.2/getting_started
 raw: docs/drivers/tutorial/use-linq-queries-with-csharp-driver -> http://mongodb.github.io/mongo-csharp-driver/2.2/getting_started
+raw: docs/drivers/csharp -> https://www.mongodb.com/docs/drivers/csharp/current/
 
 # java
 raw: docs/drivers/java-concurrency -> http://mongodb.github.io/mongo-java-driver/3.0/driver/reference/crud
