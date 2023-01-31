@@ -17,11 +17,11 @@ java-version = "4.8"
 java-api = "https://mongodb.github.io/mongo-java-driver/{+java-version+}"
 
 [[banners]]
-targets = ["/csharp"]
+targets = ["/csharp/"]
 
 variant = "tip"
 value = """
-    The new .Net/C# driver documentation is now live. To learn more about using
-    the driver in your application, see the `MongoDB C# Driver Documentation
+    The new .Net/C# driver documentation is now live. To learn more about using \
+    the driver in your application, see the `MongoDB C# Driver Documentation \
     <https://www.mongodb.com/docs/drivers/csharp/current/>`__.
     """
