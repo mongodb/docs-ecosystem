@@ -17,7 +17,7 @@ java-version = "4.8"
 java-api = "https://mongodb.github.io/mongo-java-driver/{+java-version+}"
 
 [[banners]]
-targets = ["/csharp/"]
+targets = ["csharp.txt"]
 
 variant = "tip"
 value = """ \
