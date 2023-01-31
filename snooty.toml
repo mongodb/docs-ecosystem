@@ -21,7 +21,7 @@ targets = ["csharp.txt"]
 
 variant = "tip"
 value = """ \
-    The new .Net/C# driver documentation is now live. To learn more about using \
-    the driver in your application, see the `MongoDB C# Driver Documentation \
+    A new version of the .Net/C# driver documentation is now live. To learn more about using \
+    the driver in your application, see the `official MongoDB C# driver documentation \
     <https://www.mongodb.com/docs/drivers/csharp/current/>`__.
     """
