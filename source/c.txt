@@ -43,12 +43,13 @@ See `Installing the MongoDB C Driver (libmongoc) and BSON library (libbson)
 Connect to MongoDB Atlas
 ------------------------
 
+You can use the following connection snippet to test your connection to your
+MongoDB deployment on Atlas:
+
 .. literalinclude:: /includes/connection-snippets/scram/c-connection.c
    :language: c
 
-.. include:: /includes/serverless-compatibility.rst
-
-This connection example uses the {+stable-api_} feature which you can use when
+This connection snippet uses the {+stable-api+} feature which you can use when
 connecting to MongoDB Server v5.0 and later and the C driver v1.18 and 
 later.
 
@@ -58,9 +59,12 @@ by the {+stable-api+}.
 
 .. include:: /includes/stable-api-notice.rst
 
-
 Connect to MongoDB Atlas Without the Stable API
 -----------------------------------------------
+
+If you are using a version of MongoDB or the driver that lacks support for the
+{+stable-api+}, you can use the following code snippet to test your connection
+to your MongoDB deployment on Atlas:
 
 .. literalinclude:: /includes/connection-snippets/scram/c-connection-no-stable-api.c
    :language: c
@@ -76,6 +80,8 @@ example and run it.
 
 See `Advanced Connections <https://mongoc.org/libmongoc/current/advanced-connections.html>`__
 for more ways to connect.
+
+.. include:: /includes/serverless-compatibility.rst
 
 Compatibility
 -------------
