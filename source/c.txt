@@ -53,11 +53,13 @@ This connection snippet uses the {+stable-api+} feature which you can use when
 connecting to MongoDB Server v5.0 and later and the C driver v1.18 and 
 later.
 
-When you use the {+stable-api+} feature, you can update your driver or server 
-without worrying about backward compatibility issues with any commands covered 
-by the {+stable-api+}.
+When you use this feature, you can update your driver or server without 
+worrying about backward compatibility issues with any commands covered by the
+{+stable-api+}.
 
 .. include:: /includes/stable-api-notice.rst
+
+.. _connect-atlas-no-stable-api-c-driver:
 
 Connect to MongoDB Atlas Without the Stable API
 -----------------------------------------------
