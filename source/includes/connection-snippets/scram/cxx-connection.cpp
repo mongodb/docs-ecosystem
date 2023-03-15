@@ -24,7 +24,7 @@ int main()
     // Ping the database.
     const auto ping_cmd = bsoncxx::builder::basic::make_document(bsoncxx::builder::basic::kvp("ping", 1));
     db.run_command(ping_cmd.view());
-    std::cout << "Pinged your deployment. You are successfully connected to MongoDB!" << std::endl;
+    std::cout << "Pinged your deployment. You successfully connected to MongoDB!" << std::endl;
   }
   catch (const std::exception& e) 
   {

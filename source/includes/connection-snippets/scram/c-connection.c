@@ -30,7 +30,7 @@ int main (int argc, char **argv)
   command = BCON_NEW("ping", BCON_INT32(1));
   if (mongoc_database_command_simple(database, command, NULL, &reply, &error))
   {
-    printf("Pinged your deployment. You are successfully connected to MongoDB!\n");
+    printf("Pinged your deployment. You successfully connected to MongoDB!\n");
   }
   else
   {
