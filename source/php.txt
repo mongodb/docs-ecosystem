@@ -127,7 +127,7 @@ worrying about backward compatibility issues with any commands covered by the
 Connect to MongoDB Atlas Without the Stable API
 -----------------------------------------------
 
-If you are using a version of MongoDB or the driver doesn't support the
+If you are using a version of MongoDB or the driver that doesn't support the
 {+stable-api+}, you can use the following code snippet to test your connection
 to your MongoDB deployment on Atlas:
 
