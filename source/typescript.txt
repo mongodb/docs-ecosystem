@@ -20,10 +20,10 @@ Since TypeScript builds on JavaScript, you can use the
 `{+node-driver-long+} <https://www.mongodb.com/docs/drivers/node/current/>`__
 to create TypeScript applications that communicate with MongoDB.
 
-Versions 4.0 and later of the {+driver-short+} support TypeScript. You must
+Versions 4.0 and later of the {+node-driver-short+} support TypeScript. You must
 install that version of the driver or a more recent one to use TypeScript.
 
 To learn more about the features and limitations of using TypeScript with the
-{+driver-short+}, see
+{+node-driver-short+}, see
 `TypeScript Fundamentals <https://www.mongodb.com/docs/drivers/node/current/fundamentals/typescript/>`__
 in the Node.js Driver documentation.
