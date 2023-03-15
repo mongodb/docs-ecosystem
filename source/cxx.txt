@@ -46,7 +46,7 @@ You can use the following connection snippet to test your connection to your
 MongoDB deployment on Atlas:
 
 .. literalinclude:: /includes/connection-snippets/scram/cxx-connection.cpp
-   :language: c++
+   :language: cpp
 
 This connection snippet uses the {+stable-api+} feature which you can use when
 connecting to MongoDB Server v5.0 and later and the 
@@ -68,7 +68,7 @@ If you are using a version of MongoDB or the driver that lacks support for the
 to your MongoDB deployment on Atlas:
 
 .. literalinclude:: /includes/connection-snippets/scram/cxx-connection-no-stable-api.cpp
-   :language: c++
+   :language: cpp 
 
 Connect to a MongoDB Server on Your Local Machine
 -------------------------------------------------
