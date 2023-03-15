@@ -50,8 +50,7 @@ MongoDB deployment on Atlas:
    :language: c
 
 This connection snippet uses the {+stable-api+} feature which you can use when
-connecting to MongoDB Server v5.0 and later and the C driver v1.18 and 
-later.
+connecting to MongoDB Server v5.0 and later and the C driver v1.18 and later.
 
 When you use this feature, you can update your driver or server without 
 worrying about backward compatibility issues with any commands covered by the
