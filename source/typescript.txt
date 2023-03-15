@@ -26,4 +26,4 @@ TypeScript types with MongoDB.
 To learn more about the features and limitations of using TypeScript with the
 {+node-driver-short+}, see
 `TypeScript Fundamentals <https://www.mongodb.com/docs/drivers/node/current/fundamentals/typescript/>`__
-in the Node.js Driver documentation.
+in the {+node-driver-short+} documentation.
