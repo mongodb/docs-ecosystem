@@ -10,7 +10,7 @@ object MongoClientConnectionExample {
   def main(args: Array[String]): Unit = {
 
     // Replace the placeholder with your Atlas connection string
-    val connectionString = "mongodb+srv://<username>:<password>@<svrHostName>";
+    val connectionString = "<connection string>";
 
     // Create a new client and connect to the server
     Using(MongoClient(connectionString)) { mongoClient =>
@@ -18,7 +18,7 @@ object MongoClientConnectionExample {
       val database = mongoClient.getDatabase("admin")
       val ping = database.runCommand(Document("ping" -> 1)).head()
 
-      Await.result(ping, 10.seconds) // Wait for future to return
+      Await.result(ping, 10.seconds)
       System.out.println("Pinged your deployment. You successfully connected to MongoDB!")
     }
   }
