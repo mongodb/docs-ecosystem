@@ -14,7 +14,7 @@ The following libraries are officially supported by MongoDB. They are actively m
 
 .. card-group::
    :columns: 3
-   :layout: carousel
+   :layout: default
    :type: drivers
 
    .. card::
