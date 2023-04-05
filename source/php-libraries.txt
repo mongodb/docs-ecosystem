@@ -140,5 +140,5 @@ Miscellaneous Projects
 - `PHPfastcache <https://github.com/PHPSocialNetwork/phpfastcache>`_ provides a simple,
   high-performance backend cache system for MongoDB.
 
-- `XHgui <https://github.com/perftools/xhgui>`_ a Web interface for XHProf profiling data,
-storing it in MongoDB
+- `XHGui <https://github.com/perftools/xhgui>`_, a web interface for the XHProf profiler
+  that stores profiling data in MongoDB.
