@@ -94,6 +94,13 @@ To learn more about the {+stable-api+} feature, see
 
 .. include:: /includes/stable-api-notice.rst
 
+Connect to MongoDB Atlas from AWS Lambda
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To learn how to connect to Atlas from AWS Lambda, see the 
+`Manage Connections with AWS Lambda <https://www.mongodb.com/docs/atlas/manage-connections-aws-lambda/>`__
+documentation.
+
 .. _connect-atlas-no-stable-api-pymongo-driver:
 
 Connect to MongoDB Atlas Without the Stable API
