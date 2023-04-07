@@ -91,7 +91,7 @@ The following libraries are officially supported by MongoDB. They are actively m
 
    .. card::
       :headline: TypeScript
-      :url: https://www.mongodb.com/docs/drivers/node/current/fundamentals/typescript/
+      :url: /typescript/
       :icon: /images/icons/ts.svg
       :icon-alt: TypeScript Driver icon
 
