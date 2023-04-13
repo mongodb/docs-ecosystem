@@ -97,7 +97,7 @@ security patches to them.
       :icon-alt: TypeScript Driver icon
 
 
-Featured Community Supported Libraries
+Featured Community-Supported Libraries
 -----------------------------------------
 
 .. card-group::
@@ -123,7 +123,7 @@ Featured Community Supported Libraries
       :icon: /figures/icons/r.svg
       :icon-alt: R icon
 
-Don’t see your desired language? Browse more `community supported libraries <https://github.com/ramnes/awesome-mongodb#libraries>`__.
+Don’t see your desired language? Browse more `community-supported libraries <https://github.com/ramnes/awesome-mongodb#libraries>`__.
 
 
 .. toctree::
