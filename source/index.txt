@@ -2,15 +2,16 @@
 :hidefeedback: header
 :noprevnext:
 
-.. default-domain:: mongodb
-
 =============================
 Start Developing with MongoDB
 =============================
 
-Connect your application to your database with one of our official libraries.
+Connect your application to your database with one of the official MongoDB 
+libraries.
 
-The following libraries are officially supported by MongoDB. They are actively maintained, support new MongoDB features, and receive bug fixes, performance enhancements, and security patches.
+The following libraries are officially supported by MongoDB. MongoDB actively
+develops new features, adds performance enhancements, fixes bugs, and applies 
+security patches to them.
 
 .. card-group::
    :columns: 3
@@ -122,7 +123,7 @@ Featured Community Supported Libraries
       :icon: /figures/icons/r.svg
       :icon-alt: R icon
 
-Don’t see your desired language? Browse more `community supported libraries <https://github.com/ramnes/awesome-mongodb>`_
+Don’t see your desired language? Browse more `community supported libraries <https://github.com/ramnes/awesome-mongodb#libraries>`__.
 
 
 .. toctree::
