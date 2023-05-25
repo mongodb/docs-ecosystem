@@ -1,7 +1,7 @@
 name = "drivers"
 title = "MongoDB Drivers"
 
-toc_landing_pages = ["/python", "/php", "/java-drivers", "/use-cases", "/ruby"]
+toc_landing_pages = ["/python", "/php", "/java-drivers", "/kotlin", "/use-cases", "/ruby"]
 
 intersphinx = ["https://www.mongodb.com/docs/manual/objects.inv"]
 sharedinclude_root = "https://raw.githubusercontent.com/10gen/docs-shared/main/"
@@ -14,3 +14,5 @@ node-driver-short = "Node.js Driver"
 
 java-version = "4.9"
 java-api = "https://mongodb.github.io/mongo-java-driver/{+java-version+}"
+kotlin-version = "4.10"
+kotlin-api = "https://mongodb.github.io/mongo-java-driver/{+kotlin-version+}"
