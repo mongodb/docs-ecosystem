@@ -148,7 +148,7 @@ Don’t see your desired language? Browse more `community-supported libraries <h
    Node.js Driver <https://www.mongodb.com/docs/drivers/node/current/>
    PHP Driver </php>
    Python Drivers </python>
-   Ruby Driver  </ruby>
+   Ruby Drivers  </ruby>
    Rust Driver </rust>
    Scala Driver </scala>
    Swift Driver </swift>

@@ -20,8 +20,8 @@ Introduction
 ------------
 
 Welcome to the documentation site for the official MongoDB Ruby 
-driver. See the :ruby:`official Ruby driver documentation site <>` to learn how
-to add the driver to your application.
+driver and Mongoid ODM. See the :ruby:`official Ruby driver
+documentation site <>` to learn how to begin using the driver.
 
 Object Document Mapper
 ----------------------
