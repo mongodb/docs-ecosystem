@@ -1,0 +1,34 @@
+.. _ruby-language-center:
+
+===================
+MongoDB Ruby Driver
+===================
+
+.. toctree::
+   :titlesonly:
+
+   Ruby Driver  <https://www.mongodb.com/docs/ruby-driver/current/>
+   Ruby Mongoid ODM  <https://www.mongodb.com/docs/mongoid/current/>
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+Introduction
+------------
+
+Welcome to the documentation site for the official MongoDB Ruby 
+driver. See the :ruby:`official Ruby driver documentation site <>` to learn how
+to add the driver to your application.
+
+Object Document Mapper
+----------------------
+
+If your application uses validations, associations, and other high-level
+data modeling functions, then you may need to install an Object
+Document Mapper (ODM). The ODM officially supported by MongoDB is called
+Mongoid. See the `Mongoid Manual
+<https://www.mongodb.com/docs/mongoid/current/>`__ to learn how to begin
+using the Mongoid ODM.
