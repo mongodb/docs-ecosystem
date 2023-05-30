@@ -49,7 +49,7 @@ security patches to them.
       :icon-alt: Java Driver icon
    
    .. card::
-      :headline: Kotlin
+      :headline: Kotlin (Alpha)
       :url: /kotlin/
       :icon: /figures/icons/kotlin.svg
       :icon-alt: Kotlin Driver icon
@@ -145,7 +145,7 @@ Don’t see your desired language? Browse more `community-supported libraries <h
    C# and .NET Driver <https://www.mongodb.com/docs/drivers/csharp/current/>
    Go Driver <https://www.mongodb.com/docs/drivers/go/current/>
    Java Drivers </java-drivers>
-   Kotlin Driver (Alpha) </kotlin>
+   Kotlin Drivers </kotlin>
    Node.js Driver <https://www.mongodb.com/docs/drivers/node/current/>
    PHP Driver </php>
    Python Drivers </python>
