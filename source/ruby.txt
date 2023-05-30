@@ -34,6 +34,6 @@ Object Document Mapper
 
 You can use Mongoid, the official MongoDB Ruby ODM, to streamline
 validation, associations, and high-level data modeling functions in your
-applications. See the `Mongoid reference documentation
+application. See the `Mongoid reference documentation
 <https://www.mongodb.com/docs/mongoid/current/>`__ to learn how to begin
 using Mongoid.
