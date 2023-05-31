@@ -10,7 +10,7 @@ Kotlin Sync Driver (Alpha)
    :depth: 1
    :class: twocols
 
-.. note:: Alpha Release
+.. warning:: Alpha Release
 
    Kotlin driver v{+java-version-next+} is currently in alpha release and 
    available only for evaluation purposes.

@@ -13,7 +13,7 @@ node-driver-long = "MongoDB Node.js Driver"
 node-driver-short = "Node.js Driver"
 
 java-version = "4.9"
-java-version-full = "4.10.0" # Update to use {java-version} when Java v4.10.x is released
 java-version-next = "4.10" # Not needed when Java v4.10 is released
+java-version-full = "{java-version-next}.0" # Update to use {java-version} when Java v4.10.x is released
 java-api = "https://mongodb.github.io/mongo-java-driver/{+java-version+}"
 kotlin-api = "https://mongodb.github.io/mongo-java-driver/{+java-version-next+}" # Not needed when Java v4.10 is released
