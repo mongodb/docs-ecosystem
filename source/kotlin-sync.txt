@@ -12,10 +12,11 @@ Kotlin Sync Driver (Alpha)
 
 .. note:: Alpha Release
 
-   The Kotlin driver is currently in alpha release and available only for evaluation purposes,
-   to validate functionality, and to gather feedback.
+   Kotlin driver v{+java-version-next+} is currently in alpha release and 
+   available only for evaluation purposes.
    It is not recommended for production deployments as we may introduce breaking changes.
-   This feature doesn't include formal consulting, SLAs, or technical support obligations.
+   At current, we do not provide formal consulting, SLAs, or technical support obligations
+   for this driver.
 
 Introduction
 ------------
@@ -44,20 +45,20 @@ If you are using `Gradle <https://gradle.org/>`__, add the following to your
    :caption: build.gradle.kts
 
    dependencies {
-    implementation("org.mongodb:mongodb-driver-kotlin-sync:4.9.1")
+    implementation("org.mongodb:mongodb-driver-kotlin-sync:{+java-version-full+}")
    }
 
 If you are using `Maven <https://maven.apache.org/>`__, add the following to
 your ``pom.xml`` dependencies list:
 
 .. code-block:: xml
-   :caption: build.gradle.kts
+   :caption: pom.xml
 
    <dependencies>
       <dependency>
          <groupId>org.mongodb</groupId>
          <artifactId>mongodb-driver-kotlin-sync</artifactId>
-         <version>4.9.1</version>
+         <version>{+java-version-full+}</version>
       </dependency>
    </dependencies>
 
@@ -76,7 +77,7 @@ Connect to MongoDB Atlas
    import com.mongodb.MongoClientSettings
 
    // Replace the placeholder with your Atlas connection string
-   val uri = "mongodb+srv://<username>:<password>@<cluster-address>/test?w=majority"
+   val uri = "<connection string>"
 
    val settings = MongoClientSettings.builder()
       .applyConnectionString(ConnectionString(uri))
