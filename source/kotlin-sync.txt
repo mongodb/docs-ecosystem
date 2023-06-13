@@ -1,6 +1,6 @@
-==========================
-Kotlin Sync Driver (Alpha)
-==========================
+==================
+Kotlin Sync Driver
+==================
 
 .. default-domain:: mongodb
 
@@ -10,13 +10,6 @@ Kotlin Sync Driver (Alpha)
    :depth: 1
    :class: twocols
 
-.. warning:: Alpha Release
-
-   Kotlin driver v{+java-version-next+} is currently in alpha release and 
-   available only for evaluation purposes.
-   It is not recommended for production deployments as we may introduce breaking changes.
-   At current, we do not provide formal consulting, SLAs, or technical support obligations
-   for this driver.
 
 Introduction
 ------------
@@ -24,7 +17,7 @@ Introduction
 Welcome to the documentation site for the Kotlin Sync Driver, the
 official MongoDB driver for synchronous Kotlin applications. 
 
-- `API Documentation <{+kotlin-api+}/apidocs/mongodb-driver-kotlin-sync/>`__
+- `API Documentation <{+java-api+}/apidocs/mongodb-driver-kotlin-sync/>`__
 
 - `Source Code <https://github.com/mongodb/mongo-java-driver/tree/master/driver-kotlin-sync/>`__
 

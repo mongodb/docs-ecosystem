@@ -49,7 +49,7 @@ security patches to them.
       :icon-alt: Java Driver icon
    
    .. card::
-      :headline: Kotlin (Alpha)
+      :headline: Kotlin
       :url: /kotlin/
       :icon: /figures/icons/kotlin.svg
       :icon-alt: Kotlin Driver icon
