@@ -202,3 +202,7 @@ raw: docs/drivers/drivers/ -> ${base}/
 # Redirect for outdated Community Drivers page
 
 raw: docs/drivers/community-supported-drivers/ -> ${base}/
+
+# Temporary redirect for Kotlin page 
+
+raw: docs/drivers/kotlin/ -> https://www.mongodb.com/docs/drivers/kotlin/coroutine/
