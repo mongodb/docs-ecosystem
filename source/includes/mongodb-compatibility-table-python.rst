@@ -17,7 +17,7 @@
      - MongoDB 3.2
      - MongoDB 3.0
      - MongoDB 2.6
-   * - 4.3
+   * - 4.4
      - ✓
      - ✓
      - ✓

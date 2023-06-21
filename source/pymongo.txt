@@ -54,11 +54,11 @@ version of the module using the command line:
 
 If you need to install a specific version of PyMongo, specify the
 version in your command. The following command shows how you can use
-``pip`` to install PyMongo version ``4.3``:
+``pip`` to install PyMongo version ``3.11``:
 
 .. code-block:: sh
 
-   $ python -m pip install pymongo==4.3
+   $ python -m pip install pymongo==3.11
 
 If you already have PyMongo installed and need to upgrade to the latest
 version, use the following ``pip`` command:
