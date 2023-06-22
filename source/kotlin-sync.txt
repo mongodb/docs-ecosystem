@@ -22,7 +22,7 @@ official MongoDB driver for synchronous Kotlin applications.
 - `Source Code <https://github.com/mongodb/mongo-java-driver/tree/master/driver-kotlin-sync/>`__
 
 If you need to make asynchronous calls between your application and MongoDB with 
-coroutines, use the :driver:`MongoDB Kotlin Coroutine Driver </kotlin/coroutine/current/>` 
+coroutines, use the MongoDB Kotlin Coroutine Driver (coming soon)
 instead of the Sync Driver.
 
 Installation

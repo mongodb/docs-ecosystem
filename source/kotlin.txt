@@ -9,7 +9,6 @@ MongoDB Kotlin Drivers
 .. toctree::
    :titlesonly:
 
-   Kotlin Coroutine Driver <https://www.mongodb.com/docs/drivers/kotlin/coroutine/current/>
    /kotlin-sync.txt
 
 .. contents:: On this page
@@ -26,7 +25,6 @@ drivers. You can add one of the following drivers to your application
 to work with MongoDB in Kotlin:
 
 - Use the
-  `Kotlin Coroutine Driver <https://www.mongodb.com/docs/drivers/kotlin/coroutine/current>`__
-  for Kotlin applications using coroutines.
+  Kotlin Coroutine Driver for Kotlin applications using coroutines (coming soon).
 
 - Use the :doc:`Kotlin Sync Driver </kotlin-sync>` for synchronous Kotlin applications.
