@@ -22,7 +22,7 @@ Standalone Libraries
   - `Laminas <https://github.com/doctrine/DoctrineMongoODMModule>`__ (formerly Zend Framework)
 
 - `Mongo PHP Adapter <https://github.com/alcaeus/mongo-php-adapter>`__ is a
-  userland library designed to act as an adapter between applications that rely
+  library designed to act as an adapter between applications that rely
   on the legacy ``mongo`` extension and the new ``mongodb`` extension. It
   offers the API of the legacy driver for the new driver and library.
 
