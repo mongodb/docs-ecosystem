@@ -67,7 +67,7 @@ Framework Integrations
     query profiler.
 
   - `DoctrineMongoDBBundle Symfony <https://github.com/doctrine/DoctrineMongoDBBundle>`_
-    This bundle integrates the Object Document Mapper (ODM) into Symfony so
+    This bundle integrates the Doctrine Object Document Mapper (ODM) into Symfony so
     that you can persist and retrieve objects to and from MongoDB.
 
 - Yii2
