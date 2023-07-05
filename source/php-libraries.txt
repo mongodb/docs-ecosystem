@@ -15,10 +15,10 @@ PHP Libraries, Frameworks, and Tools
 Standalone Libraries
 --------------------
 
-- `Doctrine MongoDB ODM <https://github.com/doctrine/mongodb-odm>`__ is a
-  library that provides object mapping functionality for MongoDB.
-  You can use this library standalone or use one of the following framework
-  integrations:
+- `Doctrine MongoDB ODM <https://github.com/doctrine/mongodb-odm>`__ (Object
+  Document Mapper) is a library that provides object-mapping functionality for
+  MongoDB.  You can use the standalone library or use one of the following
+  framework integrations:
 
   - `Symfony <https://github.com/doctrine/DoctrineMongoDBBundle>`__
   - `Laminas <https://github.com/doctrine/DoctrineMongoODMModule>`__ (formerly Zend Framework)
@@ -31,13 +31,13 @@ Standalone Libraries
 - `Mongolid <https://github.com/leroy-merlin-br/mongolid>`__ is a performant
   ODM for PHP and MongoDB. It implements both ActiveRecord and DataMapper
   design patterns and supports embedded and referenced documents. You can use
-  this library standalone or with the `Laravel <https://github.com/leroy-merlin-br/mongolid-laravel>`__
+  this standalone library or use the `Laravel <https://github.com/leroy-merlin-br/mongolid-laravel>`__
   integration.
 
 - `Xenus <https://github.com/abellion/xenus>`__ is a MongoDB ODM
   that supports events, relationships, embedded documents, and more. You can
-  use this library standalone or with the `Laravel <https://github.com/abellion/xenus-laravel>`__
-  integration which adds support for failed jobs, migrations, and events.
+  use this standalone library or use the `Laravel <https://github.com/abellion/xenus-laravel>`__
+  integration, which adds support for failed jobs, migrations, and events.
 
 Framework Integrations
 ----------------------
@@ -45,7 +45,7 @@ Framework Integrations
 - Drupal
 
   - `MongoDB integration for Drupal <https://www.drupal.org/project/mongodb>`__.
-    This is a collection of several modules which allow sites to store different
+    This is a collection of several modules that allow sites to store different
     types of Drupal data in MongoDB. The ``mongodb`` extension supports
     Drupal 8 and later.
 
@@ -68,8 +68,8 @@ Framework Integrations
     This integration includes a query profiler.
 
   - `DoctrineMongoDBBundle Symfony <https://github.com/doctrine/DoctrineMongoDBBundle>`__
-    This bundle integrates the Doctrine Object Document Mapper (ODM) into Symfony so
-    that you can store and retrieve objects from MongoDB.
+    This bundle integrates the Doctrine MongoDB ODM into Symfony so that you
+    can store and retrieve objects from MongoDB.
 
 - Yii2
 
@@ -86,9 +86,9 @@ Tools and Projects
 - `PHPfastcache <https://github.com/PHPSocialNetwork/phpfastcache>`__ is a
   high-performance backend cache system for MongoDB.
 
-- `Enqueue <https://github.com/php-enqueue/mongodb>`__ is a production ready
+- `Enqueue <https://github.com/php-enqueue/mongodb>`__ is a production-ready
   messaging solution that uses MongoDB as the message queue broker. It provides
-  a common way for programs to create, send, read messages.
+  a common way for programs to create, send, and read messages.
 
 - `XHGui <https://github.com/perftools/xhgui>`__ is a web interface for the
-  XHProf profiler which stores profiling data in MongoDB.
+  XHProf profiler, which stores profiling data in MongoDB.
