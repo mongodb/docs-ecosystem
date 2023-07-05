@@ -27,10 +27,10 @@ Stand-alone Libraries
   the API of the legacy driver on top of the new driver and library, which
   allows for compatibility with PHP 7.
 
-- `Mongolid <https://github.com/leroy-merlin-br/mongolid>`__: A fast ODM for PHP and
+- `Mongolid <https://github.com/leroy-merlin-br/mongolid>`__ is a fast ODM for PHP and
   MongoDB, which implements both ActiveRecord and DataMapper design patterns and
   supports embedded and referenced documents. An integration with
-  `Laravel <https://github.com/leroy-merlin-br/mongolid-laravel>`___ is also available.
+  `Laravel <https://github.com/leroy-merlin-br/mongolid-laravel>`__ is also available.
 
 - `Xenus <https://github.com/abellion/xenus>`__ is an elegant MongoDB ODM
   that supports events, relationships, embedded documents, and more. An
@@ -79,7 +79,7 @@ Framework Integrations
 Miscellaneous Projects
 ----------------------
 
-- `PHP Cache <https://github.com/php-cache/mongodb-adapter/>`___ is a PSR-6 cache
+- `PHP Cache <https://github.com/php-cache/mongodb-adapter/>`__ is a PSR-6 cache
   implementation using MongoDB. It is a part of the PHP Cache organisation.
 
 - `PHPfastcache <https://github.com/PHPSocialNetwork/phpfastcache>`__ provides a simple,
