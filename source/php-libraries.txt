@@ -19,6 +19,7 @@ Standalone Libraries
   library that provides object mapping functionality for MongoDB.
   You can use this library standalone or use one of the following framework
   integrations:
+
   - `Symfony <https://github.com/doctrine/DoctrineMongoDBBundle>`__
   - `Laminas <https://github.com/doctrine/DoctrineMongoODMModule>`__ (formerly Zend Framework)
 
@@ -58,7 +59,7 @@ Framework Integrations
 - Symfony
 
   - You can configure the `Lock <https://symfony.com/doc/current/components/lock.html#mongodbstore>`__
-    `Session <https://symfony.com/doc/current/session.html#store-sessions-in-a-nosql-database-mongodb>`__
+    and the `Session <https://symfony.com/doc/current/session.html#store-sessions-in-a-nosql-database-mongodb>`__
     to use MongoDB as a data store.
 
   - `MongoDB Bundle <https://github.com/facile-it/mongodb-bundle>`__ is a
