@@ -4,8 +4,6 @@
 PHP Libraries, Frameworks, and Tools
 ====================================
 
-.. default-domain:: mongodb
-
 .. contents:: On this page
    :local:
    :backlinks: none
@@ -38,6 +36,7 @@ Standalone Libraries
   that supports events, relationships, embedded documents, and more. You can
   use this standalone library or use the `Laravel <https://github.com/abellion/xenus-laravel>`__
   integration, which adds support for failed jobs, migrations, and events.
+
 
 Framework Integrations
 ----------------------
@@ -92,3 +91,4 @@ Tools and Projects
 
 - `XHGui <https://github.com/perftools/xhgui>`__ is a web interface for the
   XHProf profiler, which stores profiling data in MongoDB.
+
