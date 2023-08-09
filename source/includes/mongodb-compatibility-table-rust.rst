@@ -70,27 +70,27 @@
      - ✓
      - ✓
 
-The {+driver-short+} is not compatible with {+server+} versions
+The Rust driver is not compatible with MongoDB Server versions
 older than 3.6.
 
-.. [#2.5-2.6-limitation] This {+driver-short+} version does not support
+.. [#2.5-2.6-limitation] This Rust driver version does not support
    :manual:`OCSP </core/security-transport-encryption/#ocsp--online-certificate-status-protocol->`.
 
-.. [#2.4-limitation] This {+driver-short+} version does not support Decimal128
+.. [#2.4-limitation] This Rust driver version does not support Decimal128
    or :manual:`OCSP </core/security-transport-encryption/#ocsp--online-certificate-status-protocol->`.
 
-.. [#2.2-2.3-limitation] This {+driver-short+} version does not support Decimal128,
+.. [#2.2-2.3-limitation] This Rust driver version does not support Decimal128,
    :ref:`Client-Side Field Level Encryption <manual-csfle-feature>`,
    :manual:`GridFS </core/gridfs/>`, or
    :manual:`OCSP </core/security-transport-encryption/#ocsp--online-certificate-status-protocol->`.
 
-.. [#2.1-limitation] This {+driver-short+} version does not support Decimal128,
+.. [#2.1-limitation] This Rust driver version does not support Decimal128,
    :ref:`Client-Side Field Level Encryption <manual-csfle-feature>`,
    :manual:`GridFS </core/gridfs/>`,
    :manual:`OCSP </core/security-transport-encryption/#ocsp--online-certificate-status-protocol->`,
    or :ref:`change streams <changeStreams>`.
 
-.. [#2.0-limitation] This {+driver-short+} version does not support Decimal128,
+.. [#2.0-limitation] This Rust driver version does not support Decimal128,
    :ref:`Client-Side Field Level Encryption <manual-csfle-feature>`,
    :manual:`GridFS </core/gridfs/>`,
    :manual:`OCSP </core/security-transport-encryption/#ocsp--online-certificate-status-protocol->`,

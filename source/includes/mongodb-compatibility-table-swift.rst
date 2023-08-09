@@ -51,7 +51,7 @@
      - ✓
 
 Because the Swift driver is not under active development, it has not
-been tested with MongoDB Server version 7.0 or later.
+been tested with MongoDB Server versions 7.0 or later.
 
 The Swift driver is not compatible with MongoDB server versions older than 3.6.
 
