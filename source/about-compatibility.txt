@@ -32,10 +32,9 @@ The circled asterisks (⊛) indicate that the driver version works with
 that specific version of MongoDB server, but may not be able to access all
 the features.
 
-If you are **upgrading your server version**, your current driver should
-continue to function properly, but may not be able to access the features
-introduced in the newer server versions. We recommend using the newest
-compatible driver when upgrading your server version.
+If you are **upgrading your server version**, check whether your current driver
+version is compatible. We recommend using the newest compatible driver when
+upgrading your server version.
 
 If you are **upgrading your driver version**, you can use the table to
 identify which version you need to access all the newest features included
