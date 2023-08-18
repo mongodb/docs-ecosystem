@@ -69,7 +69,7 @@ In the **Component Compatibility** tables, the columns indicate versions of
 the driver, and the rows indicate the component package names.
 
 The table cells indicate which versions of the component packages are
-compatible for the driver version specified in that column.
+compatible with the driver version specified in that column.
 
 If the table cell value is blank, the component package is incompatible with
 the version of the driver version specified in that column.
