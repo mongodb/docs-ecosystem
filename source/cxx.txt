@@ -4,6 +4,10 @@
 MongoDB C++ Driver
 ==================
 
+.. facet::
+   :type: programming_language
+   :values: csharp, dotnet
+
 .. contents:: On this page
    :local:
    :backlinks: none
