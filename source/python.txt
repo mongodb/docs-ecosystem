@@ -51,4 +51,4 @@ environments:
   source available, free-to-use, and self-managed version of MongoDB
 
 To learn more about connecting your application to deployments hosted in MongoDB 
-Atlas, see :atlas:`Connect via Your Application </driver-connection>`.
+Atlas, see :atlas:`Connect via Your Application </driver-connection>`. 
