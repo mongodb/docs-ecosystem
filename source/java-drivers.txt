@@ -15,7 +15,7 @@ MongoDB Java Drivers
   :values: reference
 
 .. meta:: 
-  :keywords: java sync, java async
+  :keywords: java sync, java async, reactive streams
 
 .. toctree::
    :titlesonly:
