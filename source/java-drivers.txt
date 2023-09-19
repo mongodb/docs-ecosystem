@@ -7,11 +7,11 @@ MongoDB Java Drivers
 .. default-domain:: mongodb
 
 .. facet::
-  :type: programming_language
+  :name: programming_language
   :values: java
 
 .. facet::
-  :type: genre
+  :name: genre
   :values: reference
 
 .. meta:: 

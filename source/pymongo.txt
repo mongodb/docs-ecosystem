@@ -3,11 +3,11 @@ PyMongo
 =======
 
 .. facet::
-   :type: programming_language
+   :name: programming_language
    :values: python
 
 .. facet::
-   :type: genre
+   :name: genre
    :values: tutorial
 
 .. meta:: 
