@@ -9,8 +9,10 @@ Start Developing with MongoDB
 .. meta:: 
    :keywords: r, elixir, prisma, mongoose
    
-Connect your application to your database with one of the official MongoDB 
-libraries.
+Connect your application to your `MongoDB Atlas database
+<https://www.mongodb.com/docs/atlas>`__ or `self-hosted MongoDB
+database <https://www.mongodb.com/docs/manual/installation>`__ with
+one of the official MongoDB libraries.
 
 The following libraries are officially supported by MongoDB. MongoDB actively
 develops new features, adds performance enhancements, fixes bugs, and applies 
