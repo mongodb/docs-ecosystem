@@ -8,14 +8,15 @@ MongoDB Java Drivers
 
 .. facet::
    :name: programming_language
-  :values: java
+
+   :values: java
 
 .. facet::
    :name: genre
-  :values: reference
+   :values: reference
 
 .. meta:: 
-  :keywords: java sync, java async, reactive streams
+   :keywords: java sync, java async, reactive streams
 
 .. toctree::
    :titlesonly:
