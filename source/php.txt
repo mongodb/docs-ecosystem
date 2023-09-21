@@ -6,6 +6,17 @@ MongoDB PHP Driver
 
 .. default-domain:: mongodb
 
+.. facet::
+   :name: programming_language
+   :values: php
+
+.. facet::
+   :name: genre
+   :values: tutorial
+
+.. meta:: 
+   :keywords: code example
+
 .. toctree::
    :titlesonly:
 

@@ -6,6 +6,17 @@ MongoDB Java Drivers
 
 .. default-domain:: mongodb
 
+.. facet::
+   :name: programming_language
+   :values: java
+
+.. facet::
+   :name: genre
+   :values: reference
+
+.. meta:: 
+   :keywords: java sync, java async, reactive streams
+
 .. toctree::
    :titlesonly:
 

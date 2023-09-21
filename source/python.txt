@@ -4,6 +4,10 @@
 MongoDB Python Drivers
 ======================
 
+.. facet::
+   :name: programming_language
+   :values: python
+
 .. toctree::
    :titlesonly:
 
