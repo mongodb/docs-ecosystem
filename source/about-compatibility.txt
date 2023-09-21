@@ -45,7 +45,7 @@ release.
 We recommend that you avoid using older versions of the drivers that do not
 appear on the chart because they are unsupported.
 
-.. include:: /includes/lifecycle-schedule-callout.rst
+.. sharedinclude:: dbx/lifecycle-schedule-callout.rst
 
 .. _language-compatibility-tables:
 

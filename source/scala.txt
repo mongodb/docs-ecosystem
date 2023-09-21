@@ -95,7 +95,7 @@ of the Mongo Scala driver for use with a specific version of MongoDB.
 
 The first column lists the driver version.
 
-.. include:: /includes/lifecycle-schedule-callout.rst
+.. sharedinclude:: dbx/lifecycle-schedule-callout.rst
 
 .. include:: /includes/mongodb-compatibility-table-scala.rst
 
