@@ -124,7 +124,7 @@ MongoDB Compatibility
 ~~~~~~~~~~~~~~~~~~~~~
 
 The compatibility table in this section specifies the recommended version or
-versions of the MongoDB C driver for use with a specific version of MongoDB.
+versions of the MongoDB Swift driver for use with a specific version of MongoDB.
 
 The first column lists the driver version.
 
