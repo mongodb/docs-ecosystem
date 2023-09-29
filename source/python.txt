@@ -24,13 +24,13 @@ Introduction
 ------------
 
 Welcome to the documentation site for the official MongoDB Python
-drivers. You can add one of the following drivers to your application
-to work with MongoDB in Python:
+drivers. Add one of the following drivers to your application to work with
+MongoDB in Python:
 
-- :doc:`PyMongo </pymongo>` for synchronous Python applications.
+- :doc:`PyMongo </pymongo>` for synchronous Python applications
 
-  - `PyMongoArrow <https://mongo-arrow.readthedocs.io/en/latest/>`__: a PyMongo extension for loading Apache Arrow tables by using MongoDB queries.
+  - `PyMongoArrow <https://mongo-arrow.readthedocs.io/en/latest/>`__, a PyMongo extension for loading Apache Arrow tables by using MongoDB queries
 
-- :doc:`Motor </motor>` for asynchronous Python applications.
+- :doc:`Motor </motor>` for asynchronous Python applications
 
 .. include:: /includes/university-m220p.rst
