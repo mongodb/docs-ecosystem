@@ -29,7 +29,8 @@ MongoDB in Python:
 
 - :doc:`PyMongo </pymongo>` for synchronous Python applications
 
-  - `PyMongoArrow <https://mongo-arrow.readthedocs.io/en/latest/>`__, a PyMongo extension for loading Apache Arrow tables by using MongoDB queries
+  - `PyMongoArrow <https://mongo-arrow.readthedocs.io/en/latest/>`__, a 
+    PyMongo extension for loading MongoDB query result sets into Apache Arrow tables
 
 - :doc:`Motor </motor>` for asynchronous Python applications
 
