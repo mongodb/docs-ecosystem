@@ -48,7 +48,7 @@ environments:
 - :ref:`MongoDB Enterprise <install-mdb-enterprise>`: The
   subscription-based, self-managed version of MongoDB
 - :ref:`MongoDB Community <install-mdb-community-edition>`: The
-  source available, free-to-use, and self-managed version of MongoDB
+  source-available, free-to-use, and self-managed version of MongoDB
 
 To learn more about connecting your application to deployments hosted in MongoDB 
-Atlas, see :atlas:`Connect via Your Application </driver-connection>`. 
+Atlas, see :atlas:`Connect from Your Application </driver-connection>`. 
