@@ -216,7 +216,7 @@ raw: docs/drivers/drivers/php/ -> ${base}/php/
 raw: docs/drivers/drivers/python/ -> ${base}/python/
 raw: docs/drivers/drivers/pymongo/ -> ${base}/pymongo/
 raw: docs/drivers/drivers/ruby/ -> https://www.mongodb.com/docs/ruby-driver/current/
-raw: docs/drivers/drivers/rust/ -> ${base}/rust/
+raw: docs/drivers/drivers/rust/ -> ${base}/rust/current/
 raw: docs/drivers/drivers/scala/ -> ${base}/scala/
 raw: docs/drivers/drivers/swift/ -> ${base}/swift/
 
