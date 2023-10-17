@@ -4,8 +4,6 @@
 MongoDB PHP Driver
 ==================
 
-.. default-domain:: mongodb
-
 .. facet::
    :name: programming_language
    :values: php
@@ -28,7 +26,6 @@ MongoDB PHP Driver
    :depth: 1
    :class: twocols
 
-
 Introduction
 ------------
 
@@ -36,19 +33,22 @@ Welcome to the documentation site for the official MongoDB PHP driver.
 You can add the driver to your application to work with MongoDB in PHP.
 The MongoDB PHP Driver consists of the two following components:
 
-- The `extension <https://github.com/mongodb/mongo-php-driver>`_, which
+- The `extension <https://github.com/mongodb/mongo-php-driver>`__, which
   provides a low-level API and mainly serves to integrate
-  `libmongoc and libbson <https://www.mongodb.com/docs/drivers/c/>`_ with
+  :ref:`libmongoc and libbson <c-language-center>` with
   PHP.
 
-- The `library <https://www.mongodb.com/docs/php-library/current>`_, which
+- The :ref:`library <https://www.mongodb.com/docs/php-library/current>`_, which
   provides a high-level API for working with MongoDB
   databases consistent with other MongoDB language drivers.
 
 While it is possible to use the extension alone, MongoDB recommends
-using both the extension and the library together. Download the
-components you need or set up a runnable project by following our
-tutorials.
+using both the extension and the library together. To learn more about
+the components of the PHP driver, see the :ref:`Driver Architecture
+<php-driver-arch>` section of this page.
+
+Navigate through the following links to learn more about the driver and access
+tutorial content on setting up a runnable project:
 
 - `Tutorials <https://www.mongodb.com/docs/php-library/current/tutorial>`__
 
@@ -72,6 +72,42 @@ tutorials.
 
   - `Extension <https://github.com/mongodb/mongo-php-driver>`__
 
+.. _php-driver-arch:
+
+Driver Architecture
+-------------------
+
+This section describes how the components of the PHP driver work together.
+These components fit into the following general categories:
+
+- High-Level API, which includes the library and other integrations 
+- Extension, which includes the extension that integrates the system libraries
+- System, which includes the C Driver, BSON library, and encryption library
+
+The following diagram illustrates the architecture of the PHP driver
+components:
+
+.. include: /figures/PHP-driver-arch.rst
+   
+The PHP library provides an API that is consistent with the other
+drivers, and it is continually updated to meet cross-drivers
+specifications. You need to add the library as a dependency in most
+applications that use PHP to work with MongoDB.
+
+The extension is distributed by `PECL
+<https://www.php.net/manual/en/mongodb.installation.pecl.php>`__, and
+connects PHP to the system libraries. The extension's public API
+provides the following functionality:
+
+- Connection management
+- BSON encoding and decoding
+- Object document serialization
+- Command execution
+- Cursor management
+
+To learn more about the system libraries, see the :ref:`C Driver
+<c-language-center>` documentation.
+
 Compatibility
 -------------
 
@@ -80,18 +116,17 @@ following environments:
 
 .. include:: /includes/fact-environments.rst
 
-
 Installation
 ------------
 
 First, make sure you have a recent version of PHP installed on your
 system. See the
-`official PHP manual <https://www.php.net/manual/en/install.php>`_
+`official PHP manual <https://www.php.net/manual/en/install.php>`__
 for download and installation instructions.
 
 Install the PHP MongoDB Extension before installing the PHP Library for
 MongoDB. You can install the extension using
-`PECL <https://www.php.net/manual/en/mongodb.installation.pecl.php>`_ on
+`PECL <https://www.php.net/manual/en/mongodb.installation.pecl.php>`__ on
 the command line:
 
 .. code-block:: sh
