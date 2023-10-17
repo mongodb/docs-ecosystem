@@ -93,7 +93,7 @@ components:
    
 The PHP library provides an API that is consistent with the other
 drivers, and it is continually updated to meet cross-driver
-specifications. You need to add the library as a dependency in most
+specifications. You must add the library as a dependency in most
 applications that use PHP to work with MongoDB.
 
 The extension is distributed by `PECL
@@ -147,7 +147,7 @@ Finally, add the following line to your ``php.ini`` file:
    CLI, FPM). Make sure to enable the extension in all SAPIs that you need.
 
 The preferred method of installing the PHP library is with
-`Composer <https://getcomposer.org/>`_ by running the following from your project root:
+`Composer <https://getcomposer.org/>`__ by running the following from your project root:
 
 .. code-block:: sh
 
@@ -163,7 +163,7 @@ Composer's autoloader as in the following example:
    require_once __DIR__ . '/vendor/autoload.php';
 
 Additional installation instructions may be found in the
-`library documentation <https://www.mongodb.com/docs/php-library/current/tutorial/install-php-library/>`_.
+`library documentation <https://www.mongodb.com/docs/php-library/current/tutorial/install-php-library/>`__.
 
 .. _connect-atlas-php-driver:
 
@@ -214,7 +214,7 @@ Compatibility
 Due to potential problems representing 64-bit integers on 32-bit platforms,
 users are advised to use 64-bit environments. When using a 32-bit platform, be
 aware that any 64-bit integer read from the database will be returned as a
-`MongoDB\\BSON\\Int64 <https://www.php.net/manual/en/class.mongodb-bson-int64.php>`_
+`MongoDB\\BSON\\Int64 <https://www.php.net/manual/en/class.mongodb-bson-int64.php>`__
 instance instead of a PHP integer type.
 
 MongoDB Compatibility
