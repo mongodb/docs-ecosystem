@@ -87,7 +87,9 @@ These components fit into the following general categories:
 The following diagram illustrates the architecture of the PHP driver
 components:
 
-.. include: /figures/PHP-driver-arch.rst
+.. figure:: /figures/PHP_driver_architecture.svg
+   :alt: PHP driver component architecture
+   :figwidth: 500px
    
 The PHP library provides an API that is consistent with the other
 drivers, and it is continually updated to meet cross-drivers
