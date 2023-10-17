@@ -92,7 +92,7 @@ components:
    :figwidth: 600px
    
 The PHP library provides an API that is consistent with the other
-drivers, and it is continually updated to meet cross-drivers
+drivers, and it is continually updated to meet cross-driver
 specifications. You need to add the library as a dependency in most
 applications that use PHP to work with MongoDB.
 
