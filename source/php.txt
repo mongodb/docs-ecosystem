@@ -89,7 +89,7 @@ components:
 
 .. figure:: /figures/PHP_driver_architecture.svg
    :alt: PHP driver component architecture
-   :figwidth: 700px
+   :figwidth: 600px
    
 The PHP library provides an API that is consistent with the other
 drivers, and it is continually updated to meet cross-drivers
