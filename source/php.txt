@@ -38,7 +38,7 @@ The MongoDB PHP Driver consists of the two following components:
   :ref:`libmongoc and libbson <c-language-center>` with
   PHP.
 
-- The :ref:`library <https://www.mongodb.com/docs/php-library/current>`_, which
+- The `library <https://www.mongodb.com/docs/php-library/current>`__, which
   provides a high-level API for working with MongoDB
   databases consistent with other MongoDB language drivers.
 
