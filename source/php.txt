@@ -96,7 +96,7 @@ MongoDB drivers. The library is continually updated to meet cross-driver
 specifications. You must add the library as a dependency to access
 MongoDB in most PHP applications.
 
-The extension is distributed by `PECL
+The extension is distributed by using `PECL
 <https://www.php.net/manual/en/mongodb.installation.pecl.php>`__, and
 connects PHP to the system libraries. The extension's public API
 provides the following functionality:
