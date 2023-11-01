@@ -142,6 +142,11 @@ code example and run it.
 Compatibility
 -------------
 
+.. important:: Supported PyMongo and Python Versions
+   
+   MongoDB does not support any Python driver versions earlier than v4.0
+   or any Python versions earlier than v3.6.
+
 MongoDB Compatibility
 ~~~~~~~~~~~~~~~~~~~~~
 
