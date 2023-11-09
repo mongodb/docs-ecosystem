@@ -12,7 +12,7 @@ int main(void) {
     // Initialize the MongoDB C Driver.
     mongoc_init();
 
-    client = mongoc_client_new("mongodb+srv://admin:<password>@cluster0.rdwcnhq.mongodb.net/?retryWrites=true&w=majority");
+    client = mongoc_client_new("<connection string>");
     if (!client) {
         fprintf(stderr, "failed to create a MongoDB client\n");
         rc = 1;
