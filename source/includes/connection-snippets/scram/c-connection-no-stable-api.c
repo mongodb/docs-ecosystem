@@ -14,7 +14,7 @@ int main(void) {
 
     client = mongoc_client_new("<connection string>");
     if (!client) {
-        fprintf(stderr, "failed to create a MongoDB client\n");
+        fprintf(stderr, "Failed to create a MongoDB client.\n");
         rc = 1;
         goto cleanup;
     }
@@ -22,7 +22,7 @@ int main(void) {
     // Get a handle on the "admin" database.
     database = mongoc_client_get_database(client, "admin");
     if (!database) {
-        fprintf(stderr, "failed to get a MongoDB database handle\n");
+        fprintf(stderr, "Failed to get a MongoDB database handle.\n");
         rc = 1;
         goto cleanup;
     }
