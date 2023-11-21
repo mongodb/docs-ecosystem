@@ -1,0 +1,43 @@
+
++++
+date = "2015-03-17T15:36:56Z"
+title = "index"
+type = "index"
++++
+
+MongoDB Java Driver Documentation
+---------------------------------
+
+Welcome to the MongoDB JVM driver documentation hub. Please note that the primary documentation is now located `on the MongoDB domain <https://www.mongodb.com/docs/drivers/java/sync/current/>`__
+
+What's New
+~~~~~~~~~~
+
+For key new features, see `What's New <{{< relref "whats-new.md" >}}>`__.
+
+Upgrade
+~~~~~~~
+
+To upgrade, refer to the `Upgrade Considerations <{{< relref "upgrading.md" >}}>`__ documentation.
+
+MongoDB Driver
+~~~~~~~~~~~~~~
+
+For the synchronous MongoDB Driver, see `MongoDB Driver section <{{< relref "driver/index.md" >}}>`__.
+
+MongoDB Reactive Streams Driver
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+For the MongoDB Reactive Streams Driver, see `MongoDB Reactive Streams Driver section <{{< relref "driver-reactive/index.md" >}}>`__.
+
+MongoDB Scala Driver
+~~~~~~~~~~~~~~~~~~~~
+
+For the MongoDB Scala Driver, see `MongoDB Scala Driver section <{{< relref "driver-scala/index.md" >}}>`__.
+
+BSON Library
+~~~~~~~~~~~~
+
+The `BSON <{{< relref "bson/index.md" >}}>`__ library comprehensively supports the BSON spec, the data storage and network transfer format that MongoDB uses for
+“documents".  The `reference guide <{{< relref "bson/index.md" >}}>`__ provides information about working with `Documents <{{< relref "bson/documents.md" >}}>`__\ ,
+how to use `Codecs <{{< relref "bson/codecs.md" >}}>`__ and `Extended JSON <{{< relref "bson/extended-json.md" >}}>`__ support.
