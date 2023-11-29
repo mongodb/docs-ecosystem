@@ -23,7 +23,7 @@ To get started, create a new model class in your ``app\Models\`` directory.
        //
    }
 
-Just like a normal model, the MongoDB model class will know which collection to use based on the model name. For ``Book``\ , the collection ``books`` will be used.
+Just like a normal model, the MongoDB model class will know which collection to use based on the model name. For ``Book``, the collection ``books`` will be used.
 
 To change the collection, pass the ``$collection`` property:
 

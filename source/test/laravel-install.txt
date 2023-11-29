@@ -1,4 +1,3 @@
-
 ===============
 Getting Started
 ===============
@@ -61,6 +60,6 @@ Instead of using a connection string, you can also use the ``host`` and ``port``
        ],
    ],
 
-The ``options`` key in the connection configuration corresponds to the `\ ``uriOptions`` parameter <https://www.php.net/manual/en/mongodb-driver-manager.construct.php#mongodb-driver-manager.construct-urioptions>`__.
+The ``options`` key in the connection configuration corresponds to the `uriOptions parameter <https://www.php.net/manual/en/mongodb-driver-manager.construct.php#mongodb-driver-manager.construct-urioptions>`__.
 
 You are ready to `create your first MongoDB model <eloquent-models.md>`__.
