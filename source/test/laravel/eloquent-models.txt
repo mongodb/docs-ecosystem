@@ -4,7 +4,7 @@
 Eloquent Models
 ===============
 
-Previous: :ref:`<laravel-installation>`
+Previous: :ref:`<laravel-install>`
 
 This package includes a MongoDB enabled Eloquent class that you can use to
 define models for corresponding collections.

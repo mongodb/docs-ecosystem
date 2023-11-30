@@ -288,7 +288,8 @@ The inverse of regexp:
 **Type**
 
 Selects documents if a field is of the specified type. For more information 
-check: :manual:`</reference/operator/query/type/#op._S_type/>`
+check: :manual:`$type </reference/operator/query/type/#op._S_type/>` in the
+MongoDB Server documentation.
 
 .. code-block:: php
 

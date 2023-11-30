@@ -42,7 +42,7 @@ To abort a transaction, call the ``rollBack`` method at any point during the tra
    Transactions in MongoDB cannot be nested. DB::beginTransaction() function 
    will start new transactions in a new created or existing session and will
    raise the RuntimeException when transactions already exist. See more in 
-   MongoDB official docs :manual:`Transactions and Sessions </core/transactions/#transactions-and-sessions>`__
+   MongoDB official docs :manual:`Transactions and Sessions </core/transactions/#transactions-and-sessions>`.
 
 .. code-block:: php
 
