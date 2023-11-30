@@ -1,3 +1,4 @@
+.. _laravel-upgrading:
 
 =========
 Upgrading

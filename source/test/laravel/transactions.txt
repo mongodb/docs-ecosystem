@@ -1,4 +1,4 @@
-.. _laravel-transactions::
+.. _laravel-transactions:
 
 ============
 Transactions

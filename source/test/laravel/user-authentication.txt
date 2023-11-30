@@ -1,4 +1,4 @@
-.. _laravel-user-authentication::
+.. _laravel-user-authentication:
 
 ===================
 User authentication
