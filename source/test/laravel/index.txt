@@ -1,0 +1,21 @@
+===============
+Laravel MongoDB
+===============
+
+.. meta:: 
+   :keywords: php framework
+
+Placeholder text
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   /install
+   /elequent-models
+   /query-builder
+   /user-authentication
+   /transactions
+   /upgrade
+   /queues
+
