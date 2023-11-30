@@ -7,6 +7,16 @@ Laravel MongoDB
 
 Placeholder text
 
+- :ref:`laravel-install`
+- :ref:`laravel-eloquent-models`
+- :ref:`laravel-query-builder`
+- :ref:`laravel-user-authentication`
+- :ref:`laravel-transactions`
+- :ref:`laravel-upgrading`
+- :ref:`laravel-queues`
+
+
+
 .. toctree::
    :titlesonly:
    :maxdepth: 1

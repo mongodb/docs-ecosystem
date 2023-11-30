@@ -1,4 +1,4 @@
-.. _laravel-queues::
+.. _laravel-queues:
 
 ======
 Queues
