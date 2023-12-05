@@ -1,0 +1,216 @@
+.. _mongodb-vs-documentdb:
+
+======================
+MongoDB vs. DocumentDB
+======================
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+
+It may seem that there are multiple options for deploying MongoDB in the cloud.
+Amazon DocumentDB, for example, claims to be an AWS-native database with full support for
+the MongoDB API. While they support some MongoDB features, it is important to note that
+DocumentDB is not fully compatible. The only place to access fully-featured MongoDB as
+a service on AWS is through MongoDB Atlas.
+
+In this comparison we aim to explain the differences between Amazon DocumentDB and
+MongoDB Atlas, focusing around the following key areas:
+
+- **Compatibility**: Amazon claims that migrating an application from MongoDB to DocumentDB
+  is "as easy as changing the database endpoint to the new Amazon DocumentDB cluster".
+  We have debunked this by running a suite of compatibility tests, which show that
+  DocumentDB is only ~34% compatible with the features and functionality available in
+  MongoDB Atlas.
+- **Architecture**: Amazon DocumentDB is built on top of AWS's Aurora platform, which has
+  historically been used to host relational databases. This has implications on
+  scalability and the potential for adding more native MongoDB features in the future.
+  DocumentDB can be deployed using Elastic Clusters, which impose additional operational
+  constraints.
+- **Deployment**: Amazon's DocumentDB relies on AWS's proprietary technology, and there
+  is no way to run the database outside of AWS.
+- **Developer Productivity**: DocumentDB lacks native integration with features or tools
+  to support mobile, time series, search, and analytical use cases. Users must take on the
+  operational burden of moving data out of DocumentDB and into other services in order to
+  access features to support those workloads.
+- **Operational Maturity**: Database management and maintenance in DocumentDB is held
+  back by limited tooling, a complex upgrade process, few backup options, and gaps in
+  security features.
+
+What is DocumentDB?
+-------------------
+
+Amazon DocumentDB is a NoSQL JSON document database service with a limited degree of
+compatibility with MongoDB.
+
+DocumentDB is not based on the MongoDB server. Rather it emulates the MongoDB API, and
+runs on top of Amazon's Aurora backend platform. This creates significant architectural
+constraints, functionality limitations and broken compatibility.
+
+DocumentDB claims to support the MongoDB 4.0 API, which implies that it is at parity with
+MongoDB v4.0, released back in June 2018. However this is partially true, as the majority
+of MongoDB 4.0 differentiating features are not supported by DocumentDB. In addition,
+compatibility testing reveals it fails over 66% of the MongoDB API correctness tests.
+Applications written for MongoDB will need to be re-written to work with Amazon DocumentDB.
+
+.. image:: /figures/documentdb.avif
+   :alt:  Comparison of Amazon DocumentDB and MongoDB
+
+.. tip:: DocumentDB Compatibility with MongoDB
+    
+   For the latest information about DocumentDB's compatibility with the MongoDB API,
+   see `Is DocumentDB Really MongoDB? <https://www.isdocumentdbreallymongodb.com/>`__
+
+The key differences between DocumentDB and MongoDB's on-demand, elastic, and fully
+managed Atlas service are summarized below.
+
+.. list-table::
+   :header-rows: 1
+   :stub-columns: 1
+   :widths: 10 20 20
+
+   * - Fully compatible with MongoDB
+     - No, incomplete. Imitation API fails 66% of correctness tests
+     - Yes
+     
+   * - Support for latest MongoDB version
+     - No. Feature set resembles MongoDB 3.0/3.2, released in 2015.
+     - Yes. MongoDB 7.0
+
+Scale writes and partition data beyond a single node / Sharding support
+Limited
+Sharding available within an Elastic Cluster deployment.
+
+Only hash-sharding. Prone to develop hot partitions. Elastic Clusters impose additional functionality limitations.
+
+Yes
+Full support for multiple sharding methodologies, including hash, range, and geo-zone.
+
+Replicate and scale beyond a single region / Comply with data locality regulations and survive regional outages
+No
+Limited to 20 clusters per region, with 32 shards per cluster and 2 instances per shard. All constrained to a single region.
+
+Yes
+Global clusters, with up to 50 replicas per shard across multiple regions
+
+High resilience, rapid failure recovery, fast failover, retryable writes, multi-region
+No
+~120 second failover, no retryable writes, no multi-region within a single or elastic cluster
+
+Yes
+Typical failover sub-5 seconds, retryable reads and writes, multi-region & multi-cloud clusters
+
+Multi-statement distributed ACID transactions
+Limited
+Ambiguous commits, poor error handling, small data sizes. Transactions not supported across shards in Elastic Clusters.
+
+Yes
+Integrated text search, geospatial processing, graph traversals
+Limited
+Data replicated to multiple prerequisite bolt-on AWS services for text search, and only basic geospatial operators, adding cost and complexity
+
+Yes
+All available from a single API and platform
+
+Native support for time series data
+No
+Yes
+Hedged Reads
+
+Queries submitted to multiple replicas for consistent low latency
+
+No
+Yes
+Online Archive
+
+Automatically tier data out from database to cloud object storage (Amazon S3)
+
+No
+Yes
+Online Archive
+
+Integrated querying of data in Amazon S3
+No
+Data must be replicated to multiple adjacent AWS services, driving up cost and complexity
+
+Yes
+Atlas Data Federation
+
+On-demand Materialized Views
+No
+Yes
+$merge aggregation stage
+
+Schema governance
+No
+Schema controls must be enforced in the app
+
+Yes
+JSON schema
+
+Rich data types
+Limited
+DocumentDB supports storing decimal128 values, but none of the powerful aggregation features for working with them.
+
+Yes
+Reactive, event-driven data pipelines
+Limited
+Change streams run against primary only & incur additional cost.
+
+Yes
+MongoDB Change Streams & Atlas Triggers
+
+Support for role-based access control and authentication restrictions
+Limited
+Coarse-grained roles only
+
+Yes
+Fine-grained monitoring telemetry & prescriptive performance recommendations
+No
+<50 metrics
+
+Yes
+100+ metrics. Performance Advisor for index and schema recommendations
+
+Client-side field level encryption for fine-grained separation of duties in the cloud
+No
+Yes
+Queryable Encryption
+No
+Yes
+Available in MongoDB 7.0
+
+Availability of advanced developer and analysis tools
+Limited
+Yes
+MongoDB Compass, Charts, SQL Connector, Tableau Connector, Power BI Connector, Spark Connector
+
+Freedom from vendor lock-in
+No
+AWS only
+
+Yes
+AWS, Azure, and Google Cloud. Available on 110+ regions
+
+Develop & run anywhere
+On your mobile device, on your laptop, in your own data center, and in hybrid configurations
+
+No
+AWS only
+
+Yes
+Atlas App Services / MongoDB Server / multi-cloud clusters in Atlas
+
+Mobile & Edge Sync
+No
+
+Data must be replicated to multiple adjacent AWS services, driving up cost and complexity
+
+Yes
+
+Atlas for the Edge
+Access to MongoDB expertise
+No
+Yes
+Hundreds of engineers with multi-year MongoDB development, support, and consulting experience.
