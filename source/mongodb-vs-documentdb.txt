@@ -59,13 +59,9 @@ Applications written for MongoDB will need to be rewritten to work with Amazon D
 .. image:: /figures/documentdb.avif
    :alt:  Comparison of Amazon DocumentDB and MongoDB
 
-.. tip:: DocumentDB Compatibility with MongoDB
-    
-   For the latest information about DocumentDB's compatibility with the MongoDB API,
-   see `Is DocumentDB Really MongoDB? <https://www.isdocumentdbreallymongodb.com/>`__
-
-The key differences between DocumentDB and MongoDB's on-demand, elastic, and fully
-managed `Atlas service <https://www.mongodb.com/cloud/atlas>`__ are summarized below.
+The following table summarizes the key differences between DocumentDB and MongoDB's
+on-demand, elastic, and fully managed
+`Atlas service <https://www.mongodb.com/cloud/atlas>`__: 
 
 .. list-table::
    :header-rows: 1
@@ -161,7 +157,8 @@ managed `Atlas service <https://www.mongodb.com/cloud/atlas>`__ are summarized b
 
    * - Queryable Encryption
      - **No.**
-     - **Yes.** Available in MongoDB 7.0 and later versions.
+     - **Yes.** `Available in MongoDB 7.0 <https://www.mongodb.com/blog/post/mongodb-announces-queryable-encryption>`__
+       and later versions.
 
    * - Availability of advanced developer and analysis tools
      - **Limited.**
@@ -175,12 +172,13 @@ managed `Atlas service <https://www.mongodb.com/cloud/atlas>`__ are summarized b
    * - Develop and run anywhere: on your mobile device, on your laptop, in your own data
        center, and in hybrid configurations.
      - **No.** AWS only.
-     - **Yes.** Atlas App Services / MongoDB Server / multi-cloud clusters in Atlas.
+     - **Yes.** `Atlas App Services <https://www.mongodb.com/compare/www.mongodb.com/atlas/app-services>`__
+       / MongoDB Server / multi-cloud clusters in Atlas.
 
    * - Mobile and Edge Sync
      - **No.** Data must be replicated to multiple adjacent AWS services, driving up cost
        and complexity.
-     - **Yes.** Atlas for the Edge.
+     - **Yes.** `Atlas for the Edge. <https://www.mongodb.com/use-cases/atlas-for-the-edge>`__
 
    * - Access to MongoDB expertise
      - **No.**
@@ -190,81 +188,91 @@ managed `Atlas service <https://www.mongodb.com/cloud/atlas>`__ are summarized b
 What Is MongoDB Atlas?
 ----------------------
 
-MongoDB offers the fully managed, on-demand and global MongoDB Atlas service, in the
+MongoDB offers the fully managed, on-demand, and global
+`MongoDB Atlas <https://www.mongodb.com/cloud/atlas>`__ service in the
 public cloud. Atlas enables customers to deploy, operate, and scale MongoDB databases
 on AWS, Azure, or Google Cloud. MongoDB Atlas is available through a pay-as-you-go model
-and billed on an hourly basis. It's easy to get started - use a simple GUI or programmatic
+and billed on an hourly basis. It's easy to get started--use a simple GUI or programmatic
 API calls to select the public cloud provider, region, instance size, and features you
-need. MongoDB Atlas provides:
+need.
 
-Automated database and infrastructure provisioning along with auto-scaling so teams can
-get the database resources they need, when they need them, and can elastically scale in
-response to application demands.
+MongoDB Atlas provides:
 
-Security features to protect your data, with network isolation, fine-grained access
-control, auditing, and end-to-end encryption down to the level of individual fields,
-enabling you to comply with regulations such as ISO, HIPAA and GDPR. Built in replication
-both within and across regions for always-on availability.
+- Automated database and infrastructure provisioning, along with autoscaling, so teams can
+  get the database resources they need, when they need them, and can elastically scale in
+  response to application demands.
 
-Global Clusters for a fully managed, globally distributed database that provides low
-latency, responsive reads and writes to users anywhere, with strong data placement
-controls for regulatory compliance.
+- Security features to protect your data, with network isolation, fine-grained access
+  control, auditing, and end-to-end encryption down to the level of individual fields,
+  enabling you to comply with regulations such as ISO, HIPAA, and GDPR. Built-in
+  replication both within and across regions for always-on availability.
 
-Combined transactional and analytical capabilities with Atlas Analytics Nodes to isolate
-analytics queries from operational workloads while providing real-time insight. Native
-MongoDB analytics tools, such as MongoDB Charts and MongoDB Connectors (for SQL, Tableau,
-Power BI and Spark) are configured to utilize Analytics Nodes by default. MongoDB's rich
-aggregation pipeline engine allows users to run expressive queries against their data.
+- Global Clusters for a fully managed, globally distributed database that provides low
+  latency and responsive reads and writes to users anywhere, with strong data placement
+  controls for regulatory compliance.
 
-Fully integrated native MongoDB data visualization tools - MongoDB Charts, which supports
-the full richness of the document model, including nested, hierarchical and geospatial
-data and provide embedding and sharing capabilities. Quickly build visualizations of your
-data without needing to deploy or manage any software or infrastructure.
+- Combined transactional and analytical capabilities with Atlas Analytics Nodes to isolate
+  analytics queries from operational workloads while providing real-time insight. Native
+  MongoDB analytics tools, such as MongoDB Charts and MongoDB Connectors (for SQL, Tableau,
+  Power BI, and Spark), are configured to utilize Analytics Nodes by default. MongoDB's rich
+  aggregation pipeline engine allows users to run expressive queries against their data.
 
-Fully integrated MongoDB Atlas Data Federation which allows users to quickly run federated
-queries across Atlas clusters and data stored on Amazon S3 in many formats. The MongoDB
-Query Language (MQL) and tools allow users to get value from data faster.
+- Fully integrated native MongoDB data visualization tools. MongoDB Charts supports
+  the full richness of the document model, including nested, hierarchical, and geospatial
+  data, and provides embedding and sharing capabilities. Quickly build visualizations of
+  your data without needing to deploy or manage any software or infrastructure.
 
-Fully managed backups with point in time recovery to protect against data corruption, and
-the ability to query backups in-place without full restores.
+- Fully integrated `MongoDB Atlas Data Federation <https://www.mongodb.com/atlas/data-federation>`__,
+  which allows users to quickly run federated
+  queries across Atlas clusters and data stored on Amazon S3 in many formats. The MongoDB
+  Query Language (MQL) and tools allow users to get value from data faster.
 
-Automatic data tiering which helps lower costs by moving data to lower cost storage such
-as Amazon S3.
+- Fully managed backups with point-in-time recovery to protect against data corruption and
+  the ability to query backups in-place without full restores.
 
-Fine-grained monitoring and customizable alerts for comprehensive performance visibility.
-Automated patching and single-click upgrades for new major versions of the database,
-enabling you to take advantage of the latest MongoDB features.
+- `Automatic data tiering <https://www.mongodb.com/atlas/online-archive>`__, which helps
+  lower costs by moving data to lower-cost storage such as Amazon S3.
 
-Access to the Atlas App Services, with Data Access Controls, Functions, and Triggers
-delivered in a completely serverless model.
+- Fine-grained monitoring and customizable alerts for comprehensive performance visibility.
+  Automated patching and single-click upgrades for new major versions of the database,
+  enabling you to take advantage of the latest MongoDB features.
 
-Native time-series support optimized for both highly performant data ingestion and
-querying, along with reduced I/O and storage overhead
+- Access to the `Atlas App Services <https://www.mongodb.com/compare/www.mongodb.com/atlas/app-services>`__,
+  with Data Access Controls, Functions, and Triggers
+  delivered in a completely serverless model.
 
-The full text Atlas Search service providing rich search capabilities against your fully
-managed databases with no additional infrastructure or systems to provision, manage, or scale.
+- Native time-series support optimized for highly performant data ingestion and
+  querying, along with reduced I/O and storage overhead.
 
-Live migration to move your self-managed MongoDB clusters into the Atlas service or to
-move Atlas clusters between cloud providers.
+- The full-text `Atlas Search <https://www.mongodb.com/compare/www.mongodb.com/atlas/search>`__
+  service, which provides rich search capabilities against
+  your fully managed databases with no additional infrastructure or systems to provision,
+  manage, or scale.
 
-Stable API to make upgrades risk-free, future-proofing your development
+- Live migration to move your self-managed MongoDB clusters into the Atlas service or to
+  move Atlas clusters between cloud providers.
 
-Widespread coverage on the major cloud platforms with availability in 110+ cloud regions
-across Amazon Web Services, Microsoft Azure, and Google Cloud. MongoDB Atlas delivers a
-consistent experience across each of the cloud platforms, ensuring developers can deploy
-wherever they need to, without compromising critical functionality or risking lock-in.
+- `Stable API <https://www.mongodb.com/compare/www.mongodb.com/developer/products/mongodb/upgrade-fearlessly-stable-api>`__
+  to make upgrades risk-free, future-proofing your development.
 
-MongoDB Atlas is serving a vast range of workloads for startups, Fortune 500 companies,
+- Widespread coverage on the major cloud platforms with availability in more than 110
+  cloud regions across Amazon Web Services, Microsoft Azure, and Google Cloud. MongoDB
+  Atlas delivers a consistent experience across each of the cloud platforms, ensuring
+  developers can deploy wherever they need to without compromising critical functionality
+  or risking lock-in.
+
+`MongoDB Atlas <https://www.mongodb.com/cloud/atlas>`__ is serving a vast range of workloads for startups, Fortune 500 companies,
 and government agencies, including mission-critical applications handling highly sensitive
 data in regulated industries. The developer experience across MongoDB Atlas and
-self-managed MongoDB is consistent, ensuring that you easily move from on-premises to
-the public cloud, and between providers as your needs evolve.
+self-managed MongoDB is consistent, ensuring that you can easily move from on-premises to
+the public cloud, or between providers, as your needs evolve.
 
-Beyond the database, MongoDB Atlas Data Federation allows you to simultaneously query
+Beyond the database, `MongoDB Atlas Data Federation <https://www.mongodb.com/atlas/data-federation>`__
+allows you to simultaneously query
 data in any format on Amazon S3 and in Atlas clusters using the MongoDB Query Language
-(MQL). With Atlas Data Federation you can realize the value of your S3 data lake faster:
-you don't have to move data anywhere, you can work with complex data immediately in its
-native form, and with its fully-managed, serverless architecture, you control costs and
+(MQL). With Atlas Data Federation, you can realize the value of your S3 data lake faster:
+you don't have to move data anywhere; you can work with complex data immediately in its
+native form; and with its fully managed, serverless architecture, you control costs and
 remove the operational burden. DocumentDB offers no equivalent capability, and so users
 must spin up an entirely separate service with a different query language to access S3
 data.
@@ -276,17 +284,25 @@ Is DocumentDB Compatible with MongoDB?
 --------------------------------------
 
 Amazon DocumentDB claims to support the MongoDB 4.0 API, which implies that it is at
-parity with MongoDB v4.0, released back in June 2018. In actual fact, the DocumentDB 4.0
-feature set still closely resembles early MongoDB 3.0 and 3.2, released in 2015, and compatibility testing reveals it fails 66% of the MongoDB API correctness tests. Applications written for MongoDB will need to be rewritten to work with Amazon DocumentDB. However, since DocumentDB emulates a MongoDB API, applications written for DocumentDB can be easily migrated into MongoDB Atlas.
+parity with MongoDB v4.0, released back in June 2018. In fact, the DocumentDB 4.0
+feature set still closely resembles early MongoDB 3.0 and 3.2, released in 2015,
+and compatibility testing reveals that DocumentDB fails 66% of the MongoDB API
+correctness tests. Applications written for MongoDB will need to be rewritten to work
+with Amazon DocumentDB. However, since DocumentDB emulates a MongoDB API, applications
+written for DocumentDB can be easily migrated into MongoDB Atlas.
 
-Want to learn more?
+Want to Learn More?
 -------------------
 
-Interested in migrating from DocumentDB to MongoDB Atlas? Please refer to our migration guide.
+Interested in migrating from DocumentDB to MongoDB Atlas? Please refer to our
+migration guide.
 
-Interested in up-to-date results on DocumentDB's compatibility with the MongoDB API? Get the latest results at Is DocumentDB Really MongoDB?.
+Interested in up-to-date results on DocumentDB's compatibility with the MongoDB API? Get
+the latest results at
+`Is DocumentDB Really MongoDB? <https://www.isdocumentdbreallymongodb.com/>`__
 
-Try MongoDB Atlas for free for a real MongoDB experience.
+`Try MongoDB Atlas for free <https://www.mongodb.com/cloud/atlas/lp/try4>`__
+for a real MongoDB experience.
 
 FAQs
 ----
@@ -294,8 +310,8 @@ FAQs
 When should I use a document database?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Document databases store data in JSON-like documents which allows them to be inherently
-easy for developers to work with. MongoDB is a modern document database which contains
+Document databases store data in JSON-like documents, which allows them to be inherently
+easy for developers to work with. MongoDB is a modern document database that contains
 many of the powerful features found in popular relational databases. These include
 ACID-compliant transactions, schema governance, enterprise-grade security, and more.
 
@@ -314,11 +330,12 @@ features, and is more costly and difficult to manage.
 Is MongoDB a good fit for mobile and edge use cases?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-MongoDB offers Atlas for the Edge, a solution that streamlines data management between
+MongoDB offers `Atlas for the Edge <https://www.mongodb.com/use-cases/atlas-for-the-edge>`__,
+a solution that streamlines data management between
 mobile and edge devices with an offline-first approach. This means that synchronization and
 conflict resolution are automatically handled in any case, regardless of network
 connectivity. Atlas for the Edge also allows users to process data on-premise in Edge
-Servers, reducing the distance between edge devices and compute, and therefore decreasing
+Servers, reducing the distance between edge devices and compute, thereby decreasing
 latency.
 
 Is MongoDB a good fit for web applications?
