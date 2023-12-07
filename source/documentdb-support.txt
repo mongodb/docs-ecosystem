@@ -1,8 +1,8 @@
 .. _documentdb-support:
 
-================================
-Amazon DocumentDB Supportability
-================================
+===============================
+Amazon DocumentDB Compatibility
+===============================
 
 .. contents:: On this page
    :local:
@@ -12,33 +12,28 @@ Amazon DocumentDB Supportability
 .. figure:: /figures/documentdb.png
    :alt: Amazon DocumentDB logo
 
-`Amazon DocumentDB <https://docs.aws.amazon.com/documentdb/latest/developerguide/what-is.html>`__
-(with MongoDB compatibility) is a fast, reliable, and fully managed
-database service. Amazon DocumentDB makes it easy to set up, operate, and scale
-MongoDB-compatible databases in the cloud. With Amazon DocumentDB, you can run the same
-application code and use the same drivers and tools that you use with MongoDB.
+`Amazon DocumentDB (with MongoDB compatibility) <https://docs.aws.amazon.com/documentdb/latest/developerguide/what-is.html>`__
+is a fast, reliable, and fully managed database service. Amazon DocumentDB makes it easy
+to set up, operate, and scale MongoDB-compatible databases in the cloud.
+With Amazon DocumentDB, you can run the same application code and use the same drivers
+and tools that you use with MongoDB.
 
 Version Information
 -------------------
 
-Amazon DocumentDB currently supports MongoDB 4.0 and MongoDB 5.0. These are several
-major versions behind what `MongoDB Atlas <https://www.mongodb.com/docs/atlas/>`__
-currently offers (see `MongoDB Evolved – Version History <https://www.mongodb.com/evolved>`__
-for more information), and as a result are lacking support for newer features and
-functionality.
+Amazon DocumentDB currently supports MongoDB v4.0 and MongoDB v5.0. These versions lack
+support for the newer features and functionality in the versions of MongoDB available
+on `MongoDB Atlas. <https://www.mongodb.com/docs/atlas/>`__
+
+To learn more about the features available in each version of MongoDB, see 
+`MongoDB Evolved - Version History. <https://www.mongodb.com/evolved>`__
 
 Compatibility
 -------------
 
-AWS outlines to what degree DocumentDB is
-`compatible with MongoDB 4.0 and MongoDB 5.0. <https://docs.aws.amazon.com/documentdb/latest/developerguide/compatibility.html#mongodb-50>`__
-There is additional documentation that lays out the functional differences between
-`AWS DocumentDB and MongoDB. <https://docs.aws.amazon.com/documentdb/latest/developerguide/functional-differences.html>`__
-
-A convenient list of tables of the
-`supported MongoDB APIs, operations, and data types <https://docs.aws.amazon.com/documentdb/latest/developerguide/mongo-apis.html>`__
-can also be found, but to summarize the following are either only available in a limited
-capacity or not supported by DocumentDB:
+As of November 2023, Amazon DocumentDB is only 34 percent compatible with the MongoDB API.
+On Amazon DocumentDB, the following MongoDB features are
+available only in a limited capacity or are not supported at all:
 
 - Features: `Capped collections <https://www.mongodb.com/docs/manual/core/capped-collections/>`__,
   `Map-Reduce <https://www.mongodb.com/docs/v7.0/core/map-reduce/>`__,
@@ -62,9 +57,18 @@ capacity or not supported by DocumentDB:
 - Aggregation Stages: ``$collStats``, ``$facet``, ``$bucket``, ``$bucketAuto``,
   ``$sortByCount``, ``$listLocalSessions``, ``$listSessions``, ``$graphLookup``
 
-From the `Amazon DocumentDB / MongoDB compatibility tester site <https://www.isdocumentdbreallymongodb.com/>`__, as of November, 2023
-DocumentDB appears to only be 33.84% compatible (based on the MongoDB API Tester).
+To learn more about Amazon DocumentDB's compatibility with MongoDB v4.0 and MongoDB v5.0,
+see the following AWS documentation:
+
+- `MongoDB Compatibility <https://docs.aws.amazon.com/documentdb/latest/developerguide/compatibility.html#mongodb-50>`__
+- `Functional Differences: Amazon DocumentDB and MongoDB <https://docs.aws.amazon.com/documentdb/latest/developerguide/functional-differences.html>`__
+- `Supported MongoDB APIs, Operations, and Data Types <https://docs.aws.amazon.com/documentdb/latest/developerguide/mongo-apis.html>`__
+
+For the most current compatibility status between Amazon DocumentDB and MongoDB, see
+`Is Amazon DocumentDB Compatible with MongoDB Atlas? <https://www.isdocumentdbreallymongodb.com/>`__
 
 Support
 -------
-MongoDB does not offer commercial support for AWS DocumentDB. For assistance with this product specifically AWS Support should be contacted directly.
+
+MongoDB doesn't offer commercial support for Amazon DocumentDB. For help with this product,
+contact AWS Support directly.
