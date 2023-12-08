@@ -1,4 +1,4 @@
-.. _documentdb-support:
+.. _documentdb-compat:
 
 ===============================
 Amazon DocumentDB Compatibility

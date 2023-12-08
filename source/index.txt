@@ -143,13 +143,13 @@ Featured Community-Supported Libraries
 
 Don't see your desired language? Browse more `community-supported libraries <https://github.com/ramnes/awesome-mongodb#libraries>`__.
 
-Comparison with Other Document Databases
-----------------------------------------
+Compatibility of Other Document Databases
+-----------------------------------------
 
-See the following pages to learn about the differences between MongoDB and other
-document databases:
+See the following pages for information about other document databases' compatibility
+with MongoDB:
 
-- :ref:`documentdb-support`
+- :ref:`documentdb-compat`
 
 .. toctree::
 
