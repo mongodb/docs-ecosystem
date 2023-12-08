@@ -28,8 +28,8 @@ and tools that you use with MongoDB.
 Version Information
 -------------------
 
-Amazon DocumentDB supports MongoDB v4.0 and MongoDB v5.0. These versions lack
-support for the newer features and functionality in the versions of MongoDB available
+Amazon DocumentDB supports MongoDB v4.0 and MongoDB v5.0. These versions don't 
+support all of the newer features and functionality in the versions of MongoDB available
 on `MongoDB Atlas. <https://www.mongodb.com/docs/atlas/>`__
 
 .. tip:: MongoDB Version History
@@ -40,23 +40,24 @@ on `MongoDB Atlas. <https://www.mongodb.com/docs/atlas/>`__
 Compatibility
 -------------
 
-As of November 2023, Amazon DocumentDB is only about 34 percent compatible with the
+As of November 2023, Amazon DocumentDB is about 34 percent compatible with the
 MongoDB API.
-On Amazon DocumentDB, the following MongoDB features are
-available only in a limited capacity or are not supported at all:
 
-- Features: `Capped collections <https://www.mongodb.com/docs/manual/core/capped-collections/>`__,
+On Amazon DocumentDB, the following MongoDB features are
+available in a limited capacity or are not supported at all:
+
+- **Features**: `Capped collections <https://www.mongodb.com/docs/manual/core/capped-collections/>`__,
   `map-reduce operations <https://www.mongodb.com/docs/v7.0/core/map-reduce/>`__,
   `GridFS <https://www.mongodb.com/docs/manual/core/gridfs/>`__,
   `text indexes <https://www.mongodb.com/docs/manual/core/indexes/index-types/index-text/>`__,
   `partial indexes <https://www.mongodb.com/docs/manual/core/index-partial/>`__,
   `case-insensitive indexes <https://www.mongodb.com/docs/manual/core/index-case-insensitive/>`__
-- Commands: ``collMod``, ``createView``, ``filemd5``, ``reIndex``, ``connPoolStats``,
+- **Commands**: ``collMod``, ``createView``, ``filemd5``, ``reIndex``, ``connPoolStats``,
   ``dbHash``, ``features``, sharding commands (aside from ``enableSharding`` and
   ``shardCollection``)
-- Query Operators: ``$expr``, ``$text``, ``$where``, ``$meta``, ``$box``, ``$center``,
+- **Query Operators**: ``$expr``, ``$text``, ``$where``, ``$meta``, ``$box``, ``$center``,
   ``$centerSphere``, ``$polygon``, ``$near``
-- Aggregation Operators: ``$accumulator``, ``$count``, ``$ceil``, ``$exp``, ``$floor``,
+- **Aggregation Operators**: ``$accumulator``, ``$count``, ``$ceil``, ``$exp``, ``$floor``,
   ``$ln``, ``$log``, ``$log10``, ``$pow``, ``$sqrt``, ``$trunc``, ``$round``, ``$first``,
   ``$last``, ``$switch``, ``$binarySize``, ``$bsonSize``, ``$dateFromParts``,
   ``$dateToParts``, ``$dateTrunc``, ``$dateDiff``, ``$setDifference``, ``$anyElementTrue``,
@@ -64,7 +65,7 @@ available only in a limited capacity or are not supported at all:
   ``$regexFindAll``, ``$regexMatch``, ``$replaceOne``, ``$replaceAll``, ``$convert``,
   ``$toBool``, ``$toDate``, ``$toDecimal``, ``$toDouble``, ``$toInt``, ``$toLong``,
   ``$toObjectId``, ``$toString``, ``$isNumber``, ``$rand``, ``$sampleRate``, ``$getField``
-- Aggregation Stages: ``$collStats``, ``$facet``, ``$bucket``, ``$bucketAuto``,
+- **Aggregation Stages**: ``$collStats``, ``$facet``, ``$bucket``, ``$bucketAuto``,
   ``$sortByCount``, ``$listLocalSessions``, ``$listSessions``, ``$graphLookup``
 
 To learn more about Amazon DocumentDB's compatibility with MongoDB v4.0 and MongoDB v5.0,
@@ -81,4 +82,4 @@ Support
 -------
 
 MongoDB doesn't offer commercial support for Amazon DocumentDB. For help with this product,
-contact AWS Support directly.
+contact `AWS Support. <https://aws.amazon.com/contact-us/>`__
