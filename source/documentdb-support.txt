@@ -4,6 +4,13 @@
 Amazon DocumentDB Compatibility
 ===============================
 
+.. facet::
+   :name: genre
+   :values: reference
+ 
+.. meta:: 
+   :keywords: AWS, support
+
 .. contents:: On this page
    :local:
    :backlinks: none
@@ -25,24 +32,27 @@ Amazon DocumentDB currently supports MongoDB v4.0 and MongoDB v5.0. These versio
 support for the newer features and functionality in the versions of MongoDB available
 on `MongoDB Atlas. <https://www.mongodb.com/docs/atlas/>`__
 
-To learn more about the features available in each version of MongoDB, see 
-`MongoDB Evolved - Version History. <https://www.mongodb.com/evolved>`__
+.. tip:: MongoDB Version History
+   
+   To learn more about the features available in each version of MongoDB, see 
+   `MongoDB Evolved - Version History. <https://www.mongodb.com/evolved>`__
 
 Compatibility
 -------------
 
-As of November 2023, Amazon DocumentDB is only 34 percent compatible with the MongoDB API.
+As of November 2023, Amazon DocumentDB is only about 34 percent compatible with the
+MongoDB API.
 On Amazon DocumentDB, the following MongoDB features are
 available only in a limited capacity or are not supported at all:
 
 - Features: `Capped collections <https://www.mongodb.com/docs/manual/core/capped-collections/>`__,
-  `Map-Reduce <https://www.mongodb.com/docs/v7.0/core/map-reduce/>`__,
+  `map-reduce operations <https://www.mongodb.com/docs/v7.0/core/map-reduce/>`__,
   `GridFS <https://www.mongodb.com/docs/manual/core/gridfs/>`__,
-  `Text Indexes <https://www.mongodb.com/docs/manual/core/indexes/index-types/index-text/>`__,
-  `Partial Indexes <https://www.mongodb.com/docs/manual/core/index-partial/>`__,
-  `Case-Insensitive Indexes <https://www.mongodb.com/docs/manual/core/index-case-insensitive/>`__
+  `text indexes <https://www.mongodb.com/docs/manual/core/indexes/index-types/index-text/>`__,
+  `partial indexes <https://www.mongodb.com/docs/manual/core/index-partial/>`__,
+  `case-insensitive indexes <https://www.mongodb.com/docs/manual/core/index-case-insensitive/>`__
 - Commands: ``collMod``, ``createView``, ``filemd5``, ``reIndex``, ``connPoolStats``,
-  ``dbHash``, ``features``, Sharding commands (aside from ``enableSharding`` and
+  ``dbHash``, ``features``, sharding commands (aside from ``enableSharding`` and
   ``shardCollection``)
 - Query Operators: ``$expr``, ``$text``, ``$where``, ``$meta``, ``$box``, ``$center``,
   ``$centerSphere``, ``$polygon``, ``$near``
