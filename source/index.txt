@@ -143,8 +143,8 @@ Featured Community-Supported Libraries
 
 Don't see your desired language? Browse more `community-supported libraries <https://github.com/ramnes/awesome-mongodb#libraries>`__.
 
-Compatibility of Other Document Databases
------------------------------------------
+Compatibility with Other Document Databases
+-------------------------------------------
 
 See the following pages for information about other document databases' compatibility
 with MongoDB:
