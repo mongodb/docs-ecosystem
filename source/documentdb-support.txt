@@ -29,7 +29,7 @@ Version Information
 -------------------
 
 Amazon DocumentDB supports MongoDB v4.0 and MongoDB v5.0. These versions don't 
-support all of the newer features and functionality in the versions of MongoDB available
+support all the newer features and functionality in the versions of MongoDB available
 on `MongoDB Atlas. <https://www.mongodb.com/docs/atlas/>`__
 
 .. tip:: MongoDB Version History
