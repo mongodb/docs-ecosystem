@@ -1,5 +1,7 @@
 .. _cosmosdb-compat:
 
+:noprevnext:
+
 =============================
 Azure Cosmos DB Compatibility
 =============================

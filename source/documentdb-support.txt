@@ -1,5 +1,7 @@
 .. _documentdb-compat:
 
+:noprevnext:
+
 ===============================
 Amazon DocumentDB Compatibility
 ===============================
