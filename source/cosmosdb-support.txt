@@ -60,9 +60,8 @@ available in a limited capacity or are not supported at all:
   ``$indexStats``, ``$listLocalSessions``, ``$listSessions``, ``$lookup``
 
 To learn more about Azure Cosmos DB's compatibility with MongoDB v4.2,
-see the following Microsoft documentation:
-
-- `Azure Cosmos DB for MongoDB (4.2 server version): Supported features and syntax <https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/feature-support-42>`__
+see Microsoft's `Azure Cosmos DB for MongoDB (4.2 server version): Supported features and syntax <https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/feature-support-42>`__
+documentation.
 
 For the most current compatibility status between Azure Cosmos DB and MongoDB, see
 `Is Cosmos DB Compatible with MongoDB Atlas? <https://www.iscosmosdbreallymongodb.com/>`__
