@@ -1,0 +1,10 @@
+=====================================
+Other Document Database Compatibility
+=====================================
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   /documentdb-support
+   /cosmosdb-support
