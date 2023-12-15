@@ -30,8 +30,8 @@ Azure Cosmos DB for MongoDB implements MongoDB's
 `Wire Protocol <https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol/>`__
 to allow MongoDB's `drivers <https://www.mongodb.com/docs/drivers/>`__ to connect and
 interact with Cosmos DB as though it were a MongoDB host. However, this
-implementation has limitations, as outlined in the Compatibility section of this page.
-.
+implementation has limitations, as outlined in the :ref:`cosmosdb-compat-section` section
+of this page.
 
 Version Information
 -------------------
@@ -44,6 +44,8 @@ MongoDB available on `MongoDB Atlas. <https://www.mongodb.com/docs/atlas/>`__
    
    To learn more about the features available in each version of MongoDB, see 
    `MongoDB Evolved - Version History. <https://www.mongodb.com/evolved>`__
+
+.. _cosmosdb-compat-section:
 
 Compatibility
 -------------
