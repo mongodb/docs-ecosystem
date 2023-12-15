@@ -26,11 +26,12 @@ makes it easy to use Azure Cosmos DB as if it were a MongoDB database.
 With Azure Cosmos DB, you can run the same application code and use the same drivers
 and tools that you use with MongoDB.
 
-Though Azure Cosmos DB for MongoDB implements MongoDB's
+Azure Cosmos DB for MongoDB implements MongoDB's
 `Wire Protocol <https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol/>`__
 to allow MongoDB's `drivers <https://www.mongodb.com/docs/drivers/>`__ to connect and
-interact with Cosmos DB as though it were a MongoDB host, this
-implementation has limitations.
+interact with Cosmos DB as though it were a MongoDB host. However, this
+implementation has limitations, as outlined in the Compatibility section of this page.
+.
 
 Version Information
 -------------------
@@ -65,8 +66,9 @@ To learn more about Azure Cosmos DB's compatibility with MongoDB v4.2,
 see Microsoft's `Azure Cosmos DB for MongoDB (4.2 server version): Supported features and syntax <https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/feature-support-42>`__
 documentation.
 
-For the most current compatibility status between Azure Cosmos DB and MongoDB, see
+For the most current compatibility status between Azure Cosmos DB and MongoDB, see the
 `Is Cosmos DB Compatible with MongoDB Atlas? <https://www.iscosmosdbreallymongodb.com/>`__
+website.
 
 Support
 -------
