@@ -7,6 +7,7 @@ Python 3 Compatibility
    :class: compatibility-large
 
    * - PyMongo Driver Version
+     - Python 3.12
      - Python 3.11
      - Python 3.10 [#ssl-4.0-issue]_
      - Python 3.9
@@ -20,7 +21,38 @@ Python 3 Compatibility
      - Python 3.2
      - Python 3.1
 
+   * - 4.6
+     - ✓
+     - ✓
+     - ✓
+     - ✓
+     - ✓
+     - ✓
+     -
+     -
+     -
+     -
+     -
+     -
+     -
+
+   * - 4.5
+     - ✓
+     - ✓
+     - ✓
+     - ✓
+     - ✓
+     - ✓
+     -
+     -
+     -
+     -
+     -
+     -
+     -
+
    * - 4.4
+     -
      - ✓
      - ✓
      - ✓
@@ -35,6 +67,7 @@ Python 3 Compatibility
      -
 
    * - 4.3
+     -
      - ✓
      - ✓
      - ✓
@@ -49,7 +82,8 @@ Python 3 Compatibility
      -
 
    * - 4.2
-     - 
+     -
+     -
      - ✓
      - ✓
      - ✓
@@ -63,6 +97,7 @@ Python 3 Compatibility
      -
 
    * - 4.1
+     -
      -
      - ✓
      - ✓
@@ -78,6 +113,7 @@ Python 3 Compatibility
 
    * - 4.0
      -
+     -
      - ✓
      - ✓
      - ✓
@@ -91,6 +127,7 @@ Python 3 Compatibility
      -
 
    * - 3.13
+     -
      - ✓
      - ✓
      - ✓
@@ -105,6 +142,7 @@ Python 3 Compatibility
      -
 
    * - 3.12
+     -
      -
      - ✓
      - ✓
@@ -121,6 +159,7 @@ Python 3 Compatibility
    * - 3.11
      -
      -
+     -
      - ✓
      - ✓
      - ✓
@@ -133,6 +172,7 @@ Python 3 Compatibility
      -
 
    * - 3.10
+     -
      -
      -
      -
@@ -151,6 +191,7 @@ Python 3 Compatibility
      -
      -
      -
+     -
      - ✓
      - ✓
      - ✓
@@ -165,6 +206,7 @@ Python 3 Compatibility
      -
      -
      -
+     -
      - ✓
      - ✓
      - ✓
@@ -175,6 +217,7 @@ Python 3 Compatibility
      -
 
    * - 3.7
+     -
      -
      -
      -
@@ -194,6 +237,7 @@ Python 3 Compatibility
      -
      -
      -
+     -
      - ✓
      - ✓
      - ✓
@@ -203,6 +247,7 @@ Python 3 Compatibility
      -
 
    * - 3.5
+     -
      -
      -
      -
@@ -223,6 +268,7 @@ Python 3 Compatibility
      -
      -
      -
+     -
      - ✓
      - ✓
      - ✓
@@ -231,6 +277,7 @@ Python 3 Compatibility
      -
 
    * - 3.3
+     -
      -
      -
      -
@@ -251,6 +298,7 @@ Python 3 Compatibility
      -
      -
      -
+     -
      - ✓
      - ✓
      - ✓
@@ -259,6 +307,7 @@ Python 3 Compatibility
      -
 
    * - 3.1
+     -
      -
      -
      -
@@ -280,6 +329,7 @@ Python 3 Compatibility
      -
      -
      -
+     -
      - ✓
      - ✓
      - ✓
@@ -287,6 +337,7 @@ Python 3 Compatibility
      -
 
    * - 2.9
+     -
      -
      -
      -
@@ -308,6 +359,7 @@ Python 3 Compatibility
      -
      -
      -
+     -
      - ✓
      - ✓
      - ✓
@@ -322,11 +374,21 @@ Python 3 Compatibility
      -
      -
      -
+     -
      - ✓
      - ✓
      - ✓
      - ✓
      - ✓
+
+.. [#ssl-4.0-issue] Versions of Python 3.10 and later are not compatible with
+   TLS/SSL for versions of MongoDB 4.0 and earlier. See the `PyMongo documentation <https://pymongo.readthedocs.io/en/stable/examples/tls.html#python-3-10-incompatibilities-with-tls-ssl-on-mongodb-4-0>`__
+   for more information.
+.. [#three-six-compat] Pymongo 4.1 requires Python 3.6.2 or later.
+
+.. note::
+
+   PyPy3 is a Python 3.2-compatible alternative interpreter.
 
 Python 2 Compatibility
 ``````````````````````
@@ -334,20 +396,13 @@ Python 2 Compatibility
 .. list-table::
    :header-rows: 1
    :stub-columns: 1
-   :class: compatibility
-
+   :class: compatibility-large
 
    * - PyMongo Driver Version
      - Python 2.7, PyPy
      - Python 2.6
      - Python 2.5, Jython 2.5
      - Python 2.4
-
-   * - 4.1 [#python-2-compat]_
-     -
-     -
-     -
-     -
 
    * - 4.0 [#python-2-compat]_
      -
@@ -454,12 +509,9 @@ Python 2 Compatibility
 
 .. [#python-2-compat] Versions of PyMongo 4.0 and later are not compatible
    with Python 2
-.. [#ssl-4.0-issue] Versions of Python 3.10 and later are not compatible with
-   TLS/SSL for versions of MongoDB 4.0 and earlier. See the `PyMongo documentation <https://pymongo.readthedocs.io/en/stable/examples/tls.html#python-3-10-incompatibilities-with-tls-ssl-on-mongodb-4-0>`__
-   for more information.
-.. [#three-six-compat] Pymongo 4.1 requires Python 3.6.2 or later.
 
 .. note::
 
-   - Jython 2.5 is a Python 2.5-compatible alternative interpreter.
-   - PyPy is a Python 2.7 and 3.2-compatible alternative interpreter.
+   Jython 2.5 is a Python 2.5-compatible alternative interpreter.
+   
+   PyPy is a Python 2.7-compatible alternative interpreter.

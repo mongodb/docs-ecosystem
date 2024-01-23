@@ -4,6 +4,10 @@
 MongoDB Compatibility Tables
 ============================
 
+.. facet::
+   :name: genre
+   :values: reference
+
 We include compatibility tables for each version of the driver to guide
 your decisions on what versions you need to ensure your environment
 remains fully operational.
@@ -13,7 +17,7 @@ We maintain the following tables for each driver:
 - :ref:`MongoDB compatibility <mongodb-compatibility-tables>`
 - :ref:`Language compatibility <language-compatibility-tables>`
 
-Read the sections below for detailed explanations of each table.
+Read the following sections for explanations of these tables.
 
 .. _mongodb-compatibility-tables:
 
@@ -28,10 +32,13 @@ The check marks (✓) indicate that the driver can access **all the
 features** of that specific version of MongoDB server unless those features
 have been deprecated or removed.
 
-If you are **upgrading your server version**, your current driver should
-continue to function properly, but may not be able to access the features
-introduced in the newer server versions. We recommend using the newest
-compatible driver when upgrading your server version.
+The circled asterisks (⊛) indicate that the driver version works with
+that specific version of MongoDB server, but may not be able to access all
+the features.
+
+If you are **upgrading your server version**, check whether your current driver
+version is compatible. We recommend using the newest compatible driver when
+upgrading your server version.
 
 If you are **upgrading your driver version**, you can use the table to
 identify which version you need to access all the newest features included
@@ -42,10 +49,7 @@ release.
 We recommend that you avoid using older versions of the drivers that do not
 appear on the chart because they are unsupported.
 
-.. note::
-
-   Although the drivers do not advertise compatibility with the versions of
-   the server released after them, they are usually interoperable.
+.. sharedinclude:: dbx/lifecycle-schedule-callout.rst
 
 .. _language-compatibility-tables:
 
@@ -58,3 +62,16 @@ labeled with major release versions of the driver.
 
 The check marks (✓) indicate that the code in the driver is fully
 compatible with the version of the language.
+
+Component Compatibility Tables
+------------------------------
+
+In the **Component Compatibility** tables, the columns indicate versions of
+the driver, and the rows indicate the component package names.
+
+The table cells indicate which versions of the component packages are
+compatible with the driver version specified in that column.
+
+If the table cell value is blank, the component package is incompatible with
+the version of the driver version specified in that column.
+

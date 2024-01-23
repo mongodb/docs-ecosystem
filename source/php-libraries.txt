@@ -4,6 +4,17 @@
 PHP Libraries, Frameworks, and Tools
 ====================================
 
+.. facet::
+   :name: programming_language
+   :values: php
+
+.. facet::
+   :name: genre
+   :values: reference
+
+.. meta:: 
+   :keywords: plugins, document mapper, tools, third party
+
 .. contents:: On this page
    :local:
    :backlinks: none
@@ -37,7 +48,6 @@ Standalone Libraries
   use this standalone library or use the `Laravel <https://github.com/abellion/xenus-laravel>`__
   integration, which adds support for failed jobs, migrations, and events.
 
-
 Framework Integrations
 ----------------------
 
@@ -50,10 +60,11 @@ Framework Integrations
 
 - Laravel
 
-  - `Laravel MongoDB <https://github.com/jenssegers/laravel-mongodb>`__ is an
-    Eloquent model and Query builder that supports MongoDB by using the
-    original Laravel API. This library extends the original Laravel classes
-    and therefore uses the same methods.
+  - `Laravel MongoDB <https://www.mongodb.com/docs/drivers/php/laravel-mongodb/current/>`__
+    is MongoDB's official Eloquent model and query builder that supports 
+    MongoDB by using the original Laravel API. This package extends the PHP 
+    Laravel classes to work with MongoDB as a datastore in your Laravel 
+    application.
 
 - Symfony
 
@@ -91,4 +102,3 @@ Tools and Projects
 
 - `XHGui <https://github.com/perftools/xhgui>`__ is a web interface for the
   XHProf profiler, which stores profiling data in MongoDB.
-

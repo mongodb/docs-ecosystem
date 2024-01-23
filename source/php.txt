@@ -4,11 +4,22 @@
 MongoDB PHP Driver
 ==================
 
-.. default-domain:: mongodb
+.. facet::
+   :name: programming_language
+   :values: php
+
+.. facet::
+   :name: genre
+   :values: tutorial
+
+.. meta::
+   :description: Use the PHP driver and libraries to connect to MongoDB Atlas, Enterprise, and Community database deployments.
+   :keywords: code example
 
 .. toctree::
    :titlesonly:
 
+   Laravel MongoDB <https://www.mongodb.com/docs/drivers/php/laravel-mongodb/current>
    /php-libraries
 
 .. contents:: On this page
@@ -17,27 +28,29 @@ MongoDB PHP Driver
    :depth: 1
    :class: twocols
 
-
 Introduction
 ------------
 
 Welcome to the documentation site for the official MongoDB PHP driver.
 You can add the driver to your application to work with MongoDB in PHP.
-The MongoDB PHP Driver consists of the two following components:
+The MongoDB PHP Driver consists of the following components:
 
-- The `extension <https://github.com/mongodb/mongo-php-driver>`_, which
+- The `extension <https://github.com/mongodb/mongo-php-driver>`__, which
   provides a low-level API and mainly serves to integrate
-  `libmongoc and libbson <https://www.mongodb.com/docs/drivers/c/>`_ with
+  :ref:`libmongoc and libbson <c-language-center>` with
   PHP.
 
-- The `library <https://www.mongodb.com/docs/php-library/current>`_, which
+- The `library <https://www.mongodb.com/docs/php-library/current>`__, which
   provides a high-level API for working with MongoDB
   databases consistent with other MongoDB language drivers.
 
 While it is possible to use the extension alone, MongoDB recommends
-using both the extension and the library together. Download the
-components you need or set up a runnable project by following our
-tutorials.
+using both the extension and the library together. To learn more about
+the components of the PHP driver, see the :ref:`Driver Architecture
+<php-driver-arch>` section of this page.
+
+Navigate through the following links to learn more about the driver and access
+tutorial content on setting up a runnable project:
 
 - `Tutorials <https://www.mongodb.com/docs/php-library/current/tutorial>`__
 
@@ -61,18 +74,63 @@ tutorials.
 
   - `Extension <https://github.com/mongodb/mongo-php-driver>`__
 
+.. _php-driver-arch:
+
+Driver Architecture
+-------------------
+
+This section describes how the components of the PHP driver work together.
+These components fit into the following general categories:
+
+- High-Level API, which includes the library and other integrations
+- Extension, which includes the extension that integrates the system libraries
+- System, which includes the C Driver, BSON library, and encryption library
+
+The following diagram illustrates the architecture of the PHP driver
+components:
+
+.. figure:: /figures/PHP_driver_architecture.svg
+   :alt: PHP driver component architecture
+   :figwidth: 600px
+
+The PHP library provides an API that is consistent with the other
+MongoDB drivers. The library is continually updated to meet cross-driver
+specifications. You must add the library as a dependency to access
+MongoDB in most PHP applications.
+
+The extension is distributed by using `PECL
+<https://www.php.net/manual/en/mongodb.installation.pecl.php>`__, and
+connects PHP to the system libraries. The extension's public API
+provides the following functionality:
+
+- Connection management
+- BSON encoding and decoding
+- Object document serialization
+- Command execution
+- Cursor management
+
+To learn more about the system libraries, see the :ref:`C Driver
+<c-language-center>` documentation.
+
+Connect to a Compatible MongoDB Deployment
+------------------------------------------
+
+You can use the PHP driver to connect to deployments hosted in the
+following environments:
+
+.. include:: /includes/fact-environments.rst
 
 Installation
 ------------
 
 First, make sure you have a recent version of PHP installed on your
 system. See the
-`official PHP manual <https://www.php.net/manual/en/install.php>`_
+`official PHP manual <https://www.php.net/manual/en/install.php>`__
 for download and installation instructions.
 
 Install the PHP MongoDB Extension before installing the PHP Library for
 MongoDB. You can install the extension using
-`PECL <https://www.php.net/manual/en/mongodb.installation.pecl.php>`_ on
+`PECL <https://www.php.net/manual/en/mongodb.installation.pecl.php>`__ on
 the command line:
 
 .. code-block:: sh
@@ -91,7 +149,7 @@ Finally, add the following line to your ``php.ini`` file:
    CLI, FPM). Make sure to enable the extension in all SAPIs that you need.
 
 The preferred method of installing the PHP library is with
-`Composer <https://getcomposer.org/>`_ by running the following from your project root:
+`Composer <https://getcomposer.org/>`__ by running the following from your project root:
 
 .. code-block:: sh
 
@@ -107,7 +165,7 @@ Composer's autoloader as in the following example:
    require_once __DIR__ . '/vendor/autoload.php';
 
 Additional installation instructions may be found in the
-`library documentation <https://www.mongodb.com/docs/php-library/current/tutorial/install-php-library/>`_.
+`library documentation <https://www.mongodb.com/docs/php-library/current/tutorial/install-php-library/>`__.
 
 .. _connect-atlas-php-driver:
 
@@ -122,7 +180,7 @@ your MongoDB deployment on Atlas:
 
 This connection snippet uses the {+stable-api+} feature, which you can
 enable when using the PHP driver v1.9 and later to connect to MongoDB Server
-v5.0 and later. When you use this feature, you can update your driver or server without 
+v5.0 and later. When you use this feature, you can update your driver or server without
 worrying about backward compatibility issues with any commands covered by the
 {+stable-api+}.
 
@@ -158,24 +216,28 @@ Compatibility
 Due to potential problems representing 64-bit integers on 32-bit platforms,
 users are advised to use 64-bit environments. When using a 32-bit platform, be
 aware that any 64-bit integer read from the database will be returned as a
-`MongoDB\\BSON\\Int64 <https://www.php.net/manual/en/class.mongodb-bson-int64.php>`_
+`MongoDB\\BSON\\Int64 <https://www.php.net/manual/en/class.mongodb-bson-int64.php>`__
 instance instead of a PHP integer type.
 
 MongoDB Compatibility
 ~~~~~~~~~~~~~~~~~~~~~
 
-The following compatibility table specifies the recommended version(s) of the PHP driver for use with a specific version of MongoDB.
+The following compatibility table specifies the recommended version or versions
+of the PHP driver for use with a specific version of MongoDB.
 
-The first column lists the driver version(s).
+The first column lists the driver version.
+
+.. sharedinclude:: dbx/lifecycle-schedule-callout.rst
 
 .. include:: /includes/mongodb-compatibility-table-php.rst
 
 Language Compatibility
 ~~~~~~~~~~~~~~~~~~~~~~
 
-The following compatibility table specifies the recommended version(s) of the PHP driver for use with a specific version of PHP.
+The following compatibility table specifies the recommended version or versions
+of the PHP driver for use with a specific version of PHP.
 
-The first column lists the driver version(s).
+The first column lists the driver versions.
 
 .. include:: /includes/language-compatibility-table-php.rst
 

@@ -1,0 +1,51 @@
+.. _python-language-center:
+
+======================
+MongoDB Python Drivers
+======================
+
+.. facet::
+   :name: programming_language
+   :values: python
+
+.. meta:: 
+   :description: Use the PyMongo or Motor drivers to connect your application to work with MongoDB in Python.
+
+.. toctree::
+   :titlesonly:
+
+   /pymongo.txt
+   /motor.txt
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+Introduction
+------------
+
+Welcome to the documentation site for the official MongoDB Python
+drivers. Add one of the following drivers to your application to work with
+MongoDB in Python:
+
+- :doc:`PyMongo </pymongo>` for synchronous Python applications
+
+  - `PyMongoArrow <https://mongo-arrow.readthedocs.io/en/latest/>`__, a
+    PyMongo extension for loading MongoDB query result sets as Apache Arrow tables
+
+- :doc:`Motor </motor>` for asynchronous Python applications
+
+.. include:: /includes/university-m220p.rst
+
+Compatibility
+-------------
+
+You can connect your application to deployments hosted in the following 
+environments:
+
+.. include:: /includes/fact-environments.rst
+
+To learn more about connecting your application to deployments hosted in MongoDB 
+Atlas, see :atlas:`Connect from Your Application </driver-connection>`. 
