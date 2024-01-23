@@ -211,7 +211,7 @@ raw: docs/drivers/drivers/csharp/ -> ${base}/csharp/current/
 raw: docs/drivers/drivers/go/ -> ${base}/go/current/
 raw: docs/drivers/drivers/java/ -> ${base}/java-drivers/
 raw: docs/drivers/drivers/kotlin/ -> ${base}/kotlin-drivers/
-raw: docs/drivers/drivers/node/ -> $${base}/node/current/
+raw: docs/drivers/drivers/node/ -> ${base}/node/current/
 raw: docs/drivers/drivers/php/ -> ${base}/php/
 raw: docs/drivers/drivers/python/ -> ${base}/python-drivers/
 raw: docs/drivers/drivers/pymongo/ -> ${base}/pymongo/
