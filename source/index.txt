@@ -68,7 +68,7 @@ security patches to them.
 
    .. card::
       :headline: PHP
-      :url: /php/
+      :url: /php-drivers/
       :icon: /icons/php.svg
       :icon-alt: PHP Driver icon
 
