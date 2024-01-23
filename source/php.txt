@@ -20,6 +20,7 @@ MongoDB PHP Driver
    :titlesonly:
 
    /php-libraries
+   Laravel MongoDB <https://www.mongodb.com/docs/drivers/php/laravel-mongodb/current>
 
 .. contents:: On this page
    :local:
