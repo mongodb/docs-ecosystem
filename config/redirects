@@ -194,7 +194,7 @@ raw: docs/ecosystem/drivers/ruby/ -> https://www.mongodb.com/docs/ruby-driver/cu
 raw: docs/ecosystem/drivers/python/ -> ${base}/python/
 raw: docs/ecosystem/drivers/pymongo/ -> ${base}/pymongo/
 raw: docs/ecosystem/drivers/perl/ -> ${base}/
-raw: docs/ecosystem/drivers/php/ -> ${base}/php/
+raw: docs/ecosystem/drivers/php/ -> ${base}/php-drivers/
 raw: docs/ecosystem/drivers/node/ -> ${base}/node/current/
 raw: docs/ecosystem/drivers/csharp/ -> ${base}/csharp/current/
 raw: docs/ecosystem/drivers/java/ -> ${base}/java-drivers/
