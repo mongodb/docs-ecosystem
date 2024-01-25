@@ -53,12 +53,12 @@ Atlas, see :atlas:`Connect from Your Application </driver-connection>`.
 Tools and Projects
 ------------------
 
-- The `Full Stack FastAPI Generator <http://www.mongodb.com/blog/post/introducing-full-stack-fast-api-app-generator-for-python-developers>`__
+- The `Full Stack FastAPI App Generator <https://github.com/mongodb-labs/full-stack-fastapi-mongodb>`__
   simplifies setup of web applications that use the FastAPI, React, and MongoDB
   (FARM) stack. You can learn more about the FARM stack in the
   `MongoDB Developer Center. <https://www.mongodb.com/developer/languages/python/farm-stack-fastapi-react-mongodb/>`__ 
 
   .. important::
 
-     The MongoDB Full Stack FastAPI Generator is an experimental project
+     The MongoDB Full Stack FastAPI App Generator is an experimental project
      and is not yet supported by MongoDB.
