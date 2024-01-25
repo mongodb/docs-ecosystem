@@ -9,13 +9,12 @@ or error in the documentation, or if you want to add information about a
 feature or concept that is not currently covered. See the following
 section to learn more about how you can suggest changes and additions.
 
-```
-This documentation is open-source but wholly managed by the Drivers &
-Connectors Documentation team at MongoDB. If you have any questions
-about the documentation, contributions, or other topics, you can
-contact someone on our team by emailing
-[deved-team\@10gen.com](mailto:deved-team@10gen.com).
-```
+> **Note**
+> This documentation is open-source but wholly managed by the Drivers &
+> Connectors Documentation team at MongoDB. If you have any questions
+> about the documentation, contributions, or other topics, you can
+> contact someone on our team by emailing
+> [deved-team\@10gen.com](mailto:deved-team@10gen.com).
 
 ## How can I contribute? 📤
 
@@ -66,11 +65,10 @@ After you push your changes, open a PR against the `master` branch and
 fill out the template with details such as the corresponding ticket link
 and the self-review checklist.
 
-```
-Note that **you will not be able to see your changes** in a staging
-environment. When a team member is reviewing your PR, we might be able
-to add a staging link so that we can visualize the changes.
-```
+> **Note**
+> You will not be able to see your changes in a staging
+> environment. When a team member is reviewing your PR, we might be able
+> to add a staging link so that we can visualize the changes.
 
 Once you have created a pull request, **do not automatically merge**.
 Wait for a team member to take further action.
