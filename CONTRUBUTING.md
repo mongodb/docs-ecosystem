@@ -1,4 +1,4 @@
-# Contributing to `docs-ecosystem`
+# Contributing to `docs-ecosystem`📝
 
 Thank you for your interest in contributing to `docs-ecosystem`! In this
 guide, you can find guidelines for contributing to the MongoDB Drivers
@@ -9,19 +9,21 @@ or error in the documentation, or if you want to add information about a
 feature or concept that is not currently covered. See the following
 section to learn more about how you can suggest changes and additions.
 
-> This documentation is open-source but wholly managed by the Drivers &
-> Connectors Documentation team at MongoDB. If you have any questions
-> about the documentation, contributions, or other topics, you can
-> contact someone on our team by emailing
-> [deved-team\@10gen.com](mailto:deved-team@10gen.com).
+```
+This documentation is open-source but wholly managed by the Drivers &
+Connectors Documentation team at MongoDB. If you have any questions
+about the documentation, contributions, or other topics, you can
+contact someone on our team by emailing
+[deved-team\@10gen.com](mailto:deved-team@10gen.com).
+```
 
-## How can I contribute?
+## How can I contribute? 📤
 
 The Drivers & Connectors Documentation team uses GitHub to manage and
 review all changes. To suggest any changes, you should create a **ticket**
 and then open a **pull request** against this repository.
 
-### Creating a ticket
+### Creating a ticket ✉️
 
 Our team uses JIRA, a project management software, to track issues and
 feature requests in the form of tickets. Before you make any changes,
@@ -53,7 +55,7 @@ Please also fill out the following ticket fields:
 Once you create the ticket, you can either decide to let us process the
 ticket and make the pull request, or open the PR yourself.
 
-### Opening a PR
+### Opening a PR 🖇️
 
 To develop a PR, you can clone the `docs-ecosystem` repository and create a
 branch off of `master`. It is helpful if your branch name contains some
@@ -64,14 +66,16 @@ After you push your changes, open a PR against the `master` branch and
 fill out the template with details such as the corresponding ticket link
 and the self-review checklist.
 
-> Note that **you will not be able to see your changes** in a staging
-> environment. When a team member is reviewing your PR, we might be able
-> to add a staging link so that we can visualize the changes.
+```
+Note that **you will not be able to see your changes** in a staging
+environment. When a team member is reviewing your PR, we might be able
+to add a staging link so that we can visualize the changes.
+```
 
 Once you have created a pull request, **do not automatically merge**.
 Wait for a team member to take further action.
 
-### Next steps
+### Next steps ⏰
 
 You can expect that someone on our team will see the ticket and/or PR
 **within one week**. After this, they will leave a review on the PR which
@@ -79,7 +83,7 @@ you can respond to, or they will take over the PR and manage it
 internally by merging changes into a new PR or addressing the ticket
 through a different approach.
 
-## Useful Links
+## Useful Links 🔗
 
 - [MongoDB Documentation Style
   Guide](https://www.mongodb.com/docs/meta/style-guide/): This guide
@@ -90,4 +94,5 @@ through a different approach.
 - [MongoDB Client Libraries](https://www.mongodb.com/docs/drivers/): The
   landing page for MongoDB drivers.
 - [All Open DOCS JIRA
-  Issues](https://jira.mongodb.org/projects/DOCS/issues/DOCS-15871?filter=allopenissues)
+  Issues](https://jira.mongodb.org/projects/DOCS/issues/DOCS-15871?filter=allopenissues):
+  The list of open documentation tickets in JIRA.
