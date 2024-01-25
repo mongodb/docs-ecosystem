@@ -48,4 +48,17 @@ environments:
 .. include:: /includes/fact-environments.rst
 
 To learn more about connecting your application to deployments hosted in MongoDB 
-Atlas, see :atlas:`Connect from Your Application </driver-connection>`. 
+Atlas, see :atlas:`Connect from Your Application </driver-connection>`.
+
+Tools and Projects
+------------------
+
+- The `Full Stack FastAPI Generator <http://www.mongodb.com/blog/post/introducing-full-stack-fast-api-app-generator-for-python-developers>`__
+  simplifies setup of web applications that use the FastAPI, React, and MongoDB
+  (FARM) stack. You can learn more about the FARM stack in the
+  `MongoDB Developer Center. <https://www.mongodb.com/developer/languages/python/farm-stack-fastapi-react-mongodb/>`__ 
+
+  .. important::
+
+     The MongoDB Full Stack FastAPI Generator is an experimental project
+     and is not yet supported by MongoDB.
