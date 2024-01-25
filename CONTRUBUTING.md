@@ -9,8 +9,7 @@ or error in the documentation, or if you want to add information about a
 feature or concept that is not currently covered. See the following
 section to learn more about how you can suggest changes and additions.
 
-> **Note**
-> This documentation is open-source but wholly managed by the Drivers &
+> **NOTE:** This documentation is open-source but wholly managed by the Drivers &
 > Connectors Documentation team at MongoDB. If you have any questions
 > about the documentation, contributions, or other topics, you can
 > contact someone on our team by emailing
@@ -41,13 +40,11 @@ In your ticket, please include the following details:
 Please also fill out the following ticket fields:
 
 - Issue Type: Bug/Task/Improvement
-
   - A bug is an error in the documentation. For example, if you notice a
     typo or an error in a code example, mark the ticket as a `Bug`
   - An issue could be sorted into `Task` or `Improvement` as long as it
     is not a `Bug`. For example, if you want to add more detail to a
     topic explanation, mark the ticket as an `Improvement`.
-
 - Summary: The ticket's title
 - Component: `Drivers`
 
@@ -65,8 +62,7 @@ After you push your changes, open a PR against the `master` branch and
 fill out the template with details such as the corresponding ticket link
 and the self-review checklist.
 
-> **Note**
-> You will not be able to see your changes in a staging
+> **NOTE:** You will not be able to see your changes in a staging
 > environment. When a team member is reviewing your PR, we might be able
 > to add a staging link so that we can visualize the changes.
 
@@ -80,6 +76,8 @@ You can expect that someone on our team will see the ticket and/or PR
 you can respond to, or they will take over the PR and manage it
 internally by merging changes into a new PR or addressing the ticket
 through a different approach.
+
+Thank you again for being interested in our documentation! 🙂
 
 ## Useful Links 🔗
 
