@@ -70,7 +70,7 @@ available in a limited capacity or are not supported at all:
 - **Aggregation Stages**: ``$collStats``, ``$facet``, ``$bucket``, ``$bucketAuto``,
   ``$sortByCount``, ``$listLocalSessions``, ``$listSessions``, ``$graphLookup``
   
-Amazon DocumentDB also does not leverage indexes when you perform
+In addition, Amazon DocumentDB does not leverage indexes when you perform
 queries that contain any of the following operators:
 
 - ``$ne``
