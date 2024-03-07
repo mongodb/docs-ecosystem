@@ -21,7 +21,7 @@ MongoDB C++ Driver
 .. toctree::
    :titlesonly:
 
-   C++ Driver <https://www.mongodb.com/docs/drivers/cpp/sync/current/>
+   C++ Driver <https://www.mongodb.com/docs/drivers/cpp/current/>
 
 .. contents:: On this page
    :local:
