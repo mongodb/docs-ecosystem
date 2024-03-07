@@ -32,7 +32,7 @@ security patches to them.
 
    .. card::
       :headline: C++
-      :url: /cxx/
+      :url: /cpp-drivers/
       :icon: /icons/c++.svg
       :icon-alt: C plus plus Driver icon
 
