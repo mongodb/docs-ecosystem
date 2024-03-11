@@ -34,7 +34,7 @@ Introduction
 Welcome to the documentation site for the official MongoDB C++
 driver. You can add one this driver to your application
 to work with MongoDB in C++ by using the `C++ Driver
-<https://www.mongodb.com/docs/drivers/cpp/sync/current>`__.
+<https://www.mongodb.com/docs/drivers/cpp/current>`__.
 
 Compatibility
 -------------
