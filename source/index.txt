@@ -155,7 +155,7 @@ with MongoDB:
 .. toctree::
 
    C Driver </c>
-   C++ Driver </cxx>
+   C++ Driver </cpp-drivers>
    .NET/C# Driver </csharp-drivers>
    Go Driver <https://www.mongodb.com/docs/drivers/go/current/>
    Java Drivers </java-drivers>
