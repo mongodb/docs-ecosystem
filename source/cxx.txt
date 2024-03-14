@@ -27,12 +27,12 @@ Introduction
 Welcome to the documentation site for the official MongoDB C++ driver.
 You can add the driver to your application to work with MongoDB using
 the C++11 or later standard. Download the library, ``mongocxx``,
-from `mongocxx.org <https://www.mongodb.com/docs/languages/cpp/drivers/current/installation/>`__
+from `mongocxx.org <https://mongocxx.org/mongocxx-v3/installation/>`__
 or set up a runnable project by following our tutorial.
 
-- `Tutorial <https://www.mongodb.com/docs/languages/cpp/drivers/current/tutorial/>`__
+- `Tutorial <https://mongocxx.org/mongocxx-v3/tutorial/>`__
 
-- `Usage Guide <https://www.mongodb.com/docs/languages/cpp/drivers/current/>`__
+- `Usage Guide <https://mongocxx.org/mongocxx-v3/>`__
 
 - `MongoDB Developer Center <https://www.mongodb.com/developer/languages/cpp/>`__
 
@@ -44,13 +44,11 @@ or set up a runnable project by following our tutorial.
 
 - `Examples <https://github.com/mongodb/mongo-cxx-driver/tree/master/examples>`__
 
-- `Legacy Documentation <https://mongocxx.org/legacy-v1/>`__
-
 
 Installation
 ------------
 
-See `Installing the mongocxx driver <https://www.mongodb.com/docs/languages/cpp/drivers/current/installation/>`__.
+See `Installing the mongocxx driver <https://mongocxx.org/mongocxx-v3/installation/>`__.
 
 .. _connect-atlas-cxx-driver:
 
