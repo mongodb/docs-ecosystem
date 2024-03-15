@@ -25,7 +25,7 @@ Introduction
 ------------
 
 Welcome to the documentation site for the official MongoDB C++ driver.
-You can add the driver to your application to work with MongoDB using
+You can add the driver to your application to work with MongoDB by using
 the C++11 or later standard.
 
 - `Installation <https://www.mongodb.com/docs/languages/cpp/drivers/current/installation/>`__
