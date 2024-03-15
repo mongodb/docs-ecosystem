@@ -44,12 +44,6 @@ the C++11 or later standard.
 
 - `Examples <https://github.com/mongodb/mongo-cxx-driver/tree/master/examples>`__
 
-
-Installation
-------------
-
-See `Installing the mongocxx driver <https://www.mongodb.com/docs/languages/cpp/drivers/current/installation/>`__.
-
 .. _connect-atlas-cxx-driver:
 
 Connect to MongoDB Atlas
