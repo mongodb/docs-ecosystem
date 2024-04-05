@@ -48,9 +48,9 @@ raw: docs/drivers/cpp-bson-helper-functions -> https://www.mongodb.com/docs/lang
 raw: docs/drivers/cpp-to-sql-to-mongo-shell -> https://www.mongodb.com/docs/languages/cpp/drivers/current/
 raw: docs/drivers/tutorial/download-and-compile-cpp-driver-legacy -> https://mongocxx.org/legacy-v1/
 raw: docs/drivers/tutorial/authenticate-with-cpp-driver -> https://www.mongodb.com/docs/languages/cpp/drivers/current/configuration/#configuring-authentication
-raw: docs/drivers/cxx -> ${languages-base}/cpp
-raw: docs/drivers/cxx/index -> ${languages-base}/docs/drivers/cpp
-raw: /docs/languages/cxx -> ${languages-base}/cpp
+raw: docs/drivers/cxx -> ${languages-base}/cpp/drivers/current
+raw: docs/drivers/cxx/index -> ${languages-base}/cpp/drivers/current
+raw: /docs/languages/cxx -> ${languages-base}/cpp/drivers/current
 
 # csharp
 
