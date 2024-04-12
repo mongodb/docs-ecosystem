@@ -30,7 +30,7 @@ raw: docs/drivers/use-cases/sensitive-data-encryption -> ${manual}/core/csfle/
 
 # C
 
-raw: docs/drivers/c -> https://www.mongodb.com/docs/drivers/c/current/
+raw: docs/drivers/c -> https://www.mongodb.com/docs/languages/c/c-driver/current/
 
 ###
 

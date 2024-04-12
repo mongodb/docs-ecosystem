@@ -37,7 +37,7 @@ The MongoDB PHP Driver consists of the following components:
 
 - The `extension <https://github.com/mongodb/mongo-php-driver>`__, which
   provides a low-level API and mainly serves to integrate
-  `libmongoc and libbson <https://www.mongodb.com/docs/drivers/c/current/>`__ with
+  `libmongoc and libbson <https://www.mongodb.com/docs/languages/c/c-driver/current/>`__ with
   PHP.
 
 - The `library <https://www.mongodb.com/docs/php-library/current>`__, which
@@ -110,7 +110,7 @@ provides the following functionality:
 - Cursor management
 
 To learn more about the system libraries, see the `C Driver
-<https://www.mongodb.com/docs/drivers/c/current/>`__ documentation.
+<https://www.mongodb.com/docs/languages/c/c-driver/current/>`__ documentation.
 
 Connect to a Compatible MongoDB Deployment
 ------------------------------------------
