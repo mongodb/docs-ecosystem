@@ -74,7 +74,7 @@ security patches to them.
 
    .. card::
       :headline: Python
-      :url: /python-drivers/
+      :url: https://www.mongodb.com/docs/drivers/python-drivers/
       :icon: /icons/python.svg
       :icon-alt: Python Driver icon
    
