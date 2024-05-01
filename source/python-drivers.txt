@@ -34,7 +34,7 @@ MongoDB in Python.
 PyMongo
 -------
 
-You can add the driver to your application to work with MongoDB in Python. See
+You can add PyMongo to your application to work with MongoDB in Python. See
 the `PyMongo documentation <https://www.mongodb.com/docs/languages/python/pymongo-driver/current/>`__
 to learn how to install and begin using the driver.
 
