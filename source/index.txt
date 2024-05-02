@@ -32,7 +32,7 @@ security patches to them.
 
    .. card::
       :headline: C++
-      :url: https://www.mongodb.com/docs/languages/cpp/drivers/current/
+      :url: https://www.mongodb.com/docs/languages/cpp/cpp-driver/current/
       :icon: /icons/c++.svg
       :icon-alt: C plus plus Driver icon
 
@@ -155,7 +155,7 @@ with MongoDB:
 .. toctree::
 
    C Driver <https://www.mongodb.com/docs/languages/c/c-driver/current/>
-   C++ Driver <https://www.mongodb.com/docs/languages/cpp/drivers/current/>
+   C++ Driver <https://www.mongodb.com/docs/languages/cpp/cpp-driver/current/>
    .NET/C# Driver </csharp-drivers>
    Go Driver <https://www.mongodb.com/docs/drivers/go/current/>
    Java Drivers </java-drivers>
