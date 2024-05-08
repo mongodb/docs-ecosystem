@@ -39,11 +39,10 @@ In your ticket, please include the following details:
 
 Please also fill out the following ticket fields:
 
-- Issue Type: Bug/Task/Improvement
+- Issue Type: Bug/Task
   - A bug is an error in the documentation. For example, if you notice a
     typo or an error in a code example, mark the ticket as a `Bug`
-  - An issue could be sorted into `Task` or `Improvement` as long as it
-    is not a `Bug`. For example, if you want to add more detail to a
+  - A `Task` is not a `Bug`. For example, if you want to add more detail to a
     topic explanation, mark the ticket as an `Improvement`.
 - Summary: The ticket's title
 - Component: `Drivers`
