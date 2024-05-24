@@ -30,8 +30,9 @@ allowing you to easily interact with data.
 
 .. tip::
 
-   If you prefer to connect to MongoDB by using the {+php-library+} without
-   Laravel, see `Connecting to MongoDB <https://www.mongodb.com/docs/php-library/current/tutorial/connecting/>`__
+   If you prefer to connect to MongoDB by using the MongoDB PHP Library without
+   Symfony, see `Connecting to MongoDB
+   <https://www.mongodb.com/docs/php-library/current/tutorial/connecting/>`__
    in the MongoDB PHP Library documentation.
 
 MongoDB Atlas is a fully managed cloud database service that hosts your
