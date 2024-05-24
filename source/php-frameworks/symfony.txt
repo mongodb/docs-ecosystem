@@ -293,3 +293,41 @@ Paste the following code into the ``browse.html.twig`` file:
            {% endfor %}
    {% endblock %}
 
+Start your Symfony Application
+------------------------------
+
+Run the following command from the application root directory to start
+your PHP built-in web server:
+
+.. code-block:: bash
+   
+   symfony server:start
+
+After the server starts, it outputs the following message:
+
+.. code-block:: none
+   :copyable: false
+
+   [OK] Web server listening
+        The Web server is using PHP FPM 8.3.4
+        http://127.0.0.1:8000
+
+Open the URL http://127.0.0.1:8000/restaurant/browse in your web browser.
+The page shows a list of restaurants and details about each of them.
+
+Next Steps
+----------
+
+Congratulations on completing the Quick Start tutorial!
+
+After you complete these steps, you have a Symfony web application that
+connects to your MongoDB deployment, runs a query on
+the sample data, and renders a retrieved result.
+
+Learn more about Symfony and MongoDB by viewing the following resources:
+
+- `Build PHP Symfony Apps with MongoDB Atlas Workshop
+  <https://mongodb-developer.github.io/symfony-mongodb-rental-workshop/>`__
+- `Symfony Documentation <https://symfony.com/doc/current/index.html>`__
+- `Doctrine ODM Documentation
+  <https://www.doctrine-project.org/projects/doctrine-mongodb-odm/en/latest/index.html>`__
