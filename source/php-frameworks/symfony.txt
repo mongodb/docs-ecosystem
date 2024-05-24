@@ -1,8 +1,8 @@
 .. _php-symfony-quick-start:
 
-===========================
-Symfony MongoDB Quick Start
-===========================
+===================
+Symfony Quick Start
+===================
 
 .. facet::
    :name: genre
@@ -146,7 +146,7 @@ In the ``config/packages`` directory, create a file called
        auto_generate_hydrator_classes: true
        connections:
            default:
-               server: '%env(resolve:MONGODB_URL)%&appName=devrel.content.php'
+               server: '%env(resolve:MONGODB_URI)%&appName=devrel.content.php'
                options: {}
        default_database: '%env(resolve:MONGODB_DB)%'
        document_managers:
@@ -172,6 +172,9 @@ install the ``twig`` bundle:
 
    composer require symfony/twig-bundle
 
+This step might result in an error message about unset environment
+variables, but this is resolved in the following section.
+
 Modify Project Files
 --------------------
 
@@ -187,9 +190,14 @@ variables:
 
 .. code-block:: none
 
+   ...
+
    MONGODB_URI=<your Atlas connection string>
    MONGODB_DB=sample_restaurants
 
 To retrieve your connection string, see the
 :ref:`php-symfony-atlas-cluster` step.
+
+Customize Templates
+~~~~~~~~~~~~~~~~~~~
 
