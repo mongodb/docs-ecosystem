@@ -198,6 +198,27 @@ variables:
 To retrieve your connection string, see the
 :ref:`php-symfony-atlas-cluster` step.
 
+Create Restaurant Entity and Controller
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Create the ``Restaurant.php`` file in the ``src/Document`` directory and
+paste the following code to create an entity that represents documents in
+the ``restaurants`` collection:
+
+.. literalinclude:: /includes/php-frameworks/Restaurant.php
+
+Next, create the ``RestaurantController.php`` file in the
+``src/Controller`` directory to handle the endpoints in your
+application:
+
+.. literalinclude:: /includes/php-frameworks/RestaurantController.php
+
+The controller file defines the ``index()`` method, which shows some text on
+the web app's front page. The file also defines the ``browse()`` method,
+which finds documents that match some criteria and displays them at the
+``/restaurant/browse/`` route. The ``browse()`` mehtod uses the
+``QueryBuilder`` class to build the query.
+
 Customize Templates
 ~~~~~~~~~~~~~~~~~~~
 
