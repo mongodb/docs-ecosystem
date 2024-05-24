@@ -48,7 +48,7 @@ class RestaurantController extends AbstractController
 
         $restaurants = $queryBuilder
                 ->field('borough')->equals('Queens')
-                ->field('name')->regex('Moon')
+                ->field('name')->equals(new Regex('Moon', 'i'))
                 ->getQuery()
                 ->execute();
 

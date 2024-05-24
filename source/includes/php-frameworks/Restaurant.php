@@ -27,6 +27,6 @@ class Restaurant
     public string $borough;
 
     #[ODM\Field(type: Type::STRING)]
-    public int $cuisine;
+    public string $cuisine;
 
 }

@@ -217,7 +217,9 @@ application:
 
 The controller file defines the ``index()`` method, which shows some text on
 the web app's front page. The file also defines the ``browse()`` method,
-which finds documents that match some criteria and displays them at the
+which finds documents that match documents in which the ``borough``
+field is ``'Queens'`` and the ``name`` field contains the string ``'Moon'``.
+This method then displays them at the
 ``/restaurant/browse/`` route. The ``browse()`` method uses the
 ``QueryBuilder`` class to build the query.
 
@@ -284,9 +286,10 @@ Paste the following code into the ``browse.html.twig`` file:
        <h1>Search Restaurants</h1>
            {% for rest in restaurants %}
                <p>
-                   <span style="fontcolor: magenta"><b>Name:</b>{{ rental.name }}</span><br>
-                   <b>Borough:</b>{{ rental.borough }}<br>
-                   <b>Cuisine:</b>{{ rental.cuisine }}<br>
+                   <span style="fontcolor: magenta"><b>Name: </b>{{ rental.name }}</span><br>
+                   <b>Borough:</b> {{ rental.borough }}<br>
+                   <b>Cuisine:</b> {{ rental.cuisine }}<br>
                </p>
            {% endfor %}
    {% endblock %}
+
