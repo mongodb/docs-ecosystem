@@ -1,0 +1,195 @@
+.. _php-symfony-quick-start:
+
+===========================
+Symfony MongoDB Quick Start
+===========================
+
+.. facet::
+   :name: genre
+   :values: tutorial
+
+.. meta::
+   :keywords: php framework, odm, web app
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 2
+   :class: singlecol
+
+Overview
+--------
+
+This guide shows you how to build a web application by using Symfony, a
+PHP framework. You will learn how to connect to a MongoDB cluster hosted
+on MongoDB Atlas and access data from your database.
+
+By using MongoDB as a data store in a Symfony web application, you can
+leverage the document data model to build rich query expressions,
+allowing you to easily interact with data.
+
+.. tip::
+
+   If you prefer to connect to MongoDB by using the {+php-library+} without
+   Laravel, see `Connecting to MongoDB <https://www.mongodb.com/docs/php-library/current/tutorial/connecting/>`__
+   in the MongoDB PHP Library documentation.
+
+MongoDB Atlas is a fully managed cloud database service that hosts your
+MongoDB deployments. You can create your own free (no credit card
+required) MongoDB Atlas deployment by following the steps in this guide.
+
+This guide uses **MongoDB Doctrine ODM**, which is an Object-Document
+Mapper (ODM) for MongoDB and PHP. It provides a way to work with MongoDB
+in Symfony, using the same principles as Doctrine ORM for relational databases.
+MongoDB Doctrine ODM allows you to map PHP objects to MongoDB documents
+and query MongoDB by using a builder API.
+
+Follow the steps in this guide to create a sample Symfony web application
+that connects to a MongoDB deployment and performs a query on the
+database.
+
+Prerequisites
+-------------
+
+To create the Quick Start application, you need the following software
+installed in your development environment:
+
+- `PHP <https://www.php.net/downloads>`__
+- `Composer <https://getcomposer.org/doc/00-intro.md>`__
+- `Symfony CLI <https://symfony.com/download>`__
+- A terminal app and shell. For MacOS users, use Terminal or a similar app.
+  For Windows users, use PowerShell.
+
+.. _php-symfony-atlas-cluster:
+
+Create a MongoDB Atlas Cluster
+------------------------------
+
+You must create a MongoDB cluster where you can store and manage your
+data. Complete the
+:atlas:`Get Started with Atlas </getting-started>` guide to set up a new
+Atlas account, free tier MongoDB cluster, load datasets, and
+interact with the data.
+
+After completing the steps in the Atlas guide, you should have a new
+MongoDB cluster deployed in Atlas, a new database user, and sample
+datasets loaded into your cluster.
+
+You pass instructions to the driver on where and how to connect to your
+MongoDB cluster in a string called the connection string. To retrieve
+your connection string, follow the instructions in the :atlas:`Connect
+to Your Cluster </tutorial/connect-to-your-cluster/>` tutorial in the
+Atlas documentation.
+
+Save your connection string in a secure location.
+
+Initialize a Symfony Project
+----------------------------
+
+Run the following command to create a skeleton Symfony project called
+``restaurants``:
+
+.. code-block:: bash
+
+   composer create-project symfony/skeleton restaurants
+
+Install MongoDB Extension
+-------------------------
+
+Run the following commands to enter your project directory and install
+MongoDB:
+
+.. code-block:: bash
+
+   cd restaurants
+   pecl install mongodb
+
+Install PHP Driver and Doctrine ODM
+-----------------------------------
+
+Run the following commands to install the MongoDB PHP driver and the
+MongoDB Doctrine ODM:
+
+.. code-block:: bash
+
+   composer require mongodb/mongodb
+   composer require doctrine/mongodb-odm-bundle
+
+Next, create a ``src/Document`` directory to store the entities
+that represent your MongoDB documents:
+
+.. code-block:: bash
+   
+   mkdir src/Document
+
+To enable the Doctrine ODM in your project, you must add the following
+line to your ``config/bundles.php`` file:
+
+.. code-block:: php
+   
+   return [
+       // ...
+       Doctrine\Bundle\MongoDBBundle\DoctrineMongoDBBundle::class => ['all' => true],
+   ];
+
+Configure the ODM
+~~~~~~~~~~~~~~~~~
+
+In the ``config/packages`` directory, create a file called
+``doctrine_mongodb.yaml`` and paste the following code into this file:
+
+.. code-block:: yaml
+
+   # config/packages/doctrine_mongodb.yaml
+   doctrine_mongodb:
+       auto_generate_proxy_classes: true
+       auto_generate_hydrator_classes: true
+       connections:
+           default:
+               server: '%env(resolve:MONGODB_URL)%&appName=devrel.content.php'
+               options: {}
+       default_database: '%env(resolve:MONGODB_DB)%'
+       document_managers:
+           default:
+               auto_mapping: true
+               mappings:
+                   App:
+                       dir: '%kernel.project_dir%/src/Document'
+                       mapping: true
+                       type: attribute
+                       prefix: 'App\Document'
+                       is_bundle: false
+                       alias: App
+
+Install Frontend Dependency
+---------------------------
+
+This project uses ``twig``, the default template engine for Symfony, to
+generate templates in this application. Run the following command to
+install the ``twig`` bundle:
+
+.. code-block::
+
+   composer require symfony/twig-bundle
+
+Modify Project Files
+--------------------
+
+This section demonstrates how to modify the files in your
+``restaurants`` project to create a Symfony web application that views
+restaurants based on filter criteria.
+
+Set Environment Variables
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In the root directory, create a ``.env`` file and define the following
+variables:
+
+.. code-block:: none
+
+   MONGODB_URI=<your Atlas connection string>
+   MONGODB_DB=sample_restaurants
+
+To retrieve your connection string, see the
+:ref:`php-symfony-atlas-cluster` step.
+
