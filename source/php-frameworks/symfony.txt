@@ -206,19 +206,87 @@ paste the following code to create an entity that represents documents in
 the ``restaurants`` collection:
 
 .. literalinclude:: /includes/php-frameworks/Restaurant.php
+   :language: php
 
 Next, create the ``RestaurantController.php`` file in the
 ``src/Controller`` directory to handle the endpoints in your
 application:
 
 .. literalinclude:: /includes/php-frameworks/RestaurantController.php
+   :language: php
 
 The controller file defines the ``index()`` method, which shows some text on
 the web app's front page. The file also defines the ``browse()`` method,
 which finds documents that match some criteria and displays them at the
-``/restaurant/browse/`` route. The ``browse()`` mehtod uses the
+``/restaurant/browse/`` route. The ``browse()`` method uses the
 ``QueryBuilder`` class to build the query.
+
+Specify Routes
+~~~~~~~~~~~~~~
+
+In the ``config/routes.yaml`` file, specify the following routes:
+
+.. code-block:: yaml
+
+   # main routes
+   restaurant_index:
+     path: /
+     controller: App\Controller\RestaurantController::index
+     methods: [GET]
+   
+   # browse restaurants
+   restaurant_browse:
+     path: /restaurant/browse
+     controller: App\Controller\RestaurantController::browse
+     methods: [GET]
+
+This file sets the following routes in the application:
+
+- ``restaurant_index [GET]``: landing page
+- ``restaurant_browse [GET]``: retrieves and displays specific restaurants
 
 Customize Templates
 ~~~~~~~~~~~~~~~~~~~
 
+Next, create templates to customize the web app's appearance.
+
+Create the ``templates/restaurant`` directory and populate it with the
+following files:
+
+- ``index.html.twig``
+- ``browse.html.twig``
+
+Paste the following code into the ``index.html.twig`` file:
+
+.. code-block:: html
+
+   {# templates/restaurant/index.html.twig #}
+   
+   {% extends 'base.html.twig' %}
+   
+   {% block body %}
+       <h1>Welcome to the Symfony MongoDB Quickstart!</h1>
+   {% endblock %}
+
+Paste the following code into the ``browse.html.twig`` file:
+
+.. code-block:: html
+
+   {# templates/restaurant/browse.html.twig #}
+   
+   {% extends 'base.html.twig' %}
+   
+   {% block title %}
+       <h2>Search Restaurants</h2>
+   {% endblock %}
+   
+   {% block body %}
+       <h1>Search Restaurants</h1>
+           {% for rest in restaurants %}
+               <p>
+                   <span style="fontcolor: magenta"><b>Name:</b>{{ rental.name }}</span><br>
+                   <b>Borough:</b>{{ rental.borough }}<br>
+                   <b>Cuisine:</b>{{ rental.cuisine }}<br>
+               </p>
+           {% endfor %}
+   {% endblock %}
