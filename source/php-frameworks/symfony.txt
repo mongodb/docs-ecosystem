@@ -107,12 +107,8 @@ data. Complete the
 Atlas account, create a free tier MongoDB cluster, load datasets, and
 interact with the data.
 
-After completing the steps in the Atlas guide, you have a new
-MongoDB cluster deployed in Atlas, a new database user, and sample
-datasets loaded into your cluster.
-
-You pass instructions to the driver on where and how to connect to your
-MongoDB cluster in a string called the connection string. To retrieve
+You provide instructions to the driver on where and how to connect to your
+MongoDB cluster by passing a string called the connection string. To retrieve
 your connection string, follow the instructions in the :atlas:`Connect
 to Your Cluster </tutorial/connect-to-your-cluster/>` tutorial in the
 Atlas documentation.
@@ -243,20 +239,19 @@ the ``restaurants`` collection:
    :language: php
 
 Next, create the ``RestaurantController.php`` file in the
-``src/Controller`` directory to handle the endpoints in your
-application:
+``src/Controller`` directory and paste the following code to handle the
+endpoints in your application:
 
 .. literalinclude:: /includes/php-frameworks/RestaurantController.php
    :caption: src/Document/RestaurantController.php
    :language: php
 
-The controller file defines the ``index()`` method, which shows some text on
+The controller file defines the ``index()`` method, which displays text on
 the web app's front page. The file also defines the ``browse()`` method,
-which finds documents that match documents in which the ``borough``
+which finds documents in which the ``borough``
 field is ``'Queens'`` and the ``name`` field contains the string ``'Moon'``.
-This method then displays them at the
-``/restaurant/browse/`` route. The ``browse()`` method uses the
-``QueryBuilder`` class to build the query.
+This method then displays the documents at the ``/restaurant/browse/`` route. The
+``browse()`` method uses the ``QueryBuilder`` class to construct the query.
 
 Specify Routes
 ``````````````

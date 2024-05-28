@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Document\Restaurant;
 use Doctrine\ODM\MongoDB\DocumentManager;
 use MongoDB\BSON\Regex;
 use Psr\Log\LoggerInterface;
