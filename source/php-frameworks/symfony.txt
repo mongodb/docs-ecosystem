@@ -147,6 +147,18 @@ MongoDB Doctrine ODM:
    composer require mongodb/mongodb
    composer require doctrine/mongodb-odm-bundle
 
+.. tip::
+
+   After running the preceding commands, you might encounter the
+   following prompt:
+
+   .. code-block:: bash
+
+      Do you want to execute this recipe?
+
+   Select ``yes`` from the response options to add the ODM library to your
+   application.
+
 To ensure that the Doctrine ODM is enabled in your project, verify that your
 ``config/bundles.php`` file contains the highlighted entry in the
 following code:
@@ -174,7 +186,7 @@ In the ``config/packages`` directory, replace the contents of your
        auto_generate_hydrator_classes: true
        connections:
            default:
-               server: '%env(resolve:MONGODB_URI)%&appName=devrel.content.php'
+               server: '%env(resolve:MONGODB_URL)%&appName=devrel.content.php'
                options: {}
        default_database: '%env(resolve:MONGODB_DB)%'
        document_managers:
@@ -200,8 +212,10 @@ install the ``twig`` bundle:
 
    composer require symfony/twig-bundle
 
-This step might result in an error message about unset environment
-variables, but this is resolved in the following section.
+.. note:
+
+   This step might result in an error message about unset environment
+   variables, but this is resolved in the following section.
 
 Modify Project Files
 ~~~~~~~~~~~~~~~~~~~~
@@ -221,7 +235,7 @@ following environment variables or edit them if they are already present:
 
    ...
 
-   MONGODB_URI=<your Atlas connection string>
+   MONGODB_URL=<your Atlas connection string>
    MONGODB_DB=sample_restaurants
 
 To retrieve your connection string, see the
@@ -243,7 +257,7 @@ Next, create the ``RestaurantController.php`` file in the
 endpoints in your application:
 
 .. literalinclude:: /includes/php-frameworks/RestaurantController.php
-   :caption: src/Document/RestaurantController.php
+   :caption: src/Controller/RestaurantController.php
    :language: php
 
 The controller file defines the ``index()`` method, which displays text on
@@ -312,7 +326,7 @@ Paste the following code into the ``browse.html.twig`` file:
    {% extends 'base.html.twig' %}
    
    {% block title %}
-       <h2>Search Restaurants</h2>
+       Search Restaurants
    {% endblock %}
    
    {% block body %}
