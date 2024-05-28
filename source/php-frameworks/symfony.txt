@@ -270,7 +270,7 @@ This method then displays the documents at the ``/restaurant/browse/`` route. Th
 Specify Routes
 ``````````````
 
-In the ``config/routes.yaml`` file, specify the following routes:
+In the ``config/routes.yaml`` file, add the following routes:
 
 .. code-block:: yaml
    :caption: config/routes.yaml
