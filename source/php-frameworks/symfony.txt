@@ -44,16 +44,14 @@ By using MongoDB as a data store in a Symfony web application, you can
 leverage the document data model to build rich query expressions,
 allowing you to easily interact with data.
 
-In your applications, you can implement **MongoDB Doctrine ODM**, which is an Object-Document
-Mapper (ODM) for MongoDB and PHP. It provides a way to work with MongoDB
-in Symfony, using the same principles as Doctrine ORM for relational
-databases.
+In your applications, you can implement the **MongoDB Doctrine ODM**,
+which is an Object-Document Mapper (ODM) for MongoDB and PHP. It
+provides a way to work with MongoDB in Symfony, using the same
+principles as Doctrine ORM for relational databases.
 
 MongoDB Doctrine ODM allows you to map PHP objects to MongoDB documents
 and query MongoDB by using a builder API. To learn more about this
 library, see the :ref:`php-symfony-resources` section.
-
-The tutorial in this guide uses the Doctrine ODM.
 
 .. _php-symfony-qs:
 
@@ -106,7 +104,7 @@ Create a MongoDB Atlas Cluster
 You must create a MongoDB cluster where you can store and manage your
 data. Complete the
 :atlas:`Get Started with Atlas </getting-started>` guide to set up a new
-Atlas account, free tier MongoDB cluster, load datasets, and
+Atlas account, create a free tier MongoDB cluster, load datasets, and
 interact with the data.
 
 After completing the steps in the Atlas guide, you have a new
@@ -153,17 +151,13 @@ MongoDB Doctrine ODM:
    composer require mongodb/mongodb
    composer require doctrine/mongodb-odm-bundle
 
-Next, create a ``src/Document`` directory to store the entities
-that represent your MongoDB documents:
-
-.. code-block:: bash
-   
-   mkdir src/Document
-
-To enable the Doctrine ODM in your project, you must add the following
-line to your ``config/bundles.php`` file:
+To ensure that the Doctrine ODM is enabled in your project, verify that your
+``config/bundles.php`` file contains the highlighted entry in the
+following code:
 
 .. code-block:: php
+   :caption: config/bundles.php
+   :emphasize-lines: 3
    
    return [
        // ...
@@ -173,12 +167,12 @@ line to your ``config/bundles.php`` file:
 Configure the ODM
 `````````````````
 
-In the ``config/packages`` directory, create a file called
-``doctrine_mongodb.yaml`` and paste the following code into this file:
+In the ``config/packages`` directory, replace the contents of your
+``doctrine_mongodb.yaml`` file with the following code:
 
 .. code-block:: yaml
+   :caption: config/packages/doctrine_mongodb.yaml
 
-   # config/packages/doctrine_mongodb.yaml
    doctrine_mongodb:
        auto_generate_proxy_classes: true
        auto_generate_hydrator_classes: true
@@ -223,10 +217,11 @@ restaurants based on filter criteria.
 Set Environment Variables
 `````````````````````````
 
-In the root directory, create a ``.env`` file and define the following
-variables:
+In the root directory, navigate to the ``.env`` file and define the
+following environment variables or edit them if they are already present:
 
 .. code-block:: none
+   :caption: .env
 
    ...
 
@@ -244,6 +239,7 @@ paste the following code to create an entity that represents documents in
 the ``restaurants`` collection:
 
 .. literalinclude:: /includes/php-frameworks/Restaurant.php
+   :caption: src/Document/Restaurant.php
    :language: php
 
 Next, create the ``RestaurantController.php`` file in the
@@ -251,6 +247,7 @@ Next, create the ``RestaurantController.php`` file in the
 application:
 
 .. literalinclude:: /includes/php-frameworks/RestaurantController.php
+   :caption: src/Document/RestaurantController.php
    :language: php
 
 The controller file defines the ``index()`` method, which shows some text on
@@ -267,6 +264,7 @@ Specify Routes
 In the ``config/routes.yaml`` file, specify the following routes:
 
 .. code-block:: yaml
+   :caption: config/routes.yaml
 
    # main routes
    restaurant_index:
@@ -299,6 +297,7 @@ following files:
 Paste the following code into the ``index.html.twig`` file:
 
 .. code-block:: html
+   :caption: templates/restaurant/index.html.twig
 
    {# templates/restaurant/index.html.twig #}
    
@@ -311,6 +310,7 @@ Paste the following code into the ``index.html.twig`` file:
 Paste the following code into the ``browse.html.twig`` file:
 
 .. code-block:: html
+   :caption: templates/restaurant/browse.html.twig
 
    {# templates/restaurant/browse.html.twig #}
    
@@ -353,7 +353,6 @@ After the server starts, it outputs the following message:
 Open the URL http://127.0.0.1:8000/restaurant/browse in your web browser.
 The page shows a list of restaurants and details about each of them, as
 displayed in the following screenshot:
-
 
 .. figure:: /includes/php-frameworks/app_render.png
    :alt: Restaurants web app screenshot
