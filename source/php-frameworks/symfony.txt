@@ -351,7 +351,12 @@ After the server starts, it outputs the following message:
         http://127.0.0.1:8000
 
 Open the URL http://127.0.0.1:8000/restaurant/browse in your web browser.
-The page shows a list of restaurants and details about each of them:
+The page shows a list of restaurants and details about each of them, as
+displayed in the following screenshot:
+
+
+.. figure:: /includes/php-frameworks/app_render.png
+   :alt: Restaurants web app screenshot
 
 Congratulations on completing the Quick Start tutorial!
 
