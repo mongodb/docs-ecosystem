@@ -212,7 +212,7 @@ install the ``twig`` bundle:
 
    composer require symfony/twig-bundle
 
-.. note:
+.. note::
 
    This step might result in an error message about unset environment
    variables, but this is resolved in the following section.
