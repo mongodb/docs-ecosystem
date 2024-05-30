@@ -9,7 +9,7 @@ Symfony MongoDB Integration
    :values: tutorial
 
 .. meta::
-   :keywords: php framework, odm, web app
+   :keywords: php framework, doctrine odm, web app
 
 .. contents:: On this page
    :local:
@@ -21,8 +21,8 @@ Overview
 --------
 
 In this guide, you can learn about the Symfony MongoDB integration and
-find a tutorial on building a simple PHP web application by using this
-framework. You can learn about the advantages of using Symfony to build
+how to use this framework to build a simple PHP web application. You can
+learn about the advantages of using Symfony to build
 web applications with MongoDB as your database, as well as libraries
 that you can leverage to simplify querying MongoDB.
 
@@ -37,12 +37,14 @@ a MongoDB collection.
 The :ref:`php-symfony-resources` section contains links to further
 learning resources and documentation.
 
-Advantages of Using MongoDB with Symfony
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Why Use MongoDB in a Symfony Application?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 By using MongoDB as a data store in a Symfony web application, you can
 leverage the document data model to build rich query expressions,
-allowing you to easily interact with data.
+allowing you to easily interact with data. You can also customize your
+connections to persist and access data to and from multiple databases
+and collections.
 
 In your applications, you can implement the **MongoDB Doctrine ODM**,
 which is an Object-Document Mapper (ODM) for MongoDB and PHP. It
@@ -50,7 +52,9 @@ provides a way to work with MongoDB in Symfony, using the same
 principles as Doctrine ORM for relational databases.
 
 MongoDB Doctrine ODM allows you to map PHP objects to MongoDB documents
-and query MongoDB by using a builder API. To learn more about this
+and query MongoDB by using a builder API. This mapping enables you to
+use other MongoDB features such as flexible schema design and horizontal
+scaling. To learn more about this
 library, see the :ref:`php-symfony-resources` section.
 
 .. _php-symfony-qs:
@@ -58,9 +62,9 @@ library, see the :ref:`php-symfony-resources` section.
 Quick Start
 -----------
 
-This guide shows you how to build a web application by using Symfony, a
-PHP framework. You will learn how to connect to a MongoDB cluster hosted
-on MongoDB Atlas and access data from your database.
+This tutorial shows you how to build a web application by using Symfony, a
+PHP framework. It includes instructions on connecting to a MongoDB cluster hosted
+on MongoDB Atlas and accessing and displaying data from your database.
 
 By using MongoDB as a data store in a Symfony web application, you can
 leverage the document data model to build rich query expressions,
@@ -77,7 +81,7 @@ MongoDB Atlas is a fully managed cloud database service that hosts your
 MongoDB deployments. You can create your own free (no credit card
 required) MongoDB Atlas deployment by following the steps in this guide.
 
-This guide uses MongoDB Doctrine ODM to allow you to map PHP objects to
+This guide uses the MongoDB Doctrine ODM to allow you to map PHP objects to
 MongoDB documents and query MongoDB by using a builder API. 
 
 Follow the steps in this guide to create a sample Symfony web application
@@ -139,8 +143,12 @@ MongoDB:
 Install PHP Driver and Doctrine ODM
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Run the following commands to install the MongoDB PHP driver and the
-MongoDB Doctrine ODM:
+Add the MongoDB PHP driver and the MongoDB Doctrine ODM bundle to your
+application. The bundle integrates the ODM library into Symfony so that
+you can read from and write objects to MongoDB. To learn more, see the
+:ref:`php-symfony-resources` section of this guide.
+
+Run the following commands to install the driver and the ODM:
 
 .. code-block:: bash
 
@@ -153,6 +161,7 @@ MongoDB Doctrine ODM:
    following prompt:
 
    .. code-block:: bash
+      :copyable: false
 
       Do you want to execute this recipe?
 
@@ -383,5 +392,6 @@ Learn more about Symfony and MongoDB by viewing the following resources:
   <https://mongodb-developer.github.io/symfony-mongodb-rental-workshop/>`__
 - `Symfony Documentation <https://symfony.com/doc/current/index.html>`__
 - `Doctrine MongoDB ODM GitHub Repository <https://github.com/doctrine/mongodb-odm>`__
+- `Doctrine MongoDB ODM Bundle GitHub Repository <https://github.com/doctrine/DoctrineMongoDBBundle>`__
 - `Doctrine ODM Documentation
   <https://www.doctrine-project.org/projects/doctrine-mongodb-odm/en/latest/index.html>`__
