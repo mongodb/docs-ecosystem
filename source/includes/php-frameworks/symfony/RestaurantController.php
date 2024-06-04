@@ -15,19 +15,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class RestaurantController extends AbstractController
 {
-    // DocumentManager instance
-    private $_documentManager;
-    private $_logger;
-    /**
-     * __construct -
-     * 
-     * This function is responsible for initializing the RestaurantController class.
-     * 
-     * @param DocumentManager $_documentManager - The document manager
-     * @param LoggerInterface $_logger          - The logger interface
-     * 
-     * @return void
-     */
+    private DocumentManager $dm;
+    private LoggerInterface $logger;
+
     public function __construct(DocumentManager $_documentManager, LoggerInterface $_logger)
     {
         $this->_documentManager = $_documentManager;
@@ -43,7 +33,6 @@ class RestaurantController extends AbstractController
     #[Route('/restaurant/browse', name: 'restaurant_browse', methods: ['GET'])]
     public function browse(Request $request): Response
     {
-
         $restaurantRepository = $this->_documentManager->getRepository(Restaurant::class);
         $queryBuilder = $restaurantRepository->createQueryBuilder();
 
@@ -55,5 +44,4 @@ class RestaurantController extends AbstractController
 
         return $this->render('restaurant/browse.html.twig', ['restaurants' => $restaurants]);
     }
-
 }
