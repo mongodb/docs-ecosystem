@@ -52,6 +52,7 @@ security patches to them.
       :headline: Java
       :url: /java-drivers/
       :icon: /icons/java.svg
+      :icon-dark: /icons/java-dark.svg
       :icon-alt: Java Driver icon
    
    .. card::
@@ -88,6 +89,7 @@ security patches to them.
       :headline: Rust
       :url: https://www.mongodb.com/docs/drivers/rust/current/
       :icon: /icons/rust.svg
+      :icon-dark: /icons/rust-dark.svg
       :icon-alt: Rust Driver icon
 
    .. card::
