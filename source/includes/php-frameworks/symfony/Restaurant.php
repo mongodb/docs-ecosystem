@@ -12,15 +12,15 @@ use Doctrine\ODM\MongoDB\Types\Type;
 #[ODM\Document(collection: 'restaurants')]
 class Restaurant
 {
-    #[ODM\Field(type: Type::STRING)]
+    #[ODM\Field]
     public ?string $id = null;
 
-    #[ODM\Field(type: Type::STRING)]
+    #[ODM\Field]
     public string $name;
 
-    #[ODM\Field(type: Type::STRING)]
+    #[ODM\Field]
     public string $borough;
 
-    #[ODM\Field(type: Type::STRING)]
+    #[ODM\Field]
     public string $cuisine;
 }

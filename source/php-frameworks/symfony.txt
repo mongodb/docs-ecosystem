@@ -46,12 +46,12 @@ allowing you to easily interact with data. You can also customize your
 connections to persist and access data to and from multiple databases
 and collections.
 
-In your applications, you can implement the **MongoDB Doctrine ODM**,
+In your applications, you can implement the **Doctrine MongoDB ODM**,
 which is an Object-Document Mapper (ODM) for MongoDB and PHP. It
 provides a way to work with MongoDB in Symfony, using the same
 principles as Doctrine ORM for relational databases.
 
-MongoDB Doctrine ODM allows you to map PHP objects to MongoDB documents
+Doctrine ODM allows you to map PHP objects to MongoDB documents
 and query MongoDB by using a builder API. This mapping enables you to
 use other MongoDB features such as flexible schema design and advanced
 searches. To learn more about this library, see the
@@ -81,7 +81,7 @@ MongoDB Atlas is a fully managed cloud database service that hosts your
 MongoDB deployments. You can create your own free (no credit card
 required) MongoDB Atlas deployment by following the steps in this guide.
 
-This guide uses the MongoDB Doctrine ODM to allow you to map PHP objects to
+This guide uses Doctrine ODM to allow you to map PHP objects to
 MongoDB documents and query MongoDB by using a builder API. 
 
 Follow the steps in this guide to create a sample Symfony web application
@@ -123,7 +123,7 @@ Install MongoDB Extension
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To learn more about installing the MongoDB extension, see `Installing the Extension
-<https://www.mongodb.com/docs/php-library/current/tutorial/install-php-library/>`__
+<https://www.mongodb.com/docs/php-library/current/tutorial/install-php-library/#installing-the-extension>`__
 in the PHP Library Manual.
 
 Initialize a Symfony Project
@@ -140,16 +140,16 @@ Install PHP Driver and Doctrine ODM
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Enter your project directory, then add the MongoDB PHP driver and the
-MongoDB Doctrine ODM bundle to your application. The bundle integrates
+Doctrine ODM bundle to your application. The bundle integrates
 the ODM library into Symfony so that you can read from and write objects
-to MongoDB. To learn more, see the :ref:`php-symfony-resources` section
+to MongoDB. Installing the bundle also automatically adds the driver to
+your project. To learn more, see the :ref:`php-symfony-resources` section
 of this guide.
 
-Run the following commands to install the driver and the ODM:
+Run the following commands to install the ODM:
 
 .. code-block:: bash
 
-   composer require mongodb/mongodb
    composer require doctrine/mongodb-odm-bundle
 
 .. tip::
@@ -349,8 +349,8 @@ displayed in the following screenshot:
 Congratulations on completing the Quick Start tutorial!
 
 After you complete these steps, you have a Symfony web application that
-connects to your MongoDB deployment, runs a query on
-the sample data, and renders a retrieved result.
+connects to your MongoDB deployment, runs a query on the sample data,
+and renders a retrieved result.
 
 .. _php-symfony-resources:
 

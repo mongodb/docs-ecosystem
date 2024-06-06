@@ -18,10 +18,10 @@ class RestaurantController extends AbstractController
     private DocumentManager $dm;
     private LoggerInterface $logger;
 
-    public function __construct(DocumentManager $_documentManager, LoggerInterface $_logger)
+    public function __construct(DocumentManager $dm, LoggerInterface $logger)
     {
-        $this->_documentManager = $_documentManager;
-        $this->_logger          = $_logger;
+        $this->dm = $logger;
+        $this->logger = $logger;
     }
 
     #[Route('/', name: 'restaurant_index', methods: ['GET'])]
@@ -33,7 +33,7 @@ class RestaurantController extends AbstractController
     #[Route('/restaurant/browse', name: 'restaurant_browse', methods: ['GET'])]
     public function browse(Request $request): Response
     {
-        $restaurantRepository = $this->_documentManager->getRepository(Restaurant::class);
+        $restaurantRepository = $this->dm->getRepository(Restaurant::class);
         $queryBuilder = $restaurantRepository->createQueryBuilder();
 
         $restaurants = $queryBuilder
