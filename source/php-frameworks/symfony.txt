@@ -184,27 +184,10 @@ Configure the ODM
 In the ``config/packages`` directory, replace the contents of your
 ``doctrine_mongodb.yaml`` file with the following code:
 
-.. code-block:: yaml
+.. literalinclude:: /includes/php-frameworks/symfony/doctrine_mongodb.yaml
    :caption: config/packages/doctrine_mongodb.yaml
+   :language: yaml
 
-   doctrine_mongodb:
-       auto_generate_proxy_classes: true
-       auto_generate_hydrator_classes: true
-       connections:
-           default:
-               server: '%env(resolve:MONGODB_URL)'
-       default_database: '%env(resolve:MONGODB_DB)%'
-       document_managers:
-           default:
-               auto_mapping: true
-               mappings:
-                   App:
-                       dir: '%kernel.project_dir%/src/Document'
-                       mapping: true
-                       type: attribute
-                       prefix: 'App\Document'
-                       is_bundle: false
-                       alias: App
 
 Install Frontend Dependency
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -12,7 +12,7 @@ use Doctrine\ODM\MongoDB\Types\Type;
 #[ODM\Document(collection: 'restaurants')]
 class Restaurant
 {
-    #[ODM\Field]
+    #[ODM\Id]
     public ?string $id = null;
 
     #[ODM\Field]

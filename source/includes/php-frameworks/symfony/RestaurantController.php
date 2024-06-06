@@ -20,7 +20,7 @@ class RestaurantController extends AbstractController
 
     public function __construct(DocumentManager $dm, LoggerInterface $logger)
     {
-        $this->dm = $logger;
+        $this->dm = $dm;
         $this->logger = $logger;
     }
 
