@@ -65,6 +65,7 @@ security patches to them.
       :headline: Node.js
       :url: https://www.mongodb.com/docs/drivers/node/current/
       :icon: /icons/node.svg
+      :icon-dark: /icons/node-dark.svg
       :icon-alt: Node Driver icon
 
    .. card::
@@ -135,6 +136,7 @@ Featured Community-Supported Libraries
       :cta: Prisma
       :url: https://www.prisma.io/docs/guides/database/mongodb
       :icon: /icons/prisma.svg
+      :icon-dark: /icons/prisma-dark.svg
       :icon-alt: Prisma icon
 
    .. card::
