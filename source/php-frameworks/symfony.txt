@@ -255,31 +255,6 @@ field is ``'Queens'`` and the ``name`` field contains the string ``'Moon'``.
 This method then displays the documents at the ``/restaurant/browse/`` route. The
 ``browse()`` method uses the ``QueryBuilder`` class to construct the query.
 
-Specify Routes
-``````````````
-
-In the ``config/routes.yaml`` file, add the following routes:
-
-.. code-block:: yaml
-   :caption: config/routes.yaml
-
-   # main routes
-   restaurant_index:
-     path: /
-     controller: App\Controller\RestaurantController::index
-     methods: [GET]
-   
-   # browse restaurants
-   restaurant_browse:
-     path: /restaurant/browse
-     controller: App\Controller\RestaurantController::browse
-     methods: [GET]
-
-This file sets the following routes in the application:
-
-- ``restaurant_index [GET]``: landing page
-- ``restaurant_browse [GET]``: retrieves and displays specific restaurants
-
 Customize Templates
 ```````````````````
 
