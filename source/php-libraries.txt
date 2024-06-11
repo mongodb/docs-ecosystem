@@ -68,7 +68,7 @@ Framework Integrations
 
 - Symfony
 
-  - :ref:`php-symfony-integration` describes the advantages of using MongoDB
+  - :ref:`php-symfony-integration` describes the benefits of using MongoDB
     as a data store in a Symfony application and includes a tutorial to
     build a web application that uses this integration.
 
