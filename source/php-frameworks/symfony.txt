@@ -22,9 +22,9 @@ Overview
 
 In this guide, you can learn about the Symfony MongoDB integration and
 how to use this framework to build a simple PHP web application. You can
-learn about the benefits of using Symfony to build
-web applications with MongoDB as your database, as well as libraries
-that you can leverage to simplify querying MongoDB.
+read about the benefits of using Symfony to build
+web applications with MongoDB as your database and practice using libraries
+that simplify querying MongoDB.
 
 Symfony is a flexible and highly configurable framework for building PHP
 applications. You can use this framework to create reusable components
@@ -109,7 +109,7 @@ You must create a MongoDB cluster where you can store and manage your
 data. Complete the :atlas:`Get Started with Atlas </getting-started>`
 guide to set up a new Atlas account and create a free tier MongoDB
 cluster. This tutorial also demonstrates how to load sample datasets
-into your cluster, including the data that is used in the Quick Start tutorial.
+into your cluster, including the data that is used in this tutorial.
 
 You provide instructions to the driver on where and how to connect to your
 MongoDB cluster by providing it with a connection string. To retrieve
@@ -117,7 +117,9 @@ your connection string, follow the instructions in the :atlas:`Connect
 to Your Cluster </tutorial/connect-to-your-cluster/>` tutorial in the
 Atlas documentation.
 
-Save your connection string in a secure location.
+.. tip::
+
+   Save your connection string in a secure location.
 
 Install MongoDB Extension
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -154,7 +156,7 @@ Run the following commands to install the ODM:
 
 .. tip::
 
-   After running the preceding commands, you might encounter the
+   After running the preceding commands, you might see the
    following prompt:
 
    .. code-block:: bash
@@ -188,7 +190,6 @@ In the ``config/packages`` directory, replace the contents of your
    :caption: config/packages/doctrine_mongodb.yaml
    :language: yaml
 
-
 Install Frontend Dependency
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -203,7 +204,7 @@ install the ``twig`` bundle:
 .. note::
 
    This step might result in an error message about unset environment
-   variables, but this is resolved in the following section.
+   variables, but this issue is resolved in the following steps.
 
 Modify Project Files
 ~~~~~~~~~~~~~~~~~~~~
@@ -216,7 +217,8 @@ Set Environment Variables
 `````````````````````````
 
 In the root directory, navigate to the ``.env`` file and define the
-following environment variables or edit them if they are already present:
+following environment variables to set your connection string and target
+database:
 
 .. code-block:: none
    :caption: .env
