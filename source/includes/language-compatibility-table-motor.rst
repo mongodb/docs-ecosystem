@@ -44,6 +44,7 @@
      - ✓
      - ✓
 
+- Motor 3.5 wraps PyMongo 4.5 to 4.8
 - Motor 3.3 and 3.4 wrap PyMongo 4.5
 - Motor 3.2 wraps PyMongo 4.4+
 - Motor 3.1 wraps PyMongo 4.2+
