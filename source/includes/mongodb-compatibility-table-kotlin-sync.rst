@@ -6,6 +6,7 @@
    :class: compatibility-large
 
    * - Kotlin Sync Driver Version
+     - MongoDB 8.0
      - MongoDB 7.0
      - MongoDB 6.1
      - MongoDB 6.0
@@ -19,7 +20,22 @@
      - MongoDB 3.0
      - MongoDB 2.6
 
+   * - 5.2
+     - ✓
+     - ✓
+     - ✓
+     - ✓
+     - ✓
+     - ✓
+     - ✓
+     - ✓
+     -
+     -
+     -
+     -
+
    * - 5.1
+     - ⊛
      - ✓
      - ✓
      - ✓
@@ -34,6 +50,7 @@
      -
 
    * - 5.0
+     - ⊛
      - ✓
      - ✓
      - ✓
@@ -48,6 +65,7 @@
      -
 
    * - 4.11
+     - ⊛
      - ✓
      - ✓
      - ✓
@@ -62,6 +80,7 @@
      -
 
    * - 4.10
+     - ⊛
      - ✓
      - ✓
      - ✓
