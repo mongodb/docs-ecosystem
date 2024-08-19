@@ -93,8 +93,8 @@ Framework Integrations
 - Flysystem
 
   - `MongoDB GridFS Adapter <https://flysystem.thephpleague.com/docs/adapter/gridfs/>`__
-    is an adapter to interact with MongoDB :manual:`GridFS
-    </core/gridfs/>` by using Flysystem.
+    allows you to interact with MongoDB :manual:`GridFS </core/gridfs/>`
+    by using Flysystem.
 
 Tools and Projects
 ------------------
