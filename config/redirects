@@ -19,7 +19,7 @@ raw: docs/drivers/reactive-streams/ -> https://www.mongodb.com/docs/languages/ja
 
 # Kotlin
 
-raw: docs/drivers/kotlin-sync -> https://www.mongodb.com/docs/languages/kotlin/kotlin-sync-driver/current/
+raw: docs/drivers/kotlin-sync/ -> https://www.mongodb.com/docs/languages/kotlin/kotlin-sync-driver/current/
 
 # Scala
 
