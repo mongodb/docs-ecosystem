@@ -5,6 +5,7 @@
    :class: compatibility-large
 
    * - Motor (Python async) Driver Version
+     - Python 3.13
      - Python 3.12
      - Python 3.11
      - Python 3.10
@@ -12,7 +13,17 @@
      - Python 3.8
      - Python 3.7
 
+   * - 3.6
+     - ✓
+     - ✓
+     - ✓
+     - ✓
+     - ✓
+     - ✓
+     - 
+
    * - 3.5
+     -
      - ✓
      - ✓
      - ✓
@@ -21,6 +32,7 @@
      - 
 
    * - 3.3 to 3.4
+     -
      - ✓
      - ✓
      - ✓
@@ -30,6 +42,7 @@
 
    * - 3.1 to 3.2
      -
+     -
      - ✓
      - ✓
      - ✓
@@ -37,6 +50,7 @@
      - ✓
 
    * - 3.0
+     -
      -
      -
      - ✓
