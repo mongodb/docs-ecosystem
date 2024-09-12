@@ -6,6 +6,7 @@
    :class: compatibility
 
    * - Motor (Python async) Driver Version
+     - MongoDB 8.0
      - MongoDB 7.0
      - MongoDB 6.0
      - MongoDB 5.0
@@ -17,7 +18,22 @@
      - MongoDB 3.2
      - MongoDB 3.0
      - MongoDB 2.6
+
+   * - 3.6
+     - ✓
+     - ✓
+     - ✓
+     - ✓
+     - ✓
+     - ✓
+     - ✓
+     - ✓
+     -
+     -
+     -
+     -
    * - 3.2 to 3.5
+     - ⊛
      - ✓
      - ✓
      - ✓
@@ -31,6 +47,7 @@
      - 
    * - 3.1
      - ⊛
+     - ⊛
      - ✓
      - ✓
      - ✓
@@ -42,6 +59,7 @@
      -
      -  
    * - 3.0
+     - ⊛
      - ⊛
      - ⊛
      - ✓
