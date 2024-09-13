@@ -4,7 +4,7 @@
    :stub-columns: 1
    :class: compatibility-large
 
-   * - Motor (Python async) Driver Version
+   * - Motor Driver Version
      - Python 3.13
      - Python 3.12
      - Python 3.11
