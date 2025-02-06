@@ -18,10 +18,13 @@ Amazon DocumentDB Compatibility
    :backlinks: none
    :depth: 1
 
+.. figure:: /figures/documentdb.png
+   :alt: Amazon DocumentDB logo
+
 Version Information
 -------------------
 
-Amazon DocumentDB supports MongoDB v4.0 and MongoDB v5.0. These versions don't support all of the
+Amazon DocumentDB claims support for MongoDB v4.0 and MongoDB v5.0. These versions don't support all the
 newer features and functionality available in the versions of MongoDB available
 on `MongoDB Atlas. <https://www.mongodb.com/docs/atlas/>`__
 
@@ -36,7 +39,7 @@ Compatibility
 On Amazon DocumentDB, the following MongoDB features are
 available in a limited capacity or are not supported at all:
 
-- **Features**: :manual:`Capped collections</core/queryable-encryption/>`,
+- **Features**: :manual:`Capped collections </core/capped-collections/>`,
   :manual:`map-reduce operations </core/map-reduce/>`, 
   :manual:`GridFS </core/gridfs/>`, 
   :manual:`text indexes </core/indexes/index-types/index-text/>`,
@@ -46,7 +49,7 @@ available in a limited capacity or are not supported at all:
   :manual:`time-series data </core/timeseries/timeseries-bucketing/>`, 
   :manual:`on-demand materialized views </core/materialized-views/>`,
   :manual:`client-side field level encryption </core/csfle/>`,
-  :manual:`queryable encryption</core/queryable-encryption/>`
+  :manual:`queryable encryption </core/queryable-encryption/>`
 - **Commands**: ``collMod``, ``collMod:expireAfterSeconds``, ``copydb``,
   ``createView``, ``filemd5``, ``reIndex``, ``connPoolStats``, ``dbHash``,
   ``features``, ``getLastError``, ``getPrevError``, ``parallelCollectionScan``,
