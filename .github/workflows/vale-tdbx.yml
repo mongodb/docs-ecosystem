@@ -15,25 +15,27 @@ jobs:
       - id: files
         uses: masesgroup/retrieve-changed-files@v2
         with:
-          format: 'csv'
+          format: "csv"
 
       - name: checkout-latest-rules
         uses: actions/checkout@master
         with:
           repository: mongodb/mongodb-vale-action
-          path: './tdbx-vale-rules'
+          path: "./tdbx-vale-rules"
           token: ${{secrets.GITHUB_TOKEN}}
 
       - name: move-files-for-vale-action
         run: |
-            cp tdbx-vale-rules/.vale.ini .vale.ini
-            mkdir -p .github/styles/
-            cp -rf tdbx-vale-rules/.github/styles/ .github/
+          cp tdbx-vale-rules/.vale.ini .vale.ini
+          mkdir -p .github/styles/
+          cp -rf tdbx-vale-rules/.github/styles/ .github/
 
-      - name: run-vale
+      - if: steps.get_changed_files.outputs.all_changed_files != ''
         uses: errata-ai/vale-action@reviewdog
         with:
-          reporter: github-pr-check
-          files: ${{steps.files.outputs.added_modified}}
+          files: ${{ steps.get_changed_files.outputs.all_changed_files }}
+          separator: ","
+          filter_mode: diff_context
+          reporter: github-pr-review
           fail_on_error: true
-          token: ${{secrets.GITHUB_TOKEN}}
+          token: ${{ secrets.GITHUB_TOKEN }}
