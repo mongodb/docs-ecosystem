@@ -15,9 +15,6 @@ self-hosted MongoDB cluster by using one of the official MongoDB
 libraries. To learn more about Atlas, see :atlas:`What is MongoDB Atlas? </>`. To learn how to download and install a self-hosted
 MongoDB cluster, see :manual:`Install MongoDB </installation>`.
 
-You can use this page as well as the actual driver documentation for
-your language to learn.
-
 The following libraries are officially supported by MongoDB. MongoDB actively
 develops new features, adds performance enhancements, fixes bugs, and applies 
 security patches to them.
