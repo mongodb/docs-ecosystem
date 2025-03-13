@@ -33,9 +33,17 @@ jobs:
       - if: steps.get_changed_files.outputs.all_changed_files != ''
         uses: errata-ai/vale-action@reviewdog
         with:
-          files: ${{ steps.get_changed_files.outputs.all_changed_files }}
+          files: ${{steps.files.outputs.added_modified}}
           separator: ","
           filter_mode: diff_context
           reporter: github-pr-review
           fail_on_error: true
           token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: run-vale
+        uses: errata-ai/vale-action@reviewdog
+        with:
+          reporter: github-pr-check
+          files: ${{steps.files.outputs.added_modified}}
+          fail_on_error: true
+          token: ${{secrets.GITHUB_TOKEN}}
