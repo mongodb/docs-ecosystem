@@ -26,9 +26,9 @@ read about the benefits of using Symfony to build
 web applications with MongoDB as your database and practice using libraries
 that simplify querying MongoDB.
 
-Symfony is a flexible and highly configurable framework for building PHP
-applications. You can use this framework to create reusable components
-to streamline your web app.
+`Symfony <https://symfony.com/>`__ is a flexible and highly configurable
+framework for building PHP applications. You can use this framework to
+create reusable components to streamline your web app.
 
 The :ref:`php-symfony-qs` section of this guide contains a tutorial
 which you can follow to build a single page app that accesses data from

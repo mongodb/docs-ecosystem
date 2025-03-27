@@ -20,8 +20,9 @@ MongoDB PHP Driver
    :titlesonly:
 
    Laravel MongoDB <https://www.mongodb.com/docs/drivers/php/laravel-mongodb/current>
-   /php-frameworks/symfony
-   /php-libraries
+   Symfony Integration </php-frameworks/symfony>
+   Drupal Integration </php-frameworks/drupal>
+   Libraries, Frameworks, & Tools </php-libraries>
 
 .. contents:: On this page
    :local:
@@ -36,44 +37,32 @@ Welcome to the documentation site for the official MongoDB PHP driver.
 You can add the driver to your application to work with MongoDB in PHP.
 The MongoDB PHP Driver consists of the following components:
 
-- The `extension <https://github.com/mongodb/mongo-php-driver>`__, which
-  provides a low-level API and mainly serves to integrate
-  `libmongoc and libbson <https://www.mongodb.com/docs/languages/c/c-driver/current/>`__ with
-  PHP.
+- `Extension <https://php.net/mongodb>`__:
+  Provides a low-level API and mainly serves to integrate
+  the `C Driver <https://www.mongodb.com/docs/languages/c/c-driver/current/>`__
+  `libmongoc <https://mongoc.org/libmongoc/current/>`__ and
+  `libbson <https://mongoc.org/libbson/current/>`__ libraries with PHP.
 
-- The `library <https://www.mongodb.com/docs/php-library/current>`__, which
-  provides a high-level API for working with MongoDB
+- `Library <https://www.mongodb.com/docs/php-library/current>`__:
+  Provides a high-level API for working with MongoDB
   databases consistent with other MongoDB language drivers.
 
 While it is possible to use the extension alone, MongoDB recommends
 using both the extension and the library together. To learn more about
-the components of the PHP driver, see the :ref:`Driver Architecture
-<php-driver-arch>` section of this page.
+the components of the PHP driver, see the :ref:`php-driver-arch` section
+of this page.
 
 Navigate through the following links to learn more about the driver and access
 tutorial content on setting up a runnable project:
 
-- `Tutorials <https://www.mongodb.com/docs/php-library/current/tutorial>`__
+- `Get Started with the PHP Library <https://www.mongodb.com/docs/php-library/current/get-started/>`__
+- `Connect to MongoDB <https://www.mongodb.com/docs/php-library/current/connect/>`__
 
-- `Extension Architecture and Internals <https://www.php.net/manual/en/mongodb.architecture.php>`__
+Reference
+~~~~~~~~~
 
-- Documentation
-
-  - `Library <https://www.mongodb.com/docs/php-library/current>`__
-
-  - `Extension <https://php.net/mongodb>`__
-
-- Changelog
-
-  - `Library <https://github.com/mongodb/mongo-php-library/releases>`__
-
-  - `Extension <https://github.com/mongodb/mongo-php-driver/releases>`__
-
-- Source Code
-
-  - `Library <https://github.com/mongodb/mongo-php-library>`__
-
-  - `Extension <https://github.com/mongodb/mongo-php-driver>`__
+- :github:`Release Notes <mongodb/mongo-php-driver/releases>`
+- :github:`Driver Source Code <mongodb/mongo-php-driver>`
 
 .. _php-driver-arch:
 
@@ -245,9 +234,3 @@ The first column lists the driver versions.
 .. include:: /includes/about-driver-compatibility.rst
 
 .. include:: /includes/help-links-php.rst
-
-See Also
---------
-
-- :ref:`php-libraries-frameworks-and-tools`
-
