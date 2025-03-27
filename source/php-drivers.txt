@@ -135,7 +135,7 @@ file:
 .. note::
 
    On some systems, there might be multiple ``.ini`` files for
-   individual SAPIs (e.g. CLI, FPM). Make sure to enable the extension
+   individual SAPIs, such as CLI, FPM. Make sure to enable the extension
    in all SAPIs that you use.
 
 Then, install the PHP library by using `Composer
