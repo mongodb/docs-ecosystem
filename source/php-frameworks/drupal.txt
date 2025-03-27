@@ -9,7 +9,7 @@ Drupal MongoDB Integration
    :values: tutorial
 
 .. meta::
-   :keywords: php framework, code example, CMS, web app, authentication
+   :keywords: php framework, CMS, web app, authentication, Atlas
 
 .. contents:: On this page
    :local:
@@ -45,7 +45,7 @@ MongoDB supports eliminates the need for complicated table joins and
 thus increases data retrieval speed, enhancing user experience with
 components such as personalized dashboards and dynamic content feeds.
 
-When you use MongoDB as your site's database, Drupal stores entity
+When you use MongoDB Atlas as your site's database, Drupal stores entity
 instances as JSON objects that contain all revisions, translations, and
 field data. This flexible data structure decreases latency and allows
 Drupal to support personalized, user-focused experiences.
@@ -87,7 +87,7 @@ This tutorial demonstrates how to perform the following steps:
 #. Installing the following components:
    
    - Apache web server
-   - MongoDB PHP Extension
+   - `MongoDB PHP extension <https://php.net/mongodb>`__
    - Drupal web server
    - Drupal core patch
 
