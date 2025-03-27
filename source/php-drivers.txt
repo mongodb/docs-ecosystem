@@ -39,20 +39,19 @@ The MongoDB PHP Driver consists of the following components:
 
 - `Extension <https://php.net/mongodb>`__:
   Provides a low-level API and mainly serves to integrate
-  the `C Driver <https://www.mongodb.com/docs/languages/c/c-driver/current/>`__
-  `libmongoc <https://mongoc.org/libmongoc/current/>`__ and
+  the `libmongoc <https://mongoc.org/libmongoc/current/>`__ and
   `libbson <https://mongoc.org/libbson/current/>`__ libraries with PHP.
 
 - `Library <https://www.mongodb.com/docs/php-library/current>`__:
   Provides a high-level API for working with MongoDB
   databases consistent with other MongoDB language drivers.
 
-While it is possible to use the extension alone, MongoDB recommends
-using both the extension and the library together. To learn more about
+While it is possible to use only the extension, we recommend
+using the extension and the library together. To learn more about
 the components of the PHP driver, see the :ref:`php-driver-arch` section
 of this page.
 
-Navigate through the following links to learn more about the driver and access
+View the following guides to learn more about the driver and access
 tutorial content on setting up a runnable project:
 
 - `Get Started with the PHP Library <https://www.mongodb.com/docs/php-library/current/get-started/>`__
@@ -101,104 +100,6 @@ provides the following functionality:
 
 To learn more about the system libraries, see the `C Driver
 <https://www.mongodb.com/docs/languages/c/c-driver/current/>`__ documentation.
-
-Connect to a Compatible MongoDB Deployment
-------------------------------------------
-
-You can use the PHP driver to connect to deployments hosted in the
-following environments:
-
-.. include:: /includes/fact-environments.rst
-
-Installation
-------------
-
-First, make sure you have a recent version of PHP installed on your
-system. See the
-`official PHP manual <https://www.php.net/manual/en/install.php>`__
-for download and installation instructions.
-
-Install the PHP MongoDB Extension before installing the PHP Library for
-MongoDB. You can install the extension using
-`PECL <https://www.php.net/manual/en/mongodb.installation.php>`__ on
-the command line:
-
-.. code-block:: sh
-
-   $ sudo pecl install mongodb
-
-Finally, add the following line to your ``php.ini`` file:
-
-.. code-block:: text
-
-   extension=mongodb.so
-
-.. note::
-
-   On some systems, there may be multiple INI files for individual SAPIs (e.g.
-   CLI, FPM). Make sure to enable the extension in all SAPIs that you need.
-
-The preferred method of installing the PHP library is with
-`Composer <https://getcomposer.org/>`__ by running the following from your project root:
-
-.. code-block:: sh
-
-   $ composer require mongodb/mongodb
-
-Once you have installed the library, ensure that your application includes
-Composer's autoloader as in the following example:
-
-.. code-block:: php
-
-   <?php
-
-   require_once __DIR__ . '/vendor/autoload.php';
-
-Additional installation instructions may be found in the
-`library documentation <https://www.mongodb.com/docs/php-library/current/tutorial/install-php-library/>`__.
-
-.. _connect-atlas-php-driver:
-
-Connect to MongoDB Atlas
-------------------------
-
-You can use the following connection snippet to test your connection to
-your MongoDB deployment on Atlas:
-
-.. literalinclude:: /includes/connection-snippets/scram/php-connection.php
-   :language: php
-
-This connection snippet uses the {+stable-api+} feature, which you can
-enable when using the PHP driver v1.9 and later to connect to MongoDB Server
-v5.0 and later. When you use this feature, you can update your driver or server without 
-worrying about backward compatibility issues with any commands covered by the
-{+stable-api+}.
-
-To learn more about the {+stable-api+} feature, see
-:manual:`{+stable-api+} </reference/stable-api/>` in the Server manual.
-
-.. include:: /includes/stable-api-notice.rst
-
-.. _connect-atlas-no-stable-api-php-driver:
-
-Connect to MongoDB Atlas Without the Stable API
------------------------------------------------
-
-If you are using a version of MongoDB or the driver that doesn't support the
-{+stable-api+} feature, you can use the following code snippet to test your connection
-to your MongoDB deployment on Atlas:
-
-.. literalinclude:: /includes/connection-snippets/scram/php-connection-no-stableapi.php
-   :language: php
-
-Connect to a MongoDB Server on Your Local Machine
--------------------------------------------------
-
-.. include:: /includes/localhost-connection.rst
-
-To test whether you can connect to your server, replace the connection
-string in the :ref:`Connect to MongoDB Atlas <connect-atlas-php-driver>` code
-example and run it.
 
 Compatibility
 -------------
