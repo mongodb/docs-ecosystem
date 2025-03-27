@@ -101,6 +101,65 @@ provides the following functionality:
 To learn more about the system libraries, see the `C Driver
 <https://www.mongodb.com/docs/languages/c/c-driver/current/>`__ documentation.
 
+Connect to a Compatible MongoDB Deployment
+------------------------------------------
+
+You can use the PHP driver to connect to deployments hosted in the
+following environments:
+
+.. include:: /includes/fact-environments.rst
+
+Installation
+------------
+
+Make sure you have a recent version of PHP installed on your
+system. See the `PHP manual <https://www.php.net/manual/en/install.php>`__
+for download and installation instructions.
+
+Install the PHP MongoDB Extension before you install the MongoDB PHP
+Library. You can install the extension by using `PECL
+<https://www.php.net/manual/en/mongodb.installation.php>`__ on the
+command line:
+
+.. code-block:: sh
+
+   sudo pecl install mongodb
+
+After installation completes, add the following line to your ``php.ini``
+file:
+
+.. code-block:: text
+
+   extension=mongodb.so
+
+.. note::
+
+   On some systems, there might be multiple ``.ini`` files for
+   individual SAPIs (e.g. CLI, FPM). Make sure to enable the extension
+   in all SAPIs that you use.
+
+Then, install the PHP library by using `Composer
+<https://getcomposer.org/>`__. Run the following command from your
+project directory:
+
+.. code-block:: sh
+
+   composer require mongodb/mongodb
+
+After installation completes, ensure that your application includes
+Composer's autoloader as shown in the following example:
+
+.. code-block:: php
+
+   <?php
+
+   require_once __DIR__ . '/vendor/autoload.php';
+
+The `PHP Library documentation
+<https://www.mongodb.com/docs/php-library/current>`__ contains reference
+materials and tutorials that demonstrate how to interact with your
+MongoDB data.
+
 Compatibility
 -------------
 
