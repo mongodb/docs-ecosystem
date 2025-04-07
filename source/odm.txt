@@ -18,8 +18,8 @@ ORMs, ODMs, and Libraries
    
     
 `MongoDB Drivers <https://www.mongodb.com/docs/drivers/>`__ offer idiomatic APIs
-and helpers for most  programming languages, sometimes a higher level
-abstraction is desirable. In particular, developers may be used to interacting with data in a
+and helpers for most  programming languages, but some applications are suited to higher level
+abstraction. In particular, developers may be used to interacting with data in a
 more declarative fashion, for example by using ActiveRecord for Ruby. `Object-Relational Mappers
 <https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping>`__ (or ORMs)
 can improve the developer experience customizing database interactions in the
@@ -33,97 +33,165 @@ Because MongoDB is a non-relational database management system, ORMs are
 sometimes referred to as ODMs (Object Document Mappers), but the terms can be
 used interchangeably in the MongoDB domain. MongoDB, our
 `community
-<https://www.mongodb.com/docs/drivers/community-supported-drivers/>`__ and our
+<https://www.mongodb.com/docs/drivers/community-supported-drivers/>`__, and our
 partners provide a number of ODM libraries.
 
 The following are some examples of the best MongoDB ODM libraries for a number
-of programming languages, including Ruby, Python, Java, Node.js, and PHP. 
+of programming languages, including Ruby, Python, Java, C#, Node.js, and PHP. 
 
-## Beanie
+Ruby
+----
 
-Beanie is an Asynchronous Python object-document mapper (ODM) for MongoDB, based on `Motor <https://www.mongodb.com/docs/drivers/motor/>`__ (an asynchronous MongoDB driver) and `Pydantic <https://pydantic-docs.helpmanual.io/>`__.
+Mongoid
+~~~~~~~
 
-When using Beanie, each database collection has a corresponding document that is used to interact with that collection. In addition to retrieving data, Beanie allows you to add, update, and delete documents from the collection. Beanie saves you time by removing boilerplate code, and it helps you focus on the parts of your app that actually matter.
+The Mongoid ODM provides API parity with Rails wherever possible to ensure
+developers that are used to working with a `Ruby on Rails
+<https://rubyonrails.org/>`__ framework can use the methods and mechanics
+they’re already familiar with in ActiveRecord.  
+
+See the `Mongoid documentation
+<https://www.mongodb.com/docs/mongoid/current/>`__ for more information. 
+
+Python
+------
+
+Beanie
+~~~~~~
+
+Beanie is a third-party, asynchronous Python ODM based on `Pydantic
+<https://pydantic-docs.helpmanual.io/>`__.  Beanie uses corresponding documents
+to interact with each database collection, and supports adding, updating, and
+deleting documents. Beanie saves you time by removing boilerplate code, and it
+helps you focus on the parts of your app that actually matter.
 
 See the `Beanie documentation <https://beanie-odm.dev/>`__ for more information.
 
-## Doctrine
+MongoEngine
+~~~~~~~~~~~
 
-Doctrine is a PHP MongoDB ORM, even though it’s referred to as an ODM. This library provides PHP object mapping functionality and transparent persistence for PHP objects to MongoDB, as well as a mechanism to map embedded or referenced documents. It can also create references between PHP documents in different databases and work with GridFS buckets.
+MongoEngine is a third-party, synchronous Python ORM for MongoDB. It uses a
+simple declarative API and is built on top of the
+`MongoDB PyMongo Driver <https://www.mongodb.com/docs/drivers/pymongo/>`__. 
 
-See the `Doctrine MongoDB ODM documentation <https://www.doctrine-project.org/projects/doctrine-mongodb-odm/en/latest/index.html>`__ for more information.
+See the `MongoEngine documentation <https://mongoengine-odm.readthedocs.io/>`__
+for more information.
 
-## Mongoid
+Java
+----
 
-Most Ruby-based applications are built using the `Ruby on Rails <https://rubyonrails.org/>`__ framework. As a result, Rails’ `Active Record <https://guides.rubyonrails.org/active_record_basics.html>`__ implementation, conventions, CRUD API, and callback mechanisms are second nature to Ruby developers. So, as far as a MongoDB ORM for Ruby, the Mongoid ODM provides API parity wherever possible to ensure developers working with a Rails application and using MongoDB can do so using methods and mechanics they’re already familiar with.
+Spring Data MongoDB
+~~~~~~~~~~~~~~~~~~~
 
-See the `Mongoid documentation <https://www.mongodb.com/docs/mongoid/current/>`__ for more information.
+Spring Data MongoDB is a third-party Java ORM for MongoDB. The `Spring Data
+<https://spring.io/projects/spring-data>`__ project provides a familiar and
+consistent Spring-based programming model which is enhanced by
+MongoDB-specific features and capabilities. Spring Data MongoDB uses a
+POJO-centric model for interacting with collections and writing repository-style
+data access layers.
 
-## Mongoose
+See the `Spring Data MongoDB documentation
+<https://spring.io/projects/spring-data-mongodb>`__ or the `Spring Boot
+Integration with MongoDB Tutorial
+<https://www.mongodb.com/compatibility/spring-boot>`__ for more information. 
 
-If you’re seeking an ORM for NodeJS and MongoDB, look no further than Mongoose. This Node.js-based Object Data Modeling (ODM) library for MongoDB is akin to an Object Relational Mapper (ORM) such as `SQLAlchemy <https://www.sqlalchemy.org/>`__. The problem that Mongoose aims to solve is allowing developers to enforce a specific schema at the application layer. In addition to enforcing a schema, Mongoose also offers a variety of hooks, model validation, and other features aimed at making it easier to work with MongoDB.
+.. TODO: Hibernate
 
-See the `Mongoose documentation <https://mongoosejs.com/>`__ or `MongoDB & Mongoose: Compatibility and Comparison <https://www.mongodb.com/developer/languages/javascript/mongoose-versus-nodejs-driver/>`__ for more information.
+.NET/C#
+-------
 
-## MongoEngine
+Entity Framework
+~~~~~~~~~~~~~~~~
 
-MongoEngine is a Python ORM for MongoDB. Branded as a Document-Object Mapper, it uses a simple declarative API, similar to the Django ORM.
+MongoDB Entity Framework Core Provider (EF Core Provider) is the official
+intergration for MongoDB and EF Core. It allows developers
+using C# in the .NET ecosystem to use `Entity Framework Core
+<https://learn.microsoft.com/en-us/ef/>`__ as their ODM which provides a
+familiar API interface, query paradigm (LINQ), and design pattern. 
 
-It was first released in 2015 as an open-source project, and the current version is built on top of `PyMongo <https://www.mongodb.com/docs/drivers/pymongo/>`__, the official Python Driver by MongoDB.
+See the `EF Core provider documentation
+<https://www.mongodb.com/docs/entity-framework/current/>`__ for more
+information.  
 
-See the `MongoEngine documentation <http://mongoengine.org/>`__ for more information.
+Node.js
+-------
 
-## Prisma
+Mongoose
+~~~~~~~~
 
-Prisma is a `new kind of ORM <https://www.prisma.io/docs/concepts/overview/prisma-in-your-stack/is-prisma-an-orm>`__ for Node.js and Typescript that fundamentally differs from traditional ORMs. With Prisma, you define your models in the declarative `Prisma schema <https://www.prisma.io/docs/concepts/components/prisma-schema>`__, which serves as the single source of truth for your database schema and the models in your programming language. The Prisma Client will read and write data to your database in a type-safe manner, without the overhead of managing complex model instances. This makes the process of querying data a lot more natural as well as more predictable since Prisma Client always returns plain JavaScript objects.
+Mongoose is a third-party Node.js-based ODM library for MongoDB. It enforces a specific
+schema at the application layer and offers a variety of hooks, model validation,
+and other features.
 
-Support for MongoDB was one of the most requested features since the initial release of the Prisma ORM, and was added in version 3.12.
+See the `Mongoose documentation <https://mongoosejs.com/>`__ or `MongoDB &
+Mongoose: Compatibility and Comparison
+<https://www.mongodb.com/developer/languages/javascript/mongoose-versus-nodejs-driver/>`__
+for more information. 
+
+Prisma
+~~~~~~
+
+Prisma is a third-party ODM for Node.js and Typescript that fundamentally differs from
+traditional ORMs. It uses declarative Prisma schemas as the single
+source of truth for both your database schema and models. The Prisma client
+reads and writes data in a type-safe manner, and returns plain JavaScript objects.
 
 See `Prisma & MongoDB <https://www.prisma.io/mongodb>`__ for more information.
 
-## Spring Data MongoDB
+PHP
+---
 
-If you’re seeking a Java ORM for MongoDB, Spring Data for MongoDB is the most popular choice for Java developers. The `Spring Data <https://spring.io/projects/spring-data>`__ project provides a familiar and consistent Spring-based programming model for new datastores while retaining store-specific features and capabilities.
+Doctrine
+~~~~~~~~
 
-Key functional areas of Spring Data MongoDB that Java developers will benefit from are a POJO centric model for interacting with a MongoDB DBCollection and easily writing a repository-style data access layer.
+Doctrine is a third-party PHP MongoDB ODM. This library provides PHP object mapping
+functionality and transparent persistence for PHP objects to MongoDB, as well as
+a mechanism to map embedded or referenced documents. It can also create
+references between PHP documents in different databases and work with `GridFS
+buckets <https://www.mongodb.com/docs/php-library/current/write/gridfs/>`__.
 
-See the `Spring Data MongoDB documentation <https://spring.io/projects/spring-data-mongodb>`__ or the `Spring Boot Integration with MongoDB Tutorial <https://www.mongodb.com/compatibility/spring-boot>`__ for more information.
+See the `Doctrine MongoDB ODM documentation
+<https://www.doctrine-project.org/projects/doctrine-mongodb-odm/en/latest/index.html>`__
+for more information. 
 
-## Entity Framework Core
+Symfony
+````````
 
-`Entity Framework Core <https://learn.microsoft.com/en-us/ef/>`__ is the most popular ORM/ODM in the .NET ecosystem. The official MongoDB Provider for EF Core allows developers to confidently use C# and EF Core when building with MongoDB for production-grade workloads. With the MongoDB Provider for EF Core, C# developers can unlock the full power of MongoDB's developer data platform to build modern applications while leveraging a familiar API interface, query paradigm (LINQ), and design patterns.
+The Doctrine MongoDB ODM can be used to integrate MongoDB with
+the Symfony PHP framework. Doctine's object mapping enables developers to get
+the benefits of MongoDB features, such as flexible schema design
+and advanced searches, alongside Symfony's reusable components and streamlined
+web design.
 
-See the `EF Core provider documentation <https://www.mongodb.com/docs/entity-framework/current/>`__ for more information. 
+See the `Symfony MongoDB Integration page
+<https://www.mongodb.com/docs/drivers/php-frameworks/symfony/>`__ for more
+information. 
 
-## Laravel
+.. TODO? Drupal
 
-Laravel MongoDB is an official package that offers seamless integration of
-MongoDB with the Laravel framework. It enables developers to utilize the full
-suite of Laravel's powerful Eloquent features when working with MongoDB. With
-this package, Laravel developers can take advantage of MongoDB's flexible schema
+Laravel
+-------
+
+Laravel MongoDB is the official integration for MongoDB and Laravel. It extends
+methods in the PHP Laravel API to provide developers the full suite of Laravel's
+Eloquent and Query Builder features while using MongoDB as their datastore.
+With this package, Laravel developers can take advantage of MongoDB's flexible schema
 and extensive capabilities, while maintaining familiar patterns, relationships,
 and features such as querying, caching, and more. 
 
-For more details on setup and
-usage, refer to `Laravel MongoDB documentation
-<https://www.mongodb.com/docs/drivers/php/laravel-mongodb/current/>`__. 
+See the `Laravel MongoDB documentation
+<https://www.mongodb.com/docs/drivers/php/laravel-mongodb/current/>`__ for more
+information. 
 
-## Symfony
+Django
+------
 
-Doctrine MongoDB ODM, which is an Object-Document Mapper (ODM) for MongoDB and
-PHP, provides a way to work with MongoDB in Symfony, using the same principles
-as Doctrine ORM for relational databases. Doctrine ODM allows you to map PHP
-objects to MongoDB documents and query MongoDB by using a builder API. This
-mapping enables you to use other MongoDB features such as flexible schema design
-and advanced searches. Refer to the `Symfony MongoDB Integration page
-<https://www.mongodb.com/docs/drivers/php-frameworks/symfony/>`__ to learn more.
+Django MongoDB Backend is the official MongoDB integration for Django and
+MongoDB. This integration supports many core Django features, including the
+Django ORM. It translates Django ORM methods into equivalent MongoDB queries,
+allowing developers to use the familiar Django interface.
 
-## Django
-
-Django-MongoDB-Backend is the official MongoDB integration for Django, enabling seamless compatibility between Django and MongoDB. This integration supports many core Django features, including Models, Authentication, the Admin Panel, and, most notably, the Django ORM. It allows developers to use Django ORM methods, which are directly translated into equivalent MongoDB queries.
-
-The library is currently in public preview, meaning developers can explore its
-capabilities, provide feedback, and request new features. However, it is not yet
-recommended for production use. To learn more, visit our `documentation
-<https://www.mongodb.com/docs/languages/python/django-mongodb/v5.0/get-started/>`__. 
+See the `Django MongoDB Backend documentation
+<https://www.mongodb.com/docs/languages/python/django-mongodb/current>`__ for
+more information. 
 
