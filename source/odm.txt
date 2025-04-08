@@ -7,7 +7,7 @@ ORMs, ODMs, and Libraries
    :values: reference
 
 .. meta::
-   :description: MongoDB has ORMs, ODMs, and Libraries to simplify interactions between your app and cluster. Use the best database for Ruby, Python, Java, Node.js, PHP.
+   :description: MongoDB has ORMs, ODMs, and Libraries to simplify interactions between your app and cluster. Use the best database for Ruby, Python, Java, C#, Node.js, PHP.
    :keywords: Object Oriented, abstraction, serialization, relational, 
 
 .. contents:: On this page
@@ -34,7 +34,7 @@ sometimes referred to as ODMs (Object Document Mappers), but the terms can be
 used interchangeably in the MongoDB domain. MongoDB, our
 `community
 <https://www.mongodb.com/docs/drivers/community-supported-drivers/>`__, and our
-partners provide a number of ODM libraries.
+partners provide several ODM libraries.
 
 The following are some examples of the best MongoDB ODM libraries for a number
 of programming languages, including Ruby, Python, Java, C#, Node.js, and PHP. 
