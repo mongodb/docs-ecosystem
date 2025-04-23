@@ -77,6 +77,19 @@ simple declarative API and is built on top of the
 See the `MongoEngine documentation <https://mongoengine-odm.readthedocs.io/>`__
 for more information.
 
+Django
+~~~~~~
+
+Django MongoDB Backend is the official MongoDB integration for Django and
+MongoDB. This integration supports many core Django features, including the
+Django ORM. It translates Django ORM methods into equivalent MongoDB queries,
+allowing developers to use the familiar Django interface.
+
+See the `Django MongoDB Backend documentation
+<https://www.mongodb.com/docs/languages/python/django-mongodb/current>`__ for
+more information. 
+
+
 Java
 ----
 
@@ -155,7 +168,7 @@ See the `Doctrine MongoDB ODM documentation
 for more information. 
 
 Symfony
-````````
+~~~~~~~
 
 The Doctrine MongoDB ODM can be used to integrate MongoDB with
 the Symfony PHP framework. Doctine's object mapping enables developers to get
@@ -170,7 +183,7 @@ information.
 .. TODO? Drupal
 
 Laravel
--------
+~~~~~~~
 
 Laravel MongoDB is the official integration for MongoDB and Laravel. It extends
 methods in the PHP Laravel API to provide developers the full suite of Laravel's
@@ -182,16 +195,3 @@ and features such as querying, caching, and more.
 See the `Laravel MongoDB documentation
 <https://www.mongodb.com/docs/drivers/php/laravel-mongodb/current/>`__ for more
 information. 
-
-Django
-------
-
-Django MongoDB Backend is the official MongoDB integration for Django and
-MongoDB. This integration supports many core Django features, including the
-Django ORM. It translates Django ORM methods into equivalent MongoDB queries,
-allowing developers to use the familiar Django interface.
-
-See the `Django MongoDB Backend documentation
-<https://www.mongodb.com/docs/languages/python/django-mongodb/current>`__ for
-more information. 
-
