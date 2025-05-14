@@ -22,7 +22,7 @@ node-driver-short = "Node.js Driver"
 atlas = "MongoDB Atlas"
 
 [[banners]]
-targets = ["index.txt"]
+targets = ["/motor.txt"]
 variant = "warning"
 value = """
     Motor has been sunset in favor of the PyMongo Async API in the PyMongo driver. \
