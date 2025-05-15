@@ -190,7 +190,7 @@ of the PHP driver for use with a specific version of PHP.
 The first column lists the driver versions.
 
 .. include:: /includes/language-compatibility-table-php.rst
-   
+
 .. include:: /includes/about-driver-compatibility.rst
 
 .. include:: /includes/help-links-php.rst
