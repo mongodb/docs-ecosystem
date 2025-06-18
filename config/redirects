@@ -163,6 +163,10 @@ raw: docs/drivers/connectors/kafka-sink-properties -> ${kafka}/kafka-sink-proper
 raw: docs/drivers/connectors/kafka-sink -> ${kafka}/kafka-sink/
 raw: docs/drivers/connectors/kafka-source -> ${kafka}/kafka-source/
 
+# Python
+
+raw: docs/drivers/motor -> ${pymongo-base}/reference/migration/
+
 # Platforms
 
 raw: docs/drivers/platforms/digitalocean -> ${atlas}/
