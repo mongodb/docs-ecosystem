@@ -41,7 +41,7 @@ to learn how to install and begin using the driver.
 `PyMongoArrow <https://www.mongodb.com/docs/languages/python/pymongo-arrow-driver/current/>`__
 is a PyMongo extension for loading MongoDB query result sets as Apache Arrow tables.
 
-.. note:: Motor Deprecation
+.. important:: Motor Deprecation
 
    As of May 14, 2025, Motor is deprecated in favor of the GA release of the PyMongo Async
    API in the PyMongo library. We will not add new features to Motor, and we will
