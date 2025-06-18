@@ -29,10 +29,6 @@ raw: docs/drivers/scala/ -> https://www.mongodb.com/docs/languages/scala/scala-d
 
 raw: docs/drivers/rust -> https://www.mongodb.com/docs/drivers/rust/current/
 
-# Python
-
-raw: docs/drivers/motor -> ${pymongo-base}/reference/migration/
-
 # Manual FLE merge - update URLs after 6.0 release
 
 raw: docs/drivers/security -> ${manual}/core/csfle/
