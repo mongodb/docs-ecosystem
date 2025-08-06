@@ -95,6 +95,10 @@ raw: docs/drivers/tutorial/authenticate-with-java-driver/ -> http://mongodb.gith
 
 raw: docs/drivers/javascript -> ${base}/node/current/
 
+# typescript
+
+raw: docs/drivers/typescript -> https://www.mongodb.com/docs/languages/javascript/
+
 # ruby and mongoid
 
 raw: docs/drivers/tutorial/getting-started-with-ruby-on-rails-3 -> https://www.mongodb.com/docs/ruby-driver/current/tutorials/bson-v4/
